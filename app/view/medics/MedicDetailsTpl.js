@@ -9,8 +9,8 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
         data: [
             {
                 name: "Dr. Arturo Ornelas", specialist: 'Pedagogo', ranking: 5, url: 'www.codetlan.com', facebook: 'https://www.facebook.com/Codetlan', twitter: 'https://twitter.com/Codetlan', contact: [
-                {type: 'Consultorio', address: 'Av. de las Americas 45'},
-                {type: 'Hospital Hidalgo', address: 'Av. Hidalgo 2630'}
+                {type: 'Consultorio', address: 'Av. de las Americas #45'},
+                {type: 'Hospital Hidalgo', address: 'Av. Hidalgo #2630'}
             ]
             }
         ],
