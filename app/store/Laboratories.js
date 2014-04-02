@@ -1,3 +1,10 @@
+/**
+ * @class Vitared.store.Laboratories
+ * @extends Ext.data.Store
+ * This is the store to handle the laboratories
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.store.Laboratories', {
     extend: 'Ext.data.Store',
     requires:[
@@ -6,18 +13,19 @@ Ext.define('Vitared.store.Laboratories', {
 
     config:{
         model:'Vitared.model.Laboratory',
-        data : [
-            {name: "Chopo Patriotismo", ranking: 5},
-            {name: "Chopo Polanco", ranking: 4},
-            {name: "Laboratorios Polanco", ranking: 3},
-            {name: "Laboratorios Olarte", ranking: 2}
-        ]
-        /*proxy: {
-         type: 'drupal',
-         url: 'http://dev-vitared.gotpantheon.com/api/user.jsonp',
-         reader: {
-         type: 'json'
-         }
-         }*/
+        proxy: {
+            type: 'drupal',
+            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            callbackKey: 'callback',
+            reader: {
+                type: 'json',
+                rootProperty: 'medicos'
+
+            }
+        }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
     }
 });

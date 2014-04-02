@@ -1,23 +1,30 @@
+/**
+ * @class Vitared.store.Medics
+ * @extends Ext.data.Store
+ * This is the store to handle the medics
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.store.Medics', {
     extend: 'Ext.data.Store',
-    requires:[
+    requires: [
         'Vitared.model.Medic',
         'Vitared.proxy.Drupal'],
 
-    config:{
-        model:'Vitared.model.Medic',
-        data : [
-            {name: "Dr. Arturo Ornelas",    specialist: "Pedagogo", ranking: 5},
-            {name: "Dr. Dario Méndez", specialist: "Oftalmologo", ranking: 4},
-            {name: "Dra. Marisol Salazar", specialist: "Medico general", ranking: 3},
-            {name: "Dr. Eduardo Flores", specialist: "Cardiologo", ranking: 2}
-        ]
-        /*proxy: {
+    config: {
+        model: 'Vitared.model.Medic',
+        proxy: {
             type: 'drupal',
-            url: 'http://dev-vitared.gotpantheon.com/api/user.jsonp',
+            url: 'http://vitared.com.mx/app/consulta/medico/',
+            callbackKey: 'callback',
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'medicos'
             }
-        }*/
+        }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
     }
 });

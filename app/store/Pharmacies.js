@@ -1,3 +1,10 @@
+/**
+ * @class Vitared.store.Pharmacies
+ * @extends Ext.data.Store
+ * This is the store to handle the pharmacies
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.store.Pharmacies', {
     extend: 'Ext.data.Store',
     requires:[
@@ -6,18 +13,19 @@ Ext.define('Vitared.store.Pharmacies', {
 
     config:{
         model:'Vitared.model.Pharmacy',
-        data : [
-            {name: "San Pablo", ranking: 5},
-            {name: "San Pablo", ranking: 4},
-            {name: "Farmacias del Ahorro", ranking: 3},
-            {name: "San Isidro", ranking: 2}
-        ]
-        /*proxy: {
-         type: 'drupal',
-         url: 'http://dev-vitared.gotpantheon.com/api/user.jsonp',
-         reader: {
-         type: 'json'
-         }
-         }*/
+        proxy: {
+            type: 'drupal',
+            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            callbackKey: 'callback',
+            reader: {
+                type: 'json',
+                rootProperty: 'medicos'
+
+            }
+        }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
     }
 });

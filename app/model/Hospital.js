@@ -1,7 +1,9 @@
 /**
- * @class Cursame.model.Assignment
+ * @class Vitared.model.Hospital
  * @extends Ext.data.Model
- * The model for the courses
+ * The model for the hospitals
+ * @oswaldo@codetlan.com
+ * @codetlan
  */
 Ext.define('Vitared.model.Hospital', {
     extend: 'Ext.data.Model',
@@ -10,15 +12,53 @@ Ext.define('Vitared.model.Hospital', {
         fields: [
             {
                 name: 'name',
-                type: 'string'
+                type: 'string',
+                mapping: 'medico.title'
             },
             {
-                name: 'specialist',
-                type: 'string'
+                name: 'afiliado',
+                type: 'string',
+                mapping: 'medico.afiliado'
             },
             {
-                name: 'ranking',
-                type: 'integer'
+                name: 'promociones',
+                type: 'string',
+                mapping: 'medico.promociones'
+            },
+            {
+                name: 'direcciones',
+                type: 'string',
+                mapping: 'medico.direcciones'
+            },
+            {
+                name: 'telefono',
+                type: 'string',
+                mapping: 'medico.telefono'
+            },
+            {
+                name: 'foto',
+                type: 'string',
+                mapping: 'medico.field_foto'
+            },
+            {
+                name: 'localidad',
+                type: 'string',
+                mapping: 'medico.localidad'
+            },
+            {
+                name: 'latitud',
+                type: 'string',
+                mapping: 'medico.lat'
+            },
+            {
+                name: 'longitud',
+                type: 'string',
+                mapping: 'medico.long'
+            },
+            {
+                name: 'numero_telefono',
+                type: 'string',
+                mapping: 'medico.numero_telefono'
             }
         ]
     }

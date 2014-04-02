@@ -1,24 +1,17 @@
+/**
+ * @class Vitared.view.medics.MedicTpl
+ * @extends Ext.XTemplate
+ * Template for displaying medics
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.view.medics.MedicTpl', {
     extend: 'Ext.XTemplate',
     constructor: function () {
         var html;
         html = [
-            '<img src="./resources/images/user.png" width="70" height="70" style="float: left; clear: left; margin: 0 20px 0 0">',
-            '{name}<br><div style="font-size: 16px;">{specialist} a {ranking}00 mts</div>',
-            '<tpl switch="ranking">',
-            '<tpl case="0">',
-            '<br>',
-            '<tpl case="1">',
-            '<img src="./resources/images/star.png">',
-            '<tpl case="2">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '<tpl case="3">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '<tpl case="4">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '<tpl case="5">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '</tpl>',
+            '<i class="fa fa-map-marker" style="font-size: 64px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
+            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">Dr. {name} {first_name} {last_name}</div><div style="font-size: 16px; color: gray;">{especialidad}</div><div style="color: gray;">{localidad}</div>',
             '<div class="clear:both"></div>'];
         this.callParent(html);
     }

@@ -1,3 +1,10 @@
+/**
+ * @class Vitared.store.Hospitals
+ * @extends Ext.data.Store
+ * This is the store to handle the hospitals
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.store.Hospitals', {
     extend: 'Ext.data.Store',
     requires:[
@@ -6,18 +13,19 @@ Ext.define('Vitared.store.Hospitals', {
 
     config:{
         model:'Vitared.model.Hospital',
-        data : [
-            {name: "Ángeles Pedregal",    specialist: "Todas las especialidades", ranking: 5},
-            {name: "Médica Sur", specialist: "Todas las especialidades", ranking: 4},
-            {name: "Hospital Mocel", specialist: "Todas las especialidades", ranking: 3},
-            {name: "Dentalia Patriotismo", specialist: "Clínica Dental", ranking: 2}
-        ]
-        /*proxy: {
+        proxy: {
             type: 'drupal',
-            url: 'http://dev-vitared.gotpantheon.com/api/user.jsonp',
+            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            callbackKey: 'callback',
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'medicos'
+
             }
-        }*/
+        }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
     }
 });

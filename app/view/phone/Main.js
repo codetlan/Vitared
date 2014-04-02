@@ -1,15 +1,13 @@
 /**
- * @class Cursame.view.phone.Main
- * @extends Cursame.view.Main
+ * @class Vitared.view.phone.Main
+ * @extends Vitared.view.Main
  * This is the view class for our phone application
+ * @author oswaldo@codetlan.com
+ * @codetlan
  */
 Ext.define('Vitared.view.phone.Main', {
     extend: 'Vitared.view.Main',
     requires: [
-        'Ext.field.TextArea',
-        'Ext.field.DatePicker',
-        'Ext.field.Number',
-        'Vitared.view.LoginForm',
         'Vitared.view.home.HomePanel'
     ],
     config:{
@@ -20,18 +18,15 @@ Ext.define('Vitared.view.phone.Main', {
 
     initialize:function(){
         var me = this,
-            cardContainerItems = [{
-                xtype:'loginform'
-            },{
-                xtype:'homepanel'
-            }],
             cardContainer = {
                 xtype:'container',
                 itemId:'cardcontainer',
                 layout:'card',
                 flex:1,
                 activeItem:0,
-                items:cardContainerItems
+                items:[{
+                    xtype:'homepanel'
+                }]
             };
 
         me.setItems([{

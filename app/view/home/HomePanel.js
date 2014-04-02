@@ -1,3 +1,10 @@
+/**
+ * @class Vitared.view.home.HomePanel
+ * @extends Ext.tab.Panel
+ * Home Vitared
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.view.home.HomePanel', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.homepanel',
@@ -7,14 +14,15 @@ Ext.define('Vitared.view.home.HomePanel', {
         'Vitared.view.medics.MedicNavigation',
         'Vitared.view.hospitals.HospitalNavigation',
         'Vitared.view.pharmacies.PharmacyNavigation',
-        'Vitared.view.laboratories.LaboratoryNavigation'],
+        'Vitared.view.laboratories.LaboratoryNavigation',
+        'Vitared.view.others.OtherNavigation'],
 
     config: {
         tabBarPosition: 'bottom',
         items: [
             {
                 title: 'Medicos',
-                iconCls: 'user',
+                iconCls: 'fa fa-stethoscope',
                 layout: 'fit',
                 items: [
                     {
@@ -24,7 +32,7 @@ Ext.define('Vitared.view.home.HomePanel', {
             },
             {
                 title: 'Hospitales',
-                iconCls: 'home',
+                iconCls: 'fa fa-hospital-o',
                 layout: 'fit',
                 items: [
                     {
@@ -34,7 +42,7 @@ Ext.define('Vitared.view.home.HomePanel', {
             },
             {
                 title: 'Farmacias',
-                iconCls: 'favorites',
+                iconCls: 'fa fa-medkit',
                 layout: 'fit',
                 items: [
                     {
@@ -44,11 +52,21 @@ Ext.define('Vitared.view.home.HomePanel', {
             },
             {
                 title: 'Laboratorios',
-                iconCls: 'settings',
+                iconCls: 'fa fa-flask',
                 layout: 'fit',
                 items: [
                     {
                         xtype: 'laboratorynavigation'
+                    }
+                ]
+            },
+            {
+                title: 'Otros',
+                iconCls: 'fa fa-wheelchair',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'othernavigation'
                     }
                 ]
             }
