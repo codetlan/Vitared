@@ -15,7 +15,7 @@ Ext.define('Vitared.store.Medics', {
         model: 'Vitared.model.Medic',
         proxy: {
             type: 'drupal',
-            url: 'https://vitared.com.mx/app/consulta/medico/',
+            url: 'https://vita-app.fractal-ware.com/app/consulta/medico/',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
