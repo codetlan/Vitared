@@ -175,7 +175,7 @@ Ext.define('Vitared.controller.phone.Main', {
                     search_api_views_fulltext: search,
                     field_geo: geo
                 },
-                url = "http://vitared.com.mx/app/consulta/proveedor/";
+                url = "https://vitared.com.mx/app/consulta/proveedor/";
         } else {
             store = Ext.getStore('Searchs');
             //store2 = Ext.getStore(storeId);
@@ -626,7 +626,7 @@ Ext.define('Vitared.controller.phone.Main', {
             url,
             view = me.getMedicNavigation();
 
-        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Searchs' ? url = 'http://vitared.com.mx:3001/medicos/' : url = 'http://vitared.com.mx:3001/hospitales/';
+        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Searchs' ? url = 'https://vitared.com.mx:3001/medicos/' : url = 'http://vitared.com.mx:3001/hospitales/';
 
         if (!me.searchList) {
             me.searchList = Ext.Viewport.add({

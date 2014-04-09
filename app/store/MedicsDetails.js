@@ -15,7 +15,7 @@ Ext.define('Vitared.store.MedicsDetails', {
         model: 'Vitared.model.MedicDetails',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/busqueda/medicos/',
+            url: 'https://vitared.com.mx:3001/busqueda/medicos/',
             callbackKey: 'callback',
             reader: {
                 type: 'json',

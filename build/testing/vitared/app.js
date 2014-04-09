@@ -77490,7 +77490,7 @@ Ext.define('Vitared.controller.phone.Main', {
                     search_api_views_fulltext: search,
                     field_geo: geo
                 },
-                url = "http://vitared.com.mx/app/consulta/proveedor/";
+                url = "https://vitared.com.mx/app/consulta/proveedor/";
         } else {
             store = Ext.getStore('Searchs');
             //store2 = Ext.getStore(storeId);
@@ -77941,7 +77941,7 @@ Ext.define('Vitared.controller.phone.Main', {
             url,
             view = me.getMedicNavigation();
 
-        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Searchs' ? url = 'http://vitared.com.mx:3001/medicos/' : url = 'http://vitared.com.mx:3001/hospitales/';
+        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Searchs' ? url = 'https://vitared.com.mx:3001/medicos/' : url = 'http://vitared.com.mx:3001/hospitales/';
 
         if (!me.searchList) {
             me.searchList = Ext.Viewport.add({
@@ -78160,7 +78160,7 @@ Ext.define('Vitared.store.Medics', {
         model: 'Vitared.model.Medic',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/consulta/medico/',
+            url: 'https://vitared.com.mx/app/consulta/medico/',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78221,7 +78221,7 @@ Ext.define('Vitared.store.MedicsDetails', {
         model: 'Vitared.model.MedicDetails',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/busqueda/medicos/',
+            url: 'https://vitared.com.mx:3001/busqueda/medicos/',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78252,7 +78252,7 @@ Ext.define('Vitared.store.Hospitals', {
         model:'Vitared.model.Hospital',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
+            url: 'https://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78314,7 +78314,7 @@ Ext.define('Vitared.store.Laboratories', {
         model:'Vitared.model.Laboratory',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
+            url: 'https://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78376,7 +78376,7 @@ Ext.define('Vitared.store.Pharmacies', {
         model:'Vitared.model.Pharmacy',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
+            url: 'https://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78442,7 +78442,7 @@ Ext.define('Vitared.store.Searchs', {
         }],
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/medicos',
+            url: 'https://vitared.com.mx:3001/app/buscar/medicos',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78503,7 +78503,7 @@ Ext.define('Vitared.store.Suppliers', {
         model: 'Vitared.model.Search',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
+            url: 'https://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78534,7 +78534,7 @@ Ext.define('Vitared.store.AutoCompletes', {
         model: 'Vitared.model.AutoComplete',
         proxy: {
             type: 'drupal',
-            url: 'http://5.9.42.45:3001/medicos/',
+            url: 'https://5.9.42.45:3001/medicos/',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -78561,7 +78561,7 @@ Ext.define('Vitared.store.Others', {
         model:'Vitared.model.Other',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
+            url: 'https://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',

@@ -196,205 +196,98 @@
     <favorites_list name="VitaRed" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.579646">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="575" column="0" selection-start="20665" selection-end="20665" vertical-scroll-proportion="-19.5">
-                  <folding>
-                    <marker date="1397000889000" expanded="true" signature="18601:18613" placeholder="..." />
-                    <marker date="1397000889000" expanded="true" signature="18919:18931" placeholder="..." />
-                    <marker date="1397000889000" expanded="true" signature="19240:19252" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="City.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/store/City.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="120" column="48" selection-start="5442" selection-end="5442" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LaboratoryNavigation.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/laboratories/LaboratoryNavigation.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <marker date="1396855365000" expanded="false" signature="1569:1595" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="NavigationHome.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/home/NavigationHome.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="23" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DetailsContainer.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/shared/DetailsContainer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="44" column="127" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.5510563">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.json" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="9" selection-start="2543" selection-end="2543" vertical-scroll-proportion="-19.375">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="64" column="20" selection-start="2521" selection-end="2521" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <marker date="1396995496000" expanded="false" signature="2112:2125" placeholder="..." />
-                    <marker date="1396995496000" expanded="false" signature="3306:3319" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="State.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/store/State.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="46" column="41" selection-start="1763" selection-end="1763" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MedicTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/medics/MedicTpl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="30" column="41" selection-start="1198" selection-end="1198" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="AutoCompletes.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/store/AutoCompletes.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="3" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Other.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Other.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="104" column="13" selection-start="3131" selection-end="3131" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Pharmacy.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/model/Pharmacy.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="104" column="13" selection-start="3141" selection-end="3141" vertical-scroll-proportion="1.3556701">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Hospital.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Hospital.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="99" column="13" selection-start="2988" selection-end="3140" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Laboratory.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="104" column="13" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HospitalTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="44" selection-start="718" selection-end="786" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LaboratoryTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/laboratories/LaboratoryTpl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="67" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="OtherTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="67" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PharmacyTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="67" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1526" column="48" selection-start="71183" selection-end="71183" vertical-scroll-proportion="-6.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="City.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/City.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="120" column="48" selection-start="5442" selection-end="5442" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hospitals.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Hospitals.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Laboratories.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Laboratories.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Medics.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Medics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MedicsDetails.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/MedicsDetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Others.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Others.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pharmacies.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Pharmacies.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Searchs.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Searchs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="23" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Suppliers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/Suppliers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="628" column="152" selection-start="22869" selection-end="22873" vertical-scroll-proportion="0.33222592">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -412,22 +305,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js" />
-        <option value="$PROJECT_DIR$/app/view/home/AutoCompleteList.js" />
-        <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/app/view/home/NavigationHome.js" />
-        <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
-        <option value="$PROJECT_DIR$/app/store/City.js" />
-        <option value="$PROJECT_DIR$/app/model/Hospital.js" />
-        <option value="$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
-        <option value="$PROJECT_DIR$/app/view/laboratories/LaboratoryTpl.js" />
         <option value="$PROJECT_DIR$/app/view/others/OtherTpl.js" />
         <option value="$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js" />
         <option value="$PROJECT_DIR$/app/model/Laboratory.js" />
         <option value="$PROJECT_DIR$/app/model/Other.js" />
         <option value="$PROJECT_DIR$/app/model/Pharmacy.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/store/AutoCompletes.js" />
+        <option value="$PROJECT_DIR$/app/store/Hospitals.js" />
+        <option value="$PROJECT_DIR$/app/store/Laboratories.js" />
+        <option value="$PROJECT_DIR$/app/store/Medics.js" />
+        <option value="$PROJECT_DIR$/app/store/MedicsDetails.js" />
+        <option value="$PROJECT_DIR$/app/store/Others.js" />
+        <option value="$PROJECT_DIR$/app/store/Pharmacies.js" />
+        <option value="$PROJECT_DIR$/app/store/Searchs.js" />
+        <option value="$PROJECT_DIR$/app/store/Suppliers.js" />
+        <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
       </list>
     </option>
   </component>
@@ -1068,26 +961,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1526" column="48" selection-start="71183" selection-end="71183" vertical-scroll-proportion="-6.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="44" selection-start="718" selection-end="786" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/others/OtherNavigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="19" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1396855365000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1098,25 +975,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/pharmacies/PharmacyNavigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="19" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1396855365000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="67" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/shared/DetailsTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="16" selection-start="321" selection-end="321" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1128,60 +989,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Hospital.js">
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="13" selection-start="2988" selection-end="3140" vertical-scroll-proportion="0.0">
+        <state line="1526" column="48" selection-start="71183" selection-end="71183" vertical-scroll-proportion="-6.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/form/LocationForm.js">
+    <entry file="file://$PROJECT_DIR$/app/store/AutoCompletes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="31" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+        <state line="17" column="23" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
+    <entry file="file://$PROJECT_DIR$/app/store/City.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="13" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0">
+        <state line="120" column="48" selection-start="5442" selection-end="5442" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Other.js">
+    <entry file="file://$PROJECT_DIR$/app/store/Hospitals.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="13" selection-start="3131" selection-end="3131" vertical-scroll-proportion="0.0">
+        <state line="17" column="23" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicNavigation.js">
+    <entry file="file://$PROJECT_DIR$/app/store/Laboratories.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="30" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1396855115000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Pharmacy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="13" selection-start="3141" selection-end="3141" vertical-scroll-proportion="1.3556701">
+        <state line="17" column="23" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicTpl.js">
+    <entry file="file://$PROJECT_DIR$/app/store/Medics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="41" selection-start="1198" selection-end="1198" vertical-scroll-proportion="0.0">
+        <state line="17" column="23" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app/store/MedicsDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="127" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.5510563">
+        <state line="17" column="23" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/Others.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/Pharmacies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/Searchs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="23" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/Suppliers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="628" column="152" selection-start="22869" selection-end="22873" vertical-scroll-proportion="0.33222592">
           <folding />
         </state>
       </provider>

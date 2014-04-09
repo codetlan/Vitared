@@ -15,7 +15,7 @@ Ext.define('Vitared.store.Laboratories', {
         model:'Vitared.model.Laboratory',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
+            url: 'https://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
