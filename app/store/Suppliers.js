@@ -15,7 +15,7 @@ Ext.define('Vitared.store.Suppliers', {
         model: 'Vitared.model.Search',
         proxy: {
             type: 'drupal',
-            url: 'https://vita-app.fractal-ware.com/app/buscar/proveedor',
+            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',

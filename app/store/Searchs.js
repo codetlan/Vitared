@@ -19,7 +19,7 @@ Ext.define('Vitared.store.Searchs', {
         }],
         proxy: {
             type: 'drupal',
-            url: 'https://vita-app.fractal-ware.com/app/buscar/medicos',
+            url: 'http://vitared.com.mx:3001/app/buscar/medicos',
             callbackKey: 'callback',
             reader: {
                 type: 'json',

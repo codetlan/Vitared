@@ -15,7 +15,7 @@ Ext.define('Vitared.store.AutoCompletes', {
         model: 'Vitared.model.AutoComplete',
         proxy: {
             type: 'drupal',
-            url: 'https://vita-app.fractal-ware.com/medicos/',
+            url: 'http://5.9.42.45:3001/medicos/',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
