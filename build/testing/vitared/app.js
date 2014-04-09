@@ -78442,7 +78442,7 @@ Ext.define('Vitared.store.Searchs', {
         }],
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx:3001/app/buscar/medicos',
+            url: 'https://vita-app.fractal-ware.com/app/buscar/medicos',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
