@@ -1408,18 +1408,31 @@
 }
 
 .x-list .x-list-disclosure:before{
-  top: 19px;
+  //top: 35px;
   color: #064b88;
+  z-index: 1;
 }
 
 
 .x-list .x-list-disclosure:before{
   font-size: 22px;
+  z-index: 1;
+  //margin-left: -10px;
+}
+
+.x-list .x-list-item .x-list-item-body, .x-list .x-list-item.x-list-item-tpl .x-innerhtml{
+  padding: 0 !important;
 }
 
 .button-info{
   height: 100%;
   width: 100%;
+}
+
+.button-locate{
+  right: 15px !important;
+  width: 5.7em !important;
+  height: 3.5em !important;
 }
 
 //Se integra la vista de medicos
@@ -1465,7 +1478,7 @@ h6{ margin: 4% 0; color: #b8b8b8; text-transform: uppercase; font-size: 80%; }
   box-sizing: border-box;
 }
 
-.redes{ position: relative; overflow: hidden; }
+.redes{ position: relative; overflow: hidden; text-align: justify; }
 .redes p{ margin: 0; }
 .redes ul{ margin: 0; list-style: none; position: relative; overflow: hidden; }
 .redes ul li{ width: 9%; margin: 2% 2% 0 0; float: left; }
@@ -1507,6 +1520,26 @@ h6{ margin: 4% 0; color: #b8b8b8; text-transform: uppercase; font-size: 80%; }
 
 .botones-ubicacion a{ display: block; height: 100%; width: 100%; color: #fff; text-decoration: none; text-align: center; font-size: 120%; }
 
+
+/*RESULTADOS*/
+.resultados-destacados {width: 100%}
+.resultados-destacados .resultado{ background: #d9dadc; border-bottom: 1px solid #b2b2b2; width: 100% }
+.resultados-destacados .fa-map-marker{ width: 10%; margin: 0 5% 0 0; font-size: 5em;  color: red; float: left;}
+
+.resultado{ padding: 10px; border-bottom: 1px solid #e2e2e2;  position: relative; overflow: hidden; }
+
+.fa-map-marker{ width: 10%; margin: 0 9% 0 0; font-size: 5em; color: #0e9aeb; float: left;  }
+
+.info{ width: 60%; margin-right: 5%; float: left; }
+.info p{ font-size: 1.2em; margin: 0; }
+
+.nombre{ color: #064b88; font-size: 16px; font-weight: bold; }
+.especialidad{ font-size: 16px; color: gray; }
+.localidad{ color: gray; }
+
+//.right{ width: 20%; position: relative; top: 10px; }
+.right p{ margin: 0 0 10px 0; font-size: 1em; }
+.right .fa-chevron-circle-right{ color: #81c5d1; font-size: 2em; float: left; }
 
 @media only screen
 and (max-width : 490px) {

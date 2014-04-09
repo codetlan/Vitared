@@ -28,21 +28,23 @@ Ext.define('Vitared.view.medics.MedicNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Medicos ...',
                 itemTpl: Ext.create('Vitared.view.medics.MedicTpl'),
                 flex: 3,
-                store: 'Medics',
+                store: 'Searchs',
                 plugins: [
                     {
                         type: 'listpaging',
                         autoPaging: true,
-                        loadMoreText: 'Ver Más...'
+                        loadMoreText: 'Ver Más...',
+                        itemId: 'listarmas'
                     }
                 ],
-                scope: this,
+                scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
             },
             {
                 xtype: 'container',

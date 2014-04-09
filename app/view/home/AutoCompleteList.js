@@ -14,6 +14,7 @@ Ext.define('Vitared.view.home.AutoCompleteList', {
             xtype: 'loadmask',
             message: 'Cargando...'
         },
+        loadingText: 'Cargando...',
         emptyText: 'No hay Resultados ...',
         cls: 'search-list',
         itemTpl: Ext.create('Vitared.view.home.AutoCompleteTpl'),

@@ -36,7 +36,7 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</tpl>' +
             '</div><!-- left -->' +
             '<div class="right user-data">' +
-            '<h1>{name} {first_name} {last_name}</h1>' +
+            '<h1>Dr. {name} {first_name} {last_name}</h1>' +
             '<h2>{especialidad}</h2>' +
             '<h2>{localidad}</h2>' +
             '<h5>Atiende en {num_consul}</h5>' +
@@ -55,12 +55,12 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<tpl if="this.validateWeb(web) == true">' +
-            '<p><a href="{web}" target="_blank">{web}</a></p>' +
-            '</tpl>' +
-            '<tpl if="this.validateMail(email) == true">' +
-            '<p><a href="mailto:{email}">{email}</a></p>' +
+            '<p style="width: 300px;"><a href="{web}" target="_blank">{web}</a></p>' +
             '</tpl>' +
             '<ul>' +
+            '<tpl if="this.validateMail(email) == true">' +
+            '<li><a href="mailto:{email}"><img src="resources/images/mail.png" width="100%" height="100%" alt="{email}"></a></li>' +
+            '</tpl>' +
             '<tpl if="this.validateTwitter(twitter) == true">' +
             '<li>' +
             '<a href="{twitter}" target="_blank"><img src="resources/images/twitter.png" width="100%" height="100%" alt="{twitter}"></a>' +
@@ -118,7 +118,7 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validateResena(resena_de_servicios) == true">' +
-            '<h6>Resena de servicios</h6>' +
+            '<h6>Reseña de servicios</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{resena_de_servicios}</p>' +
@@ -134,21 +134,22 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validatePublicaciones(publicaciones) == true">' +
+            '<tpl for="publicaciones">' +
             '<h6>Publicaciones</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
-            '<p>{publicaciones}</p>' +
+            '<p>{Publicacion}</p>' +
             '</div>' +
             '</div>' +
             '</tpl>' +
-            '<tpl if="this.validateImagenPublicacion(imagen_publicacion) == true">' +
-            '<h6>Imagenes de Publicaciones</h6>' +
+            '<tpl for="fotos">' +
+            '<h6>Fotografías</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
-            '<div><img src="{imagen_publicacion}" width="100%" height="100%"></div>' +
+            '<div><img src="{foto}" width="100%" height="100%"></div>' +
             '</div>' +
             '</div>' +
-            '</div>' +
+            '</tpl>' +
             '</tpl>' +
             '</tpl>' +
             '<div class="clear:both"></div>',

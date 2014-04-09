@@ -18,14 +18,21 @@ Ext.define('Vitared.form.LocationForm',{
             items:[{
                 xtype:'selectfield',
                 name:'state',
+                itemId: 'state',
                 store: 'State',
-                valueField: 'estado',
-                itemId: 'state'
+                defaultPhonePickerConfig:{
+                    cancelButton: 'Cancelar',
+                    doneButton: 'Aceptar'
+                }
             },{
                 xtype:'selectfield',
                 name:'city',
                 itemId: 'city',
-                valueField: 'text'
+                valueField: 'text',
+                defaultPhonePickerConfig:{
+                    cancelButton: 'Cancelar',
+                    doneButton: 'Aceptar'
+                }
             }]
         },{
             xtype:'fieldset',
@@ -33,7 +40,7 @@ Ext.define('Vitared.form.LocationForm',{
             margin:5,
             items:[{
                 xtype:'button',
-                text:'Guardar',
+                text:'Aceptar',
                 itemId:'guardarLocation'
             }]
         },{

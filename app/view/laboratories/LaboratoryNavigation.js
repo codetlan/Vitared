@@ -33,10 +33,10 @@ Ext.define('Vitared.view.laboratories.LaboratoryNavigation', {
                     message: 'Cargando...'
                 },
                 emptyText: 'No hay Laboratorios ...',
-                scope: this,
+                scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
             },
             {
                 xtype: 'container',

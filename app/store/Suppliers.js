@@ -15,12 +15,16 @@ Ext.define('Vitared.store.Suppliers', {
         model: 'Vitared.model.Search',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/buscar/proveedor',
+            url: 'http://vitared.com.mx:3001/app/buscar/proveedor',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
-                rootProperty: 'nodes'
+                rootProperty: 'medicos'
             }
         }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
     }
 });
