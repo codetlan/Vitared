@@ -75600,6 +75600,11 @@ Ext.define('Vitared.model.Hospital', {
                 convert: function(consultorios){
                     return consultorios[0].consultorio.orden;
                 }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
             }
         ]
     }
@@ -75704,6 +75709,11 @@ Ext.define('Vitared.model.Laboratory', {
                 convert: function(consultorios){
                     return consultorios[0].consultorio.orden;
                 }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
             }
         ]
     }
@@ -75808,6 +75818,11 @@ Ext.define('Vitared.model.Pharmacy', {
                 convert: function(consultorios){
                     return consultorios[0].consultorio.orden;
                 }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
             }
         ]
     }
@@ -76152,6 +76167,11 @@ Ext.define('Vitared.model.Other', {
                 convert: function(consultorios){
                     return consultorios[0].consultorio.orden;
                 }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
             }
         ]
     }
@@ -76521,6 +76541,7 @@ Ext.define('Vitared.view.home.NavigationHome', {
       
 
     config: {
+        itemId: 'home',
         defaultBackButtonText: 'Atrás',
             navigationBar: {
             items:[
@@ -76692,6 +76713,7 @@ Ext.define('Vitared.view.hospitals.HospitalTpl', {
                 '<i class="fa fa-map-marker" ></i>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
                 '<p class="localidad"> {localidad} </p>' +
                 '</div><!-- info -->' +
                 '<div class="right">' +
@@ -76850,6 +76872,7 @@ Ext.define('Vitared.view.pharmacies.PharmacyTpl', {
                 '<i class="fa fa-map-marker" ></i>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
                 '<p class="localidad"> {localidad} </p>' +
                 '</div><!-- info -->' +
                 '<div class="right">' +
@@ -76960,6 +76983,7 @@ Ext.define('Vitared.view.laboratories.LaboratoryTpl', {
                 '<i class="fa fa-map-marker" ></i>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
                 '<p class="localidad"> {localidad} </p>' +
                 '</div><!-- info -->' +
                 '<div class="right">' +
@@ -77069,6 +77093,7 @@ Ext.define('Vitared.view.others.OtherTpl', {
                 '<i class="fa fa-map-marker" ></i>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
                 '<p class="localidad"> {localidad} </p>' +
                 '</div><!-- info -->' +
                 '<div class="right">' +
@@ -77851,10 +77876,13 @@ Ext.define('Vitared.controller.phone.Main', {
 
     },
 
-    onNavigationHomePop: function (navigation) {
+    onNavigationHomePop: function (navigation, view) {
         var me = this;
+
         navigation.down('#infoButton').show();
-        navigation.down('#addLocation').show();
+        if (navigation.getItems().getCount() == 2) {
+            navigation.down('#addLocation').show();
+        }
 
         var search = me.getSearchContainer().down('searchfield').getValue();
 
@@ -78748,6 +78776,7 @@ Ext.define('Vitared.store.City', {
             {"text":"Colima","value":8},
             {"text":"Manzanillo","value":8},
             {"text":"Tecoman","value":8},
+            {"text":"Álvaro Obregón","value":9},
             {"text":"Azcapotzalco","value":9},
             {"text":"Benito Juárez","value":9},
             {"text":"Coyoacán","value":9},
@@ -78763,7 +78792,6 @@ Ext.define('Vitared.store.City', {
             {"text":"Tláhuac","value":9},
             {"text":"Venustiano Carranza","value":9},
             {"text":"Xochimilco","value":9},
-            {"text":"Álvaro Obregón","value":9},
             {"text":"Canatlán","value":10},
             {"text":"Ciudad Lerdo","value":10},
             {"text":"El Salto","value":10},
