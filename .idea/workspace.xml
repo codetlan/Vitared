@@ -7,7 +7,7 @@
     <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397000614371" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
-    <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397021289798" ignored="false" />
+    <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397021690719" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
     <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
@@ -172,7 +172,7 @@
     <file path="/Other.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396850766412" ignored="false" />
     <file path="/OtherTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397001563192" ignored="false" />
     <file path="/Laboratory.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397001589565" ignored="false" />
-    <file path="$USER_HOME$/Documents/elixir/elixir-6/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397019530657" ignored="false" />
+    <file path="$USER_HOME$/Documents/elixir/elixir-6/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397021691325" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +253,7 @@
           <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="43" column="12" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.5246479">
+                <state line="44" column="127" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.5510563">
                   <folding />
                 </state>
               </provider>
@@ -1181,7 +1181,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="12" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.5246479">
+        <state line="44" column="127" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.5510563">
           <folding />
         </state>
       </provider>
