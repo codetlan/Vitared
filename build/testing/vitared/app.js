@@ -77485,36 +77485,29 @@ Ext.define('Vitared.controller.phone.Main', {
         if (storeId != 'Searchs') {
             var store = Ext.getStore(storeId),
                 store2 = Ext.getStore(storeId),
+                ciudad = me.ciudad ? me.ciudad : '',
                 params = {
                     field_tipo_de_proveedor: tipo,
                     search_api_views_fulltext: search,
-                    field_geo: geo
+                    field_geo: geo,
+                    ciudad: me.ciudad
                 },
                 url = "https://www.vitared.com.mx/middleware/proveedor.php";
         } else {
             store = Ext.getStore('Searchs');
             //store2 = Ext.getStore(storeId);
-            params = {
+            ciudad = me.ciudad ? me.ciudad : '';
+                params = {
                 search_api_views_fulltext: search,
-                field_geo: geo
+                field_geo: geo,
+                ciudad: me.ciudad
             };
             //url = "http://vitared.com.mx/app/consulta/medico/";
         }
 
-        /*var nids = [],
-         proxy = store2.getProxy();*/
-
         store.setParams(params);
         store.load({
             callback: function (records, operation) {
-                /*Ext.Array.each(records, function (item, index, ItSelf) {
-                 nids.push(item.get('nid'));
-                 });*/
-
-
-                /*params = nids.join(",");
-                 params = params != '' ? params : '0';
-                 proxy.setUrl(url + params);*/
                 var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
                     bounds = new google.maps.LatLngBounds(), marker;
 
@@ -77561,14 +77554,18 @@ Ext.define('Vitared.controller.phone.Main', {
                                     position: latlng,
                                     map: map
                                 });
+                                me.markers.push(marker);
+
+                                bounds.extend(marker.position);
+
                                 var infoWindow = new google.maps.InfoWindow();
-                                infoWindow.setContent(results[0].formatted_address);
+                                infoWindow.setContent('No hay Medicos...');
                                 infoWindow.open(map, marker);
 
-                                google.maps.event.addListener(marker, 'click', function () {
+                                /*google.maps.event.addListener(marker, 'click', function () {
                                     infoWindow.setContent(results[0].formatted_address);
                                     infoWindow.open(map, marker);
-                                });
+                                });*/
                             }
                         } else {
                             me.getStoreLoad('');
@@ -77576,69 +77573,6 @@ Ext.define('Vitared.controller.phone.Main', {
                     });
                 }
                 map.fitBounds(bounds);
-                /*store2.load({
-                 callback: function (records, operation) {
-                 var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
-                 bounds = new google.maps.LatLngBounds(), marker;
-
-                 me.clearMap();
-
-                 if(!Ext.isEmpty(records)){
-                 Ext.Array.each(records, function (item, index, ItSelf) {
-                 var latitud = item.get('latitud'),
-                 longitud = item.get('longitud');
-
-                 if(!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
-                 marker = new google.maps.Marker({
-                 position: new google.maps.LatLng(latitud, longitud),
-                 map: map
-                 });
-
-                 me.markers.push(marker);
-
-                 bounds.extend(marker.position);
-
-                 var infoWindow = new google.maps.InfoWindow();
-
-                 if (storeId == 'Medics') {
-                 var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
-                 } else {
-                 name = item.get('name');
-                 }
-
-                 google.maps.event.addListener(marker, 'click', function () {
-                 infoWindow.setContent(name);
-                 infoWindow.open(map, marker);
-                 });
-                 }
-                 });
-                 } else {
-                 var latlng = new google.maps.LatLng(me.latitude, me.longitude);
-
-                 geocoder.geocode({'latLng': latlng}, function(results, status) {
-                 if (status == google.maps.GeocoderStatus.OK) {
-                 if (results[0]) {
-                 marker = new google.maps.Marker({
-                 position: latlng,
-                 map: map
-                 });
-                 var infoWindow = new google.maps.InfoWindow();
-                 infoWindow.setContent(results[0].formatted_address);
-                 infoWindow.open(map, marker);
-
-                 google.maps.event.addListener(marker, 'click', function () {
-                 infoWindow.setContent(results[0].formatted_address);
-                 infoWindow.open(map, marker);
-                 });
-                 }
-                 } else {
-                 alert("No podemos encontrar la direcci&oacute;n, error: " + status);
-                 }
-                 });
-                 }
-                 map.fitBounds(bounds);
-                 }
-                 });*/
             }
         });
         store.data.sort('orden', 'ASC');
@@ -78027,6 +77961,7 @@ Ext.define('Vitared.controller.phone.Main', {
 
     clearMap: function () {
         var me = this;
+
         for (i = 0; i < me.markers.length; i++) {
             me.markers[i].setMap(null);
         }
