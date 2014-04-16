@@ -77206,8 +77206,8 @@ Ext.define('Vitared.view.home.HomePanel', {
         tabBarPosition: 'bottom',
         items: [
             {
-                title: 'Medicos',
-                iconCls: 'fa fa-stethoscope',
+                title: 'medicos',
+                iconCls: 'medicos',
                 layout: 'fit',
                 items: [
                     {
@@ -77216,8 +77216,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Hospitales',
-                iconCls: 'fa fa-hospital-o',
+                title: 'hospitales',
+                iconCls: 'hospitales-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -77226,8 +77226,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Farmacias',
-                iconCls: 'fa fa-medkit',
+                title: 'farmacias',
+                iconCls: 'farmacias-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -77236,8 +77236,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Laboratorios',
-                iconCls: 'fa fa-flask',
+                title: 'laboratorios',
+                iconCls: 'laboratorios-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -77246,8 +77246,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Otros',
-                iconCls: 'fa fa-wheelchair',
+                title: 'otros',
+                iconCls: 'otros-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -77331,6 +77331,7 @@ Ext.define('Vitared.controller.phone.Main', {
     locationForm: undefined,
     estado: undefined,
     ciudad: undefined,
+    tab: undefined,
 
     config: {
         refs: {
@@ -77559,7 +77560,7 @@ Ext.define('Vitared.controller.phone.Main', {
                                 bounds.extend(marker.position);
 
                                 var infoWindow = new google.maps.InfoWindow();
-                                infoWindow.setContent('No hay Medicos...');
+                                infoWindow.setContent('No hay '+me.getHomePanel().getActiveItem().title+'...');
                                 infoWindow.open(map, marker);
 
                                 /*google.maps.event.addListener(marker, 'click', function () {
@@ -77581,7 +77582,12 @@ Ext.define('Vitared.controller.phone.Main', {
     onActiveTab: function (t, value, oldValue, eOpts) {
         var me = this,
             store = value.down('navigationview').down('list').getStore().getStoreId(), search = '',
-            geo = me.latitude + ',' + me.longitude, tipo;
+            geo = me.latitude + ',' + me.longitude, tipo,
+            active = value.title,
+            not_active = oldValue.title+'-not-active';
+
+        value.tab.setIconCls(active);
+        oldValue.tab.setIconCls(not_active);
 
         if (me.searchList) {
             me.searchList.hide();

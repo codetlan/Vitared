@@ -21,8 +21,8 @@ Ext.define('Vitared.view.home.HomePanel', {
         tabBarPosition: 'bottom',
         items: [
             {
-                title: 'Medicos',
-                iconCls: 'fa fa-stethoscope',
+                title: 'medicos',
+                iconCls: 'medicos',
                 layout: 'fit',
                 items: [
                     {
@@ -31,8 +31,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Hospitales',
-                iconCls: 'fa fa-hospital-o',
+                title: 'hospitales',
+                iconCls: 'hospitales-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -41,8 +41,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Farmacias',
-                iconCls: 'fa fa-medkit',
+                title: 'farmacias',
+                iconCls: 'farmacias-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -51,8 +51,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Laboratorios',
-                iconCls: 'fa fa-flask',
+                title: 'laboratorios',
+                iconCls: 'laboratorios-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -61,8 +61,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Otros',
-                iconCls: 'fa fa-wheelchair',
+                title: 'otros',
+                iconCls: 'otros-not-active',
                 layout: 'fit',
                 items: [
                     {

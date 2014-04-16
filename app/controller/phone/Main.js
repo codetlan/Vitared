@@ -244,7 +244,7 @@ Ext.define('Vitared.controller.phone.Main', {
                                 bounds.extend(marker.position);
 
                                 var infoWindow = new google.maps.InfoWindow();
-                                infoWindow.setContent('No hay Medicos...');
+                                infoWindow.setContent('No hay '+me.getHomePanel().getActiveItem().title+'...');
                                 infoWindow.open(map, marker);
 
                                 /*google.maps.event.addListener(marker, 'click', function () {
@@ -266,7 +266,13 @@ Ext.define('Vitared.controller.phone.Main', {
     onActiveTab: function (t, value, oldValue, eOpts) {
         var me = this,
             store = value.down('navigationview').down('list').getStore().getStoreId(), search = '',
-            geo = me.latitude + ',' + me.longitude, tipo;
+            geo = me.latitude + ',' + me.longitude, tipo,
+            active = value.title,
+            not_active = oldValue.title+'-not-active';
+
+        console.log(me.getHomePanel().getTabBar().getActiveTab().addCls());
+        value.tab.setIconCls(active);
+        oldValue.tab.setIconCls(not_active);
 
         if (me.searchList) {
             me.searchList.hide();
