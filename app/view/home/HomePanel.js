@@ -32,7 +32,7 @@ Ext.define('Vitared.view.home.HomePanel', {
             },
             {
                 title: 'Hospitales',
-                iconCls: 'fa fa-h-square',
+                iconCls: 'fa fa-hospital-o',
                 layout: 'fit',
                 items: [
                     {
