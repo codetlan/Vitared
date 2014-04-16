@@ -4,14 +4,14 @@
     <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397000614371" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397581499705" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
     <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397021690719" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
     <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
-    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397002521341" ignored="false" />
+    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397535409918" ignored="false" />
     <file path="$PROJECT_DIR$/../example6/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380749792045" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
@@ -197,10 +197,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AutoCompletes.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AutoCompletes.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/store/AutoCompletes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="81" selection-start="513" selection-end="513" vertical-scroll-proportion="0.6472081">
+            <state line="23" column="9" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -215,14 +215,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="628" column="164" selection-start="22890" selection-end="22890" vertical-scroll-proportion="-4.5384617">
+            <state line="189" column="51" selection-start="6666" selection-end="6670" vertical-scroll-proportion="0.5701754">
               <folding>
-                <marker date="1397038610000" expanded="false" signature="18607:18619" placeholder="..." />
-                <marker date="1397038610000" expanded="false" signature="18925:18937" placeholder="..." />
-                <marker date="1397038610000" expanded="false" signature="19246:19258" placeholder="..." />
+                <marker date="1397582000000" expanded="true" signature="16062:16074" placeholder="..." />
+                <marker date="1397582000000" expanded="true" signature="16380:16392" placeholder="..." />
+                <marker date="1397582000000" expanded="true" signature="16701:16713" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -322,17 +322,18 @@
         <option value="$PROJECT_DIR$/app/store/Hospitals.js" />
         <option value="$PROJECT_DIR$/app/store/Pharmacies.js" />
         <option value="$PROJECT_DIR$/app/store/Suppliers.js" />
-        <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
         <option value="$PROJECT_DIR$/app/store/Searchs.js" />
         <option value="$PROJECT_DIR$/app/store/AutoCompletes.js" />
+        <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1280" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
-    <option name="height" value="774" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -360,7 +361,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -809,6 +809,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -823,7 +824,7 @@
     <property name="options.lastSelected" value="vcs.Git" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/elixir/elixir-6" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/elixir/Elixir-5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
@@ -879,15 +880,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
+    <frame x="-1280" y="22" width="1280" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32164633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24797407" sideWeight="0.67835367" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2560778" sideWeight="0.67835367" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -896,6 +896,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32164633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -966,44 +967,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="67" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="67" selection-start="770" selection-end="770" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="67" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="67" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1526" column="48" selection-start="71183" selection-end="71183" vertical-scroll-proportion="-6.0">
-          <folding />
-        </state>
+        <state line="1526" column="48" selection-start="71183" selection-end="71183" vertical-scroll-proportion="-6.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/store/Laboratories.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="69" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="69" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/store/Hospitals.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="69" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="69" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/store/MedicsDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="45" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="45" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/model/AutoComplete.js">
@@ -1048,17 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="628" column="164" selection-start="22890" selection-end="22890" vertical-scroll-proportion="-4.5384617">
-          <folding>
-            <marker date="1397038610000" expanded="false" signature="18607:18619" placeholder="..." />
-            <marker date="1397038610000" expanded="false" signature="18925:18937" placeholder="..." />
-            <marker date="1397038610000" expanded="false" signature="19246:19258" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1075,8 +1053,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/store/AutoCompletes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="81" selection-start="513" selection-end="513" vertical-scroll-proportion="0.6472081">
+        <state line="23" column="9" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="51" selection-start="6666" selection-end="6670" vertical-scroll-proportion="0.5701754">
+          <folding>
+            <marker date="1397582000000" expanded="true" signature="16062:16074" placeholder="..." />
+            <marker date="1397582000000" expanded="true" signature="16380:16392" placeholder="..." />
+            <marker date="1397582000000" expanded="true" signature="16701:16713" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
