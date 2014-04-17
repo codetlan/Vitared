@@ -16,7 +16,7 @@ Ext.define('Vitared.view.medics.MedicTpl', {
             '<div class="resultados">' +
                 '</tpl>' +
                 '<div class="resultado">' +
-                '<i class="fa fa-map-marker" ></i>' +
+                '<i class="fa fa-map-marker"></i>' +
                 '<div class="info">' +
                 '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
                 '<p class="especialidad"> {especialidad} </p>' +

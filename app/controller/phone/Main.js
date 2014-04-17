@@ -268,11 +268,7 @@ Ext.define('Vitared.controller.phone.Main', {
             store = value.down('navigationview').down('list').getStore().getStoreId(), search = '',
             geo = me.latitude + ',' + me.longitude, tipo,
             active = value.title,
-            not_active = oldValue.title+'-not-active';
-
-        console.log(me.getHomePanel().getTabBar().getActiveTab().addCls());
-        value.tab.setIconCls(active);
-        oldValue.tab.setIconCls(not_active);
+            item = me.getHomePanel().getTabBar().getItems();
 
         if (me.searchList) {
             me.searchList.hide();
@@ -280,16 +276,43 @@ Ext.define('Vitared.controller.phone.Main', {
         switch (store) {
             case 'Hospitals':
                 tipo = 'Hospital';
+                item.getAt(0).setIconCls('medicos-not-active');
+                item.getAt(1).setIconCls('hospitales');
+                item.getAt(2).setIconCls('farmacias-not-active');
+                item.getAt(3).setIconCls('laboratorios-not-active');
+                item.getAt(4).setIconCls('otros-not-active');
                 break;
             case 'Pharmacies':
                 tipo = "Farmacia";
+                item.getAt(0).setIconCls('medicos-not-active');
+                item.getAt(1).setIconCls('hospitales-not-active');
+                item.getAt(2).setIconCls('farmacias');
+                item.getAt(3).setIconCls('laboratorios-not-active');
+                item.getAt(4).setIconCls('otros-not-active');
                 break;
             case 'Laboratories':
                 tipo = "Laboratorio";
+                item.getAt(0).setIconCls('medicos-not-active');
+                item.getAt(1).setIconCls('hospitales-not-active');
+                item.getAt(2).setIconCls('farmacias-not-active');
+                item.getAt(3).setIconCls('laboratorios');
+                item.getAt(4).setIconCls('otros-not-active');
                 break;
             case 'Others':
                 tipo = "Otros";
+                item.getAt(0).setIconCls('medicos-not-active');
+                item.getAt(1).setIconCls('hospitales-not-active');
+                item.getAt(2).setIconCls('farmacias-not-active');
+                item.getAt(3).setIconCls('laboratorios-not-active');
+                item.getAt(4).setIconCls('otros');
                 break;
+            default:
+                item.getAt(0).setIconCls('medicos');
+                item.getAt(1).setIconCls('hospitales-not-active');
+                item.getAt(2).setIconCls('farmacias-not-active');
+                item.getAt(3).setIconCls('laboratorios-not-active');
+                item.getAt(4).setIconCls('otros-not-active');
+
         }
         Ext.getStore(store).resetCurrentPage();
         me.onLoadStores(store, search, geo, tipo);

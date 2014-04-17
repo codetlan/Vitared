@@ -26,75 +26,76 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
         style: 'background: #f2f2f2',
         tpl: ['<tpl for=".">' +
             '<div class="container">' +
-            '<div class="header">' +
-            '<div class="left user-image">' +
-            '<img src="{foto}" alt="">' +
-            '<tpl if="this.validatePromociones(promociones) == true">' +
-            '<div class="promo">' +
-            '<img class="left estrella" src="resources/images/promo-especial.png" alt="">' +
-            '</div><!-- promo -->' +
-            '</tpl>' +
-            '</div><!-- left -->' +
-            '<div class="right user-data">' +
-            '<h1>Dr. {name} {first_name} {last_name}</h1>' +
-            '<h2>{especialidad}</h2>' +
-            '<h2>{localidad}</h2>' +
-            '<h5>Atiende en {num_consul}</h5>' +
-            '<img src="resources/images/membresia.png" alt="" class="membresia">' +
-            '<img src="resources/images/vita.png" alt="" class="vita">' +
-            '</div><!-- left -->' +
+                '<div class="header">' +
+                    '<div class="left user-image">' +
+                        '<img src="{foto}" alt="">' +
+                        '<tpl if="this.validatePromociones(promociones) == true">' +
+                            '<div class="promo">' +
+                                '<img class="left estrella" src="resources/images/promo-especial.png" alt="">' +
+                            '</div><!-- promo -->' +
+                        '</tpl>' +
+                    '</div><!-- left -->' +
+                '<div class="right user-data">' +
+                    '<h1>Dr. {name} {first_name} {last_name}</h1>' +
+                    '<h2>{especialidad}</h2>' +
+                    '<h2>{localidad}</h2>' +
+                    '<h5>Atiende en {num_consul}</h5>' +
+                    '<img src="resources/images/membresia.png" alt="" class="membresia">' +
+                    '<img src="resources/images/vita.png" alt="" class="vita">' +
+                '</div><!-- left -->' +
             '</div><!-- header -->' +
             '<tpl if="this.validatePromociones(promociones) == true">' +
-            '<div class="datos">' +
-            '<div class="dato redes">' +
-            '<p>{promociones}</p>'+
-            '</div>' +
-            '</div>' +
+                '<div class="datos">' +
+                    '<div class="dato redes promociones">' +
+                        '<h2>Promoción</h2>'+
+                        '<p>{promociones}</p>'+
+                    '</div>' +
+                '</div>' +
             '</tpl>' +
             '<h6>INFO</h6>' +
             '<div class="datos">' +
-            '<div class="dato redes">' +
-            '<tpl if="this.validateWeb(web) == true">' +
-            '<p style="width: 300px;"><a href="{web}" target="_blank">{web}</a></p>' +
-            '</tpl>' +
-            '<ul>' +
-            '<tpl if="this.validateMail(email) == true">' +
-            '<li><a href="mailto:{email}"><img src="resources/images/mail.png" width="100%" height="100%" alt="{email}"></a></li>' +
-            '</tpl>' +
-            '<tpl if="this.validateTwitter(twitter) == true">' +
-            '<li>' +
-            '<a href="{twitter}" target="_blank"><img src="resources/images/twitter.png" width="100%" height="100%" alt="{twitter}"></a>' +
-            '</li>' +
-            '</tpl>' +
-            '<tpl if="this.validateFacebook(facebook) == true">' +
-            '<li>' +
-            '<a href="{facebook}" target="_blank"><img src="resources/images/facebook.png" alt="{facebook}"></a>' +
-            '</li>' +
-            '</tpl>' +
-            '</ul>' +
-            '</div><!-- dato -->' +
+                '<div class="dato redes">' +
+                    '<tpl if="this.validateWeb(web) == true">' +
+                        '<p style="width: 300px;"><a href="{web}" target="_blank">{web}</a></p>' +
+                    '</tpl>' +
+                    '<ul>' +
+                        '<tpl if="this.validateMail(email) == true">' +
+                                '<li><a href="mailto:{email}"><img src="resources/images/mail.png" width="100%" height="100%" alt="{email}"></a></li>' +
+                            '</tpl>' +
+                            '<tpl if="this.validateTwitter(twitter) == true">' +
+                            '<li>' +
+                                '<a href="{twitter}" target="_blank"><img src="resources/images/twitter.png" width="100%" height="100%" alt="{twitter}"></a>' +
+                            '</li>' +
+                        '</tpl>' +
+                        '<tpl if="this.validateFacebook(facebook) == true">' +
+                            '<li>' +
+                                '<a href="{facebook}" target="_blank"><img src="resources/images/facebook.png" alt="{facebook}"></a>' +
+                            '</li>' +
+                        '</tpl>' +
+                    '</ul>' +
+                '</div><!-- dato -->' +
             '</div><!-- datos -->' +
             '<div class="lista">' +
-            '<h6>Consultorios</h6>' +
-            '<ul>' +
-            '<tpl for="consultorio">' +
-            '<li>' +
-            '<p class="titulo">Consultorio propio</p>' +
-            '<p class="numeracion" style="display: none">{[xindex - 1]}</p>' +
-            '<p>{calle}</p>' +
-            '<p>Colonia {colonia}</p>' +
-            '<p>{municipio}</p>' +
-            '<p>{Horarios}</p>' +
-            '<p>Llamar Directo: <a class="negra" href="tel:{numero_telefono}">{telefono}</a></p>' +
-            '<div class="mas-boton">' +
-            '<img src="resources/images/mas-boton.png" alt="">' +
-            '</div>' +
-            '</li>' +
-            '</tpl>' +
-            '</ul>' +
+                '<h6>Consultorios</h6>' +
+                '<ul>' +
+                    '<tpl for="consultorio">' +
+                        '<li>' +
+                            '<p class="titulo">Consultorio propio</p>' +
+                            '<p class="numeracion" style="display: none">{[xindex - 1]}</p>' +
+                            '<p>{calle}</p>' +
+                            '<p>Colonia {colonia}</p>' +
+                            '<p>{municipio}</p>' +
+                            '<p>{Horarios}</p>' +
+                            '<p>Llamar Directo: <a class="negra" href="tel:{numero_telefono}">{telefono}</a></p>' +
+                            '<div class="mas-boton">' +
+                                '<img src="resources/images/mas-boton.png" alt="">' +
+                            '</div>' +
+                        '</li>' +
+                    '</tpl>' +
+                '</ul>' +
             '</div><!-- lista -->' +
             '<tpl if="this.validateCedula(cedula_profesional) == true">' +
-            '<h6>Cedula Profesional</h6>' +
+                '<h6>Cedula Profesional</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{cedula_profesional}</p>' +
