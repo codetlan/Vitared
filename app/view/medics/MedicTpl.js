@@ -13,11 +13,11 @@ Ext.define('Vitared.view.medics.MedicTpl', {
             '<tpl if="this.validateDestacado(destacado) == true">' +
                 '<div class="resultados-destacados">' +
                 '<div class="resultado">' +
-                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>A' +
                 '<tpl else>',
             '<div class="resultados">' +
                 '<div class="resultado">' +
-                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>1' +
                 '</tpl>' +
                 '<div class="info">' +
                 '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
