@@ -37840,6 +37840,140 @@ Ext.define('Ext.LoadMask', {
 }, function() {
 });
 
+Ext.define('Ext.Menu', {
+    extend:  Ext.Sheet ,
+    xtype: 'menu',
+                             
+
+    config: {
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        baseCls: Ext.baseCSSPrefix + 'menu',
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        left: 0,
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        right: 0,
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        bottom: 0,
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        height: 'auto',
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        width: 'auto',
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        defaultType: 'button',
+
+        /**
+         * @hide
+         */
+        showAnimation: null,
+
+        /**
+         * @hide
+         */
+        hideAnimation: null,
+
+        /**
+         * @hide
+         */
+        centered: false,
+
+        /**
+         * @hide
+         */
+        modal: true,
+
+        /**
+         * @hide
+         */
+        hidden: true,
+
+        /**
+         * @hide
+         */
+        hideOnMaskTap: true,
+
+        /**
+         * @hide
+         */
+        translatable: {
+            translationMethod: null
+        }
+    },
+
+    constructor: function() {
+        this.config.translatable.translationMethod = Ext.browser.is.AndroidStock2 ? 'cssposition' : 'csstransform';
+        this.callParent(arguments);
+    },
+
+    platformConfig: [{
+        theme: ['Windows']
+    }, {
+        theme: ['Blackberry'],
+        ui: 'context',
+        layout: {
+            pack: 'center'
+        }
+    }],
+
+    updateUi: function(newUi, oldUi) {
+        this.callParent(arguments);
+
+        if (newUi != oldUi && Ext.theme.name == 'Blackberry') {
+            if (newUi == 'context') {
+                this.innerElement.swapCls('x-vertical', 'x-horizontal');
+            }
+            else if (newUi == 'application') {
+                this.innerElement.swapCls('x-horizontal', 'x-vertical');
+            }
+        }
+    },
+
+    updateHideOnMaskTap : function(hide) {
+        var mask = this.getModal();
+
+        if (mask) {
+            mask[hide ? 'on' : 'un'].call(mask, 'tap', function() {
+                Ext.Viewport.hideMenu(this.$side);
+            }, this);
+        }
+    },
+
+    /**
+     * Only fire the hide event if it is initialized
+     */
+    doSetHidden: function() {
+        if (this.initialized) {
+            this.callParent(arguments);
+        }
+    }
+});
+
 /**
  * {@link Ext.Title} is used for the {@link Ext.Toolbar#title} configuration in the {@link Ext.Toolbar} component.
  * @private
@@ -76525,6 +76659,44 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
 });
 
 /**
+ * @class Vitared.view.home.MenuHome
+ * @extends Ext.Menu
+ * Home Vitared
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
+Ext.define('Vitared.view.home.MenuHome', {
+    extend:  Ext.Menu ,
+    xtype: 'menuhome',
+
+    requires: [],
+
+    config: {
+        items: [
+            {
+                html: '<a href="https://www.membresiavitamedica.com.mx" style="text-decoration: none; color: #ffffff;" target="_blank">Membresía Vitamédica</a>',
+                style: {
+                    background: '#1198ff'
+                }
+            },
+            {
+                html: '<a href="https://www.vitared.com.mx/privacidad" style="text-decoration: none; color: #ffffff;" target="_blank">Aviso de Privacidad</a>',
+                style: {
+                    background: '#56dc0f'
+                }
+            },
+            {
+                html: '<a href="https://www.vitared.com.mx/privacidad" style="text-decoration: none; color: #ffffff;" target="_blank">Condiciones de Uso</a>',
+                style: {
+                    background: '#1198ff'
+                }
+            }
+        ]
+
+    }
+});
+
+/**
  * @class Vitared.view.home.NavigationHome
  * @extends Ext.NavigationView
  * View of Navigation Home
@@ -76538,7 +76710,8 @@ Ext.define('Vitared.view.home.NavigationHome', {
                                                    
                                           
                                         
-                                             
+                                              
+                                    
       
 
     config: {
@@ -76590,7 +76763,7 @@ Ext.define('Vitared.view.medics.MedicTpl', {
             '<div class="resultados">' +
                 '</tpl>' +
                 '<div class="resultado">' +
-                '<i class="fa fa-map-marker" ></i>' +
+                '<i class="fa fa-map-marker"></i>' +
                 '<div class="info">' +
                 '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
                 '<p class="especialidad"> {especialidad} </p>' +
@@ -77332,6 +77505,7 @@ Ext.define('Vitared.controller.phone.Main', {
     locationForm: undefined,
     estado: undefined,
     ciudad: undefined,
+    menu: undefined,
 
     config: {
         refs: {
@@ -77355,7 +77529,8 @@ Ext.define('Vitared.controller.phone.Main', {
             addLocation: 'navigationhome #addLocation',
             locationForm: 'locationform',
             city: 'locationform #city',
-            state: 'locationform #state'
+            state: 'locationform #state',
+            menu: 'menuhome'
         },
         control: {
             'medicnavigation list': {
@@ -77498,7 +77673,7 @@ Ext.define('Vitared.controller.phone.Main', {
             store = Ext.getStore('Searchs');
             //store2 = Ext.getStore(storeId);
             ciudad = me.ciudad ? me.ciudad : '';
-                params = {
+            params = {
                 search_api_views_fulltext: search,
                 field_geo: geo,
                 ciudad: me.ciudad
@@ -77520,9 +77695,11 @@ Ext.define('Vitared.controller.phone.Main', {
                             longitud = item.get('longitud'), marker;
 
                         if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
+
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(latitud, longitud),
-                                map: map
+                                map: map/*,
+                                icon: "/resources/images/fb.png"*/
                             });
 
                             me.markers.push(marker);
@@ -77560,13 +77737,13 @@ Ext.define('Vitared.controller.phone.Main', {
                                 bounds.extend(marker.position);
 
                                 var infoWindow = new google.maps.InfoWindow();
-                                infoWindow.setContent('No hay '+me.getHomePanel().getActiveItem().title+'...');
+                                infoWindow.setContent('No hay ' + me.getHomePanel().getActiveItem().title + '...');
                                 infoWindow.open(map, marker);
 
                                 /*google.maps.event.addListener(marker, 'click', function () {
-                                    infoWindow.setContent(results[0].formatted_address);
-                                    infoWindow.open(map, marker);
-                                });*/
+                                 infoWindow.setContent(results[0].formatted_address);
+                                 infoWindow.open(map, marker);
+                                 });*/
                             }
                         } else {
                             me.getStoreLoad('');
@@ -77787,31 +77964,23 @@ Ext.define('Vitared.controller.phone.Main', {
 
     onInfo: function (btn, e, o) {
         var me = this;
-
-        btn.up('navigationhome').down('#addLocation').hide();
-        btn.up('navigationhome').push({
-            xtype: 'container',
-            html: '<div class="container">' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.membresiavitamedica.com.mx" target="_blank">Membresía Vitamédica</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llamar left" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/privacidad" target="_blank">Aviso de privacidad</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/uso" target="_blank">Condiciones de uso</a>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
+        var menu = Ext.create('Vitared.view.home.MenuHome',{
+            side: 'right',
+            reveal: 'true'
         });
-        btn.hide();
+
+        if (!me.menu) {
+            Ext.Viewport.setMenu(menu,
+                {
+                    side: 'right',
+                    reveal: 'true'
+                });
+            Ext.Viewport.showMenu('right');
+            me.menu = true;
+        } else {
+            Ext.Viewport.hideMenu('right');
+            me.menu = false;
+        }
     },
 
     trazarRuta: function (map, lat, lng) {

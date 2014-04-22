@@ -781,6 +781,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Vitared.view.home.AutoCompleteList": [],
   "Vitared.view.home.AutoCompleteTpl": [],
   "Vitared.view.home.HomePanel": [],
+  "Vitared.view.home.MenuHome": [],
   "Vitared.view.home.NavigationHome": [],
   "Vitared.view.home.SearchField": [],
   "Vitared.view.hospitals.HospitalNavigation": [],
@@ -1784,6 +1785,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Vitared.view.home.AutoCompleteTpl": [],
   "Vitared.view.home.HomePanel": [
     "widget.homepanel"
+  ],
+  "Vitared.view.home.MenuHome": [
+    "widget.menuhome"
   ],
   "Vitared.view.home.NavigationHome": [
     "widget.navigationhome"

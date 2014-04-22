@@ -16,6 +16,7 @@ Ext.define('Vitared.controller.phone.Main', {
     locationForm: undefined,
     estado: undefined,
     ciudad: undefined,
+    menu: undefined,
 
     config: {
         refs: {
@@ -39,7 +40,8 @@ Ext.define('Vitared.controller.phone.Main', {
             addLocation: 'navigationhome #addLocation',
             locationForm: 'locationform',
             city: 'locationform #city',
-            state: 'locationform #state'
+            state: 'locationform #state',
+            menu: 'menuhome'
         },
         control: {
             'medicnavigation list': {
@@ -91,6 +93,15 @@ Ext.define('Vitared.controller.phone.Main', {
             },
             'autocompletelist': {
                 itemtap: 'onSearhAutoComplete'
+            },
+            'menuhome #membresia': {
+                tap: 'onMembresia'
+            },
+            'menuhome #privacidad': {
+                tap: 'onPrivacidad'
+            },
+            'menuhome #condiciones': {
+                tap: 'onCondiciones'
             }
         }
     },
@@ -182,7 +193,7 @@ Ext.define('Vitared.controller.phone.Main', {
             store = Ext.getStore('Searchs');
             //store2 = Ext.getStore(storeId);
             ciudad = me.ciudad ? me.ciudad : '';
-                params = {
+            params = {
                 search_api_views_fulltext: search,
                 field_geo: geo,
                 ciudad: me.ciudad
@@ -204,9 +215,11 @@ Ext.define('Vitared.controller.phone.Main', {
                             longitud = item.get('longitud'), marker;
 
                         if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
+
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(latitud, longitud),
-                                map: map
+                                map: map/*,
+                                icon: "./resources/images/marker.png"*/
                             });
 
                             me.markers.push(marker);
@@ -244,13 +257,13 @@ Ext.define('Vitared.controller.phone.Main', {
                                 bounds.extend(marker.position);
 
                                 var infoWindow = new google.maps.InfoWindow();
-                                infoWindow.setContent('No hay '+me.getHomePanel().getActiveItem().title+'...');
+                                infoWindow.setContent('No hay ' + me.getHomePanel().getActiveItem().title + '...');
                                 infoWindow.open(map, marker);
 
                                 /*google.maps.event.addListener(marker, 'click', function () {
-                                    infoWindow.setContent(results[0].formatted_address);
-                                    infoWindow.open(map, marker);
-                                });*/
+                                 infoWindow.setContent(results[0].formatted_address);
+                                 infoWindow.open(map, marker);
+                                 });*/
                             }
                         } else {
                             me.getStoreLoad('');
@@ -471,31 +484,22 @@ Ext.define('Vitared.controller.phone.Main', {
 
     onInfo: function (btn, e, o) {
         var me = this;
-
-        btn.up('navigationhome').down('#addLocation').hide();
-        btn.up('navigationhome').push({
-            xtype: 'container',
-            html: '<div class="container">' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.membresiavitamedica.com.mx" target="_blank">Membresía Vitamédica</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llamar left" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/privacidad" target="_blank">Aviso de privacidad</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/uso" target="_blank">Condiciones de uso</a>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
+        var menu = Ext.create('Vitared.view.home.MenuHome',{
+            side: 'right',
+            reveal: 'true'
         });
-        btn.hide();
+
+        if (!me.menu) {
+            Ext.Viewport.setMenu(menu,{
+                    side: 'right',
+                    reveal: 'true'
+                });
+            Ext.Viewport.showMenu('right');
+            me.menu = true;
+        } else {
+            Ext.Viewport.hideMenu('right');
+            me.menu = false;
+        }
     },
 
     trazarRuta: function (map, lat, lng) {
@@ -743,6 +747,27 @@ Ext.define('Vitared.controller.phone.Main', {
                 me.getStoreLoad('');
             }
         });
+    },
+
+    onMembresia: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onPrivacidad: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onCondiciones: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
     }
 
 });

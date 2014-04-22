@@ -12,7 +12,8 @@ Ext.define('Vitared.view.home.NavigationHome', {
     requires: ['Vitared.view.location.MapLocation',
         'Vitared.view.location.MapMarker',
         'Vitared.view.home.SearchField',
-        'Vitared.view.medics.MedicDetailsTpl'
+        'Vitared.view.medics.MedicDetailsTpl',
+        'Vitared.view.home.MenuHome'
     ],
 
     config: {
