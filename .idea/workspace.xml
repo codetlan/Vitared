@@ -4,19 +4,19 @@
     <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398192130599" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398269103625" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
     <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
     <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
-    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191330904" ignored="false" />
+    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398268552625" ignored="false" />
     <file path="$PROJECT_DIR$/../example6/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380749792045" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750822253" ignored="false" />
-    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397668040254" ignored="false" />
+    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398193294584" ignored="false" />
     <file path="/NavigationMenu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380779117974" ignored="false" />
     <file path="/MedicNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396760754130" ignored="false" />
     <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397716542165" ignored="false" />
@@ -139,7 +139,7 @@
     <file path="$PROJECT_DIR$/../imobile/app/view/menu/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395994843944" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395994897021" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398192183785" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398195477560" ignored="false" />
     <file path="/LocationForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396853268109" ignored="false" />
     <file path="/State.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395568985635" ignored="false" />
     <file path="/City.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396852536094" ignored="false" />
@@ -161,7 +161,7 @@
     <file path="$PROJECT_DIR$/../imobile/app/view/menu/MenuList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996240285" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997352952" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/model/Producto.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191679986" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398269168369" ignored="false" />
     <file path="/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996991680" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997478335" ignored="false" />
     <file path="/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997416261" ignored="false" />
@@ -174,7 +174,7 @@
     <file path="/Laboratory.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397001589565" ignored="false" />
     <file path="$USER_HOME$/Documents/elixir/elixir-6/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397021691325" ignored="false" />
     <file path="$USER_HOME$/Documents/elixir/Elixir_img-2/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397632613479" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397667915422" ignored="false" />
     <file path="/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397668426848" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
@@ -193,6 +193,26 @@
     <file path="$PROJECT_DIR$/../imobile/app/store/Ordenes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397676622672" ignored="false" />
     <file path="/PartidaContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397677325192" ignored="false" />
     <file path="/MenuHome.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397775547642" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/68dcfc61e7f3c008665e0b085b2554e4abde4c42.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5e26afbcc9c4168aa462cbe3c2a9989e69d67240.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/2bbcb129dc9147151dd4b9d825c5ba0db3552b20.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0e2edd939c90217eaafc22ea7d070fea78b69bd4.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/039efc33f88503bbaf80b5a043493f6187192389.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/1cdd7638bb9a1415e37eab77ba084fe884432dce.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/ff96b3196bcfe328b295b6b29cae162e53316948.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/9705be1b1e21de8738dfa6ba8148e8e01f6e169b.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/450ba80b3f8625115bdf5d03f63c8403d3576694.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5a82bcc4072cb0b9027e3aa2cc5c5c3234e2980c.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosView.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/742a6ea0819537fc9d52bbae32995e3ddd0b2a85.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0ff7800379674e6b70d1e9c058f3e699e8eb3dbb.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/c679950fb10a71022c93ac5654cb94ee7d9556dd.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/d4132155bb734598989bc21ac06be880cbeb2545.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/db0ff78db9b1bb5e761dd5cf80c828cb81ee0887.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/3ea60f6969382a6e0dac6ba01b6869fec457b76d.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,10 +246,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="71" selection-start="7919" selection-end="7919" vertical-scroll-proportion="0.0">
+            <state line="530" column="23" selection-start="19194" selection-end="19213" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -257,10 +277,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HospitalTpl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HospitalTpl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="82" selection-start="771" selection-end="771" vertical-scroll-proportion="0.3220339">
+            <state line="42" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -296,7 +316,7 @@
       <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1540" column="0" selection-start="71251" selection-end="71251" vertical-scroll-proportion="-4.1764708">
+            <state line="1540" column="0" selection-start="71251" selection-end="71251" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1398190363000" expanded="true" signature="68737:68805" placeholder="{...}" />
               </folding>
@@ -350,9 +370,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1280" />
     <option name="y" value="22" />
-    <option name="width" value="1919" />
-    <option name="height" value="1054" />
+    <option name="width" value="1280" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -380,6 +401,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -698,7 +720,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -715,16 +736,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../imobile" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="105" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="101" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -769,14 +790,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1919" height="1054" extended-state="6" />
+    <frame x="-1280" y="22" width="1280" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27816337" sideWeight="0.8888889" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828201" sideWeight="0.8888889" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -871,9 +892,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="45" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="45" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/images/iconos_menu_vitared-16.png">
@@ -904,7 +923,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1540" column="0" selection-start="71251" selection-end="71251" vertical-scroll-proportion="-4.1764708">
+        <state line="1540" column="0" selection-start="71251" selection-end="71251" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1398190363000" expanded="true" signature="68737:68805" placeholder="{...}" />
           </folding>
@@ -939,13 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="71" selection-start="7919" selection-end="7919" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/medics/MedicTpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="82" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0">
@@ -955,7 +967,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="82" selection-start="771" selection-end="771" vertical-scroll-proportion="0.3220339">
+        <state line="42" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="530" column="23" selection-start="19194" selection-end="19213" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
