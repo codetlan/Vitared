@@ -77822,9 +77822,9 @@ Ext.define('Vitared.controller.phone.Main', {
                             tipo = item.get('tipo');
 
                         if (tipo != 0){
-                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
-                        } else {
                             icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
+                        } else {
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
                         }
 
                         if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
@@ -77854,7 +77854,8 @@ Ext.define('Vitared.controller.phone.Main', {
                         }
                     });
                 } else {
-                    var latlng = new google.maps.LatLng(me.latitude, me.longitude);
+                    var latlng = new google.maps.LatLng(me.latitude, me.longitude),
+                        tipo = me.getHomePanel().getTabBar().getActiveTab().getTitle();
 
                     geocoder = new google.maps.Geocoder();
 
@@ -77870,7 +77871,7 @@ Ext.define('Vitared.controller.phone.Main', {
                                 bounds.extend(marker.position);
 
                                 var infoWindow = new google.maps.InfoWindow();
-                                infoWindow.setContent('No hay ' + me.getHomePanel().getActiveItem().title + '...');
+                                infoWindow.setContent('No hay ' + tipo + '...');
                                 infoWindow.open(map, marker);
 
                                 /*google.maps.event.addListener(marker, 'click', function () {

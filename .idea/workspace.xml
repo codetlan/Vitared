@@ -4,7 +4,7 @@
     <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398312854184" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398322701097" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
     <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
@@ -16,10 +16,10 @@
     <file path="$PROJECT_DIR$/../example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750822253" ignored="false" />
-    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398193294584" ignored="false" />
+    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398314535722" ignored="false" />
     <file path="/NavigationMenu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380779117974" ignored="false" />
     <file path="/MedicNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396760754130" ignored="false" />
-    <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397716542165" ignored="false" />
+    <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398321647940" ignored="false" />
     <file path="/medics.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380785664069" ignored="false" />
     <file path="/LaboratoryNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381974208546" ignored="false" />
     <file path="/HospitalNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1393916053314" ignored="false" />
@@ -138,7 +138,7 @@
     <file path="/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394590169825" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/menu/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395994843944" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395994897021" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398316295775" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398195477560" ignored="false" />
     <file path="/LocationForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396853268109" ignored="false" />
     <file path="/State.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395568985635" ignored="false" />
@@ -161,12 +161,12 @@
     <file path="$PROJECT_DIR$/../imobile/app/view/menu/MenuList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996240285" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997352952" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/model/Producto.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398274002895" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398321341639" ignored="false" />
     <file path="/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996991680" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997478335" ignored="false" />
     <file path="/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997416261" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/model/Cliente.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997494181" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/clientes/ClientesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398274640519" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/clientes/ClientesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398314287928" ignored="false" />
     <file path="/ClientesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398274586514" ignored="false" />
     <file path="$USER_HOME$/Documents/elixir/Elixir-5/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396939811407" ignored="false" />
     <file path="/Other.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396850766412" ignored="false" />
@@ -177,12 +177,12 @@
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397667915422" ignored="false" />
     <file path="/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397668426848" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398316797144" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/form/clientes/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397672559664" ignored="false" />
-    <file path="/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397670491875" ignored="false" />
+    <file path="/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398316165437" ignored="false" />
     <file path="/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397672492345" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/clientes/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397673753498" ignored="false" />
-    <file path="/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397673692665" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/clientes/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398314765174" ignored="false" />
+    <file path="/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398314723199" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Favoritos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397674453971" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/model/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398191639009" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397676196402" ignored="false" />
@@ -205,7 +205,7 @@
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/9705be1b1e21de8738dfa6ba8148e8e01f6e169b.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/450ba80b3f8625115bdf5d03f63c8403d3576694.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5a82bcc4072cb0b9027e3aa2cc5c5c3234e2980c.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosView.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosView.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398319107633" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/742a6ea0819537fc9d52bbae32995e3ddd0b2a85.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0ff7800379674e6b70d1e9c058f3e699e8eb3dbb.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/c679950fb10a71022c93ac5654cb94ee7d9556dd.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
@@ -213,6 +213,9 @@
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/db0ff78db9b1bb5e761dd5cf80c828cb81ee0887.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/3ea60f6969382a6e0dac6ba01b6869fec457b76d.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OrdenContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398316494922" ignored="false" />
+    <file path="/OrdenContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398316490034" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/favoritos/SeleccionadorProFav.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398319141509" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,17 +242,30 @@
     <splitter split-orientation="horizontal" split-proportion="0.7042139">
       <split-first>
         <leaf>
-          <file leaf-file-name="PharmacyTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js">
+          <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="26" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.0">
+                <state line="266" column="0" selection-start="9919" selection-end="9919" vertical-scroll-proportion="0.49324325">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DetailsTpl.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/view/shared/DetailsTpl.js">
+          <file leaf-file-name="MenuHome.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/view/home/MenuHome.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <marker date="1397775905000" expanded="false" signature="394:432" placeholder="..." />
+                    <marker date="1397775905000" expanded="false" signature="739:777" placeholder="..." />
+                    <marker date="1397775905000" expanded="false" signature="1084:1122" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="NavigationHome.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/view/home/NavigationHome.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
@@ -257,29 +273,22 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+          <file leaf-file-name="HomePanel.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="218" column="0" selection-start="7700" selection-end="7700" vertical-scroll-proportion="0.53296703">
+                <state line="25" column="30" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Search.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Search.js">
+          <file leaf-file-name="HospitalNavigation.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="220" column="13" selection-start="7144" selection-end="7271" vertical-scroll-proportion="-12.230769">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Other.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Other.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="114" column="13" selection-start="3398" selection-end="3398" vertical-scroll-proportion="0.0">
-                  <folding />
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <marker date="1396855365000" expanded="false" signature="1583:1609" placeholder="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -293,6 +302,29 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <marker date="1397686739000" expanded="false" signature="2394:2407" placeholder="..." />
+                    <marker date="1397686739000" expanded="false" signature="3880:3893" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="1499" column="41" selection-start="69773" selection-end="69773" vertical-scroll-proportion="-7.647059">
+                  <folding>
+                    <element signature="e#34964#47297#1" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Medic.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -302,28 +334,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Laboratory.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="114" column="13" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Hospital.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/model/Hospital.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="114" column="13" selection-start="3407" selection-end="3407" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Pharmacy.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/model/Pharmacy.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="114" column="13" selection-start="3408" selection-end="3408" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -362,9 +376,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/view/home/NavigationHome.js" />
         <option value="$PROJECT_DIR$/app/view/home/MenuHome.js" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/app/view/medics/MedicTpl.js" />
         <option value="$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js" />
         <option value="$PROJECT_DIR$/app/view/laboratories/LaboratoryTpl.js" />
@@ -377,6 +389,8 @@
         <option value="$PROJECT_DIR$/app/model/Medic.js" />
         <option value="$PROJECT_DIR$/app/model/Laboratory.js" />
         <option value="$PROJECT_DIR$/app/model/Hospital.js" />
+        <option value="$PROJECT_DIR$/app/view/home/HomePanel.js" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
       </list>
     </option>
@@ -827,7 +841,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828201" sideWeight="0.9917453" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2828201" sideWeight="0.9917453" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -905,50 +919,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/view/home/NavigationHome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="13" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1569" column="18" selection-start="72330" selection-end="72330" vertical-scroll-proportion="-10.90196">
-          <folding>
-            <marker date="1398270877000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="26" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.46341464">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/laboratories/LaboratoryTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="26" selection-start="1058" selection-end="1058" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="38" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="26" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="26" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.0">
@@ -984,13 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/MedicDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="13" selection-start="4576" selection-end="4576" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="114" column="13" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.0">
@@ -1012,9 +975,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1396855365000" expanded="false" signature="1583:1609" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/home/MenuHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1397775905000" expanded="false" signature="394:432" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="739:777" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="1084:1122" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="30" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/home/NavigationHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/MedicDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="13" selection-start="4576" selection-end="4576" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1397686739000" expanded="false" signature="2394:2407" placeholder="..." />
+            <marker date="1397686739000" expanded="false" signature="3880:3893" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1499" column="41" selection-start="69773" selection-end="69773" vertical-scroll-proportion="-7.647059">
+          <folding>
+            <element signature="e#34964#47297#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="0" selection-start="7700" selection-end="7700" vertical-scroll-proportion="0.53296703">
+        <state line="266" column="0" selection-start="9919" selection-end="9919" vertical-scroll-proportion="0.49324325">
           <folding />
         </state>
       </provider>
