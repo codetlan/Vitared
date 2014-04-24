@@ -102,6 +102,16 @@ Ext.define('Vitared.model.Other', {
                 name: 'subespecialidad',
                 type: 'string',
                 mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }

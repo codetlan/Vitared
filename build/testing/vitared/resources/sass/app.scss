@@ -1542,11 +1542,19 @@ h6{ margin: 4% 0; color: gray; text-transform: uppercase; font-size: 80%; }
 /*RESULTADOS*/
 .resultados-destacados {width: 100%}
 .resultados-destacados .resultado{ background: #d9dadc; border-bottom: 1px solid #b2b2b2; width: 100% }
-.resultados-destacados .fa-map-marker{ width: 13%; margin: 0 5% 0 0; font-size: 5em;  color: red; float: left;}
+.resultados-destacados .fa-map-marker{ width: 19%; margin: 0 5% 0 0; font-size: 5em;  color: red; float: left;}
 
 .resultado{ padding: 10px; border-bottom: 1px solid #e2e2e2;  position: relative; overflow: hidden; }
 
-.fa-map-marker{ width: 10%; margin: 0 6% 0 0; font-size: 4em; color: #0e9aeb; float: left; }
+.marker{ width: 19%; margin: 0 6% 0 0; float: left; position: relative;
+
+  .fa-map-marker{ width: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
+  .marker-id{ width: 100%; margin-top: 30%; text-align: center; color: #fff; font-size: 1.4em; position: relative; z-index: 2; }
+}
+
+
+
+
 
 .info{ width: 65%; float: left; }
 .info p{ font-size: 1.2em; margin: 0; }

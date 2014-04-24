@@ -75486,6 +75486,16 @@ Ext.define('Vitared.model.Medic', {
                 name: 'promociones',
                 type: 'string',
                 mapping: 'medico.promociones'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -75630,6 +75640,16 @@ Ext.define('Vitared.model.MedicDetails', {
                 name: 'listado_de_servicios',
                 type: 'string',
                 mapping: 'medico.Listado_de_Servicios'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -75739,6 +75759,16 @@ Ext.define('Vitared.model.Hospital', {
                 name: 'subespecialidad',
                 type: 'string',
                 mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -75848,6 +75878,16 @@ Ext.define('Vitared.model.Laboratory', {
                 name: 'subespecialidad',
                 type: 'string',
                 mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -75957,6 +75997,16 @@ Ext.define('Vitared.model.Pharmacy', {
                 name: 'subespecialidad',
                 type: 'string',
                 mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -76177,6 +76227,16 @@ Ext.define('Vitared.model.Search', {
                     });
                     return items;
                 }
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -76306,6 +76366,16 @@ Ext.define('Vitared.model.Other', {
                 name: 'subespecialidad',
                 type: 'string',
                 mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }
@@ -76674,22 +76744,28 @@ Ext.define('Vitared.view.home.MenuHome', {
     config: {
         items: [
             {
+                xtype: 'button',
                 html: '<a href="https://www.membresiavitamedica.com.mx" style="text-decoration: none; color: #ffffff;" target="_blank">Membresía Vitamédica</a>',
                 style: {
                     background: '#1198ff'
-                }
+                },
+                itemId: 'membresia'
             },
             {
+                xtype: 'button',
                 html: '<a href="https://www.vitared.com.mx/privacidad" style="text-decoration: none; color: #ffffff;" target="_blank">Aviso de Privacidad</a>',
                 style: {
                     background: '#56dc0f'
-                }
+                },
+                itemId: 'privacidad'
             },
             {
+                xtype: 'button',
                 html: '<a href="https://www.vitared.com.mx/privacidad" style="text-decoration: none; color: #ffffff;" target="_blank">Condiciones de Uso</a>',
                 style: {
                     background: '#1198ff'
-                }
+                },
+                itemId: 'condiciones'
             }
         ]
 
@@ -76759,20 +76835,28 @@ Ext.define('Vitared.view.medics.MedicTpl', {
         html = [
             '<tpl if="this.validateDestacado(destacado) == true">' +
                 '<div class="resultados-destacados">' +
-                '<tpl else>',
-            '<div class="resultados">' +
-                '</tpl>' +
-                '<div class="resultado">' +
-                '<i class="fa fa-map-marker"></i>' +
+                    '<div class="resultado">' +
+                        '<div class="marker">' +
+                            '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                            '<p class="marker-id">{categoria}</p>'+
+                        '</div>'+
+            '<tpl else>',
+                '<div class="resultados">' +
+                    '<div class="resultado">' +
+                        '<div class="marker">' +
+                            '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                            '<p class="marker-id">{categoria}</p>'+
+                        '</div>'+
+            '</tpl>' +
                 '<div class="info">' +
-                '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
-                '<p class="especialidad"> {especialidad} </p>' +
-                '<p class="localidad"> {localidad} </p>' +
+                    '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
+                    '<p class="especialidad"> {especialidad} </p>' +
+                    '<p class="localidad"> {localidad} </p>' +
                 '</div><!-- info -->' +
                 '<div class="right">' +
-                '<i class="fa fa-chevron-circle-right" ></i>' +
+                    '<i class="fa fa-chevron-circle-right" ></i>' +
                 '</div><!-- right -->' +
-                '</div><!-- resultado -->',
+            '</div><!-- resultado -->',
             {
                 validateDestacado: function (destacado) {
                     if (destacado != 3) {
@@ -76880,11 +76964,19 @@ Ext.define('Vitared.view.hospitals.HospitalTpl', {
         html = [
             '<tpl if="this.validateDestacado(destacado) == true">' +
                 '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
                 '<tpl else>',
             '<div class="resultados">' +
-                '</tpl>' +
                 '<div class="resultado">' +
-                '<i class="fa fa-map-marker" ></i>' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
                 '<p class="especialidad"> {subespecialidad} </p>' +
@@ -77039,11 +77131,19 @@ Ext.define('Vitared.view.pharmacies.PharmacyTpl', {
         html = [
             '<tpl if="this.validateDestacado(destacado) == true">' +
                 '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
                 '<tpl else>',
             '<div class="resultados">' +
-                '</tpl>' +
                 '<div class="resultado">' +
-                '<i class="fa fa-map-marker" ></i>' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
                 '<p class="especialidad"> {subespecialidad} </p>' +
@@ -77150,11 +77250,19 @@ Ext.define('Vitared.view.laboratories.LaboratoryTpl', {
         html = [
             '<tpl if="this.validateDestacado(destacado) == true">' +
                 '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
                 '<tpl else>',
             '<div class="resultados">' +
-                '</tpl>' +
                 '<div class="resultado">' +
-                '<i class="fa fa-map-marker" ></i>' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
                 '<p class="especialidad"> {subespecialidad} </p>' +
@@ -77260,11 +77368,19 @@ Ext.define('Vitared.view.others.OtherTpl', {
         html = [
             '<tpl if="this.validateDestacado(destacado) == true">' +
                 '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
                 '<tpl else>',
             '<div class="resultados">' +
-                '</tpl>' +
                 '<div class="resultado">' +
-                '<i class="fa fa-map-marker" ></i>' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
                 '<div class="info">' +
                 '<p class="nombre"> {name} </p>' +
                 '<p class="especialidad"> {subespecialidad} </p>' +
@@ -77582,6 +77698,15 @@ Ext.define('Vitared.controller.phone.Main', {
             },
             'autocompletelist': {
                 itemtap: 'onSearhAutoComplete'
+            },
+            'menuhome #membresia': {
+                tap: 'onMembresia'
+            },
+            'menuhome #privacidad': {
+                tap: 'onPrivacidad'
+            },
+            'menuhome #condiciones': {
+                tap: 'onCondiciones'
             }
         }
     },
@@ -77692,14 +77817,22 @@ Ext.define('Vitared.controller.phone.Main', {
                 if (!Ext.isEmpty(records)) {
                     Ext.Array.each(records, function (item, index, ItSelf) {
                         var latitud = item.get('latitud'),
-                            longitud = item.get('longitud'), marker;
+                            longitud = item.get('longitud'), marker, icono,
+                            categoria = item.get('categoria'),
+                            tipo = item.get('tipo');
+
+                        if (tipo != 0){
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
+                        } else {
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
+                        }
 
                         if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
 
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(latitud, longitud),
-                                map: map/*,
-                                icon: "/resources/images/fb.png"*/
+                                map: map,
+                                icon: icono
                             });
 
                             me.markers.push(marker);
@@ -77970,8 +78103,7 @@ Ext.define('Vitared.controller.phone.Main', {
         });
 
         if (!me.menu) {
-            Ext.Viewport.setMenu(menu,
-                {
+            Ext.Viewport.setMenu(menu,{
                     side: 'right',
                     reveal: 'true'
                 });
@@ -78228,6 +78360,27 @@ Ext.define('Vitared.controller.phone.Main', {
                 me.getStoreLoad('');
             }
         });
+    },
+
+    onMembresia: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onPrivacidad: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onCondiciones: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
     }
 
 });

@@ -137,6 +137,16 @@ Ext.define('Vitared.model.MedicDetails', {
                 name: 'listado_de_servicios',
                 type: 'string',
                 mapping: 'medico.Listado_de_Servicios'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }

@@ -213,6 +213,16 @@ Ext.define('Vitared.model.Search', {
                     });
                     return items;
                 }
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.categoria'
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.tipo'
             }
         ]
     }

@@ -15,14 +15,14 @@ Ext.define('Vitared.view.medics.MedicTpl', {
                     '<div class="resultado">' +
                         '<div class="marker">' +
                             '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
-                            '<p class="marker-id">A</p>'+
+                            '<p class="marker-id">{categoria}</p>'+
                         '</div>'+
             '<tpl else>',
                 '<div class="resultados">' +
                     '<div class="resultado">' +
                         '<div class="marker">' +
                             '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
-                            '<p class="marker-id">1</p>'+
+                            '<p class="marker-id">{categoria}</p>'+
                         '</div>'+
             '</tpl>' +
                 '<div class="info">' +
