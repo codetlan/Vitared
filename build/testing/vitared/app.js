@@ -77790,12 +77790,21 @@ Ext.define('Vitared.controller.phone.Main', {
             if (!Ext.isEmpty(records)) {
                 Ext.Array.each(records, function (item, index, ItSelf) {
                     var latitud = item.get('latitud'),
-                        longitud = item.get('longitud'), marker;
+                        longitud = item.get('longitud'), marker, icono,
+                        categoria = item.get('categoria'),
+                        tipo = item.get('tipo');
+
+                    if (tipo != 0){
+                        icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
+                    } else {
+                        icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
+                    };
 
                     if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
                         marker = new google.maps.Marker({
                             position: new google.maps.LatLng(latitud, longitud),
-                            map: map
+                            map: map,
+                            icon: icono
                         });
 
                         me.markers.push(marker);
