@@ -4,14 +4,14 @@
     <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398461788514" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398564149824" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
     <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
     <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
-    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398452925131" ignored="false" />
+    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398553513632" ignored="false" />
     <file path="$PROJECT_DIR$/../example6/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380749792045" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
@@ -82,7 +82,7 @@
     <file path="/Component.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747587592" ignored="false" />
     <file path="$USER_HOME$/Documents/SenchaExtJS4MVCDesktop/packages/pegaso/sass/var/Component.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747589908" ignored="false" />
     <file path="$USER_HOME$/Documents/SenchaExtJS4MVCDesktop/app/view/todos/TodosForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747920329" ignored="false" />
-    <file path="/Search.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398458138466" ignored="false" />
+    <file path="/Search.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398551890831" ignored="false" />
     <file path="/Searchs.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396861873108" ignored="false" />
     <file path="$PROJECT_DIR$/../trinus/app/view/principal/Panel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1384148418774" ignored="false" />
     <file path="/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397717063465" ignored="false" />
@@ -240,13 +240,13 @@
     <favorites_list name="VitaRed" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7358185">
+    <splitter split-orientation="horizontal" split-proportion="0.6158833">
       <split-first>
         <leaf>
           <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="156" column="49" selection-start="5521" selection-end="5521" vertical-scroll-proportion="0.6334459">
+                <state line="295" column="44" selection-start="11279" selection-end="11279" vertical-scroll-proportion="0.41722974">
                   <folding />
                 </state>
               </provider>
@@ -345,7 +345,7 @@
           <file leaf-file-name="Search.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/model/Search.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="215" column="13" selection-start="7004" selection-end="7545" vertical-scroll-proportion="0.35500878">
+                <state line="107" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.2533784">
                   <folding />
                 </state>
               </provider>
@@ -406,13 +406,13 @@
         <option value="$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js" />
         <option value="$PROJECT_DIR$/app/view/home/HomePanel.js" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
-        <option value="$PROJECT_DIR$/app/model/Search.js" />
         <option value="$PROJECT_DIR$/app/model/Hospital.js" />
         <option value="$PROJECT_DIR$/app/model/Laboratory.js" />
         <option value="$PROJECT_DIR$/app/model/Medic.js" />
         <option value="$PROJECT_DIR$/app/model/MedicDetails.js" />
         <option value="$PROJECT_DIR$/app/model/Other.js" />
         <option value="$PROJECT_DIR$/app/model/Pharmacy.js" />
+        <option value="$PROJECT_DIR$/app/model/Search.js" />
         <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
       </list>
     </option>
@@ -437,7 +437,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -448,151 +448,7 @@
       <autoscrollFromSource ProjectPane="true" />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sass" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
@@ -749,16 +605,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/view/home/NavigationHome.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1499" column="41" selection-start="69773" selection-end="69773" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/medics/MedicNavigation.js">
@@ -787,27 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="26" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Hospital.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="0" selection-start="3142" selection-end="3142" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="13" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/home/SearchField.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="31" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
@@ -829,20 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="13" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="13" selection-start="7004" selection-end="7545" vertical-scroll-proportion="0.35500878">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Pharmacy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="13" selection-start="3682" selection-end="3682" vertical-scroll-proportion="0.0">
@@ -852,14 +664,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="40" selection-start="1230" selection-end="1329" vertical-scroll-proportion="1.2110091">
+        <state line="44" column="40" selection-start="1230" selection-end="1329" vertical-scroll-proportion="1.2110091" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1499" column="41" selection-start="69773" selection-end="69773" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="26" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Hospital.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="0" selection-start="3142" selection-end="3142" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="13" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="13" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.2533784">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="49" selection-start="5521" selection-end="5521" vertical-scroll-proportion="0.6334459">
+        <state line="295" column="44" selection-start="11279" selection-end="11279" vertical-scroll-proportion="0.41722974">
           <folding />
         </state>
       </provider>

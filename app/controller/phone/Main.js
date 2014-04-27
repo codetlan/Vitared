@@ -150,7 +150,7 @@ Ext.define('Vitared.controller.phone.Main', {
                         icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
                     } else {
                         icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
-                    };
+                    }
 
                     if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
                         marker = new google.maps.Marker({
@@ -178,8 +178,9 @@ Ext.define('Vitared.controller.phone.Main', {
                     }
                 });
             }
+            store1.data.sort('orden', 'ASC');
+            store1.data.sort('categoria', 'ASC');
         });
-
     },
 
     onLoadStores: function (storeId, search, geo, tipo) {
@@ -292,6 +293,7 @@ Ext.define('Vitared.controller.phone.Main', {
             }
         });
         store.data.sort('orden', 'ASC');
+        store.data.sort('categoria', 'ASC');
     },
 
     onActiveTab: function (t, value, oldValue, eOpts) {
