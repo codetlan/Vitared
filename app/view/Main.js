@@ -10,8 +10,6 @@ Ext.define('Vitared.view.Main', {
     xtype: 'main',
 
     requires:[
-        'Ext.plugin.PullRefresh',
-        'Ext.plugin.ListPaging',
         'Vitared.view.home.AutoCompleteTpl'
     ],
 

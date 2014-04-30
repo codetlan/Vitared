@@ -294,6 +294,7 @@ Ext.define('Vitared.controller.phone.Main', {
         });
         store.data.sort('orden', 'ASC');
         store.data.sort('categoria', 'ASC');
+
     },
 
     onActiveTab: function (t, value, oldValue, eOpts) {

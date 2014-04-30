@@ -51,12 +51,18 @@ Ext.define('Vitared.model.Pharmacy', {
             {
                 name: 'latitud',
                 type: 'string',
-                mapping: 'medico.lat'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
             },
             {
                 name: 'longitud',
                 type: 'string',
-                mapping: 'medico.long'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
             },
             {
                 name: 'numero_telefono',
