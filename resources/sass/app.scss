@@ -1662,9 +1662,8 @@ and (max-width : 230px) {
   background-repeat: no-repeat !important;
 }
 
-.x-tab{
+.x-tab:first{
   padding-left: 50px;
   padding-right: 65px;
-  border-right: solid #064b88;
-  border-right-width: thick;
+  border-right: 1px solid #064b88
 }
