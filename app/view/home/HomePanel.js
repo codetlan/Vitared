@@ -21,7 +21,7 @@ Ext.define('Vitared.view.home.HomePanel', {
         tabBarPosition: 'bottom',
         items: [
             {
-                title: 'Medicos',
+                title: 'Médicos',
                 iconCls: 'fa fa-stethoscope',
                 layout: 'fit',
                 items: [
@@ -34,7 +34,6 @@ Ext.define('Vitared.view.home.HomePanel', {
                 title: 'Proveedores',
                 iconCls: 'fa fa-medkit',
                 layout: 'fit',
-                itemId: 'didier',
                 items: [
                     {
                         xtype: 'hospitalnavigation'
