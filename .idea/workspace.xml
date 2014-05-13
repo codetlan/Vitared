@@ -254,19 +254,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HomePanel.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HomePanel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="26" selection-start="664" selection-end="664" vertical-scroll-proportion="0.27272728">
+            <state line="23" column="26" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1666" column="22" selection-start="74539" selection-end="74539" vertical-scroll-proportion="-17.88">
+            <state line="1670" column="0" selection-start="74602" selection-end="74602" vertical-scroll-proportion="0.8336414">
               <folding />
             </state>
           </provider>
@@ -376,8 +376,8 @@
         <option value="$PROJECT_DIR$/app/model/Other.js" />
         <option value="$PROJECT_DIR$/app/model/Pharmacy.js" />
         <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/app/view/home/HomePanel.js" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
       </list>
     </option>
   </component>
@@ -927,16 +927,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+    <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1666" column="22" selection-start="74539" selection-end="74539" vertical-scroll-proportion="-17.88">
+        <state line="23" column="26" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="26" selection-start="664" selection-end="664" vertical-scroll-proportion="0.27272728">
+        <state line="1670" column="0" selection-start="74602" selection-end="74602" vertical-scroll-proportion="0.8336414">
           <folding />
         </state>
       </provider>
