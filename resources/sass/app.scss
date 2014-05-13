@@ -1595,14 +1595,14 @@ and (max-width : 230px) {
 .medicos{
   background-image: url('../images/iconos_menu_vitared-11.png');
   height: 100% !important;
-  width: 100% !important;
+  width: 3.7em !important;
   background-repeat: no-repeat !important;
 }
 
 .hospitales{
   background-image: url('../images/iconos_menu_vitared-12.png');
   height: 100% !important;
-  width: 100% !important;
+  width: 3.7em !important;
   background-repeat: no-repeat !important;
 }
 
@@ -1630,14 +1630,14 @@ and (max-width : 230px) {
 .medicos-not-active{
   background-image: url('../images/iconos_menu_vitared-16.png');
   height: 100% !important;
-  width: 100% !important;
+  width: 3.7em !important;
   background-repeat: no-repeat !important;
 }
 
 .hospitales-not-active{
   background-image: url('../images/iconos_menu_vitared-17.png');
   height: 100% !important;
-  width: 100% !important;
+  width: 3.7em !important;
   background-repeat: no-repeat !important;
 }
 
@@ -1660,4 +1660,15 @@ and (max-width : 230px) {
   height: 100% !important;
   width: 100% !important;
   background-repeat: no-repeat !important;
+}
+
+.x-tab{
+  padding-left: 50px;
+  padding-right: 65px;
+  border-right: solid #064b88;
+  border-right-width: thick;
+}
+
+#didier{
+  border-right: #ffffff;
 }

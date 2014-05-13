@@ -21,6 +21,27 @@ Ext.define('Vitared.view.home.HomePanel', {
         tabBarPosition: 'bottom',
         items: [
             {
+                title: 'Medicos',
+                iconCls: 'fa fa-stethoscope',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'medicnavigation'
+                    }
+                ]
+            },
+            {
+                title: 'Proveedores',
+                iconCls: 'fa fa-medkit',
+                layout: 'fit',
+                itemId: 'didier',
+                items: [
+                    {
+                        xtype: 'hospitalnavigation'
+                    }
+                ]
+            }
+            /*{
                 title: 'medicos',
                 iconCls: 'medicos',
                 layout: 'fit',
@@ -69,7 +90,7 @@ Ext.define('Vitared.view.home.HomePanel', {
                         xtype: 'othernavigation'
                     }
                 ]
-            }
+            }*/
         ]
     }
 });
