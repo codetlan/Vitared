@@ -76816,10 +76816,15 @@ Ext.define('Vitared.view.home.HomePanel', {
 
     config: {
         tabBarPosition: 'bottom',
+        tabBar:{
+            style: {
+                //'background': '#064b88'
+            }
+        },
         items: [
             {
                 title: 'Médicos',
-                iconCls: 'fa fa-stethoscope',
+                iconCls: 'fa fa-stethoscope boton-medico',
                 layout: 'fit',
                 items: [
                     {
@@ -76829,7 +76834,7 @@ Ext.define('Vitared.view.home.HomePanel', {
             },
             {
                 title: 'Proveedores',
-                iconCls: 'fa fa-medkit',
+                iconCls: 'fa fa-medkit boton-medico',
                 layout: 'fit',
                 items: [
                     {
@@ -77254,7 +77259,7 @@ Ext.define('Vitared.controller.phone.Main', {
         if (me.searchList) {
             me.searchList.hide();
         }
-        switch (store) {
+        /*switch (store) {
             case 'Hospitals':
                 tipo = 'Hospital';
                 item.getAt(0).setIconCls('medicos-not-active');
@@ -77264,7 +77269,7 @@ Ext.define('Vitared.controller.phone.Main', {
                 item.getAt(0).setIconCls('medicos');
                 item.getAt(1).setIconCls('hospitales-not-active');
 
-        }
+        }*/
         Ext.getStore(store).resetCurrentPage();
         me.onLoadStores(store, search, geo, tipo);
     },

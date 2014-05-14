@@ -307,7 +307,7 @@ Ext.define('Vitared.controller.phone.Main', {
         if (me.searchList) {
             me.searchList.hide();
         }
-        switch (store) {
+        /*switch (store) {
             case 'Hospitals':
                 tipo = 'Hospital';
                 item.getAt(0).setIconCls('medicos-not-active');
@@ -317,7 +317,7 @@ Ext.define('Vitared.controller.phone.Main', {
                 item.getAt(0).setIconCls('medicos');
                 item.getAt(1).setIconCls('hospitales-not-active');
 
-        }
+        }*/
         Ext.getStore(store).resetCurrentPage();
         me.onLoadStores(store, search, geo, tipo);
     },

@@ -19,10 +19,15 @@ Ext.define('Vitared.view.home.HomePanel', {
 
     config: {
         tabBarPosition: 'bottom',
+        tabBar:{
+            style: {
+                //'background': '#064b88'
+            }
+        },
         items: [
             {
                 title: 'Médicos',
-                iconCls: 'fa fa-stethoscope',
+                iconCls: 'fa fa-stethoscope boton-medico',
                 layout: 'fit',
                 items: [
                     {
@@ -32,7 +37,7 @@ Ext.define('Vitared.view.home.HomePanel', {
             },
             {
                 title: 'Proveedores',
-                iconCls: 'fa fa-medkit',
+                iconCls: 'fa fa-medkit boton-medico',
                 layout: 'fit',
                 items: [
                     {
