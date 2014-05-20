@@ -93,7 +93,7 @@ Ext.define('Vitared.model.Hospital', {
                 type: 'int',
                 mapping: 'medico.consultorios',
                 convert: function(consultorios){
-                    return consultorios[0].consultorio.paquete_weight;
+                    return consultorios[0].consultorio.tipo;
                 }
             },
             {

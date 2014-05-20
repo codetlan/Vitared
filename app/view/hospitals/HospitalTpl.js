@@ -36,7 +36,7 @@ Ext.define('Vitared.view.hospitals.HospitalTpl', {
                 '</div><!-- resultado -->',
             {
                 validateDestacado: function (destacado) {
-                    if (destacado != 3) {
+                    if (destacado != 1) {
                         return false;
                     } else {
                         return true;
