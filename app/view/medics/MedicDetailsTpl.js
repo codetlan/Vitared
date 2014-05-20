@@ -103,7 +103,7 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validateUniversidad(universidad_de_egreso) == true">' +
-            '<h6>Universidad de Ingreso</h6>' +
+            '<h6>Universidad de Egreso</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{universidad_de_egreso}</p>' +

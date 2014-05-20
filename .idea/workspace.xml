@@ -36,7 +36,7 @@
     <file path="/HospitalTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398192295485" ignored="false" />
     <file path="/PharmacyTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396856169672" ignored="false" />
     <file path="/LaboratoryTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396856133630" ignored="false" />
-    <file path="/MedicDetailsTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396995178762" ignored="false" />
+    <file path="/MedicDetailsTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400562023063" ignored="false" />
     <file path="$USER_HOME$/Documents/Mobile/vitared/vitared/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382087271779" ignored="false" />
     <file path="$USER_HOME$/Documents/Mobile/vitared/vitared/package.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382053170880" ignored="false" />
     <file path="/package.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382085282824" ignored="false" />
@@ -254,28 +254,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HomePanel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="51" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1665" column="20" selection-start="74515" selection-end="74515" vertical-scroll-proportion="-16.8">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="535" column="48" selection-start="19048" selection-end="19052" vertical-scroll-proportion="0.33215547">
+            <state line="535" column="48" selection-start="19048" selection-end="19052" vertical-scroll-proportion="-7.230769">
               <folding />
             </state>
           </provider>
@@ -344,6 +326,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MedicsDetails.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store/MedicsDetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="38" selection-start="4981" selection-end="4981" vertical-scroll-proportion="0.38006756">
+              <folding>
+                <marker date="1400562025000" expanded="false" signature="2394:2407" placeholder="..." />
+                <marker date="1400562025000" expanded="false" signature="3880:3893" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -362,7 +365,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/view/pharmacies/PharmacyTpl.js" />
         <option value="$PROJECT_DIR$/app/model/Medic.js" />
         <option value="$PROJECT_DIR$/app/model/MedicDetails.js" />
         <option value="$PROJECT_DIR$/app/store/Searchs.js" />
@@ -378,6 +380,7 @@
         <option value="$PROJECT_DIR$/app/view/medics/MedicTpl.js" />
         <option value="$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js" />
         <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
+        <option value="$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js" />
       </list>
     </option>
   </component>
@@ -869,20 +872,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packager.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="32" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0">
@@ -932,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/MedicDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="31" selection-start="449" selection-end="449" vertical-scroll-proportion="-9.961538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/store/Searchs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="64" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
@@ -976,8 +958,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="535" column="48" selection-start="19048" selection-end="19052" vertical-scroll-proportion="0.33215547">
+        <state line="535" column="48" selection-start="19048" selection-end="19052" vertical-scroll-proportion="-7.230769">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/MedicDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="31" selection-start="449" selection-end="449" vertical-scroll-proportion="-9.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/MedicsDetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="38" selection-start="4981" selection-end="4981" vertical-scroll-proportion="0.38006756">
+          <folding>
+            <marker date="1400562025000" expanded="false" signature="2394:2407" placeholder="..." />
+            <marker date="1400562025000" expanded="false" signature="3880:3893" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
