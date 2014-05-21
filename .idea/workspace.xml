@@ -85,7 +85,7 @@
     <file path="/Search.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400561275815" ignored="false" />
     <file path="/Searchs.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396861873108" ignored="false" />
     <file path="$PROJECT_DIR$/../trinus/app/view/principal/Panel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1384148418774" ignored="false" />
-    <file path="/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400699772796" ignored="false" />
+    <file path="/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703870928" ignored="false" />
     <file path="/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1385772115814" ignored="false" />
     <file path="/SearchField.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386828848212" ignored="false" />
     <file path="/app.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396997648834" ignored="false" />
@@ -194,9 +194,9 @@
     <file path="/PartidaContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399628730064" ignored="false" />
     <file path="/MenuHome.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397775547642" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/68dcfc61e7f3c008665e0b085b2554e4abde4c42.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400700123037" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703974802" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5e26afbcc9c4168aa462cbe3c2a9989e69d67240.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400699793325" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703871760" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/2bbcb129dc9147151dd4b9d825c5ba0db3552b20.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0e2edd939c90217eaafc22ea7d070fea78b69bd4.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/039efc33f88503bbaf80b5a043493f6187192389.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
@@ -275,7 +275,7 @@
       <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="54" selection-start="9558" selection-end="9558" vertical-scroll-proportion="1.5799649">
+            <state line="197" column="17" selection-start="8189" selection-end="8189" vertical-scroll-proportion="0.5782074">
               <folding>
                 <marker date="1400701065000" expanded="false" signature="2394:2407" placeholder="..." />
                 <marker date="1400701065000" expanded="false" signature="3880:3893" placeholder="..." />
@@ -1035,7 +1035,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="54" selection-start="9558" selection-end="9558" vertical-scroll-proportion="1.5799649">
+        <state line="197" column="17" selection-start="8189" selection-end="8189" vertical-scroll-proportion="0.5782074">
           <folding>
             <marker date="1400701065000" expanded="false" signature="2394:2407" placeholder="..." />
             <marker date="1400701065000" expanded="false" signature="3880:3893" placeholder="..." />
