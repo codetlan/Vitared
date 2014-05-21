@@ -272,10 +272,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="54" selection-start="9558" selection-end="9558" vertical-scroll-proportion="0.0">
+            <state line="235" column="54" selection-start="9558" selection-end="9558" vertical-scroll-proportion="1.5799649">
               <folding>
                 <marker date="1400701065000" expanded="false" signature="2394:2407" placeholder="..." />
                 <marker date="1400701065000" expanded="false" signature="3880:3893" placeholder="..." />
@@ -284,10 +284,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OtherTpl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OtherTpl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="51" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.45876288">
+            <state line="36" column="13" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1026,20 +1026,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="13" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="54" selection-start="9558" selection-end="9558" vertical-scroll-proportion="0.0">
+        <state line="235" column="54" selection-start="9558" selection-end="9558" vertical-scroll-proportion="1.5799649">
           <folding>
             <marker date="1400701065000" expanded="false" signature="2394:2407" placeholder="..." />
             <marker date="1400701065000" expanded="false" signature="3880:3893" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="51" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.45876288">
-          <folding />
         </state>
       </provider>
     </entry>
