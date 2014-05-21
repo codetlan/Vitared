@@ -75027,7 +75027,7 @@ Ext.define('Vitared.model.Hospital', {
                 type: 'int',
                 mapping: 'medico.consultorios',
                 convert: function(consultorios){
-                    return consultorios[0].consultorio.paquete_weight;
+                    return consultorios[0].consultorio.tipo;
                 }
             },
             {
@@ -75527,7 +75527,7 @@ Ext.define('Vitared.model.Search', {
                 type: 'int',
                 mapping: 'medico.consultorios',
                 convert: function(consultorios){
-                    return consultorios[0].consultorio.paquete_weight;
+                    return consultorios[0].consultorio.tipo;
                 }
             },
             {
@@ -75917,7 +75917,7 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validateUniversidad(universidad_de_egreso) == true">' +
-            '<h6>Universidad de Ingreso</h6>' +
+            '<h6>Universidad de Egreso</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{universidad_de_egreso}</p>' +
@@ -75970,84 +75970,84 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '<div class="clear:both"></div>',
         {
             validateWeb: function (web) {
-                if (web !== '') {
+                if (!Ext.isEmpty(web)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateTwitter: function (twitter) {
-                if (twitter !== '') {
+                if (!Ext.isEmpty(twitter)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateFacebook: function (facebook){
-                if (facebook !== '') {
+                if (!Ext.isEmpty(facebook)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateMail: function (email){
-                if (email !== '') {
+                if (!Ext.isEmpty(email)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validatePromociones: function (promociones){
-                if (promociones !== '') {
+                if (!Ext.isEmpty(promociones)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validatePublicaciones: function (publicaciones){
-                if (publicaciones !== '') {
+                if (!Ext.isEmpty(publicaciones)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateImagenPublicacion: function (imagen_publicacion){
-                if (imagen_publicacion !== '') {
+                if (!Ext.isEmpty(imagen_publicacion)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateCedula: function (cedula_profesional){
-                if (cedula_profesional !== '') {
+                if (!Ext.isEmpty(cedula_profesional)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateUniversidad: function (universidad_de_egreso){
-                if (universidad_de_egreso !== '') {
+                if (!Ext.isEmpty(universidad_de_egreso)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validatePractica: function(antecedentes_de_practica){
-                if (antecedentes_de_practica !== '') {
+                if (!Ext.isEmpty(antecedentes_de_practica)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateResena: function(resena_de_servicios){
-                if (resena_de_servicios !== '') {
+                if (!Ext.isEmpty(resena_de_servicios)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateServicios: function(listado_de_servicios){
-                if (listado_de_servicios !== '') {
+                if (!Ext.isEmpty(listado_de_servicios)) {
                     return true;
                 } else {
                     return false;
@@ -76189,7 +76189,7 @@ Ext.define('Vitared.view.medics.MedicTpl', {
             '</div><!-- resultado -->',
             {
                 validateDestacado: function (destacado) {
-                    if (destacado != 3) {
+                    if (destacado != 1) {
                         return false;
                     } else {
                         return true;
@@ -76310,7 +76310,7 @@ Ext.define('Vitared.view.hospitals.HospitalTpl', {
                 '</div><!-- resultado -->',
             {
                 validateDestacado: function (destacado) {
-                    if (destacado != 3) {
+                    if (destacado != 1) {
                         return false;
                     } else {
                         return true;
