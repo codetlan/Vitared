@@ -37,7 +37,14 @@ Ext.define('Vitared.view.hospitals.HospitalNavigation', {
                 scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }*/
+                }*/,
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]
             },
             {
                 xtype: 'container',
