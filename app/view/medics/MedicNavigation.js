@@ -33,7 +33,14 @@ Ext.define('Vitared.view.medics.MedicNavigation', {
                 itemTpl: Ext.create('Vitared.view.medics.MedicTpl'),
                 flex: 3,
                 store: 'Searchs',
-                scope: this/*,
+                scope: this,
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
                 }*/

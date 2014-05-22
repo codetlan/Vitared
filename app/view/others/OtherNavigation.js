@@ -34,7 +34,14 @@ Ext.define('Vitared.view.others.OtherNavigation', {
                 },
                 loadingText: 'Cargando...',
                 emptyText: 'No hay Otros ...',
-                scope: this/*,
+                scope: this,
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
                 }*/
