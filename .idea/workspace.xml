@@ -304,10 +304,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="30" selection-start="308" selection-end="308" vertical-scroll-proportion="0.2787162">
+            <state line="11" column="30" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -316,9 +316,20 @@
       <file leaf-file-name="OtherNavigation.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/others/OtherNavigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="17" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0">
+            <state line="37" column="16" selection-start="1052" selection-end="1261" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1400725358000" expanded="false" signature="1772:1798" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HospitalNavigation.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.3954306">
+              <folding>
+                <marker date="1400725557000" expanded="false" signature="1827:1853" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -342,19 +353,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuHome.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/home/MenuHome.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1397775905000" expanded="false" signature="394:432" placeholder="..." />
-                <marker date="1397775905000" expanded="false" signature="739:777" placeholder="..." />
-                <marker date="1397775905000" expanded="false" signature="1084:1122" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -373,7 +371,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/store/Searchs.js" />
         <option value="$PROJECT_DIR$/app/view/Main.js" />
         <option value="$PROJECT_DIR$/app/model/Laboratory.js" />
         <option value="$PROJECT_DIR$/app/model/Other.js" />
@@ -389,6 +386,7 @@
         <option value="$PROJECT_DIR$/app/view/others/OtherNavigation.js" />
         <option value="$PROJECT_DIR$/app/view/medics/MedicNavigation.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js" />
       </list>
     </option>
   </component>
@@ -832,13 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="60" selection-start="1360" selection-end="1403" vertical-scroll-proportion="0.0">
@@ -864,9 +855,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1397775905000" expanded="false" signature="394:432" placeholder="..." />
-            <marker date="1397775905000" expanded="false" signature="739:777" placeholder="..." />
-            <marker date="1397775905000" expanded="false" signature="1084:1122" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -902,15 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/others/OtherNavigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="17" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1400725358000" expanded="false" signature="1772:1798" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/medics/MedicNavigation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="17" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
@@ -936,8 +918,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="30" selection-start="308" selection-end="308" vertical-scroll-proportion="0.2787162">
+        <state line="11" column="30" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/others/OtherNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="16" selection-start="1052" selection-end="1261" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1400725358000" expanded="false" signature="1772:1798" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.3954306">
+          <folding>
+            <marker date="1400725557000" expanded="false" signature="1827:1853" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

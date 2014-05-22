@@ -34,7 +34,15 @@ Ext.define('Vitared.view.hospitals.HospitalNavigation', {
                 },
                 loadingText: 'Cargando...',
                 emptyText: 'No hay Hospitales ...',
-                scope: this/*,
+                scope: this,
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]
+                /*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
                 }*/
