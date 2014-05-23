@@ -1,25 +1,48 @@
+/**
+ * @class Vitared.view.hospitals.HospitalTpl
+ * @extends Ext.XTemplate
+ * Template for displaying hospitals
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.view.hospitals.HospitalTpl', {
     extend: 'Ext.XTemplate',
     constructor: function () {
         var html;
         html = [
-            '<img src="./resources/images/hospital.png" width="70" height="70" style="float: left; clear: left; margin: 0 20px 0 0">',
-            '{name}<br><div style="font-size: 16px;">{specialist}</div>',
-            '<tpl switch="ranking">',
-            '<tpl case="0">',
-            '<br>',
-            '<tpl case="1">',
-            '<img src="./resources/images/star.png">',
-            '<tpl case="2">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '<tpl case="3">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '<tpl case="4">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '<tpl case="5">',
-            '<img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png"><img src="./resources/images/star.png">',
-            '</tpl>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '<tpl else>',
+            '<div class="resultados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
+                '<div class="info">' +
+                '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
+                '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+                '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
         this.callParent(html);
     }
 });

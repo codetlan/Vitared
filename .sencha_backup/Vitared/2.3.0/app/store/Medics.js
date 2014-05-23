@@ -1,3 +1,10 @@
+/**
+ * @class Vitared.store.Medics
+ * @extends Ext.data.Store
+ * This is the store to handle the medics
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.store.Medics', {
     extend: 'Ext.data.Store',
     requires: [
@@ -6,78 +13,48 @@ Ext.define('Vitared.store.Medics', {
 
     config: {
         model: 'Vitared.model.Medic',
-        data: [
-            {
-                name: "Dr. Arturo Ornelas",
-                specialist: "Pedagogo",
-                ranking: 5,
-                url: 'www.codetlan.com',
-                facebook: 'https://www.facebook.com/Codetlan',
-                twitter: 'https://twitter.com/Codetlan',
-                contact: [
-                    {
-                        type: 'Consultorio', address: 'Av. de las Americas #45'
-                    },
-                    {
-                        type: 'Hospital Hidalgo', address: 'Av. Hidalgo #2630'
-                    }
-                ]
-            },
-            {
-                name: "Dr. Dario Méndez",
-                specialist: "Oftalmologo",
-                ranking: 4,
-                url: 'www.google.com',
-                facebook: 'https://www.facebook.com/Waldiix',
-                twitter: 'https://twitter.com/Waldiixx',
-                contact: [
-                    {
-                        type: 'Consultorio', address: 'Av. de las Americas #45'
-                    },
-                    {
-                        type: 'Hospital Hidalgo', address: 'Av. Hidalgo #2630'
-                    }
-                ]
-            },
-            {
-                name: "Dra. Marisol Salazar",
-                specialist: "Medico general",
-                ranking: 3,
-                url: 'www.hallist.com',
-                facebook: 'https://www.facebook.com/WeAreHALLIST',
-                twitter: 'https://twitter.com/hallist',
-                contact: [
-                    {
-                        type: 'Consultorio', address: 'Av. de las Americas #45'
-                    },
-                    {
-                        type: 'Hospital Hidalgo', address: 'Av. Hidalgo #2630'
-                    }
-                ]
-            },
-            {
-                name: "Dr. Eduardo Flores",
-                specialist: "Cardiologo",
-                ranking: 2,
-                url: 'www.google.com',
-                facebook: 'https://www.facebook.com/Senchamx',
-                twitter: 'https://twitter.com/sencha',
-                contact: [
-                    {
-                        type: 'Consultorio', address: 'Av. de las Americas #45'
-                    },
-                    {
-                        type: 'Hospital Hidalgo', address: 'Av. Hidalgo #2630'
-                    }
-                ]
+        proxy: {
+            type: 'drupal',
+            url: 'http://vitared.com.mx/app/consulta/medico/',
+            callbackKey: 'callback',
+            reader: {
+                type: 'json',
+                rootProperty: 'medicos'
             }
-        ]
-        /*proxy: {
-         type: 'drupal',
-         url: 'http://dev-vitared.gotpantheon.com/api/user.jsonp',
-         reader: {
-         type: 'json'
-         }
-         }*/
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
+            }
+        }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });

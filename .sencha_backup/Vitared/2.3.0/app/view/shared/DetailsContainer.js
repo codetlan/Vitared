@@ -1,26 +1,32 @@
-Ext.define('Vitared.view.shared.DetailsContainer',{
+/**
+ * @class Vitared.view.shared.DetailsContainer
+ * @extends Ext.Container
+ * Container of the details
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
+Ext.define('Vitared.view.shared.DetailsContainer', {
     extend: 'Ext.Container',
     xtype: 'detailscontainer',
 
-    requires:['Vitared.view.shared.DetailsType',
-        'Vitared.view.shared.DetailsTpl'],
+    requires: ['Vitared.view.shared.DetailsTpl',
+        'Vitared.view.shared.DetailsType',
+        'Vitared.view.location.MapLocation'],
 
     config: {
         layout: 'vbox',
-        items: [{
-            xtype: 'detailstype',
-            flex: 3
-        },{
-            xtype: 'map',
-            flex: 3,
-            useCurrentLocation: true,
-            mapOptions:{
-                zoom: 15
+        items: [
+            {
+                xtype: 'locationmap',
+                flex: 7
+            },
+            {
+                xtype: 'detailstype',
+                flex: 3,
+                scrollable: {
+                    direction: 'vertical'
+                }
             }
-        },{
-            xtype: 'button',
-            flex: 1,
-            text: '¿Como llegar?'
-        }]
+        ]
     }
 });

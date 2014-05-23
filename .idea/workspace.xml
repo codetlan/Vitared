@@ -4,19 +4,19 @@
     <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400560989602" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400729504294" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
     <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
     <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
-    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400725278175" ignored="false" />
+    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400873816152" ignored="false" />
     <file path="$PROJECT_DIR$/../example6/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380749792045" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750822253" ignored="false" />
-    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399623959213" ignored="false" />
+    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400873339790" ignored="false" />
     <file path="/NavigationMenu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380779117974" ignored="false" />
     <file path="/MedicNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396760754130" ignored="false" />
     <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400048622198" ignored="false" />
@@ -85,7 +85,7 @@
     <file path="/Search.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400561275815" ignored="false" />
     <file path="/Searchs.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396861873108" ignored="false" />
     <file path="$PROJECT_DIR$/../trinus/app/view/principal/Panel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1384148418774" ignored="false" />
-    <file path="/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703870928" ignored="false" />
+    <file path="/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400732146058" ignored="false" />
     <file path="/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1385772115814" ignored="false" />
     <file path="/SearchField.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386828848212" ignored="false" />
     <file path="/app.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396997648834" ignored="false" />
@@ -110,7 +110,7 @@
     <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951222373" ignored="false" />
     <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/app.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951168855" ignored="false" />
     <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/packager.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951188577" ignored="false" />
-    <file path="/packager.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951086194" ignored="false" />
+    <file path="/packager.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400740410342" ignored="false" />
     <file path="$USER_HOME$/Documents/elixir/elixir-4/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394058208775" ignored="false" />
     <file path="/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396159768560" ignored="false" />
     <file path="$USER_HOME$/Documents/elixir/elixir-4/post.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394058581051" ignored="false" />
@@ -137,9 +137,9 @@
     <file path="$PROJECT_DIR$/../imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400095984399" ignored="false" />
     <file path="/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399619550202" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/menu/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399619673077" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399624181199" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399918929542" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399917256657" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400734079245" ignored="false" />
     <file path="/LocationForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396853268109" ignored="false" />
     <file path="/State.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395568985635" ignored="false" />
     <file path="/City.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396852536094" ignored="false" />
@@ -159,11 +159,11 @@
     <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398370895463" ignored="false" />
     <file path="/ProductosList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997174009" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/menu/MenuList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996240285" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/store/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997352952" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/model/Producto.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399917297959" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399919923599" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400737798806" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Producto.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400737938596" ignored="false" />
     <file path="/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996991680" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/store/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399919805612" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400733879715" ignored="false" />
     <file path="/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399918885782" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/model/Cliente.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399919624374" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/clientes/ClientesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399919727019" ignored="false" />
@@ -177,26 +177,26 @@
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400700123037" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397667915422" ignored="false" />
     <file path="/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397668426848" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399652308794" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/form/clientes/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399652818294" ignored="false" />
     <file path="/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398325723385" ignored="false" />
     <file path="/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397672492345" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/clientes/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398370960061" ignored="false" />
     <file path="/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398314723199" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Favoritos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397674453971" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/model/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399917293232" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400737798806" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397676196402" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OrdenList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400699745296" ignored="false" />
-    <file path="/OrdenList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400699742187" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OrdenList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400735691367" ignored="false" />
+    <file path="/OrdenList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400734499744" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/ventas/PartidaContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399649848496" ignored="false" />
     <file path="/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397675242619" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/store/Ordenes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397676622672" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Ordenes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400727507385" ignored="false" />
     <file path="/PartidaContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399628730064" ignored="false" />
     <file path="/MenuHome.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397775547642" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/68dcfc61e7f3c008665e0b085b2554e4abde4c42.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703974802" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5e26afbcc9c4168aa462cbe3c2a9989e69d67240.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703871760" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400739394383" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/2bbcb129dc9147151dd4b9d825c5ba0db3552b20.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0e2edd939c90217eaafc22ea7d070fea78b69bd4.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/039efc33f88503bbaf80b5a043493f6187192389.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
@@ -217,7 +217,7 @@
     <file path="/OrdenContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399629363506" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/favoritos/SeleccionadorProFav.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398371193027" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/bootstrap.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398370895463" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/NavigationOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399624222822" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/NavigationOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
     <file path="/NavigationOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399623379450" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399628182551" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/view/ventas/DireccionesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399626063033" ignored="false" />
@@ -229,7 +229,11 @@
     <file path="$PROJECT_DIR$/../imobile/.sencha_backup/Imobile/2.3.0/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399913167785" ignored="false" />
     <file path="/ProductosView.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399913202371" ignored="false" />
     <file path="$PROJECT_DIR$/../imobile/app/store/Direcciones.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399917051683" ignored="false" />
-    <file path="$PROJECT_DIR$/../imobile/app/model/Direccion.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399917034095" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Direccion.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400733827718" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Monedas.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400727483421" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/tablet/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726204556" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/testing/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400735302543" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/form/login/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400733827718" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,42 +258,168 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Search.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/model/Search.js">
+      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="30" selection-start="2231" selection-end="2238" vertical-scroll-proportion="0.0">
+            <state line="154" column="71" selection-start="5387" selection-end="5409" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
+      <file leaf-file-name="app.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="17" selection-start="8189" selection-end="8189" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bootstrap.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1400704280000" expanded="false" signature="2394:2407" placeholder="..." />
-                <marker date="1400704280000" expanded="false" signature="3880:3893" placeholder="..." />
+                <marker date="1400873717000" expanded="true" signature="447:23002" placeholder="{...}" />
+                <marker date="1400873717000" expanded="true" signature="26666:26706" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="26734:26773" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="26809:26850" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="26913:26948" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27044:27082" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27112:27153" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27202:27246" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27291:27297" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27404:27435" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27484:27491" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27672:27722" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27782:27786" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27844:27857" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="27925:27972" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28030:28042" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28092:28132" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28325:28385" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28429:28461" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28558:28584" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28690:28702" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28928:28945" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="28994:28999" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29104:29143" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29210:29214" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29277:29281" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29343:29346" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29406:29422" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29509:29522" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29572:29613" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29648:29662" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29691:29727" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29769:29779" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29820:29825" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29884:29890" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="29992:29994" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30062:30072" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30114:30133" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30235:30276" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30320:30328" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30368:30383" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30498:30513" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30561:30563" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30606:30614" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30675:30697" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="30749:30755" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="34458:34510" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="34574:34629" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="34702:34750" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="34851:34883" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="34924:34940" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="34990:34999" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="35060:35092" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="35146:35153" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="35250:35269" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="35479:35510" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="35825:35861" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="35953:36007" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36097:36135" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36225:36241" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36367:36385" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36422:36476" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36646:36649" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36709:36718" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="36830:36834" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="37732:37797" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="37861:37915" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="37981:38030" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38082:38144" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38188:38202" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38247:38264" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38320:38338" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38380:38390" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38431:38437" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38478:38487" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38535:38542" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38584:38596" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38638:38643" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38686:38697" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38742:38755" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38798:38807" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38848:38861" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38906:38915" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="38965:38969" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39013:39025" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39063:39075" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39121:39133" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39181:39196" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39322:39345" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39374:39400" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39453:39472" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39518:39558" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39602:39635" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39684:39695" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39744:39774" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39807:39828" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="39967:39991" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40020:40054" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40082:40124" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40444:40483" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40540:40547" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40606:40609" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40668:40671" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="40853:40859" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41018:41074" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41097:41138" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41164:41240" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41294:41328" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41371:41378" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41415:41427" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41464:41472" placeholder="[...]" />
+                <marker date="1400873717000" expanded="true" signature="41512:41516" placeholder="[...]" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MedicNavigation.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/medics/MedicNavigation.js">
+      <file leaf-file-name="bootstrap.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bootstrap.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="17" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1400725358000" expanded="false" signature="1741:1767" placeholder="..." />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+      <file leaf-file-name="packager.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packager.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="535" column="48" selection-start="19048" selection-end="19052" vertical-scroll-proportion="0.0">
+            <state line="138" column="91" selection-start="4362" selection-end="4362" vertical-scroll-proportion="0.28733033">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Medic.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="14" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -298,7 +428,7 @@
       <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="10" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -307,7 +437,7 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="30" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
+            <state line="23" column="31" selection-start="889" selection-end="889" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -324,31 +454,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HospitalNavigation.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HospitalNavigation.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.3954306">
+            <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1400725557000" expanded="false" signature="1827:1853" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OtherTpl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="13" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Suppliers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/store/Suppliers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -371,8 +483,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/view/Main.js" />
-        <option value="$PROJECT_DIR$/app/model/Laboratory.js" />
         <option value="$PROJECT_DIR$/app/model/Other.js" />
         <option value="$PROJECT_DIR$/app/model/Pharmacy.js" />
         <option value="$PROJECT_DIR$/app/view/home/HomePanel.js" />
@@ -385,16 +495,18 @@
         <option value="$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js" />
         <option value="$PROJECT_DIR$/app/view/others/OtherNavigation.js" />
         <option value="$PROJECT_DIR$/app/view/medics/MedicNavigation.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js" />
+        <option value="$PROJECT_DIR$/app/view/Main.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/packager.json" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1280" />
-    <option name="height" value="774" />
+    <option name="width" value="1915" />
+    <option name="height" value="1054" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -422,7 +534,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -597,24 +708,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -661,6 +754,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -675,18 +769,18 @@
     <property name="options.lastSelected" value="vcs.Git" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/elixir/Elixir-5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../imobile" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="105" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="101" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -731,14 +825,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
+    <frame x="0" y="22" width="1915" height="1054" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31837606" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39465153" sideWeight="0.97950375" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19796683" sideWeight="0.68162394" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -747,7 +842,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31859756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -816,79 +910,32 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/store/MedicsDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/home/AutoCompleteList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="60" selection-start="1360" selection-end="1403" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="14" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="51" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/home/MenuHome.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/store/Suppliers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="30" selection-start="2231" selection-end="2238" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="80" column="30" selection-start="2231" selection-end="2238" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="13" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="36" column="13" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="197" column="17" selection-start="8189" selection-end="8189" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1400704280000" expanded="false" signature="2394:2407" placeholder="..." />
-            <marker date="1400704280000" expanded="false" signature="3880:3893" placeholder="..." />
+            <marker date="1400704280000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1400704280000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -897,28 +944,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="17" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1400725358000" expanded="false" signature="1741:1767" placeholder="..." />
+            <marker date="1400725358000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+    <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="535" column="48" selection-start="19048" selection-end="19052" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="30" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
+        <state line="20" column="14" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -934,10 +967,172 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.3954306">
+        <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1400725557000" expanded="false" signature="1827:1853" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1400873717000" expanded="true" signature="447:23002" placeholder="{...}" />
+            <marker date="1400873717000" expanded="true" signature="26666:26706" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="26734:26773" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="26809:26850" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="26913:26948" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27044:27082" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27112:27153" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27202:27246" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27291:27297" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27404:27435" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27484:27491" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27672:27722" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27782:27786" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27844:27857" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="27925:27972" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28030:28042" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28092:28132" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28325:28385" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28429:28461" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28558:28584" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28690:28702" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28928:28945" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="28994:28999" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29104:29143" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29210:29214" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29277:29281" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29343:29346" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29406:29422" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29509:29522" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29572:29613" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29648:29662" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29691:29727" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29769:29779" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29820:29825" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29884:29890" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="29992:29994" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30062:30072" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30114:30133" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30235:30276" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30320:30328" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30368:30383" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30498:30513" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30561:30563" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30606:30614" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30675:30697" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="30749:30755" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="34458:34510" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="34574:34629" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="34702:34750" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="34851:34883" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="34924:34940" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="34990:34999" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="35060:35092" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="35146:35153" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="35250:35269" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="35479:35510" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="35825:35861" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="35953:36007" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36097:36135" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36225:36241" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36367:36385" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36422:36476" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36646:36649" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36709:36718" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="36830:36834" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="37732:37797" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="37861:37915" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="37981:38030" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38082:38144" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38188:38202" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38247:38264" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38320:38338" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38380:38390" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38431:38437" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38478:38487" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38535:38542" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38584:38596" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38638:38643" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38686:38697" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38742:38755" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38798:38807" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38848:38861" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38906:38915" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="38965:38969" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39013:39025" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39063:39075" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39121:39133" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39181:39196" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39322:39345" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39374:39400" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39453:39472" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39518:39558" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39602:39635" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39684:39695" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39744:39774" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39807:39828" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="39967:39991" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40020:40054" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40082:40124" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40444:40483" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40540:40547" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40606:40609" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40668:40671" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="40853:40859" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41018:41074" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41097:41138" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41164:41240" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41294:41328" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41371:41378" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41415:41427" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41464:41472" placeholder="[...]" />
+            <marker date="1400873717000" expanded="true" signature="41512:41516" placeholder="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="71" selection-start="5387" selection-end="5409" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="31" selection-start="889" selection-end="889" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packager.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="91" selection-start="4362" selection-end="4362" vertical-scroll-proportion="0.28733033">
+          <folding />
         </state>
       </provider>
     </entry>

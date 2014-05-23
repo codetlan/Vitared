@@ -1,68 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/view/shared/DetailsContainer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/view/shared/DetailsTpl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/view/shared/DetailsType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Hospital.js" afterPath="$PROJECT_DIR$/app/model/Hospital.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js" afterPath="$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/Hospitals.js" afterPath="$PROJECT_DIR$/app/store/Hospitals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/Laboratories.js" afterPath="$PROJECT_DIR$/app/store/Laboratories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Laboratory.js" afterPath="$PROJECT_DIR$/app/model/Laboratory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/laboratories/LaboratoryNavigation.js" afterPath="$PROJECT_DIR$/app/view/laboratories/LaboratoryNavigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/phone/Main.js" afterPath="$PROJECT_DIR$/app/controller/phone/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/phone/Main.js" afterPath="$PROJECT_DIR$/app/view/phone/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/location/MapLocation.js" afterPath="$PROJECT_DIR$/app/view/location/MapLocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Medic.js" afterPath="$PROJECT_DIR$/app/model/Medic.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js" afterPath="$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/medics/MedicNavigation.js" afterPath="$PROJECT_DIR$/app/view/medics/MedicNavigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/Medics.js" afterPath="$PROJECT_DIR$/app/store/Medics.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/store/Pharmacies.js" afterPath="$PROJECT_DIR$/app/store/Pharmacies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Pharmacy.js" afterPath="$PROJECT_DIR$/app/model/Pharmacy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/pharmacies/PharmacyNavigation.js" afterPath="$PROJECT_DIR$/app/view/pharmacies/PharmacyNavigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Vitared/testing/app.js" afterPath="$PROJECT_DIR$/build/Vitared/testing/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Vitared/testing/index.html" afterPath="$PROJECT_DIR$/build/Vitared/testing/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382678098143" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400729504294" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
-    <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382657423085" ignored="false" />
+    <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
-    <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382580258034" ignored="false" />
+    <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
-    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382560424118" ignored="false" />
+    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400725278175" ignored="false" />
     <file path="$PROJECT_DIR$/../example6/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380749792045" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
     <file path="$PROJECT_DIR$/../example7/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750822253" ignored="false" />
-    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382660078823" ignored="false" />
+    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399623959213" ignored="false" />
     <file path="/NavigationMenu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380779117974" ignored="false" />
-    <file path="/MedicNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381984148272" ignored="false" />
-    <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381357874858" ignored="false" />
+    <file path="/MedicNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396760754130" ignored="false" />
+    <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400048622198" ignored="false" />
     <file path="/medics.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380785664069" ignored="false" />
     <file path="/LaboratoryNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381974208546" ignored="false" />
-    <file path="/HospitalNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382644960346" ignored="false" />
-    <file path="/PharmacyNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381974236642" ignored="false" />
-    <file path="/NavigationHome.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381975464773" ignored="false" />
+    <file path="/HospitalNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1393916053314" ignored="false" />
+    <file path="/PharmacyNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382684429269" ignored="false" />
+    <file path="/NavigationHome.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397000339705" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381608492400" ignored="false" />
-    <file path="/MedicTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381975598173" ignored="false" />
+    <file path="/MedicTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398311882809" ignored="false" />
     <file path="/DiscussionTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381616177240" ignored="false" />
     <file path="$PROJECT_DIR$/../CursameMobile/app/view/discussions/DiscussionTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381616180097" ignored="false" />
-    <file path="/MedicDetails.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381629051879" ignored="false" />
-    <file path="/MapLocation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381795058819" ignored="false" />
-    <file path="/Medics.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382672158705" ignored="false" />
-    <file path="/Medic.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382669690363" ignored="false" />
-    <file path="/HospitalTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381970609612" ignored="false" />
-    <file path="/PharmacyTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381970544553" ignored="false" />
-    <file path="/LaboratoryTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1381970376736" ignored="false" />
-    <file path="/MedicDetailsTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382680962924" ignored="false" />
+    <file path="/MedicDetails.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396313326054" ignored="false" />
+    <file path="/MapLocation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1387179846909" ignored="false" />
+    <file path="/Medics.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396760892174" ignored="false" />
+    <file path="/Medic.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394676316043" ignored="false" />
+    <file path="/HospitalTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398192295485" ignored="false" />
+    <file path="/PharmacyTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396856169672" ignored="false" />
+    <file path="/LaboratoryTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396856133630" ignored="false" />
+    <file path="/MedicDetailsTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400700823711" ignored="false" />
     <file path="$USER_HOME$/Documents/Mobile/vitared/vitared/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382087271779" ignored="false" />
     <file path="$USER_HOME$/Documents/Mobile/vitared/vitared/package.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382053170880" ignored="false" />
     <file path="/package.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382085282824" ignored="false" />
@@ -78,7 +52,7 @@
     <file path="$USER_HOME$/Documents/Mobile/ImageImport_c/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382089325138" ignored="false" />
     <file path="$USER_HOME$/Documents/Mobile/waldo/package.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382090166980" ignored="false" />
     <file path="$USER_HOME$/Documents/Mobile/waldo/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382114381463" ignored="false" />
-    <file path="/DetailsTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382660710897" ignored="false" />
+    <file path="/DetailsTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396850635490" ignored="false" />
     <file path="$USER_HOME$/Documents/KCGrupo/Demo/app/view/todos/TodosGrid.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382574611059" ignored="false" />
     <file path="/TodosGrid.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382574591627" ignored="false" />
     <file path="$USER_HOME$/Documents/KCGrupo/Demo/app/store/Todos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382583773123" ignored="false" />
@@ -93,15 +67,173 @@
     <file path="$USER_HOME$/Documents/KCGrupo/Demo/core/Core.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382581525345" ignored="false" />
     <file path="$USER_HOME$/Documents/KCGrupo/Demo/core/data/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382580401128" ignored="false" />
     <file path="$USER_HOME$/Documents/KCGrupo/Demo/app/view/todos/TodosForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382583691221" ignored="false" />
-    <file path="/TodosForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382583589447" ignored="false" />
+    <file path="/TodosForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747916927" ignored="false" />
     <file path="$USER_HOME$/Documents/KCGrupo/Demo/app/controller/todos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382584412498" ignored="false" />
     <file path="/HospitalDetails.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382636626938" ignored="false" />
-    <file path="/DetailsContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382640994333" ignored="false" />
-    <file path="/Hospital.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382659021449" ignored="false" />
-    <file path="/DetailsType.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382660030493" ignored="false" />
-    <file path="/Hospitals.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382660366689" ignored="false" />
-    <file path="/Drupal.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382671856251" ignored="false" />
+    <file path="/DetailsContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1387788636741" ignored="false" />
+    <file path="/Hospital.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400561237876" ignored="false" />
+    <file path="/DetailsType.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386142503931" ignored="false" />
+    <file path="/Hospitals.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1384038443224" ignored="false" />
+    <file path="/Drupal.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394504366619" ignored="false" />
     <file path="/JsonP.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382672417712" ignored="false" />
+    <file path="$USER_HOME$/Documents/SenchaExtJS4MVCDesktop/packages/pegaso/package.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382744027393" ignored="false" />
+    <file path="$USER_HOME$/Documents/SenchaExtJS4MVCDesktop/.sencha/app/sencha.cfg" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382744438606" ignored="false" />
+    <file path="/sencha.cfg" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1385759639497" ignored="false" />
+    <file path="/Component.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747587592" ignored="false" />
+    <file path="$USER_HOME$/Documents/SenchaExtJS4MVCDesktop/packages/pegaso/sass/var/Component.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747589908" ignored="false" />
+    <file path="$USER_HOME$/Documents/SenchaExtJS4MVCDesktop/app/view/todos/TodosForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1382747920329" ignored="false" />
+    <file path="/Search.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400561275815" ignored="false" />
+    <file path="/Searchs.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396861873108" ignored="false" />
+    <file path="$PROJECT_DIR$/../trinus/app/view/principal/Panel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1384148418774" ignored="false" />
+    <file path="/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400732146058" ignored="false" />
+    <file path="/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1385772115814" ignored="false" />
+    <file path="/SearchField.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386828848212" ignored="false" />
+    <file path="/app.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396997648834" ignored="false" />
+    <file path="/AutocompleteField.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386656929530" ignored="false" />
+    <file path="$PROJECT_DIR$/../CursameMobile/app/controller/tablet/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386379577693" ignored="false" />
+    <file path="$USER_HOME$/Desktop/makuaz_partido/prueba.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386786417670" ignored="false" />
+    <file path="$USER_HOME$/Desktop/makuaz_partido/js/scripts.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386727735595" ignored="false" />
+    <file path="/prueba.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386728484530" ignored="false" />
+    <file path="/AutoCompleteTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1386804265931" ignored="false" />
+    <file path="/AutoCompleteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396991323423" ignored="false" />
+    <file path="/README.md" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392857193032" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950621479" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/app/view/Feed.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392935585274" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950515985" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951788633" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/resources/sass/.sass-cache/ef80d42900f9815da7942abbe425e56acd02d04f/app.scssc" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950792007" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/touch/resources/themes/stylesheets/sencha-touch/default/var/_Class.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950019796" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/resources/sass/.sass-cache/d6a7e520515cb6ed94d9ade879848237094c9ffc/_Class.scssc" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950792007" ignored="false" />
+    <file path="/_Class.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950120644" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/touch/resources/themes/stylesheets/sencha-touch/windows/var/_Class.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950295098" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/web.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950788445" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951222373" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/app.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951168855" ignored="false" />
+    <file path="$USER_HOME$/Documents/fractals/Picture/pictureit/public/packager.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392951188577" ignored="false" />
+    <file path="/packager.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400740410342" ignored="false" />
+    <file path="$USER_HOME$/Documents/elixir/elixir-4/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394058208775" ignored="false" />
+    <file path="/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396159768560" ignored="false" />
+    <file path="$USER_HOME$/Documents/elixir/elixir-4/post.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394058581051" ignored="false" />
+    <file path="/post.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394058579392" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394479908766" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/microloader/production.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310158" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/src/core/Ext-more.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310158" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/version.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310158" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310158" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/sencha-touch-all.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/sencha-touch-debug.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/sencha-touch-all-debug.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/.sencha/app/plugin.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/packager.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/app.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../dashboard/touch/cmd/sencha.cfg" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394478310159" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394590483500" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/menu/menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584973513" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397632613479" ignored="false" />
+    <file path="/menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394588927307" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400095984399" ignored="false" />
+    <file path="/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399619550202" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/menu/Menu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399619673077" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399918929542" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400734079245" ignored="false" />
+    <file path="/LocationForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396853268109" ignored="false" />
+    <file path="/State.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395568985635" ignored="false" />
+    <file path="/City.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396852536094" ignored="false" />
+    <file path="$PROJECT_DIR$/../source/fbaccess.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395876613544" ignored="false" />
+    <file path="/fbaccess.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395876156534" ignored="false" />
+    <file path="$PROJECT_DIR$/../final/includes/facebook/base_facebook.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395957787459" ignored="false" />
+    <file path="$PROJECT_DIR$/../final/includes/init.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395958066219" ignored="false" />
+    <file path="$PROJECT_DIR$/../post-status-facebook/src/config.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395963643697" ignored="false" />
+    <file path="$PROJECT_DIR$/../post-status-facebook/src/base_facebook.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395959407300" ignored="false" />
+    <file path="$PROJECT_DIR$/../post-status-facebook/index.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395959391610" ignored="false" />
+    <file path="$PROJECT_DIR$/../post-status-facebook/index2.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395963866803" ignored="false" />
+    <file path="/index2.php" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395963850705" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/.gitignore" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395998343521" ignored="false" />
+    <file path="/.gitignore" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395994271098" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/products/ProductNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395995473463" ignored="false" />
+    <file path="/ProductNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395995471711" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398370895463" ignored="false" />
+    <file path="/ProductosList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395997174009" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/menu/MenuList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996240285" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400737798806" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Producto.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400737938596" ignored="false" />
+    <file path="/Productos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1395996991680" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400733879715" ignored="false" />
+    <file path="/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399918885782" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Cliente.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399919624374" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/clientes/ClientesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399919727019" ignored="false" />
+    <file path="/ClientesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398274586514" ignored="false" />
+    <file path="$USER_HOME$/Documents/elixir/Elixir-5/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396939811407" ignored="false" />
+    <file path="/Other.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396850766412" ignored="false" />
+    <file path="/OtherTpl.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397001563192" ignored="false" />
+    <file path="/Laboratory.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397001589565" ignored="false" />
+    <file path="$USER_HOME$/Documents/elixir/elixir-6/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397021691325" ignored="false" />
+    <file path="$USER_HOME$/Documents/elixir/Elixir_img-2/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397585376550" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400700123037" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397667915422" ignored="false" />
+    <file path="/OpcionesVentaPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397668426848" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/form/clientes/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399652818294" ignored="false" />
+    <file path="/OpcionesOrdenPanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398325723385" ignored="false" />
+    <file path="/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397672492345" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/clientes/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398370960061" ignored="false" />
+    <file path="/OpcionClienteList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398314723199" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Favoritos.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397674453971" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400737798806" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397676196402" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OrdenList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400735691367" ignored="false" />
+    <file path="/OrdenList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400734499744" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/PartidaContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399649848496" ignored="false" />
+    <file path="/Orden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397675242619" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Ordenes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400727507385" ignored="false" />
+    <file path="/PartidaContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399628730064" ignored="false" />
+    <file path="/MenuHome.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1397775547642" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/68dcfc61e7f3c008665e0b085b2554e4abde4c42.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400703974802" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5e26afbcc9c4168aa462cbe3c2a9989e69d67240.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/sass/app.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400739394383" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/2bbcb129dc9147151dd4b9d825c5ba0db3552b20.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0e2edd939c90217eaafc22ea7d070fea78b69bd4.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/039efc33f88503bbaf80b5a043493f6187192389.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/1cdd7638bb9a1415e37eab77ba084fe884432dce.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/ff96b3196bcfe328b295b6b29cae162e53316948.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/9705be1b1e21de8738dfa6ba8148e8e01f6e169b.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/450ba80b3f8625115bdf5d03f63c8403d3576694.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/5a82bcc4072cb0b9027e3aa2cc5c5c3234e2980c.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718273" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosView.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399913204240" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/742a6ea0819537fc9d52bbae32995e3ddd0b2a85.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/0ff7800379674e6b70d1e9c058f3e699e8eb3dbb.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/c679950fb10a71022c93ac5654cb94ee7d9556dd.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/resources/css/app.css/d4132155bb734598989bc21ac06be880cbeb2545.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/db0ff78db9b1bb5e761dd5cf80c828cb81ee0887.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/deltas/app.js/3ea60f6969382a6e0dac6ba01b6869fec457b76d.json" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/production/Imobile/resources/css/app.css" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398196718274" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/OrdenContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399649797009" ignored="false" />
+    <file path="/OrdenContainer.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399629363506" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/favoritos/SeleccionadorProFav.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398371193027" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/bootstrap.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1398370895463" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/NavigationOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726000197" ignored="false" />
+    <file path="/NavigationOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399623379450" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/productos/ProductosOrden.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399628182551" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/DireccionesList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399626063033" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/DireccionEntregaList.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399626076826" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/ventas/TplDirecciones.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399654001801" ignored="false" />
+    <file path="/TplDirecciones.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399626640576" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/resources/sass/custom/_product-list.scss" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399652252572" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/form/productos/AgregarProductosForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399652817680" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/.sencha_backup/Imobile/2.3.0/build/production/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399913167785" ignored="false" />
+    <file path="/ProductosView.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399913202371" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Direcciones.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1399917051683" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/model/Direccion.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400733827718" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/store/Monedas.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400727483421" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/view/tablet/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400726204556" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/build/testing/Imobile/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400735302543" ignored="false" />
+    <file path="$PROJECT_DIR$/../imobile/app/form/login/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1400733827718" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,17 +247,36 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="VitaRed" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Laboratory.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
+      <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="12" selection-start="305" selection-end="667" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="197" column="17" selection-start="8189" selection-end="8189" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1400704280000" expanded="false" signature="2394:2407" placeholder="..." />
+                <marker date="1400704280000" expanded="false" signature="3880:3893" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MedicNavigation.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/medics/MedicNavigation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="17" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1400725358000" expanded="false" signature="1741:1767" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,34 +284,25 @@
       <file leaf-file-name="Main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="10" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.0">
+            <state line="154" column="71" selection-start="5387" selection-end="5409" vertical-scroll-proportion="-74.15385">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Medics.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/store/Medics.js">
+      <file leaf-file-name="app.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="8" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pharmacies.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/store/Pharmacies.js">
+      <file leaf-file-name="packager.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packager.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="12" selection-start="1729" selection-end="1729" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pharmacy.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/model/Pharmacy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="14" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
+            <state line="171" column="30" selection-start="5437" selection-end="5437" vertical-scroll-proportion="-14.125">
               <folding />
             </state>
           </provider>
@@ -169,33 +311,14 @@
       <file leaf-file-name="Medic.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="28" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0">
+            <state line="20" column="14" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MedicDetailsTpl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="13" selection-start="2578" selection-end="2578" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1382680987000" expanded="true" signature="687:708" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="781:824" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="855:931" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="873:889" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="1979:1997" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="2090:2152" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="2218:2240" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="2613:2685" placeholder="..." />
-                <marker date="1382680987000" expanded="true" signature="2796:2819" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build-impl.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.sencha/app/build-impl.xml">
+      <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/view/Main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -203,24 +326,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="codegen.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.sencha/app/codegen.json">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="15.0">
+            <state line="17" column="6" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sencha.cfg" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.sencha/app/sencha.cfg">
+      <file leaf-file-name="OtherNavigation.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/others/OtherNavigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="16" selection-start="226" selection-end="235" vertical-scroll-proportion="0.28546712">
-              <folding />
+            <state line="37" column="16" selection-start="1052" selection-end="1261" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1400725358000" expanded="false" signature="1772:1798" placeholder="..." />
+              </folding>
             </state>
           </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="HospitalNavigation.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1400725557000" expanded="false" signature="1827:1853" placeholder="..." />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -242,29 +375,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/view/shared/DetailsContainer.js" />
         <option value="$PROJECT_DIR$/app/model/Laboratory.js" />
-        <option value="$PROJECT_DIR$/app/store/Hospitals.js" />
-        <option value="$PROJECT_DIR$/app/store/Laboratories.js" />
-        <option value="$PROJECT_DIR$/app/view/laboratories/LaboratoryNavigation.js" />
-        <option value="$PROJECT_DIR$/app/view/pharmacies/PharmacyNavigation.js" />
-        <option value="$PROJECT_DIR$/app/view/shared/DetailsTpl.js" />
-        <option value="$PROJECT_DIR$/app/proxy/Drupal.js" />
-        <option value="$PROJECT_DIR$/touch/src/data/proxy/JsonP.js" />
-        <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
-        <option value="$PROJECT_DIR$/app/store/Medics.js" />
-        <option value="$PROJECT_DIR$/app/model/Medic.js" />
-        <option value="$PROJECT_DIR$/app/store/Pharmacies.js" />
+        <option value="$PROJECT_DIR$/app/model/Other.js" />
         <option value="$PROJECT_DIR$/app/model/Pharmacy.js" />
+        <option value="$PROJECT_DIR$/app/view/home/HomePanel.js" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/app/model/Hospital.js" />
+        <option value="$PROJECT_DIR$/app/model/Search.js" />
+        <option value="$PROJECT_DIR$/app/view/medics/MedicTpl.js" />
+        <option value="$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js" />
+        <option value="$PROJECT_DIR$/app/controller/phone/Main.js" />
         <option value="$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js" />
-        <option value="$PROJECT_DIR$/.sencha/app/sencha.cfg" />
+        <option value="$PROJECT_DIR$/app/view/others/OtherNavigation.js" />
+        <option value="$PROJECT_DIR$/app/view/medics/MedicNavigation.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js" />
+        <option value="$PROJECT_DIR$/packager.json" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1280" />
+    <option name="width" value="576" />
     <option name="height" value="774" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -322,86 +455,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="touch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="touch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="touch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="touch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proxy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -442,29 +495,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pharmacies" />
+              <option name="myItemId" value="others" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -487,28 +518,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="medics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="location" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -610,24 +619,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="proxy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -672,55 +663,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".sencha" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VitaRed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vitared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".sencha" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="98" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="100" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="99" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/elixir/Elixir-5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="105" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="101" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/KCGrupo/ext-4/examples/desktop" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/images" />
+      <recent name="$PROJECT_DIR$/build/testing/vitared/resources" />
+      <recent name="$PROJECT_DIR$/build/production/vitared/resources" />
+      <recent name="$PROJECT_DIR$/core" />
       <recent name="$PROJECT_DIR$/build/Vitared/testing/resources/css" />
-      <recent name="$PROJECT_DIR$/build/Vitared/testing/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/view/home" />
@@ -731,6 +709,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
@@ -740,23 +735,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="22" width="576" height="774" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3246951" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20583469" sideWeight="0.6753049" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22830188" sideWeight="0.97950375" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31859756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -820,139 +815,134 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/view/pharmacies/PharmacyNavigation.js">
+    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="64" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
+        <state line="33" column="60" selection-start="1360" selection-end="1403" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/shared/DetailsTpl.js">
+    <entry file="file://$PROJECT_DIR$/app/view/home/HomePanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="54" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
+        <state line="39" column="51" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/home/MenuHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1382660712000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1382660712000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1382660712000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1382660712000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1382660712000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1382660712000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1397775905000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Hospital.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/touch/src/data/proxy/JsonP.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="53" selection-start="6027" selection-end="6027" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/proxy/Drupal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="26" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/Laboratories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="16" selection-start="331" selection-end="596" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/Pharmacies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="12" selection-start="1729" selection-end="1729" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Laboratory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="12" selection-start="305" selection-end="667" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Pharmacy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="14" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="10" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="28" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/Medics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="13" selection-start="2578" selection-end="2578" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1382680987000" expanded="true" signature="687:708" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="781:824" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="855:931" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="873:889" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="1979:1997" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="2090:2152" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="2218:2240" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="2613:2685" placeholder="..." />
-            <marker date="1382680987000" expanded="true" signature="2796:2819" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.sencha/app/build-impl.xml">
+    <entry file="file://$PROJECT_DIR$/app/store/Suppliers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.sencha/app/codegen.json">
+    <entry file="file://$PROJECT_DIR$/app/model/Search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="15.0">
+        <state line="80" column="30" selection-start="2231" selection-end="2238" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.sencha/app/sencha.cfg">
+    <entry file="file://$PROJECT_DIR$/app/view/others/OtherTpl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="16" selection-start="226" selection-end="235" vertical-scroll-proportion="0.28546712">
+        <state line="36" column="13" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicDetailsTpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="197" column="17" selection-start="8189" selection-end="8189" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1400704280000" expanded="false" signature="2394:2407" placeholder="..." />
+            <marker date="1400704280000" expanded="false" signature="3880:3893" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/medics/MedicNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="17" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1400725358000" expanded="false" signature="1741:1767" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/others/OtherNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="16" selection-start="1052" selection-end="1261" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1400725358000" expanded="false" signature="1772:1798" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/hospitals/HospitalNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="17" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1400725557000" expanded="false" signature="1827:1853" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="71" selection-start="5387" selection-end="5409" vertical-scroll-proportion="-74.15385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="667" selection-end="667" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packager.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="30" selection-start="5437" selection-end="5437" vertical-scroll-proportion="-14.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Medic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="14" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

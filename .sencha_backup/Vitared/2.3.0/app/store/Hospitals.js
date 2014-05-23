@@ -1,3 +1,10 @@
+/**
+ * @class Vitared.store.Hospitals
+ * @extends Ext.data.Store
+ * This is the store to handle the hospitals
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
 Ext.define('Vitared.store.Hospitals', {
     extend: 'Ext.data.Store',
     requires:[
@@ -6,55 +13,49 @@ Ext.define('Vitared.store.Hospitals', {
 
     config:{
         model:'Vitared.model.Hospital',
-        data : [
-            {
-                name: "Ángeles Pedregal",
-                specialist: "Todas las especialidades",
-                ranking: 5,
-                horarios: 'Lunes a Domingo 24 Hrs.',
-                address: 'Av. de las Américas 45, Int 201 Centro Zapopan, Jalisco CP 78635',
-                telefonos: [
-                    {1: '(333) 5623948'},
-                    {2: '(333) 5622949'}
-                ]
-            },{
-                name: "Médica Sur",
-                specialist: "Todas las especialidades",
-                ranking: 4,
-                horarios: 'Lunes a Domingo 24 Hrs.',
-                address: 'Benito Juarez 10, Int 301 Albert Mexico, Distrito Federal CP 93842',
-                telefonos: [
-                    {1: '(555) 5453268'},
-                    {2: '(333) 5834234'}
-                ]
-            },{
-                name: "Hospital Mocel",
-                specialist: "Todas las especialidades",
-                ranking: 3,
-                horarios: 'Lunes a Domingo 24 Hrs.',
-                address: 'Villa Panamericana 5, Int 300 San Andres Michoacan, Maravatio CP 93843',
-                telefonos: [
-                    {1: '(444) 3294023'},
-                    {2: '(444) 9349231'}
-                ]
-            },{
-                name: "Dentalia Patriotismo",
-                specialist: "Clínica Dental",
-                ranking: 2,
-                horarios: 'Lunes a Domingo 24 Hrs.',
-                address: 'Dr. Neva 20, Int 401 Doctores Mexico, Distrito Federal CP 95302',
-                telefonos: [
-                    {1: '(222) 3494034'},
-                    {2: '(222) 9232431'}
-                ]
-            }
-        ]
-        /*proxy: {
+        proxy: {
             type: 'drupal',
-            url: 'http://dev-vitared.gotpantheon.com/api/user.jsonp',
+            url: 'https://www.vitared.com.mx/middleware/proveedor.php',
+            callbackKey: 'callback',
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'medicos'
+
             }
-        }*/
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
+            }
+        }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });

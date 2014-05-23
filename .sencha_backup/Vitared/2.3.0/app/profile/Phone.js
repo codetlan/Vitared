@@ -2,7 +2,8 @@
  * @class Vitared.profile.Phone
  * @extends Ext.app.Profile
  * This is the phone profile
- * @waldix
+ * @oswaldo@codetlan.com
+ * @codetlan
  */
 Ext.define('Vitared.profile.Phone', {
     extend: 'Ext.app.Profile',
