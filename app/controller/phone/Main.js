@@ -282,7 +282,7 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('direcciones'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             numero_telefono: record.get('numero_telefono')
         });
@@ -331,7 +331,7 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('direcciones'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             numero_telefono: record.get('numero_telefono')
         });
@@ -355,7 +355,7 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('direcciones'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             numero_telefono: record.get('numero_telefono')
         });
