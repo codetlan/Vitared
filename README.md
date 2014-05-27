@@ -52,7 +52,18 @@ El archivo de configuración donde editamos la versión que se requiere compilar
 # wp7
 # wp8
 
-phonegap.platform=wp7
+phonegap.platform=android
+
+
+7.- Ejecutamos el comando para generar la App Nativa
+
+$ sencha app build native
+
+
+
+Nota:
+* Para la versión de andorid debemos tener instalado en nuestra maquina ant-apache
+
 
 
 
