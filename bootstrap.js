@@ -616,6 +616,17 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.wrapper.BoxDock": [],
   "Ext.layout.wrapper.Dock": [],
   "Ext.layout.wrapper.Inner": [],
+  "Ext.log.Base": [],
+  "Ext.log.Logger": [],
+  "Ext.log.filter.Filter": [],
+  "Ext.log.filter.Priority": [],
+  "Ext.log.formatter.Default": [],
+  "Ext.log.formatter.Formatter": [],
+  "Ext.log.formatter.Identity": [],
+  "Ext.log.writer.Console": [],
+  "Ext.log.writer.DocumentTitle": [],
+  "Ext.log.writer.Remote": [],
+  "Ext.log.writer.Writer": [],
   "Ext.mixin.Bindable": [],
   "Ext.mixin.Filterable": [],
   "Ext.mixin.Mixin": [],
@@ -770,6 +781,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Vitared.view.home.AutoCompleteList": [],
   "Vitared.view.home.AutoCompleteTpl": [],
   "Vitared.view.home.HomePanel": [],
+  "Vitared.view.home.MenuHome": [],
   "Vitared.view.home.NavigationHome": [],
   "Vitared.view.home.SearchField": [],
   "Vitared.view.hospitals.HospitalNavigation": [],
@@ -1585,6 +1597,17 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.layout.wrapper.BoxDock": [],
   "Ext.layout.wrapper.Dock": [],
   "Ext.layout.wrapper.Inner": [],
+  "Ext.log.Base": [],
+  "Ext.log.Logger": [],
+  "Ext.log.filter.Filter": [],
+  "Ext.log.filter.Priority": [],
+  "Ext.log.formatter.Default": [],
+  "Ext.log.formatter.Formatter": [],
+  "Ext.log.formatter.Identity": [],
+  "Ext.log.writer.Console": [],
+  "Ext.log.writer.DocumentTitle": [],
+  "Ext.log.writer.Remote": [],
+  "Ext.log.writer.Writer": [],
   "Ext.mixin.Bindable": [],
   "Ext.mixin.Filterable": [],
   "Ext.mixin.Mixin": [],
@@ -1762,6 +1785,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Vitared.view.home.AutoCompleteTpl": [],
   "Vitared.view.home.HomePanel": [
     "widget.homepanel"
+  ],
+  "Vitared.view.home.MenuHome": [
+    "widget.menuhome"
   ],
   "Vitared.view.home.NavigationHome": [
     "widget.navigationhome"

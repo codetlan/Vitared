@@ -16,6 +16,7 @@ Ext.define('Vitared.controller.phone.Main', {
     locationForm: undefined,
     estado: undefined,
     ciudad: undefined,
+    menu: undefined,
 
     config: {
         refs: {
@@ -38,23 +39,25 @@ Ext.define('Vitared.controller.phone.Main', {
             detailsTpl: 'detailstpl',
             addLocation: 'navigationhome #addLocation',
             locationForm: 'locationform',
-            city: 'locationform #city'
+            city: 'locationform #city',
+            state: 'locationform #state',
+            menu: 'menuhome'
         },
         control: {
             'medicnavigation list': {
-                tap: 'onItemMedic'
+                itemtap: 'onItemMedic'
             },
             'hospitalnavigation list': {
-                tap: 'onItemHospital'
+                itemtap: 'onItemHospital'
             },
             'laboratorynavigation list': {
-                tap: 'onItemLaboratory'
+                itemtap: 'onItemLaboratory'
             },
             'pharmacynavigation list': {
-                tap: 'onItemPharmacy'
+                itemtap: 'onItemPharmacy'
             },
             'othernavigation list': {
-                tap: 'onItemOther'
+                itemtap: 'onItemOther'
             },
             'navigationhome': {
                 pop: 'onNavigationHomePop'
@@ -62,16 +65,16 @@ Ext.define('Vitared.controller.phone.Main', {
             'navigationhome #infoButton': {
                 tap: 'onInfo'
             },
-            'navigationhome #addLocation':{
+            'navigationhome #addLocation': {
                 tap: 'showModalLocation'
             },
-            'locationform #cancelarFormLocation':{
+            'locationform #cancelarFormLocation': {
                 tap: 'hideModalLocation'
             },
-            'locationform #state':{
+            'locationform #state': {
                 change: 'onChangeState'
             },
-            'locationform #guardarLocation':{
+            'locationform #guardarLocation': {
                 tap: 'onSaveLocation'
             },
             'homepanel': {
@@ -90,6 +93,15 @@ Ext.define('Vitared.controller.phone.Main', {
             },
             'autocompletelist': {
                 itemtap: 'onSearhAutoComplete'
+            },
+            'menuhome #membresia': {
+                tap: 'onMembresia'
+            },
+            'menuhome #privacidad': {
+                tap: 'onPrivacidad'
+            },
+            'menuhome #condiciones': {
+                tap: 'onCondiciones'
             }
         }
     },
@@ -99,16 +111,17 @@ Ext.define('Vitared.controller.phone.Main', {
      */
     launch: function () {
         var me = this,
-            store = Ext.getStore('Medics');
+            store = Ext.getStore('Searchs');
 
         var geo = Ext.create('Ext.util.Geolocation', {
             autoUpdate: false,
             listeners: {
                 locationupdate: function (geo) {
+                    console.log(geo);
                     me.latitude = geo.getLatitude();
                     me.longitude = geo.getLongitude();
 
-                    me.onLoadStores('Medics', '', me.latitude + ',' + me.longitude);
+                    me.onLoadStores('Searchs', '', me.latitude + ',' + me.longitude);
                 },
                 locationerror: function (geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
                     me.latitude = geo.getLatitude();
@@ -118,156 +131,225 @@ Ext.define('Vitared.controller.phone.Main', {
             }
         });
         geo.updateLocation();
+
+        var storeid = me.getHomePanel().getActiveItem().down('list').getStore().getStoreId(),
+            store1 = Ext.getStore(storeid);
+
+
+        store1.on('load', function (store, records, successful, operation, eOpts) {
+            var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
+                bounds = new google.maps.LatLngBounds();
+
+            if (!Ext.isEmpty(records)) {
+                Ext.Array.each(records, function (item, index, ItSelf) {
+                    var latitud = item.get('latitud'),
+                        longitud = item.get('longitud'), marker, icono,
+                        categoria = item.get('categoria'),
+                        tipo = item.get('tipo');
+
+                    if (tipo != 0){
+                        icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
+                    } else {
+                        icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
+                    }
+
+                    if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(latitud, longitud),
+                            map: map,
+                            icon: icono
+                        });
+
+                        me.markers.push(marker);
+
+                        bounds.extend(marker.position);
+
+                        var infoWindow = new google.maps.InfoWindow();
+
+                        if (store1 == 'Searchs') {
+                            var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
+                        } else {
+                            name = item.get('name');
+                        }
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infoWindow.setContent(name);
+                            infoWindow.open(map, marker);
+                        });
+                    }
+                });
+            }
+            store1.data.sort('orden', 'ASC');
+            store1.data.sort('categoria', 'ASC');
+        });
     },
 
     onLoadStores: function (storeId, search, geo, tipo) {
         var me = this;
-        if (storeId != 'Medics') {
-            var store = Ext.getStore('Suppliers'),
+
+        Ext.getStore(storeId).setParams({});
+
+        if (storeId != 'Searchs') {
+            var store = Ext.getStore(storeId),
                 store2 = Ext.getStore(storeId),
+                ciudad = me.ciudad ? me.ciudad : '',
                 params = {
-                    field_tipo_de_proveedor: tipo,
+                    //field_tipo_de_proveedor: tipo,
                     search_api_views_fulltext: search,
-                    field_geo: geo
+                    field_geo: geo,
+                    ciudad: me.ciudad
                 },
-                url = "http://vitared.com.mx/app/consulta/proveedor/";
+                url = "https://www.vitared.com.mx/middleware/proveedor.php";
         } else {
             store = Ext.getStore('Searchs');
-            store2 = Ext.getStore(storeId);
+            //store2 = Ext.getStore(storeId);
+            ciudad = me.ciudad ? me.ciudad : '';
             params = {
                 search_api_views_fulltext: search,
-                field_geo: geo
+                field_geo: geo,
+                ciudad: me.ciudad
             };
-            url = "http://vitared.com.mx/app/consulta/medico/";
+            //url = "http://vitared.com.mx/app/consulta/medico/";
         }
 
-        var nids = [],
-            proxy = store2.getProxy();
-
+        store.setParams(params);
         store.load({
-            params: params,
             callback: function (records, operation) {
-                Ext.Array.each(records, function (item, index, ItSelf) {
-                    nids.push(item.get('nid'));
-                });
+                var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
+                    bounds = new google.maps.LatLngBounds(), marker;
 
-                params = nids.join(",");
-                params = params != '' ? params : '0';
-                proxy.setUrl(url + params);
-                store2.load({
-                    callback: function (records, operation) {
-                        var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
-                            bounds = new google.maps.LatLngBounds(), marker;
+                me.clearMap();
 
-                        me.clearMap();
+                if (!Ext.isEmpty(records)) {
+                    Ext.Array.each(records, function (item, index, ItSelf) {
+                        var latitud = item.get('latitud'),
+                            longitud = item.get('longitud'), marker, icono,
+                            categoria = item.get('categoria'),
+                            tipo = item.get('tipo');
 
-                        if(!Ext.isEmpty(records)){
-                            Ext.Array.each(records, function (item, index, ItSelf) {
-                                var latitud = item.get('latitud'),
-                                    longitud = item.get('longitud');
-
-                                if(!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
-                                    marker = new google.maps.Marker({
-                                        position: new google.maps.LatLng(latitud, longitud),
-                                        map: map
-                                    });
-
-                                    me.markers.push(marker);
-
-                                    bounds.extend(marker.position);
-
-                                    var infoWindow = new google.maps.InfoWindow();
-
-                                    if (storeId == 'Medics') {
-                                        var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
-                                    } else {
-                                        name = item.get('name');
-                                    }
-
-                                    google.maps.event.addListener(marker, 'click', function () {
-                                        infoWindow.setContent(name);
-                                        infoWindow.open(map, marker);
-                                    });
-                                }
-                            });
+                        if (tipo != 0){
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
                         } else {
-                            var latlng = new google.maps.LatLng(me.latitude, me.longitude);
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
+                        }
 
-                            geocoder.geocode({'latLng': latlng}, function(results, status) {
-                                if (status == google.maps.GeocoderStatus.OK) {
-                                    if (results[0]) {
-                                        marker = new google.maps.Marker({
-                                            position: latlng,
-                                            map: map
-                                        });
-                                        var infoWindow = new google.maps.InfoWindow();
-                                        infoWindow.setContent(results[0].formatted_address);
-                                        infoWindow.open(map, marker);
+                        if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
 
-                                        google.maps.event.addListener(marker, 'click', function () {
-                                            infoWindow.setContent(results[0].formatted_address);
-                                            infoWindow.open(map, marker);
-                                        });
-                                    }
-                                } else {
-                                    alert("No podemos encontrar la direcci&oacute;n, error: " + status);
-                                }
+                            marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(latitud, longitud),
+                                map: map,
+                                icon: icono
+                            });
+
+                            me.markers.push(marker);
+
+                            bounds.extend(marker.position);
+
+                            var infoWindow = new google.maps.InfoWindow();
+
+                            if (storeId == 'Searchs') {
+                                var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
+                            } else {
+                                name = item.get('name');
+                            }
+
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infoWindow.setContent(name);
+                                infoWindow.open(map, marker);
                             });
                         }
-                        map.fitBounds(bounds);
-                    }
-                });
+                    });
+                } else {
+                    var latlng = new google.maps.LatLng(me.latitude, me.longitude),
+                        tipo = me.getHomePanel().getTabBar().getActiveTab().getTitle();
+
+                    geocoder = new google.maps.Geocoder();
+
+                    geocoder.geocode({'latLng': latlng}, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map
+                                });
+                                me.markers.push(marker);
+
+                                bounds.extend(marker.position);
+
+                                var infoWindow = new google.maps.InfoWindow();
+                                infoWindow.setContent('No hay ' + tipo + '...');
+                                infoWindow.open(map, marker);
+
+                                /*google.maps.event.addListener(marker, 'click', function () {
+                                 infoWindow.setContent(results[0].formatted_address);
+                                 infoWindow.open(map, marker);
+                                 });*/
+                            }
+                        } else {
+                            me.getStoreLoad('');
+                        }
+                    });
+                }
+                map.fitBounds(bounds);
             }
         });
+        store.data.sort('orden', 'ASC');
+        store.data.sort('categoria', 'ASC');
+
     },
 
     onActiveTab: function (t, value, oldValue, eOpts) {
         var me = this,
             store = value.down('navigationview').down('list').getStore().getStoreId(), search = '',
-            geo = me.latitude + ',' + me.longitude, tipo;
+            geo = me.latitude + ',' + me.longitude, tipo,
+            active = value.title,
+            item = me.getHomePanel().getTabBar().getItems();
 
         if (me.searchList) {
             me.searchList.hide();
         }
-        switch (store) {
+        /*switch (store) {
             case 'Hospitals':
                 tipo = 'Hospital';
+                item.getAt(0).setIconCls('medicos-not-active');
+                item.getAt(1).setIconCls('hospitales');
                 break;
-            case 'Pharmacies':
-                tipo = "Farmacia";
-                break;
-            case 'Laboratories':
-                tipo = "Laboratorio";
-                break;
-            case 'Others':
-                tipo = "Otros";
-                break;
-        }
+            default:
+                item.getAt(0).setIconCls('medicos');
+                item.getAt(1).setIconCls('hospitales-not-active');
+
+        }*/
         Ext.getStore(store).resetCurrentPage();
         me.onLoadStores(store, search, geo, tipo);
     },
 
-    onItemMedic: function (record, listItem, index, e) {
+    onItemMedic: function (t, index, target, record, e, eOpts) {
         var me = this,
             view = me.getMedicNavigation(),
             nid = record.get('nid'),
-            store = Ext.getStore('MedicsDetails'),
-            proxy = store.getProxy(),
-            url = "http://vitared.com.mx:3001/busqueda/medicos/";
+            store = Ext.getStore('MedicsDetails');
+        /*proxy = store.getProxy(),
+         url = "http://vitared.com.mx:3001/busqueda/medicos/";*/
 
-        proxy.setUrl(url + nid);
-        store.load({
-            callback: function (record, operation) {
-                view.push({
-                    xtype: 'medicdetails'
-                });
-                view.down('#addLocation').hide();
-                me.getMedicDetails().setData(record[0].getData());
-            }
+        view.push({
+            xtype: 'medicdetails'
         });
+        view.down('#addLocation').hide();
+        me.getMedicDetails().setData(record.getData());
+
+        /*proxy.setUrl(url + nid);
+         store.load({
+         callback: function (record, operation) {
+         view.push({
+         xtype: 'medicdetails'
+         });
+         view.down('#addLocation').hide();
+         me.getMedicDetails().setData(record[0].getData());
+         }
+         });*/
     },
 
-    onItemHospital: function (record, listItem, index, e) {
+    onItemHospital: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getHospitalNavigation(),
             latitud = record.get('latitud'),
@@ -281,18 +363,19 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
 
     },
 
-    onItemPharmacy: function (record, listItem, index, e) {
+    onItemPharmacy: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getPharmacyNavigation(),
             latitud = record.get('latitud'),
@@ -306,17 +389,18 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
     },
 
-    onItemLaboratory: function (record, listItem, index, e) {
+    onItemLaboratory: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getLaboratoryNavigation(),
             latitud = record.get('latitud'),
@@ -330,17 +414,18 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
     },
 
-    onItemOther: function (record, listItem, index, e) {
+    onItemOther: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getOtherNavigation(),
             latitud = record.get('latitud'),
@@ -354,14 +439,15 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
     },
 
     onItemMap: function (map, name, latitud, longitud) {
@@ -390,31 +476,22 @@ Ext.define('Vitared.controller.phone.Main', {
 
     onInfo: function (btn, e, o) {
         var me = this;
-
-        btn.up('navigationhome').down('#addLocation').hide();
-        btn.up('navigationhome').push({
-            xtype: 'container',
-            html: '<div class="container">' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.membresiavitamedica.com.mx" target="_blank">Membresía Vitamédica</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llamar left" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/privacidad" target="_blank">Aviso de privacidad</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/uso" target="_blank">Condiciones de uso</a>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
+        var menu = Ext.create('Vitared.view.home.MenuHome',{
+            side: 'right',
+            reveal: 'true'
         });
-        btn.hide();
+
+        if (!me.menu) {
+            Ext.Viewport.setMenu(menu,{
+                    side: 'right',
+                    reveal: 'true'
+                });
+            Ext.Viewport.showMenu('right');
+            me.menu = true;
+        } else {
+            Ext.Viewport.hideMenu('right');
+            me.menu = false;
+        }
     },
 
     trazarRuta: function (map, lat, lng) {
@@ -443,12 +520,17 @@ Ext.define('Vitared.controller.phone.Main', {
 
     },
 
-    onNavigationHomePop: function (navigation) {
+    onNavigationHomePop: function (navigation, view) {
         var me = this;
-        navigation.down('#infoButton').show();
-        navigation.down('#addLocation').show();
 
-        me.getStoreLoad('');
+        navigation.down('#infoButton').show();
+        if (navigation.getItems().getCount() == 2) {
+            navigation.down('#addLocation').show();
+        }
+
+        var search = me.getSearchContainer().down('searchfield').getValue();
+
+        //me.getStoreLoad(search);
     },
 
     onDetailContact: function (t, e, f, g, h) {
@@ -474,7 +556,7 @@ Ext.define('Vitared.controller.phone.Main', {
             });
             map = view.down('locationmap').getMap();
             //me.onItemMap(map, name, data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);
-            me.trazarRuta(map,  data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);
+            me.trazarRuta(map, data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);
         }
     },
 
@@ -497,29 +579,45 @@ Ext.define('Vitared.controller.phone.Main', {
 
     onSearch: function (t, e, eOpts) {
         var me = this,
-            searchActive = me.getHomePanel().getActiveItem().down('#searching'),
+            searchActive = t,
             storeAuto, proxy,
             search = t.getValue(),
-            url;
+            url,
+            view = me.getMedicNavigation();
 
-        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Medics' ? url = 'http://vitared.com.mx:3001/medicos/' : url = 'http://vitared.com.mx:3001/hospitales/';
+        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Searchs' ? url = 'https://www.vitared.com.mx/middleware/medicos-autocomplete.php?' : url = 'http://vitared.com.mx:3001/hospitales/';
 
         if (!me.searchList) {
             me.searchList = Ext.Viewport.add({
                 xtype: 'autocompletelist',
                 layout: 'fit',
                 width: (Ext.os.deviceType === 'Phone') ? 300 : 400,
-                height: 300
+                height: 200
             });
             me.searchList.showBy(searchActive);
         }
 
         storeAuto = Ext.getStore('AutoCompletes');
         proxy = storeAuto.getProxy();
+
         if (search != '') {
-            me.searchList.showBy(searchActive);
-            proxy.setUrl(url + search);
-            storeAuto.load();
+            if (e.event.keyCode == 13) {
+                me.searchList.hide();
+                /*proxy.setUrl(url + search);
+                 storeAuto.load();*/
+                view.pop();
+                me.getHomePanel().getActiveItem().down('#searching').setValue(search);
+                searchActive.setValue(search);
+                me.getStoreLoad(search);
+                me.clearMap();
+            } else {
+                me.searchList.showBy(searchActive);
+                proxy.setUrl(url + search);
+                storeAuto.load();
+                var num_record = storeAuto.getAllCount();
+                me.searchList.setHeight(num_record * 23);
+                me.searchList.doRefresh();
+            }
         } else {
             me.searchList.hide();
         }
@@ -528,9 +626,11 @@ Ext.define('Vitared.controller.phone.Main', {
     onSearhAutoComplete: function (t, index, target, record, e, eOpts) {
         var me = this,
             searchActive = me.getHomePanel().getActiveItem().down('#searching'),
-            search = record.get('palabra');
+            search = record.get('palabra'),
+            view = me.getMedicNavigation();
 
         me.searchList.hide();
+        view.pop();
         searchActive.setValue(search);
         me.getStoreLoad(search);
         me.clearMap();
@@ -571,47 +671,55 @@ Ext.define('Vitared.controller.phone.Main', {
 
     clearMap: function () {
         var me = this;
+
         for (i = 0; i < me.markers.length; i++) {
             me.markers[i].setMap(null);
         }
     },
 
-    showModalLocation:function() {
+    showModalLocation: function () {
         var me = this;
-        if(!me.locationForm){
+        if (!me.locationForm) {
             me.locationForm = Ext.Viewport.add({
-                xtype:'panel',
-                modal:true,
-                width:(Ext.os.deviceType === 'Phone') ? 300:400,
-                height:200,
-                layout:'fit',
-                items:{
-                    xtype:'locationform'
+                xtype: 'panel',
+                modal: true,
+                width: (Ext.os.deviceType === 'Phone') ? 300 : 400,
+                height: 200,
+                layout: 'fit',
+                items: {
+                    xtype: 'locationform'
                 }
             });
+            me.getLocationForm().down('#state').fireEvent('change', me, me.getLocationForm().down('#state').getValue());
         } else {
             me.getLocationForm().down('#state').setValue(me.estado);
             me.getLocationForm().down('#city').setValue(me.ciudad);
         }
         me.locationForm.showBy(me.getHomePanel().getActiveItem().down('navigationview').down('#addLocation'));
+
     },
 
-    hideModalLocation:function() {
+    hideModalLocation: function () {
         var me = this;
         me.locationForm.hide();
     },
 
-    onChangeState: function(t, newValue, OldValue, e){
+    onChangeState: function (t, newValue, OldValue, e) {
         var me = this,
             city = Ext.getStore('City');
 
         city.clearFilter();
-        city.filter("estado", newValue);
-        city.load();
+
+        var filter = new Ext.util.Filter({
+            filterFn: function (item) {
+                return item.get('value') == newValue;
+            }
+        });
+        city.filter([filter]);
         me.getCity().setStore(city);
     },
 
-    onSaveLocation: function(){
+    onSaveLocation: function () {
         var me = this;
 
         me.estado = me.getLocationForm().down('#state').getRecord().get('text');
@@ -621,17 +729,37 @@ Ext.define('Vitared.controller.phone.Main', {
         me.locationForm.hide();
 
         geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': me.estado +', '+ me.ciudad}, function(results, status) {
-          //si el estado de la llamado es OK
-          if (status == google.maps.GeocoderStatus.OK) {
-            me.latitude = results[0].geometry.location.lat();
-            me.longitude = results[0].geometry.location.lng();
-            me.getStoreLoad('');
-          } else {
-            //si no es OK devuelvo error
-            alert("No podemos encontrar la direcci&oacute;n, error: " + status);
-          }
-         });
+        geocoder.geocode({ 'address': me.estado + ', ' + me.ciudad}, function (results, status) {
+            //si el estado de la llamado es OK
+            if (status == google.maps.GeocoderStatus.OK) {
+                me.latitude = results[0].geometry.location.lat();
+                me.longitude = results[0].geometry.location.lng();
+                me.getStoreLoad('');
+            } else {
+                me.getStoreLoad('');
+            }
+        });
+    },
+
+    onMembresia: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onPrivacidad: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onCondiciones: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
     }
 
 });

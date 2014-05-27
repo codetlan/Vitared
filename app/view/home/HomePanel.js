@@ -19,10 +19,15 @@ Ext.define('Vitared.view.home.HomePanel', {
 
     config: {
         tabBarPosition: 'bottom',
+        tabBar:{
+            style: {
+                //'background': '#064b88'
+            }
+        },
         items: [
             {
-                title: 'Medicos',
-                iconCls: 'fa fa-stethoscope',
+                title: 'Médicos',
+                iconCls: 'fa fa-stethoscope boton-medico',
                 layout: 'fit',
                 items: [
                     {
@@ -31,8 +36,28 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Hospitales',
-                iconCls: 'fa fa-hospital-o',
+                title: 'Proveedores',
+                iconCls: 'fa fa-medkit boton-medico',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'hospitalnavigation'
+                    }
+                ]
+            }
+            /*{
+                title: 'medicos',
+                iconCls: 'medicos',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'medicnavigation'
+                    }
+                ]
+            },
+            {
+                title: 'hospitales',
+                iconCls: 'hospitales-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -41,8 +66,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Farmacias',
-                iconCls: 'fa fa-medkit',
+                title: 'farmacias',
+                iconCls: 'farmacias-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -51,8 +76,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Laboratorios',
-                iconCls: 'fa fa-flask',
+                title: 'laboratorios',
+                iconCls: 'laboratorios-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -61,15 +86,15 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Otros',
-                iconCls: 'fa fa-wheelchair',
+                title: 'otros',
+                iconCls: 'otros-not-active',
                 layout: 'fit',
                 items: [
                     {
                         xtype: 'othernavigation'
                     }
                 ]
-            }
+            }*/
         ]
     }
 });

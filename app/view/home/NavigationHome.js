@@ -12,11 +12,14 @@ Ext.define('Vitared.view.home.NavigationHome', {
     requires: ['Vitared.view.location.MapLocation',
         'Vitared.view.location.MapMarker',
         'Vitared.view.home.SearchField',
-        'Vitared.view.medics.MedicDetailsTpl'
+        'Vitared.view.medics.MedicDetailsTpl',
+        'Vitared.view.home.MenuHome'
     ],
 
     config: {
-        navigationBar: {
+        itemId: 'home',
+        defaultBackButtonText: 'Atrás',
+            navigationBar: {
             items:[
                 {
                     xtype: 'button',
@@ -26,9 +29,12 @@ Ext.define('Vitared.view.home.NavigationHome', {
                     width: '2.7em',
                     itemId: 'infoButton'
                 },{
-                    iconCls:'locate',
+                    xtype: 'button',
                     align:'left',
-                    ui:'btn-add-ui',
+                    icon: './resources/images/pin-azul2.png',
+                    iconCls: 'button-locate',
+                    width: '5.7em',
+                    height: '3.1em',
                     itemId:'addLocation'
                 }
             ]

@@ -33,7 +33,10 @@ Ext.define('Vitared.model.Other', {
             {
                 name: 'telefono',
                 type: 'string',
-                mapping: 'medico.telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.telefono;
+                }
             },
             {
                 name: 'foto',
@@ -48,17 +51,79 @@ Ext.define('Vitared.model.Other', {
             {
                 name: 'latitud',
                 type: 'string',
-                mapping: 'medico.lat'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
             },
             {
                 name: 'longitud',
                 type: 'string',
-                mapping: 'medico.long'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
             },
             {
                 name: 'numero_telefono',
                 type: 'string',
-                mapping: 'medico.numero_telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.numero_telefono;
+                }
+            },
+            {
+                name: 'calle',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.calle;
+                }
+            },
+            {
+                name: 'horario',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Horarios;
+                }
+            },
+            {
+                name: 'destacado',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.paquete_weight;
+                }
+            },
+            {
+                name: 'orden',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.orden;
+                }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }

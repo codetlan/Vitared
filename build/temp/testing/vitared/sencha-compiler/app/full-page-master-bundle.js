@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /Applications/XAMPP/xamppfiles/htdocs/vitared/app.js
+// @require /Users/Waldix/Vitared/app.js

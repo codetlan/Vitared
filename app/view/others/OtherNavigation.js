@@ -32,11 +32,19 @@ Ext.define('Vitared.view.others.OtherNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Otros ...',
-                scope: this,
+                scope: this,/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]
             },
             {
                 xtype: 'container',
@@ -44,7 +52,6 @@ Ext.define('Vitared.view.others.OtherNavigation', {
                 height: 50,
                 listeners:{
                     show:function(){
-                        console.log('wrwr');
                         var m3_u = (location.protocol=='https:'?'https://vitared.com.mx/ad/www/delivery/ajs.php':'http://vitared.com.mx/ad/www/delivery/ajs.php');
                         var m3_r = Math.floor(Math.random()*99999999999);
                         if (!document.MAX_used) document.MAX_used = ',';

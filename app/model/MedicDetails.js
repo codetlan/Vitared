@@ -137,6 +137,22 @@ Ext.define('Vitared.model.MedicDetails', {
                 name: 'listado_de_servicios',
                 type: 'string',
                 mapping: 'medico.Listado_de_Servicios'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }

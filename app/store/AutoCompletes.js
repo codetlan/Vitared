@@ -15,7 +15,7 @@ Ext.define('Vitared.store.AutoCompletes', {
         model: 'Vitared.model.AutoComplete',
         proxy: {
             type: 'drupal',
-            url: 'http://5.9.42.45:3001/medicos/',
+            url: 'https://www.vitared.com.mx/middleware/medicos-autocomplete.php?',
             callbackKey: 'callback',
             reader: {
                 type: 'json',

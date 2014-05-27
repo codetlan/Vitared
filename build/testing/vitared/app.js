@@ -37840,6 +37840,140 @@ Ext.define('Ext.LoadMask', {
 }, function() {
 });
 
+Ext.define('Ext.Menu', {
+    extend:  Ext.Sheet ,
+    xtype: 'menu',
+                             
+
+    config: {
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        baseCls: Ext.baseCSSPrefix + 'menu',
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        left: 0,
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        right: 0,
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        bottom: 0,
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        height: 'auto',
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        width: 'auto',
+
+        /**
+         * @cfg
+         * @inheritdoc
+         */
+        defaultType: 'button',
+
+        /**
+         * @hide
+         */
+        showAnimation: null,
+
+        /**
+         * @hide
+         */
+        hideAnimation: null,
+
+        /**
+         * @hide
+         */
+        centered: false,
+
+        /**
+         * @hide
+         */
+        modal: true,
+
+        /**
+         * @hide
+         */
+        hidden: true,
+
+        /**
+         * @hide
+         */
+        hideOnMaskTap: true,
+
+        /**
+         * @hide
+         */
+        translatable: {
+            translationMethod: null
+        }
+    },
+
+    constructor: function() {
+        this.config.translatable.translationMethod = Ext.browser.is.AndroidStock2 ? 'cssposition' : 'csstransform';
+        this.callParent(arguments);
+    },
+
+    platformConfig: [{
+        theme: ['Windows']
+    }, {
+        theme: ['Blackberry'],
+        ui: 'context',
+        layout: {
+            pack: 'center'
+        }
+    }],
+
+    updateUi: function(newUi, oldUi) {
+        this.callParent(arguments);
+
+        if (newUi != oldUi && Ext.theme.name == 'Blackberry') {
+            if (newUi == 'context') {
+                this.innerElement.swapCls('x-vertical', 'x-horizontal');
+            }
+            else if (newUi == 'application') {
+                this.innerElement.swapCls('x-horizontal', 'x-vertical');
+            }
+        }
+    },
+
+    updateHideOnMaskTap : function(hide) {
+        var mask = this.getModal();
+
+        if (mask) {
+            mask[hide ? 'on' : 'un'].call(mask, 'tap', function() {
+                Ext.Viewport.hideMenu(this.$side);
+            }, this);
+        }
+    },
+
+    /**
+     * Only fire the hide event if it is initialized
+     */
+    doSetHidden: function() {
+        if (this.initialized) {
+            this.callParent(arguments);
+        }
+    }
+});
+
 /**
  * {@link Ext.Title} is used for the {@link Ext.Toolbar#title} configuration in the {@link Ext.Toolbar} component.
  * @private
@@ -72254,408 +72388,6 @@ Ext.define('Ext.plugin.ListPaging', {
 });
 
 /**
- * This plugin adds pull to refresh functionality to the List.
- *
- * ## Example
- *
- *     @example
- *     var store = Ext.create('Ext.data.Store', {
- *         fields: ['name', 'img', 'text'],
- *         data: [
- *             {
- *                 name: 'rdougan',
- *                 img: 'http://a0.twimg.com/profile_images/1261180556/171265_10150129602722922_727937921_7778997_8387690_o_reasonably_small.jpg',
- *                 text: 'JavaScript development'
- *             }
- *         ]
- *     });
- *
- *     Ext.create('Ext.dataview.List', {
- *         fullscreen: true,
- *
- *         store: store,
- *
- *         plugins: [
- *             {
- *                 xclass: 'Ext.plugin.PullRefresh',
- *                 pullText: 'Pull down for more new Tweets!'
- *             }
- *         ],
- *
- *         itemTpl: [
- *             '<img src="{img}" alt="{name} photo" />',
- *             '<div class="tweet"><b>{name}:</b> {text}</div>'
- *         ]
- *     });
- */
-Ext.define('Ext.plugin.PullRefresh', {
-    extend:  Ext.Component ,
-    alias: 'plugin.pullrefresh',
-                                 
-
-    config: {
-        /**
-         * @cfg {Ext.dataview.List} list
-         * The list to which this PullRefresh plugin is connected.
-         * This will usually by set automatically when configuring the list with this plugin.
-         * @accessor
-         */
-        list: null,
-
-        /**
-         * @cfg {String} pullText The text that will be shown while you are pulling down.
-         * @accessor
-         */
-        pullText: 'Pull down to refresh...',
-
-        /**
-         * @cfg {String} releaseText The text that will be shown after you have pulled down enough to show the release message.
-         * @accessor
-         */
-        releaseText: 'Release to refresh...',
-
-        /**
-         * @cfg {String} loadingText The text that will be shown while the list is refreshing.
-         * @accessor
-         */
-        loadingText: 'Loading...',
-
-        /**
-         * @cfg {String} loadedText The text that will be when data has been loaded.
-         * @accessor
-         */
-        loadedText: 'Loaded.',
-
-        /**
-         * @cfg {String} lastUpdatedText The text to be shown in front of the last updated time.
-         * @accessor
-         */
-        lastUpdatedText: 'Last Updated:&nbsp;',
-
-        /**
-         * @cfg {Boolean} scrollerAutoRefresh Determines whether the attached scroller should automatically track size changes of its container.
-         * Enabling this will have performance impacts but will be necessary if your list size changes dynamically. For example if your list contains images
-         * that will be loading and have unspecified heights.
-         */
-        scrollerAutoRefresh: false,
-
-        /**
-         * @cfg {Boolean} autoSnapBack Determines whether the pulldown should automatically snap back after data has been loaded.
-         * If false call {@link #snapBack}() to manually snap the pulldown back.
-         */
-        autoSnapBack: true,
-
-        /**
-         * @cfg {Number} snappingAnimationDuration The duration for snapping back animation after the data has been refreshed
-         * @accessor
-         */
-        snappingAnimationDuration: 300,
-        /**
-         * @cfg {String} lastUpdatedDateFormat The format to be used on the last updated date.
-         */
-        lastUpdatedDateFormat: 'm/d/Y h:iA',
-
-        /**
-         * @cfg {Number} overpullSnapBackDuration The duration for snapping back when pulldown has been lowered further then its height.
-         */
-        overpullSnapBackDuration: 300,
-
-        /**
-         * @cfg {Ext.XTemplate/String/Array} pullTpl The template being used for the pull to refresh markup.
-         * Will be passed a config object with properties state, message and updated
-         *
-         * @accessor
-         */
-        pullTpl: [
-            '<div class="x-list-pullrefresh-arrow"></div>',
-            '<div class="x-loading-spinner">',
-                '<span class="x-loading-top"></span>',
-                '<span class="x-loading-right"></span>',
-                '<span class="x-loading-bottom"></span>',
-                '<span class="x-loading-left"></span>',
-            '</div>',
-            '<div class="x-list-pullrefresh-wrap">',
-                '<h3 class="x-list-pullrefresh-message">{message}</h3>',
-                '<div class="x-list-pullrefresh-updated">{updated}</div>',
-            '</div>'
-        ].join(''),
-
-        translatable: true
-    },
-
-    // @private
-    $state: "pull",
-    // @private
-    getState: function() {
-        return this.$state
-    },
-    // @private
-    setState: function(value) {
-        this.$state = value;
-        this.updateView();
-    },
-    // @private
-    $isSnappingBack: false,
-    // @private
-    getIsSnappingBack: function() {
-        return this.$isSnappingBack;
-    },
-    // @private
-    setIsSnappingBack: function(value) {
-        this.$isSnappingBack = value;
-    },
-
-    // @private
-    init: function(list) {
-        var me = this;
-
-        me.setList(list);
-        me.initScrollable();
-    },
-
-    getElementConfig: function() {
-        return {
-            reference: 'element',
-            classList: ['x-unsized'],
-            children: [
-                {
-                    reference: 'innerElement',
-                    className: Ext.baseCSSPrefix + 'list-pullrefresh'
-                }
-            ]
-        };
-    },
-
-    // @private
-    initScrollable: function() {
-        var me = this,
-            list = me.getList(),
-            scrollable = list.getScrollable(),
-            scroller;
-
-        if (!scrollable) {
-            return;
-        }
-
-        scroller = scrollable.getScroller();
-        scroller.setAutoRefresh(this.getScrollerAutoRefresh());
-
-        me.lastUpdated = new Date();
-
-        list.insert(0, me);
-
-        scroller.on({
-            scroll: me.onScrollChange,
-            scope: me
-        });
-
-        this.updateView();
-    },
-
-    // @private
-    applyPullTpl: function(config) {
-        if (config instanceof Ext.XTemplate) {
-            return config
-        } else {
-            return new Ext.XTemplate(config);
-        }
-    },
-
-    // @private
-    updateList: function(newList, oldList) {
-        var me = this;
-
-        if (newList && newList != oldList) {
-            newList.on({
-                order: 'after',
-                scrollablechange: me.initScrollable,
-                scope: me
-            });
-        } else if (oldList) {
-            oldList.un({
-                order: 'after',
-                scrollablechange: me.initScrollable,
-                scope: me
-            });
-        }
-    },
-
-    // @private
-    getPullHeight: function() {
-       return this.innerElement.getHeight();
-    },
-
-    /**
-     * @private
-     * Attempts to load the newest posts via the attached List's Store's Proxy
-     */
-    fetchLatest: function() {
-        var store = this.getList().getStore(),
-            proxy = store.getProxy(),
-            operation;
-
-        operation = Ext.create('Ext.data.Operation', {
-            page: 1,
-            start: 0,
-            model: store.getModel(),
-            limit: store.getPageSize(),
-            action: 'read',
-            sorters: store.getSorters(),
-            filters: store.getRemoteFilter() ? store.getFilters() : []
-        });
-
-        proxy.read(operation, this.onLatestFetched, this);
-    },
-
-    /**
-     * @private
-     * Called after fetchLatest has finished grabbing data. Matches any returned records against what is already in the
-     * Store. If there is an overlap, updates the existing records with the new data and inserts the new items at the
-     * front of the Store. If there is no overlap, insert the new records anyway and record that there's a break in the
-     * timeline between the new and the old records.
-     */
-    onLatestFetched: function(operation) {
-        var store = this.getList().getStore(),
-            oldRecords = store.getData(),
-            newRecords = operation.getRecords(),
-            length = newRecords.length,
-            toInsert = [],
-            newRecord, oldRecord, i;
-
-        for (i = 0; i < length; i++) {
-            newRecord = newRecords[i];
-            oldRecord = oldRecords.getByKey(newRecord.getId());
-
-            if (oldRecord) {
-                oldRecord.set(newRecord.getData());
-            } else {
-                toInsert.push(newRecord);
-            }
-
-            oldRecord = undefined;
-        }
-
-        store.insert(0, toInsert);
-        this.setState("loaded");
-        this.fireEvent('latestfetched', this, toInsert);
-        if (this.getAutoSnapBack()) {
-            this.snapBack();
-        }
-    },
-
-    /**
-     * Snaps the List back to the top after a pullrefresh is complete
-     * @param {Boolean=} force Force the snapback to occur regardless of state {optional}
-     */
-    snapBack: function(force) {
-        if(this.getState() !== "loaded" && force !== true) return;
-
-        var list = this.getList(),
-            scroller = list.getScrollable().getScroller();
-
-        scroller.refresh();
-        scroller.minPosition.y = 0;
-
-        scroller.on({
-            scrollend: this.onSnapBackEnd,
-            single: true,
-            scope: this
-        });
-
-        this.setIsSnappingBack(true);
-        scroller.scrollTo(null, 0, {duration: this.getSnappingAnimationDuration()});
-    },
-
-    /**
-     * @private
-     * Called when PullRefresh has been snapped back to the top
-     */
-    onSnapBackEnd: function() {
-        this.setState("pull");
-        this.setIsSnappingBack(false);
-    },
-
-    /**
-     * @private
-     * Called when the Scroller updates from the list
-     * @param scroller
-     * @param x
-     * @param y
-     */
-    onScrollChange: function(scroller, x, y) {
-        if (y <= 0) {
-            var pullHeight = this.getPullHeight(),
-                isSnappingBack = this.getIsSnappingBack();
-
-            if(this.getState() === "loaded" && !isSnappingBack) {
-                this.snapBack();
-            }
-
-            if (this.getState() !== "loading" && this.getState() !=="loaded") {
-                if (-y >= pullHeight + 10) {
-                    this.setState("release");
-                    scroller.getContainer().onBefore({
-                        dragend: 'onScrollerDragEnd',
-                        single: true,
-                        scope: this
-                    });
-                } else if ((this.getState() === "release") && (-y < pullHeight + 10)) {
-                    this.setState("pull");
-                    scroller.getContainer().unBefore({
-                        dragend: 'onScrollerDragEnd',
-                        single: true,
-                        scope: this
-                    });
-                }
-            }
-            this.getTranslatable().translate(0, -y);
-        }
-    },
-
-    /**
-     * @private
-     * Called when the user is done dragging, this listener is only added when the user has pulled far enough for a refresh
-     */
-    onScrollerDragEnd: function() {
-        if (this.getState() !== "loading") {
-            var list = this.getList(),
-                scroller = list.getScrollable().getScroller(),
-                translateable = scroller.getTranslatable();
-
-            this.setState("loading");
-            translateable.setEasingY({duration: this.getOverpullSnapBackDuration()});
-            scroller.minPosition.y = -this.getPullHeight();
-            scroller.on({
-                scrollend: 'fetchLatest',
-                single: true,
-                scope: this
-            });
-        }
-    },
-
-    /**
-     * @private
-     * Updates the content based on the PullRefresh Template
-     */
-    updateView: function() {
-        var state = this.getState(),
-            lastUpdatedText = this.getLastUpdatedText() + Ext.util.Format.date(this.lastUpdated, this.getLastUpdatedDateFormat()),
-            templateConfig = {state: state, updated: lastUpdatedText},
-            stateFn = state.charAt(0).toUpperCase() + state.slice(1).toLowerCase(),
-            fn = "get" + stateFn + "Text";
-
-        if (this[fn] && Ext.isFunction(this[fn])) {
-            templateConfig.message = this[fn].call(this);
-        }
-
-        this.innerElement.removeCls(["loaded", "loading", "release", "pull"], Ext.baseCSSPrefix + "list-pullrefresh");
-        this.innerElement.addCls(this.getState(), Ext.baseCSSPrefix + "list-pullrefresh");
-        this.getPullTpl().overwrite(this.innerElement, templateConfig);
-    }
-}, function() {
-});
-
-/**
  * Used in the {@link Ext.tab.Bar} component. This shouldn't be used directly, instead use
  * {@link Ext.tab.Bar} or {@link Ext.tab.Panel}.
  * @private
@@ -75197,6 +74929,7 @@ Ext.define('Vitared.view.home.AutoCompleteList', {
             xtype: 'loadmask',
             message: 'Cargando...'
         },
+        loadingText: 'Cargando...',
         emptyText: 'No hay Resultados ...',
         cls: 'search-list',
         itemTpl: Ext.create('Vitared.view.home.AutoCompleteTpl'),
@@ -75224,14 +74957,21 @@ Ext.define('Vitared.form.LocationForm',{
             items:[{
                 xtype:'selectfield',
                 name:'state',
+                itemId: 'state',
                 store: 'State',
-                valueField: 'estado',
-                itemId: 'state'
+                defaultPhonePickerConfig:{
+                    cancelButton: 'Cancelar',
+                    doneButton: 'Aceptar'
+                }
             },{
                 xtype:'selectfield',
                 name:'city',
                 itemId: 'city',
-                valueField: 'text'
+                valueField: 'text',
+                defaultPhonePickerConfig:{
+                    cancelButton: 'Cancelar',
+                    doneButton: 'Aceptar'
+                }
             }]
         },{
             xtype:'fieldset',
@@ -75239,7 +74979,7 @@ Ext.define('Vitared.form.LocationForm',{
             margin:5,
             items:[{
                 xtype:'button',
-                text:'Guardar',
+                text:'Aceptar',
                 itemId:'guardarLocation'
             }]
         },{
@@ -75344,6 +75084,22 @@ Ext.define('Vitared.model.Medic', {
                 name: 'promociones',
                 type: 'string',
                 mapping: 'medico.promociones'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }
@@ -75488,6 +75244,22 @@ Ext.define('Vitared.model.MedicDetails', {
                 name: 'listado_de_servicios',
                 type: 'string',
                 mapping: 'medico.Listado_de_Servicios'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }
@@ -75528,7 +75300,10 @@ Ext.define('Vitared.model.Hospital', {
             {
                 name: 'telefono',
                 type: 'string',
-                mapping: 'medico.telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.telefono;
+                }
             },
             {
                 name: 'foto',
@@ -75543,17 +75318,79 @@ Ext.define('Vitared.model.Hospital', {
             {
                 name: 'latitud',
                 type: 'string',
-                mapping: 'medico.lat'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
             },
             {
                 name: 'longitud',
                 type: 'string',
-                mapping: 'medico.long'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
             },
             {
                 name: 'numero_telefono',
                 type: 'string',
-                mapping: 'medico.numero_telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.numero_telefono;
+                }
+            },
+            {
+                name: 'calle',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.calle;
+                }
+            },
+            {
+                name: 'horario',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Horarios;
+                }
+            },
+            {
+                name: 'destacado',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
+            },
+            {
+                name: 'orden',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.orden;
+                }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }
@@ -75594,7 +75431,10 @@ Ext.define('Vitared.model.Laboratory', {
             {
                 name: 'telefono',
                 type: 'string',
-                mapping: 'medico.telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.telefono;
+                }
             },
             {
                 name: 'foto',
@@ -75609,18 +75449,81 @@ Ext.define('Vitared.model.Laboratory', {
             {
                 name: 'latitud',
                 type: 'string',
-                mapping: 'medico.lat'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
             },
             {
                 name: 'longitud',
                 type: 'string',
-                mapping: 'medico.long'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
             },
             {
                 name: 'numero_telefono',
                 type: 'string',
-                mapping: 'medico.numero_telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.numero_telefono;
+                }
+            },
+            {
+                name: 'calle',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.calle;
+                }
+            },
+            {
+                name: 'horario',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Horarios;
+                }
+            },
+            {
+                name: 'destacado',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.paquete_weight;
+                }
+            },
+            {
+                name: 'orden',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.orden;
+                }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
+
         ]
     }
 });
@@ -75660,7 +75563,10 @@ Ext.define('Vitared.model.Pharmacy', {
             {
                 name: 'telefono',
                 type: 'string',
-                mapping: 'medico.telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.telefono;
+                }
             },
             {
                 name: 'foto',
@@ -75675,17 +75581,79 @@ Ext.define('Vitared.model.Pharmacy', {
             {
                 name: 'latitud',
                 type: 'string',
-                mapping: 'medico.lat'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
             },
             {
                 name: 'longitud',
                 type: 'string',
-                mapping: 'medico.long'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
             },
             {
                 name: 'numero_telefono',
                 type: 'string',
-                mapping: 'medico.numero_telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.numero_telefono;
+                }
+            },
+            {
+                name: 'calle',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.calle;
+                }
+            },
+            {
+                name: 'horario',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Horarios;
+                }
+            },
+            {
+                name: 'destacado',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.paquete_weight;
+                }
+            },
+            {
+                name: 'orden',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.orden;
+                }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }
@@ -75702,11 +75670,226 @@ Ext.define('Vitared.model.Search', {
     extend:  Ext.data.Model ,
 
     config: {
+        /*fields: [
+         {
+         name: 'nid',
+         type: 'string',
+         mapping: 'node.nid'
+         }
+         ]
+         }*/
         fields: [
             {
-                name: 'nid',
+                name: 'name',
                 type: 'string',
-                mapping: 'node.nid'
+                mapping: 'medico.title'
+            },
+            {
+                name: 'first_name',
+                type: 'string',
+                mapping: 'medico.field_apellido_paterno'
+            },
+            {
+                name: 'last_name',
+                type: 'string',
+                mapping: 'medico.field_apellido_materno'
+            },
+            {
+                name: 'ranking',
+                type: 'string',
+                mapping: 'medico.ranking'
+            },
+            {
+                name: 'foto',
+                type: 'string',
+                mapping: 'medico.field_foto'
+            },
+            {
+                name: 'especialidad',
+                type: 'string',
+                mapping: 'medico.Especialidad'
+            },
+            {
+                name: 'localidad',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Localidad;
+                }
+            },
+            {
+                name: 'latitud',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
+            },
+            {
+                name: 'longitud',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
+            },
+            {
+                name: 'facebook',
+                type: 'string',
+                mapping: 'medico.Facebook'
+            },
+            {
+                name: 'twitter',
+                type: 'string',
+                mapping: 'medico.Twitter'
+            },
+            {
+                name: 'email',
+                type: 'string',
+                mapping: 'medico.field_correo_electr_nico'
+            },
+            {
+                name: 'web',
+                type: 'string',
+                mapping: 'medico.field_p_gina_web'
+            },
+            {
+                name: 'consultorio',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    var items = [];
+                    Ext.Array.each(consultorios, function (item, index, ItSelf) {
+                        items.push(item.consultorio);
+                    });
+                    items.sort(function(item1, item2) {
+                        if(item1.orden == item2.orden) return 0;
+                        return (item1.orden < item2.orden) ? -1 : 1;
+                    });
+                    return items;
+                }
+            },
+            {
+                name: 'num_consul',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    var num_consul = consultorios.length;
+                    if(num_consul != 1){
+                        return num_consul + ' consultorios';
+                    } else {
+                        return num_consul + ' consultorio';
+                    }
+                }
+            },
+            {
+                name: 'telefono',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.telefono;
+                }
+            },{
+                name: 'promociones',
+                type: 'string',
+                mapping: 'medico.promociones'
+            },
+            {
+                name: 'publicaciones',
+                type: 'string',
+                mapping: 'medico.Publicaciones'
+            },
+            {
+                name: 'publicaciones',
+                type: 'string',
+                mapping: 'medico.Publicaciones',
+                convert: function(publicaciones){
+                    var items = [];
+                    Ext.Array.each(publicaciones, function (item, index, ItSelf) {
+                        items.push(item);
+                    });
+                    return items;
+                }
+            },{
+                name: 'imagen_publicacion',
+                type: 'string',
+                mapping: 'medico.Imagen_publicacion'
+            },{
+                name: 'cedula_profesional',
+                type: 'string',
+                mapping: 'medico.cedula_profesional'
+            },{
+                name: 'universidad_de_egreso',
+                type: 'string',
+                mapping: 'medico.universidad_de_egreso'
+            },{
+                name: 'antecedentes_de_practica',
+                type: 'string',
+                mapping: 'medico.antecedentes_de_practica'
+            },{
+                name: 'resena_de_servicios',
+                type: 'string',
+                mapping: 'medico.resena_de_servicios'
+            },{
+                name: 'listado_de_servicios',
+                type: 'string',
+                mapping: 'medico.Listado_de_Servicios'
+            },
+            {
+                name: 'orden',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.orden;
+                }
+            },
+            {
+                name: 'paquete_weight',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.paquete_weight;
+                }
+            },{
+                name: 'distancia',
+                type: 'string',
+                mapping: 'medico.distancia'
+            },
+            {
+                name: 'destacado',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
+            },
+            {
+                name: 'fotos',
+                type: 'string',
+                mapping: 'medico.fotos',
+                convert: function(fotos){
+                    var items = [];
+                    Ext.Array.each(fotos, function (item, index, ItSelf) {
+                        items.push(item);
+                    });
+                    return items;
+                }
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }
@@ -75767,7 +75950,10 @@ Ext.define('Vitared.model.Other', {
             {
                 name: 'telefono',
                 type: 'string',
-                mapping: 'medico.telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.telefono;
+                }
             },
             {
                 name: 'foto',
@@ -75782,17 +75968,79 @@ Ext.define('Vitared.model.Other', {
             {
                 name: 'latitud',
                 type: 'string',
-                mapping: 'medico.lat'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Latitud;
+                }
             },
             {
                 name: 'longitud',
                 type: 'string',
-                mapping: 'medico.long'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Longitud;
+                }
             },
             {
                 name: 'numero_telefono',
                 type: 'string',
-                mapping: 'medico.numero_telefono'
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.numero_telefono;
+                }
+            },
+            {
+                name: 'calle',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.calle;
+                }
+            },
+            {
+                name: 'horario',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.Horarios;
+                }
+            },
+            {
+                name: 'destacado',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.paquete_weight;
+                }
+            },
+            {
+                name: 'orden',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.orden;
+                }
+            },
+            {
+                name: 'subespecialidad',
+                type: 'string',
+                mapping: 'medico.Subespecialidad'
+            },
+            {
+                name: 'categoria',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.categoria;
+                }
+            },
+            {
+                name: 'tipo',
+                type: 'int',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.tipo;
+                }
             }
         ]
     }
@@ -75809,11 +76057,6 @@ Ext.define('Vitared.view.Main', {
     extend:  Ext.Container ,
     xtype: 'main',
 
-              
-                                 
-                                
-                                           
-      
 
     config: {
         layout: 'card',
@@ -75927,75 +76170,76 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
         style: 'background: #f2f2f2',
         tpl: ['<tpl for=".">' +
             '<div class="container">' +
-            '<div class="header">' +
-            '<div class="left user-image">' +
-            '<img src="{foto}" alt="">' +
-            '<tpl if="this.validatePromociones(promociones) == true">' +
-            '<div class="promo">' +
-            '<img class="left estrella" src="resources/images/promo-especial.png" alt="">' +
-            '</div><!-- promo -->' +
-            '</tpl>' +
-            '</div><!-- left -->' +
-            '<div class="right user-data">' +
-            '<h1>{name} {first_name} {last_name}</h1>' +
-            '<h2>{especialidad}</h2>' +
-            '<h2>{localidad}</h2>' +
-            '<h5>Atiende en {num_consul}</h5>' +
-            '<img src="resources/images/membresia.png" alt="" class="membresia">' +
-            '<img src="resources/images/vita.png" alt="" class="vita">' +
-            '</div><!-- left -->' +
+                '<div class="header">' +
+                    '<div class="left user-image">' +
+                        '<img src="{foto}" alt="">' +
+                        '<tpl if="this.validatePromociones(promociones) == true">' +
+                            '<div class="promo">' +
+                                '<img class="left estrella" src="resources/images/promo-especial.png" alt="">' +
+                            '</div><!-- promo -->' +
+                        '</tpl>' +
+                    '</div><!-- left -->' +
+                '<div class="right user-data">' +
+                    '<h1>Dr. {name} {first_name} {last_name}</h1>' +
+                    '<h2>{especialidad}</h2>' +
+                    '<h2>{localidad}</h2>' +
+                    '<h5>Atiende en {num_consul}</h5>' +
+                    '<img src="resources/images/membresia.png" alt="" class="membresia">' +
+                    '<img src="resources/images/vita.png" alt="" class="vita">' +
+                '</div><!-- left -->' +
             '</div><!-- header -->' +
             '<tpl if="this.validatePromociones(promociones) == true">' +
-            '<div class="datos">' +
-            '<div class="dato redes">' +
-            '<p>{promociones}</p>'+
-            '</div>' +
-            '</div>' +
+                '<div class="datos">' +
+                    '<div class="dato redes promociones">' +
+                        '<h2>Promoción</h2>'+
+                        '<p>{promociones}</p>'+
+                    '</div>' +
+                '</div>' +
             '</tpl>' +
             '<h6>INFO</h6>' +
             '<div class="datos">' +
-            '<div class="dato redes">' +
-            '<tpl if="this.validateWeb(web) == true">' +
-            '<p><a href="{web}" target="_blank">{web}</a></p>' +
-            '</tpl>' +
-            '<tpl if="this.validateMail(email) == true">' +
-            '<p><a href="mailto:{email}">{email}</a></p>' +
-            '</tpl>' +
-            '<ul>' +
-            '<tpl if="this.validateTwitter(twitter) == true">' +
-            '<li>' +
-            '<a href="{twitter}" target="_blank"><img src="resources/images/twitter.png" width="100%" height="100%" alt="{twitter}"></a>' +
-            '</li>' +
-            '</tpl>' +
-            '<tpl if="this.validateFacebook(facebook) == true">' +
-            '<li>' +
-            '<a href="{facebook}" target="_blank"><img src="resources/images/facebook.png" alt="{facebook}"></a>' +
-            '</li>' +
-            '</tpl>' +
-            '</ul>' +
-            '</div><!-- dato -->' +
+                '<div class="dato redes">' +
+                    '<tpl if="this.validateWeb(web) == true">' +
+                        '<p style="width: 300px;"><a href="{web}" target="_blank">{web}</a></p>' +
+                    '</tpl>' +
+                    '<ul>' +
+                        '<tpl if="this.validateMail(email) == true">' +
+                                '<li><a href="mailto:{email}"><img src="resources/images/mail.png" width="100%" height="100%" alt="{email}"></a></li>' +
+                            '</tpl>' +
+                            '<tpl if="this.validateTwitter(twitter) == true">' +
+                            '<li>' +
+                                '<a href="{twitter}" target="_blank"><img src="resources/images/twitter.png" width="100%" height="100%" alt="{twitter}"></a>' +
+                            '</li>' +
+                        '</tpl>' +
+                        '<tpl if="this.validateFacebook(facebook) == true">' +
+                            '<li>' +
+                                '<a href="{facebook}" target="_blank"><img src="resources/images/facebook.png" alt="{facebook}"></a>' +
+                            '</li>' +
+                        '</tpl>' +
+                    '</ul>' +
+                '</div><!-- dato -->' +
             '</div><!-- datos -->' +
             '<div class="lista">' +
-            '<h6>Consultorios</h6>' +
-            '<ul>' +
-            '<tpl for="consultorio">' +
-            '<li>' +
-            '<p class="titulo">Consultorio propio</p>' +
-            '<p class="numeracion" style="display: none">{[xindex - 1]}</p>' +
-            '<p>{calle}</p>' +
-            '<p>Colonia {colonia}</p>' +
-            '<p>{municipio}</p>' +
-            '<p>{Horarios}</p>' +
-            '<p>Llamar Directo: <a class="negra" href="tel:{numero_telefono}">{telefono}</a></p>' +
-            '<div class="mas-boton">' +
-            '<img src="resources/images/mas-boton.png" alt="">' +
-            '</div>' +
-            '</li>' +
-            '</tpl>' +
-            '</ul>' +
+                '<h6>Consultorios</h6>' +
+                '<ul>' +
+                    '<tpl for="consultorio">' +
+                        '<li>' +
+                            '<p class="titulo">Consultorio propio</p>' +
+                            '<p class="numeracion" style="display: none">{[xindex - 1]}</p>' +
+                            '<p>{calle}</p>' +
+                            '<p>Colonia {colonia}</p>' +
+                            '<p>{municipio}</p>' +
+                            '<p>{Horarios}</p>' +
+                            '<p>Llamar Directo: <a class="negra" href="tel:{numero_telefono}">{telefono}</a></p>' +
+                            '<div class="mas-boton">' +
+                                '<img src="resources/images/mas-boton.png" alt="">' +
+                            '</div>' +
+                        '</li>' +
+                    '</tpl>' +
+                '</ul>' +
             '</div><!-- lista -->' +
             '<tpl if="this.validateCedula(cedula_profesional) == true">' +
-            '<h6>Cedula Profesional</h6>' +
+                '<h6>Cedula Profesional</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{cedula_profesional}</p>' +
@@ -76003,7 +76247,7 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validateUniversidad(universidad_de_egreso) == true">' +
-            '<h6>Universidad de Ingreso</h6>' +
+            '<h6>Universidad de Egreso</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{universidad_de_egreso}</p>' +
@@ -76019,7 +76263,7 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validateResena(resena_de_servicios) == true">' +
-            '<h6>Resena de servicios</h6>' +
+            '<h6>Reseña de servicios</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
             '<p>{resena_de_servicios}</p>' +
@@ -76035,104 +76279,105 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
             '</div>' +
             '</tpl>' +
             '<tpl if="this.validatePublicaciones(publicaciones) == true">' +
+            '<tpl for="publicaciones">' +
             '<h6>Publicaciones</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
-            '<p>{publicaciones}</p>' +
+            '<p>{Publicacion}</p>' +
             '</div>' +
             '</div>' +
             '</tpl>' +
-            '<tpl if="this.validateImagenPublicacion(imagen_publicacion) == true">' +
-            '<h6>Imagenes de Publicaciones</h6>' +
+            '<tpl for="fotos">' +
+            '<h6>Fotografías</h6>' +
             '<div class="datos">' +
             '<div class="dato redes">' +
-            '<div><img src="{imagen_publicacion}" width="100%" height="100%"></div>' +
+            '<div><img src="{foto}" width="100%" height="100%"></div>' +
             '</div>' +
             '</div>' +
-            '</div>' +
+            '</tpl>' +
             '</tpl>' +
             '</tpl>' +
             '<div class="clear:both"></div>',
         {
             validateWeb: function (web) {
-                if (web !== '') {
+                if (!Ext.isEmpty(web)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateTwitter: function (twitter) {
-                if (twitter !== '') {
+                if (!Ext.isEmpty(twitter)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateFacebook: function (facebook){
-                if (facebook !== '') {
+                if (!Ext.isEmpty(facebook)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateMail: function (email){
-                if (email !== '') {
+                if (!Ext.isEmpty(email)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validatePromociones: function (promociones){
-                if (promociones !== '') {
+                if (!Ext.isEmpty(promociones)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validatePublicaciones: function (publicaciones){
-                if (publicaciones !== '') {
+                if (!Ext.isEmpty(publicaciones)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateImagenPublicacion: function (imagen_publicacion){
-                if (imagen_publicacion !== '') {
+                if (!Ext.isEmpty(imagen_publicacion)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateCedula: function (cedula_profesional){
-                if (cedula_profesional !== '') {
+                if (!Ext.isEmpty(cedula_profesional)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateUniversidad: function (universidad_de_egreso){
-                if (universidad_de_egreso !== '') {
+                if (!Ext.isEmpty(universidad_de_egreso)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validatePractica: function(antecedentes_de_practica){
-                if (antecedentes_de_practica !== '') {
+                if (!Ext.isEmpty(antecedentes_de_practica)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateResena: function(resena_de_servicios){
-                if (resena_de_servicios !== '') {
+                if (!Ext.isEmpty(resena_de_servicios)) {
                     return true;
                 } else {
                     return false;
                 }
             },
             validateServicios: function(listado_de_servicios){
-                if (listado_de_servicios !== '') {
+                if (!Ext.isEmpty(listado_de_servicios)) {
                     return true;
                 } else {
                     return false;
@@ -76141,6 +76386,50 @@ Ext.define('Vitared.view.medics.MedicDetailsTpl', {
         }]
     }
 
+});
+
+/**
+ * @class Vitared.view.home.MenuHome
+ * @extends Ext.Menu
+ * Home Vitared
+ * @author oswaldo@codetlan.com
+ * @codetlan
+ */
+Ext.define('Vitared.view.home.MenuHome', {
+    extend:  Ext.Menu ,
+    xtype: 'menuhome',
+
+    requires: [],
+
+    config: {
+        items: [
+            {
+                xtype: 'button',
+                html: '<a href="https://www.membresiavitamedica.com.mx" style="text-decoration: none; color: #ffffff;" target="_blank">Membresía Vitamédica</a>',
+                style: {
+                    background: '#1198ff'
+                },
+                itemId: 'membresia'
+            },
+            {
+                xtype: 'button',
+                html: '<a href="https://www.vitared.com.mx/privacidad" style="text-decoration: none; color: #ffffff;" target="_blank">Aviso de Privacidad</a>',
+                style: {
+                    background: '#56dc0f'
+                },
+                itemId: 'privacidad'
+            },
+            {
+                xtype: 'button',
+                html: '<a href="https://www.vitared.com.mx/privacidad" style="text-decoration: none; color: #ffffff;" target="_blank">Condiciones de Uso</a>',
+                style: {
+                    background: '#1198ff'
+                },
+                itemId: 'condiciones'
+            }
+        ]
+
+    }
 });
 
 /**
@@ -76157,11 +76446,14 @@ Ext.define('Vitared.view.home.NavigationHome', {
                                                    
                                           
                                         
-                                             
+                                              
+                                    
       
 
     config: {
-        navigationBar: {
+        itemId: 'home',
+        defaultBackButtonText: 'Atrás',
+            navigationBar: {
             items:[
                 {
                     xtype: 'button',
@@ -76171,9 +76463,12 @@ Ext.define('Vitared.view.home.NavigationHome', {
                     width: '2.7em',
                     itemId: 'infoButton'
                 },{
-                    iconCls:'locate',
+                    xtype: 'button',
                     align:'left',
-                    ui:'btn-add-ui',
+                    icon: './resources/images/pin-azul2.png',
+                    iconCls: 'button-locate',
+                    width: '5.7em',
+                    height: '3.1em',
                     itemId:'addLocation'
                 }
             ]
@@ -76198,9 +76493,42 @@ Ext.define('Vitared.view.medics.MedicTpl', {
     constructor: function () {
         var html;
         html = [
-            '<i class="fa fa-map-marker" style="font-size: 64px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
-            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">Dr. {name} {first_name} {last_name}</div><div style="font-size: 16px; color: gray;">{especialidad}</div><div style="color: gray;">{localidad}</div>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                    '<div class="resultado">' +
+                        '<div class="marker">' +
+                            '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                            '<p class="marker-id">{categoria}</p>'+
+                        '</div>'+
+            '<tpl else>',
+                '<div class="resultados">' +
+                    '<div class="resultado">' +
+                        '<div class="marker">' +
+                            '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                            '<p class="marker-id">{categoria}</p>'+
+                        '</div>'+
+            '</tpl>' +
+                '<div class="info">' +
+                    '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
+                    '<p class="especialidad"> {especialidad} </p>' +
+                    '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                    '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+            '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
+        //'<i class="fa fa-map-marker" style="font-size: 64px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
+        //'<div style="color: #064b88; font-size: 16px; font-weight: bold;">Dr. {name} {first_name} {last_name}</div><div style="font-size: 16px; color: gray;">{especialidad}</div><div style="color: gray;">{localidad}</div>',
+        //'<div class="clear:both"></div>'];
         this.callParent(html);
     }
 });
@@ -76235,21 +76563,22 @@ Ext.define('Vitared.view.medics.MedicNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Medicos ...',
                 itemTpl: Ext.create('Vitared.view.medics.MedicTpl'),
                 flex: 3,
-                store: 'Medics',
+                store: 'Searchs',
+                scope: this,/*,
+                onItemDisclosure: function (record, listItem, index, e) {
+                    this.fireEvent("tap", record, listItem, index, e);
+                }*/
                 plugins: [
                     {
                         type: 'listpaging',
                         autoPaging: true,
                         loadMoreText: 'Ver Más...'
                     }
-                ],
-                scope: this,
-                onItemDisclosure: function (record, listItem, index, e) {
-                    this.fireEvent("tap", record, listItem, index, e);
-                }
+                ]
             },
             {
                 xtype: 'container',
@@ -76292,9 +76621,39 @@ Ext.define('Vitared.view.hospitals.HospitalTpl', {
     constructor: function () {
         var html;
         html = [
-            '<i class="fa fa-map-marker" style="font-size: 50px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
-            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">{name}</div><div style="color: gray;">{localidad}</div>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '<tpl else>',
+            '<div class="resultados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
+                '<div class="info">' +
+                '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
+                '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+                '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
         this.callParent(html);
     }
 });
@@ -76381,11 +76740,19 @@ Ext.define('Vitared.view.hospitals.HospitalNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Hospitales ...',
-                scope: this,
+                scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/,
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]
             },
             {
                 xtype: 'container',
@@ -76428,9 +76795,39 @@ Ext.define('Vitared.view.pharmacies.PharmacyTpl', {
     constructor: function () {
         var html;
         html = [
-            '<i class="fa fa-map-marker" style="font-size: 50px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
-            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">{name}</div><div style="color: gray;">{localidad}</div>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '<tpl else>',
+            '<div class="resultados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
+                '<div class="info">' +
+                '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
+                '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+                '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 3) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
         this.callParent(html);
     }
 });
@@ -76469,11 +76866,12 @@ Ext.define('Vitared.view.pharmacies.PharmacyNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Farmacias ...',
-                scope: this,
+                scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
             },
             {
                 xtype: 'container',
@@ -76481,7 +76879,6 @@ Ext.define('Vitared.view.pharmacies.PharmacyNavigation', {
                 height: 50,
                 listeners:{
                     show:function(){
-                        console.log('wrwr');
                         var m3_u = (location.protocol=='https:'?'https://vitared.com.mx/ad/www/delivery/ajs.php':'http://vitared.com.mx/ad/www/delivery/ajs.php');
                         var m3_r = Math.floor(Math.random()*99999999999);
                         if (!document.MAX_used) document.MAX_used = ',';
@@ -76517,9 +76914,39 @@ Ext.define('Vitared.view.laboratories.LaboratoryTpl', {
     constructor: function () {
         var html;
         html = [
-            '<i class="fa fa-map-marker" style="font-size: 50px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
-            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">{name}</div><div style="color: gray;">{localidad}</div>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '<tpl else>',
+            '<div class="resultados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
+                '<div class="info">' +
+                '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
+                '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+                '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 3) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
         this.callParent(html);
     }
 });
@@ -76559,10 +76986,10 @@ Ext.define('Vitared.view.laboratories.LaboratoryNavigation', {
                     message: 'Cargando...'
                 },
                 emptyText: 'No hay Laboratorios ...',
-                scope: this,
+                scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
             },
             {
                 xtype: 'container',
@@ -76605,9 +77032,39 @@ Ext.define('Vitared.view.others.OtherTpl', {
     constructor: function () {
         var html;
         html = [
-            '<i class="fa fa-map-marker" style="font-size: 50px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
-            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">{name}</div><div style="color: gray;">{localidad}</div>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '<tpl else>',
+            '<div class="resultados">' +
+                '<div class="resultado">' +
+                '<div class="marker">' +
+                '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                '<p class="marker-id">{categoria}</p>'+
+                '</div>'+
+                '</tpl>' +
+                '<div class="info">' +
+                '<p class="nombre"> {name} </p>' +
+                '<p class="especialidad"> {subespecialidad} </p>' +
+                '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+                '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 3) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
         this.callParent(html);
     }
 });
@@ -76646,11 +77103,19 @@ Ext.define('Vitared.view.others.OtherNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Otros ...',
-                scope: this,
+                scope: this,/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
+                plugins: [
+                    {
+                        type: 'listpaging',
+                        autoPaging: true,
+                        loadMoreText: 'Ver Más...'
+                    }
+                ]
             },
             {
                 xtype: 'container',
@@ -76658,7 +77123,6 @@ Ext.define('Vitared.view.others.OtherNavigation', {
                 height: 50,
                 listeners:{
                     show:function(){
-                        console.log('wrwr');
                         var m3_u = (location.protocol=='https:'?'https://vitared.com.mx/ad/www/delivery/ajs.php':'http://vitared.com.mx/ad/www/delivery/ajs.php');
                         var m3_r = Math.floor(Math.random()*99999999999);
                         if (!document.MAX_used) document.MAX_used = ',';
@@ -76703,10 +77167,15 @@ Ext.define('Vitared.view.home.HomePanel', {
 
     config: {
         tabBarPosition: 'bottom',
+        tabBar:{
+            style: {
+                //'background': '#064b88'
+            }
+        },
         items: [
             {
-                title: 'Medicos',
-                iconCls: 'fa fa-stethoscope',
+                title: 'Médicos',
+                iconCls: 'fa fa-stethoscope boton-medico',
                 layout: 'fit',
                 items: [
                     {
@@ -76715,8 +77184,28 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Hospitales',
-                iconCls: 'fa fa-hospital-o',
+                title: 'Proveedores',
+                iconCls: 'fa fa-medkit boton-medico',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'hospitalnavigation'
+                    }
+                ]
+            }
+            /*{
+                title: 'medicos',
+                iconCls: 'medicos',
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'medicnavigation'
+                    }
+                ]
+            },
+            {
+                title: 'hospitales',
+                iconCls: 'hospitales-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -76725,8 +77214,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Farmacias',
-                iconCls: 'fa fa-medkit',
+                title: 'farmacias',
+                iconCls: 'farmacias-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -76735,8 +77224,8 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Laboratorios',
-                iconCls: 'fa fa-flask',
+                title: 'laboratorios',
+                iconCls: 'laboratorios-not-active',
                 layout: 'fit',
                 items: [
                     {
@@ -76745,15 +77234,15 @@ Ext.define('Vitared.view.home.HomePanel', {
                 ]
             },
             {
-                title: 'Otros',
-                iconCls: 'fa fa-wheelchair',
+                title: 'otros',
+                iconCls: 'otros-not-active',
                 layout: 'fit',
                 items: [
                     {
                         xtype: 'othernavigation'
                     }
                 ]
-            }
+            }*/
         ]
     }
 });
@@ -76830,6 +77319,7 @@ Ext.define('Vitared.controller.phone.Main', {
     locationForm: undefined,
     estado: undefined,
     ciudad: undefined,
+    menu: undefined,
 
     config: {
         refs: {
@@ -76852,23 +77342,25 @@ Ext.define('Vitared.controller.phone.Main', {
             detailsTpl: 'detailstpl',
             addLocation: 'navigationhome #addLocation',
             locationForm: 'locationform',
-            city: 'locationform #city'
+            city: 'locationform #city',
+            state: 'locationform #state',
+            menu: 'menuhome'
         },
         control: {
             'medicnavigation list': {
-                tap: 'onItemMedic'
+                itemtap: 'onItemMedic'
             },
             'hospitalnavigation list': {
-                tap: 'onItemHospital'
+                itemtap: 'onItemHospital'
             },
             'laboratorynavigation list': {
-                tap: 'onItemLaboratory'
+                itemtap: 'onItemLaboratory'
             },
             'pharmacynavigation list': {
-                tap: 'onItemPharmacy'
+                itemtap: 'onItemPharmacy'
             },
             'othernavigation list': {
-                tap: 'onItemOther'
+                itemtap: 'onItemOther'
             },
             'navigationhome': {
                 pop: 'onNavigationHomePop'
@@ -76876,16 +77368,16 @@ Ext.define('Vitared.controller.phone.Main', {
             'navigationhome #infoButton': {
                 tap: 'onInfo'
             },
-            'navigationhome #addLocation':{
+            'navigationhome #addLocation': {
                 tap: 'showModalLocation'
             },
-            'locationform #cancelarFormLocation':{
+            'locationform #cancelarFormLocation': {
                 tap: 'hideModalLocation'
             },
-            'locationform #state':{
+            'locationform #state': {
                 change: 'onChangeState'
             },
-            'locationform #guardarLocation':{
+            'locationform #guardarLocation': {
                 tap: 'onSaveLocation'
             },
             'homepanel': {
@@ -76904,6 +77396,15 @@ Ext.define('Vitared.controller.phone.Main', {
             },
             'autocompletelist': {
                 itemtap: 'onSearhAutoComplete'
+            },
+            'menuhome #membresia': {
+                tap: 'onMembresia'
+            },
+            'menuhome #privacidad': {
+                tap: 'onPrivacidad'
+            },
+            'menuhome #condiciones': {
+                tap: 'onCondiciones'
             }
         }
     },
@@ -76913,16 +77414,17 @@ Ext.define('Vitared.controller.phone.Main', {
      */
     launch: function () {
         var me = this,
-            store = Ext.getStore('Medics');
+            store = Ext.getStore('Searchs');
 
         var geo = Ext.create('Ext.util.Geolocation', {
             autoUpdate: false,
             listeners: {
                 locationupdate: function (geo) {
+                    console.log(geo);
                     me.latitude = geo.getLatitude();
                     me.longitude = geo.getLongitude();
 
-                    me.onLoadStores('Medics', '', me.latitude + ',' + me.longitude);
+                    me.onLoadStores('Searchs', '', me.latitude + ',' + me.longitude);
                 },
                 locationerror: function (geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
                     me.latitude = geo.getLatitude();
@@ -76932,156 +77434,225 @@ Ext.define('Vitared.controller.phone.Main', {
             }
         });
         geo.updateLocation();
+
+        var storeid = me.getHomePanel().getActiveItem().down('list').getStore().getStoreId(),
+            store1 = Ext.getStore(storeid);
+
+
+        store1.on('load', function (store, records, successful, operation, eOpts) {
+            var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
+                bounds = new google.maps.LatLngBounds();
+
+            if (!Ext.isEmpty(records)) {
+                Ext.Array.each(records, function (item, index, ItSelf) {
+                    var latitud = item.get('latitud'),
+                        longitud = item.get('longitud'), marker, icono,
+                        categoria = item.get('categoria'),
+                        tipo = item.get('tipo');
+
+                    if (tipo != 0){
+                        icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
+                    } else {
+                        icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
+                    }
+
+                    if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(latitud, longitud),
+                            map: map,
+                            icon: icono
+                        });
+
+                        me.markers.push(marker);
+
+                        bounds.extend(marker.position);
+
+                        var infoWindow = new google.maps.InfoWindow();
+
+                        if (store1 == 'Searchs') {
+                            var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
+                        } else {
+                            name = item.get('name');
+                        }
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infoWindow.setContent(name);
+                            infoWindow.open(map, marker);
+                        });
+                    }
+                });
+            }
+            store1.data.sort('orden', 'ASC');
+            store1.data.sort('categoria', 'ASC');
+        });
     },
 
     onLoadStores: function (storeId, search, geo, tipo) {
         var me = this;
-        if (storeId != 'Medics') {
-            var store = Ext.getStore('Suppliers'),
+
+        Ext.getStore(storeId).setParams({});
+
+        if (storeId != 'Searchs') {
+            var store = Ext.getStore(storeId),
                 store2 = Ext.getStore(storeId),
+                ciudad = me.ciudad ? me.ciudad : '',
                 params = {
-                    field_tipo_de_proveedor: tipo,
+                    //field_tipo_de_proveedor: tipo,
                     search_api_views_fulltext: search,
-                    field_geo: geo
+                    field_geo: geo,
+                    ciudad: me.ciudad
                 },
-                url = "http://vitared.com.mx/app/consulta/proveedor/";
+                url = "https://www.vitared.com.mx/middleware/proveedor.php";
         } else {
             store = Ext.getStore('Searchs');
-            store2 = Ext.getStore(storeId);
+            //store2 = Ext.getStore(storeId);
+            ciudad = me.ciudad ? me.ciudad : '';
             params = {
                 search_api_views_fulltext: search,
-                field_geo: geo
+                field_geo: geo,
+                ciudad: me.ciudad
             };
-            url = "http://vitared.com.mx/app/consulta/medico/";
+            //url = "http://vitared.com.mx/app/consulta/medico/";
         }
 
-        var nids = [],
-            proxy = store2.getProxy();
-
+        store.setParams(params);
         store.load({
-            params: params,
             callback: function (records, operation) {
-                Ext.Array.each(records, function (item, index, ItSelf) {
-                    nids.push(item.get('nid'));
-                });
+                var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
+                    bounds = new google.maps.LatLngBounds(), marker;
 
-                params = nids.join(",");
-                params = params != '' ? params : '0';
-                proxy.setUrl(url + params);
-                store2.load({
-                    callback: function (records, operation) {
-                        var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
-                            bounds = new google.maps.LatLngBounds(), marker;
+                me.clearMap();
 
-                        me.clearMap();
+                if (!Ext.isEmpty(records)) {
+                    Ext.Array.each(records, function (item, index, ItSelf) {
+                        var latitud = item.get('latitud'),
+                            longitud = item.get('longitud'), marker, icono,
+                            categoria = item.get('categoria'),
+                            tipo = item.get('tipo');
 
-                        if(!Ext.isEmpty(records)){
-                            Ext.Array.each(records, function (item, index, ItSelf) {
-                                var latitud = item.get('latitud'),
-                                    longitud = item.get('longitud');
-
-                                if(!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
-                                    marker = new google.maps.Marker({
-                                        position: new google.maps.LatLng(latitud, longitud),
-                                        map: map
-                                    });
-
-                                    me.markers.push(marker);
-
-                                    bounds.extend(marker.position);
-
-                                    var infoWindow = new google.maps.InfoWindow();
-
-                                    if (storeId == 'Medics') {
-                                        var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
-                                    } else {
-                                        name = item.get('name');
-                                    }
-
-                                    google.maps.event.addListener(marker, 'click', function () {
-                                        infoWindow.setContent(name);
-                                        infoWindow.open(map, marker);
-                                    });
-                                }
-                            });
+                        if (tipo != 0){
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/ED2024/"
                         } else {
-                            var latlng = new google.maps.LatLng(me.latitude, me.longitude);
+                            icono = "http://www.googlemapsmarkers.com/v1/"+categoria+"/3895D2/"
+                        }
 
-                            geocoder.geocode({'latLng': latlng}, function(results, status) {
-                                if (status == google.maps.GeocoderStatus.OK) {
-                                    if (results[0]) {
-                                        marker = new google.maps.Marker({
-                                            position: latlng,
-                                            map: map
-                                        });
-                                        var infoWindow = new google.maps.InfoWindow();
-                                        infoWindow.setContent(results[0].formatted_address);
-                                        infoWindow.open(map, marker);
+                        if (!Ext.isEmpty(latitud) && !Ext.isEmpty(longitud)) {
 
-                                        google.maps.event.addListener(marker, 'click', function () {
-                                            infoWindow.setContent(results[0].formatted_address);
-                                            infoWindow.open(map, marker);
-                                        });
-                                    }
-                                } else {
-                                    alert("No podemos encontrar la direcci&oacute;n, error: " + status);
-                                }
+                            marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(latitud, longitud),
+                                map: map,
+                                icon: icono
+                            });
+
+                            me.markers.push(marker);
+
+                            bounds.extend(marker.position);
+
+                            var infoWindow = new google.maps.InfoWindow();
+
+                            if (storeId == 'Searchs') {
+                                var name = 'Dr. ' + item.get('name') + ' ' + item.get('first_name') + ' ' + item.get('last_name');
+                            } else {
+                                name = item.get('name');
+                            }
+
+                            google.maps.event.addListener(marker, 'click', function () {
+                                infoWindow.setContent(name);
+                                infoWindow.open(map, marker);
                             });
                         }
-                        map.fitBounds(bounds);
-                    }
-                });
+                    });
+                } else {
+                    var latlng = new google.maps.LatLng(me.latitude, me.longitude),
+                        tipo = me.getHomePanel().getTabBar().getActiveTab().getTitle();
+
+                    geocoder = new google.maps.Geocoder();
+
+                    geocoder.geocode({'latLng': latlng}, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map
+                                });
+                                me.markers.push(marker);
+
+                                bounds.extend(marker.position);
+
+                                var infoWindow = new google.maps.InfoWindow();
+                                infoWindow.setContent('No hay ' + tipo + '...');
+                                infoWindow.open(map, marker);
+
+                                /*google.maps.event.addListener(marker, 'click', function () {
+                                 infoWindow.setContent(results[0].formatted_address);
+                                 infoWindow.open(map, marker);
+                                 });*/
+                            }
+                        } else {
+                            me.getStoreLoad('');
+                        }
+                    });
+                }
+                map.fitBounds(bounds);
             }
         });
+        store.data.sort('orden', 'ASC');
+        store.data.sort('categoria', 'ASC');
+
     },
 
     onActiveTab: function (t, value, oldValue, eOpts) {
         var me = this,
             store = value.down('navigationview').down('list').getStore().getStoreId(), search = '',
-            geo = me.latitude + ',' + me.longitude, tipo;
+            geo = me.latitude + ',' + me.longitude, tipo,
+            active = value.title,
+            item = me.getHomePanel().getTabBar().getItems();
 
         if (me.searchList) {
             me.searchList.hide();
         }
-        switch (store) {
+        /*switch (store) {
             case 'Hospitals':
                 tipo = 'Hospital';
+                item.getAt(0).setIconCls('medicos-not-active');
+                item.getAt(1).setIconCls('hospitales');
                 break;
-            case 'Pharmacies':
-                tipo = "Farmacia";
-                break;
-            case 'Laboratories':
-                tipo = "Laboratorio";
-                break;
-            case 'Others':
-                tipo = "Otros";
-                break;
-        }
+            default:
+                item.getAt(0).setIconCls('medicos');
+                item.getAt(1).setIconCls('hospitales-not-active');
+
+        }*/
         Ext.getStore(store).resetCurrentPage();
         me.onLoadStores(store, search, geo, tipo);
     },
 
-    onItemMedic: function (record, listItem, index, e) {
+    onItemMedic: function (t, index, target, record, e, eOpts) {
         var me = this,
             view = me.getMedicNavigation(),
             nid = record.get('nid'),
-            store = Ext.getStore('MedicsDetails'),
-            proxy = store.getProxy(),
-            url = "http://vitared.com.mx:3001/busqueda/medicos/";
+            store = Ext.getStore('MedicsDetails');
+        /*proxy = store.getProxy(),
+         url = "http://vitared.com.mx:3001/busqueda/medicos/";*/
 
-        proxy.setUrl(url + nid);
-        store.load({
-            callback: function (record, operation) {
-                view.push({
-                    xtype: 'medicdetails'
-                });
-                view.down('#addLocation').hide();
-                me.getMedicDetails().setData(record[0].getData());
-            }
+        view.push({
+            xtype: 'medicdetails'
         });
+        view.down('#addLocation').hide();
+        me.getMedicDetails().setData(record.getData());
+
+        /*proxy.setUrl(url + nid);
+         store.load({
+         callback: function (record, operation) {
+         view.push({
+         xtype: 'medicdetails'
+         });
+         view.down('#addLocation').hide();
+         me.getMedicDetails().setData(record[0].getData());
+         }
+         });*/
     },
 
-    onItemHospital: function (record, listItem, index, e) {
+    onItemHospital: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getHospitalNavigation(),
             latitud = record.get('latitud'),
@@ -77095,18 +77666,19 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
 
     },
 
-    onItemPharmacy: function (record, listItem, index, e) {
+    onItemPharmacy: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getPharmacyNavigation(),
             latitud = record.get('latitud'),
@@ -77120,17 +77692,18 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
     },
 
-    onItemLaboratory: function (record, listItem, index, e) {
+    onItemLaboratory: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getLaboratoryNavigation(),
             latitud = record.get('latitud'),
@@ -77144,17 +77717,18 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
     },
 
-    onItemOther: function (record, listItem, index, e) {
+    onItemOther: function (t, index, target, record, e, eOpts) {
         var me = this, map,
             view = me.getOtherNavigation(),
             latitud = record.get('latitud'),
@@ -77168,14 +77742,15 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('#addLocation').hide();
         view.down('detailstype').setData({
             name: name,
-            calle: record.get('direcciones'),
+            calle: record.get('calle'),
             colonia: record.get('localidad'),
             telefono: record.get('telefono'),
+            horario: record.get('horario'),
             numero_telefono: record.get('numero_telefono')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
-        me.trazarRuta(map,  latitud, longitud);
+        me.trazarRuta(map, latitud, longitud);
     },
 
     onItemMap: function (map, name, latitud, longitud) {
@@ -77204,31 +77779,22 @@ Ext.define('Vitared.controller.phone.Main', {
 
     onInfo: function (btn, e, o) {
         var me = this;
-
-        btn.up('navigationhome').down('#addLocation').hide();
-        btn.up('navigationhome').push({
-            xtype: 'container',
-            html: '<div class="container">' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.membresiavitamedica.com.mx" target="_blank">Membresía Vitamédica</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llamar left" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/privacidad" target="_blank">Aviso de privacidad</a>' +
-                '</div>' +
-                '</div>' +
-                '<p>&nbsp; </p>' +
-                '<div class="botones-ubicacion">' +
-                '<div class="llegar left info" style="width: 100%;">' +
-                '<a href="https://www.vitared.com.mx/uso" target="_blank">Condiciones de uso</a>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
+        var menu = Ext.create('Vitared.view.home.MenuHome',{
+            side: 'right',
+            reveal: 'true'
         });
-        btn.hide();
+
+        if (!me.menu) {
+            Ext.Viewport.setMenu(menu,{
+                    side: 'right',
+                    reveal: 'true'
+                });
+            Ext.Viewport.showMenu('right');
+            me.menu = true;
+        } else {
+            Ext.Viewport.hideMenu('right');
+            me.menu = false;
+        }
     },
 
     trazarRuta: function (map, lat, lng) {
@@ -77257,12 +77823,17 @@ Ext.define('Vitared.controller.phone.Main', {
 
     },
 
-    onNavigationHomePop: function (navigation) {
+    onNavigationHomePop: function (navigation, view) {
         var me = this;
-        navigation.down('#infoButton').show();
-        navigation.down('#addLocation').show();
 
-        me.getStoreLoad('');
+        navigation.down('#infoButton').show();
+        if (navigation.getItems().getCount() == 2) {
+            navigation.down('#addLocation').show();
+        }
+
+        var search = me.getSearchContainer().down('searchfield').getValue();
+
+        //me.getStoreLoad(search);
     },
 
     onDetailContact: function (t, e, f, g, h) {
@@ -77288,7 +77859,7 @@ Ext.define('Vitared.controller.phone.Main', {
             });
             map = view.down('locationmap').getMap();
             //me.onItemMap(map, name, data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);
-            me.trazarRuta(map,  data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);
+            me.trazarRuta(map, data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);
         }
     },
 
@@ -77311,29 +77882,45 @@ Ext.define('Vitared.controller.phone.Main', {
 
     onSearch: function (t, e, eOpts) {
         var me = this,
-            searchActive = me.getHomePanel().getActiveItem().down('#searching'),
+            searchActive = t,
             storeAuto, proxy,
             search = t.getValue(),
-            url;
+            url,
+            view = me.getMedicNavigation();
 
-        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Medics' ? url = 'http://vitared.com.mx:3001/medicos/' : url = 'http://vitared.com.mx:3001/hospitales/';
+        me.getHomePanel().getActiveItem().down('list').getStore().getStoreId() == 'Searchs' ? url = 'https://www.vitared.com.mx/middleware/medicos-autocomplete.php?' : url = 'http://vitared.com.mx:3001/hospitales/';
 
         if (!me.searchList) {
             me.searchList = Ext.Viewport.add({
                 xtype: 'autocompletelist',
                 layout: 'fit',
                 width: (Ext.os.deviceType === 'Phone') ? 300 : 400,
-                height: 300
+                height: 200
             });
             me.searchList.showBy(searchActive);
         }
 
         storeAuto = Ext.getStore('AutoCompletes');
         proxy = storeAuto.getProxy();
+
         if (search != '') {
-            me.searchList.showBy(searchActive);
-            proxy.setUrl(url + search);
-            storeAuto.load();
+            if (e.event.keyCode == 13) {
+                me.searchList.hide();
+                /*proxy.setUrl(url + search);
+                 storeAuto.load();*/
+                view.pop();
+                me.getHomePanel().getActiveItem().down('#searching').setValue(search);
+                searchActive.setValue(search);
+                me.getStoreLoad(search);
+                me.clearMap();
+            } else {
+                me.searchList.showBy(searchActive);
+                proxy.setUrl(url + search);
+                storeAuto.load();
+                var num_record = storeAuto.getAllCount();
+                me.searchList.setHeight(num_record * 23);
+                me.searchList.doRefresh();
+            }
         } else {
             me.searchList.hide();
         }
@@ -77342,9 +77929,11 @@ Ext.define('Vitared.controller.phone.Main', {
     onSearhAutoComplete: function (t, index, target, record, e, eOpts) {
         var me = this,
             searchActive = me.getHomePanel().getActiveItem().down('#searching'),
-            search = record.get('palabra');
+            search = record.get('palabra'),
+            view = me.getMedicNavigation();
 
         me.searchList.hide();
+        view.pop();
         searchActive.setValue(search);
         me.getStoreLoad(search);
         me.clearMap();
@@ -77385,47 +77974,55 @@ Ext.define('Vitared.controller.phone.Main', {
 
     clearMap: function () {
         var me = this;
+
         for (i = 0; i < me.markers.length; i++) {
             me.markers[i].setMap(null);
         }
     },
 
-    showModalLocation:function() {
+    showModalLocation: function () {
         var me = this;
-        if(!me.locationForm){
+        if (!me.locationForm) {
             me.locationForm = Ext.Viewport.add({
-                xtype:'panel',
-                modal:true,
-                width:(Ext.os.deviceType === 'Phone') ? 300:400,
-                height:200,
-                layout:'fit',
-                items:{
-                    xtype:'locationform'
+                xtype: 'panel',
+                modal: true,
+                width: (Ext.os.deviceType === 'Phone') ? 300 : 400,
+                height: 200,
+                layout: 'fit',
+                items: {
+                    xtype: 'locationform'
                 }
             });
+            me.getLocationForm().down('#state').fireEvent('change', me, me.getLocationForm().down('#state').getValue());
         } else {
             me.getLocationForm().down('#state').setValue(me.estado);
             me.getLocationForm().down('#city').setValue(me.ciudad);
         }
         me.locationForm.showBy(me.getHomePanel().getActiveItem().down('navigationview').down('#addLocation'));
+
     },
 
-    hideModalLocation:function() {
+    hideModalLocation: function () {
         var me = this;
         me.locationForm.hide();
     },
 
-    onChangeState: function(t, newValue, OldValue, e){
+    onChangeState: function (t, newValue, OldValue, e) {
         var me = this,
             city = Ext.getStore('City');
 
         city.clearFilter();
-        city.filter("estado", newValue);
-        city.load();
+
+        var filter = new Ext.util.Filter({
+            filterFn: function (item) {
+                return item.get('value') == newValue;
+            }
+        });
+        city.filter([filter]);
         me.getCity().setStore(city);
     },
 
-    onSaveLocation: function(){
+    onSaveLocation: function () {
         var me = this;
 
         me.estado = me.getLocationForm().down('#state').getRecord().get('text');
@@ -77435,17 +78032,37 @@ Ext.define('Vitared.controller.phone.Main', {
         me.locationForm.hide();
 
         geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': me.estado +', '+ me.ciudad}, function(results, status) {
-          //si el estado de la llamado es OK
-          if (status == google.maps.GeocoderStatus.OK) {
-            me.latitude = results[0].geometry.location.lat();
-            me.longitude = results[0].geometry.location.lng();
-            me.getStoreLoad('');
-          } else {
-            //si no es OK devuelvo error
-            alert("No podemos encontrar la direcci&oacute;n, error: " + status);
-          }
-         });
+        geocoder.geocode({ 'address': me.estado + ', ' + me.ciudad}, function (results, status) {
+            //si el estado de la llamado es OK
+            if (status == google.maps.GeocoderStatus.OK) {
+                me.latitude = results[0].geometry.location.lat();
+                me.longitude = results[0].geometry.location.lng();
+                me.getStoreLoad('');
+            } else {
+                me.getStoreLoad('');
+            }
+        });
+    },
+
+    onMembresia: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onPrivacidad: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
+    },
+
+    onCondiciones: function () {
+        var me = this;
+
+        Ext.Viewport.hideMenu('right');
+        me.menu = false;
     }
 
 });
@@ -77485,6 +78102,8 @@ Ext.define('Vitared.proxy.Drupal', {
     extend:  Ext.data.proxy.JsonP ,
     alias: 'proxy.drupal',
     currentPage: 0,
+    pageSize: 10,
+
     getParams: function(operation) {
         return {
             page: operation.getPage() - 1,
@@ -77516,11 +78135,41 @@ Ext.define('Vitared.store.Medics', {
                 type: 'json',
                 rootProperty: 'medicos'
             }
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
+            }
         }
     },
 
     resetCurrentPage: function() {
         this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });
 
@@ -77572,18 +78221,48 @@ Ext.define('Vitared.store.Hospitals', {
         model:'Vitared.model.Hospital',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            url: 'https://www.vitared.com.mx/middleware/proveedor.php',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
                 rootProperty: 'medicos'
 
             }
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
+            }
         }
     },
 
     resetCurrentPage: function() {
         this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });
 
@@ -77604,18 +78283,48 @@ Ext.define('Vitared.store.Laboratories', {
         model:'Vitared.model.Laboratory',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            url: 'https://www.vitared.com.mx/middleware/proveedor.php',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
                 rootProperty: 'medicos'
 
             }
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
+            }
         }
     },
 
     resetCurrentPage: function() {
         this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });
 
@@ -77636,18 +78345,48 @@ Ext.define('Vitared.store.Pharmacies', {
         model:'Vitared.model.Pharmacy',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            url: 'https://www.vitared.com.mx/middleware/proveedor.php',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
                 rootProperty: 'medicos'
 
             }
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
+            }
         }
     },
 
     resetCurrentPage: function() {
         this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });
 
@@ -77666,15 +78405,53 @@ Ext.define('Vitared.store.Searchs', {
 
     config: {
         model: 'Vitared.model.Search',
+        sorters: [{
+            property: 'orden',
+            direction: 'ASC'
+        }],
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/buscar/medicos',
+            url: 'https://www.vitared.com.mx/middleware/medicos.php',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
-                rootProperty: 'nodes'
+                rootProperty: 'medicos'
+            }
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
             }
         }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });
 
@@ -77695,13 +78472,17 @@ Ext.define('Vitared.store.Suppliers', {
         model: 'Vitared.model.Search',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/buscar/proveedor',
+            url: 'https://www.vitared.com.mx/middleware/proveedor.php',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
-                rootProperty: 'nodes'
+                rootProperty: 'medicos'
             }
         }
+    },
+
+    resetCurrentPage: function() {
+        this.currentPage = 1;
     }
 });
 
@@ -77722,7 +78503,7 @@ Ext.define('Vitared.store.AutoCompletes', {
         model: 'Vitared.model.AutoComplete',
         proxy: {
             type: 'drupal',
-            url: 'http://5.9.42.45:3001/medicos/',
+            url: 'https://www.vitared.com.mx/middleware/medicos-autocomplete.php?',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
@@ -77749,17 +78530,47 @@ Ext.define('Vitared.store.Others', {
         model:'Vitared.model.Other',
         proxy: {
             type: 'drupal',
-            url: 'http://vitared.com.mx/app/consulta/proveedor',
+            url: 'https://www.vitared.com.mx/middleware/proveedor.php',
             callbackKey: 'callback',
             reader: {
                 type: 'json',
                 rootProperty: 'medicos'
+            }
+        },
+        listeners: {
+            beforeload: function (store, operation, ops) {
+                var me = this,
+                    extraParams = store.getProxy().getExtraParams();
+
+                if(me.resetParams){
+                    store.getProxy().setExtraParams(me.params);
+                    me.resetParams = false;
+                } else {
+                    store.getProxy().setExtraParams(me.mergePropertiesObject(extraParams, me.params));
+                }
             }
         }
     },
 
     resetCurrentPage: function() {
         this.currentPage = 1;
+    },
+
+    setParams:function(params, resetParams){
+        var me = this;
+        me.params = params;
+        me.resetParams = resetParams;
+    },
+
+    mergePropertiesObject: function (obj1, obj2) {
+        var obj3 = {};
+        for (var attrname in obj1) {
+            obj3[attrname] = obj1[attrname];
+        }
+        for (var attrname in obj2) {
+            obj3[attrname] = obj2[attrname];
+        }
+        return obj3;
     }
 });
 
@@ -77775,44 +78586,42 @@ Ext.define('Vitared.store.State', {
     config: {
         fields: [
             {name: "text", type: "string"},
-            {name: "value",  type: "string"},
-            {name: "estado",  type: "int"}
+            {name: "value",  type: "int"}
         ],
         data:[
-            {text: 'Aguascalientes', value: 'Aguascalientes', estado: 1},
-            {text: 'Baja California', value: 'Baja California', estado: 2},
-            {text: 'Baja California Sur', value: 'Baja California Sur', estado: 3},
-            {text: 'Campeche', value: 'Campeche', estado: 4},
-            {text: 'Chiapas', value: 'Chiapas', estado: 5},
-            {text: 'Chihuahua', value: 'Chihuahua', estado: 6},
-            {text: 'Coahuila', value: 'Coahuila', estado: 7},
-            {text: 'Colima', value: 'Colima', estado: 8},
-            {text: 'Distrito Federal', value: 'Distrito Federal', estado: 9},
-            {text: 'Durango', value: 'Durango', estado: 10},
-            {text: 'Guanajuato', value: 'Guanajuato', estado: 11},
-            {text: 'Guerrero', value: 'Guerrero', estado: 12},
-            {text: 'Hidalgo', value: 'Hidalgo', estado: 13},
-            {text: 'Jalisco', value: 'Jalisco', estado: 14},
-            {text: 'Mexico', value: 'Mexico', estado: 15},
-            {text: 'Michoacan', value: 'Michoacan', estado: 16},
-            {text: 'Morelos', value: 'Morelos', estado: 17},
-            {text: 'Nayarit', value: 'Nayarit', estado: 18},
-            {text: 'Nuevo León', value: 'Nuevo León', estado: 19},
-            {text: 'Oaxaca', value: 'Oaxaca', estado: 20},
-            {text: 'Puebla', value: 'Puebla', estado: 21},
-            {text: 'Queretaro', value: 'Queretaro', estado: 22},
-            {text: 'Quintana Roo', value: 'Quintana Roo', estado: 23},
-            {text: 'San Luis Potosi', value: 'San Luis Potosi', estado: 24},
-            {text: 'Sinaloa', value: 'Sinaloa', estado: 25},
-            {text: 'Sonora', value: 'Sonora', estado: 26},
-            {text: 'Tabasco', value: 'Tabasco', estado: 27},
-            {text: 'Tamaulipas', value: 'Tamaulipas', estado: 28},
-            {text: 'Tlaxcala', value: 'Tlaxcala', estado: 29},
-            {text: 'Veracruz', value: 'Veracruz', estado: 30},
-            {text: 'Yucatan', value: 'Yucatan', estado: 31},
-            {text: 'Zacatecas', value: 'Zacatecas', estado: 32}
-        ],
-        autoLoad: true
+            {text: 'Aguascalientes', value: 1},
+            {text: 'Baja California', value: 2},
+            {text: 'Baja California Sur', value: 3},
+            {text: 'Campeche', value: 4},
+            {text: 'Chiapas', value: 5},
+            {text: 'Chihuahua', value: 6},
+            {text: 'Coahuila', value: 7},
+            {text: 'Colima', value: 8},
+            {text: 'Distrito Federal', value: 9},
+            {text: 'Durango', value: 10},
+            {text: 'Guanajuato', value: 11},
+            {text: 'Guerrero', value: 12},
+            {text: 'Hidalgo', value: 13},
+            {text: 'Jalisco', value: 14},
+            {text: 'Michoacán', value: 15},
+            {text: 'Morelos', value: 16},
+            {text: 'México', value: 17},
+            {text: 'Nayarit', value: 18},
+            {text: 'Nuevo León', value: 19},
+            {text: 'Oaxaca', value: 20},
+            {text: 'Puebla', value: 21},
+            {text: 'Querétaro', value: 22},
+            {text: 'Quintana Roo', value: 23},
+            {text: 'San Luis Potosí', value: 24},
+            {text: 'Sinaloa', value: 25},
+            {text: 'Sonora', value: 26},
+            {text: 'Tabasco', value: 27},
+            {text: 'Tamaulipas', value: 28},
+            {text: 'Tlaxcala', value: 29},
+            {text: 'Veracruz', value: 30},
+            {text: 'Yucatán', value: 31},
+            {text: 'Zacatecas', value: 32}
+        ]
     }
 });
 
@@ -77828,654 +78637,660 @@ Ext.define('Vitared.store.City', {
     config: {
         fields: [
             {name: "text", type: "string"},
-            {name: "value", type: "string"},
-            {name: "estado", type: "int"}
+            {name: "value", type: "int"}
         ],
         data: [
-            {text: 'Aguascalientes', value: 'Aguascalientes', estado: 1},
-            {text: 'Asientos', value: 'Asientos', estado: 1},
-            {text: 'Calvillo', value: 'Calvillo', estado: 1},
-            {text: 'Cosío', value: 'Cosío', estado: 1},
-            {text: 'Jesús María', value: 'Jesús María', estado: 1},
-            {text: 'Pabellón de Arteaga', value: 'Pabellón de Arteaga', estado: 1},
-            {text: 'Rincón de Romos', value: 'Rincón de Romos', estado: 1},
-            {text: 'San Francisco de los Romo', value: 'San Francisco de los Romo', estado: 1},
-            {text: 'Tepezalá', value: 'Tepezalá', estado: 1},
-            {text: 'Ensenada', value: 'Ensenada', estado: 2},
-            {text: 'Mexicali', value: 'Mexicali', estado: 2},
-            {text: 'Playas de Rosarito', value: 'Playas de Rosarito', estado: 2},
-            {text: 'Rodolfo Sánchez T. (Maneadero)', value: 'Rodolfo Sánchez T. (Maneadero)', estado: 2},
-            {text: 'San Felipe', value: 'San Felipe', estado: 2},
-            {text: 'Tecate', value: 'Tecate', estado: 2},
-            {text: 'Tijuana', value: 'Tijuana', estado: 2},
-            {text: 'Cabo San Lucas', value: 'Cabo San Lucas', estado: 3},
-            {text: 'Ciudad Constitución', value: 'Ciudad Constitución', estado: 3},
-            {text: 'Guerrero Negro', value: 'Guerrero Negro', estado: 3},
-            {text: 'Heroica Mulegé', value: 'Heroica Mulegé', estado: 3},
-            {text: 'La Paz', value: 'La Paz', estado: 3},
-            {text: 'Loreto', value: 'Loreto', estado: 3},
-            {text: 'Puerto Adolfo López Mateos', value: 'Puerto Adolfo López Mateos', estado: 3},
-            {text: 'San Ignacio', value: 'San Ignacio', estado: 3},
-            {text: 'San José del Cabo', value: 'San José del Cabo', estado: 3},
-            {text: 'Todos Santos', value: 'Todos Santos', estado: 3},
-            {text: 'Villa Alberto Andrés Alvarado Arámburo', value: 'Villa Alberto Andrés Alvarado Arámburo', estado: 3},
-            {text: 'Calkini', value: 'Calkini', estado: 4},
-            {text: 'Candelaria', value: 'Candelaria', estado: 4},
-            {text: 'Champotón', value: 'Champotón', estado: 4},
-            {text: 'Ciudad del Carmen', value: 'Ciudad del Carmen', estado: 4},
-            {text: 'Escárcega', value: 'Escárcega', estado: 4},
-            {text: 'Hecelchakán', value: 'Hecelchakán', estado: 4},
-            {text: 'Hopelchén', value: 'Hopelchén', estado: 4},
-            {text: 'Pomuch', value: 'Pomuch', estado: 4},
-            {text: 'Sabancuy', value: 'Sabancuy', estado: 4},
-            {text: 'San Francisco de Campeche', value: 'San Francisco de Campeche', estado: 4},
-            {text: 'Acala', value: 'Acala', estado: 5},
-            {text: 'Arriaga', value: 'Arriaga', estado: 5},
-            {text: 'Cacahoatán', value: 'Cacahoatán', estado: 5},
-            {text: 'Chiapa de Corzo', value: 'Chiapa de Corzo', estado: 5},
-            {text: 'Cintalapa de Figueroa', value: 'Cintalapa de Figueroa', estado: 5},
-            {text: 'Comitán de Domínguez', value: 'Comitán de Domínguez', estado: 5},
-            {text: 'Huixtla', value: 'Huixtla', estado: 5},
-            {text: 'Jiquipilas', value: 'Jiquipilas', estado: 5},
-            {text: 'Las Margaritas', value: 'Las Margaritas', estado: 5},
-            {text: 'Las Rosas', value: 'Las Rosas', estado: 5},
-            {text: 'Mapastepec', value: 'Mapastepec', estado: 5},
-            {text: 'Motozintla de Mendoza', value: 'Motozintla de Mendoza', estado: 5},
-            {text: 'Ocosingo', value: 'Ocosingo', estado: 5},
-            {text: 'Ocozocoautla de Espinosa', value: 'Ocozocoautla de Espinosa', estado: 5},
-            {text: 'Palenque', value: 'Palenque', estado: 5},
-            {text: 'Pichucalco', value: 'Pichucalco', estado: 5},
-            {text: 'Pijijiapan', value: 'Pijijiapan', estado: 5},
-            {text: 'Puerto Madero (San Benito)', value: 'Puerto Madero (San Benito)', estado: 5},
-            {text: 'San Cristóbal de las Casas', value: 'San Cristóbal de las Casas', estado: 5},
-            {text: 'Tapachula de Córdova y Ordóñez', value: 'Tapachula de Córdova y Ordóñez', estado: 5},
-            {text: 'Tonalá', value: 'Tonalá', estado: 5},
-            {text: 'Tuxtla Gutiérrez', value: 'Tuxtla Gutiérrez', estado: 5},
-            {text: 'Venustiano Carranza', value: 'Venustiano Carranza', estado: 5},
-            {text: 'Villaflores', value: 'Villaflores', estado: 5},
-            {text: 'Bachíniva', value: 'Bachíniva', estado: 6},
-            {text: 'Chiahuahua', value: 'Chiahuahua', estado: 6},
-            {text: 'Colonia Anáhuac', value: 'Colonia Anáhuac', estado: 6},
-            {text: 'Cuauhtémoc', value: 'Cuauhtémoc', estado: 6},
-            {text: 'Delicias', value: 'Delicias', estado: 6},
-            {text: 'Hidalgo del Parral', value: 'Hidalgo del Parral', estado: 6},
-            {text: 'José Mariano Jiménez', value: 'José Mariano Jiménez', estado: 6},
-            {text: 'Juan Aldama', value: 'Juan Aldama', estado: 6},
-            {text: 'Juárez', value: 'Juárez', estado: 6},
-            {text: 'Madera', value: 'Madera', estado: 6},
-            {text: 'Manuel Ojinaga', value: 'Manuel Ojinaga', estado: 6},
-            {text: 'Nuevo Casas Grandes', value: 'Nuevo Casas Grandes', estado: 6},
-            {text: 'Santa Rosalía de Camargo', value: 'Santa Rosalía de Camargo', estado: 6},
-            {text: 'Saucillo', value: 'Saucillo', estado: 6},
-            {text: 'Allende', value: 'Allende', estado: 7},
-            {text: 'Arteaga', value: 'Arteaga', estado: 7},
-            {text: 'Castaños', value: 'Castaños', estado: 7},
-            {text: 'Ciudad Acuña', value: 'Ciudad Acuña', estado: 7},
-            {text: 'Ciudad Melchor Múzquiz', value: 'Ciudad Melchor Múzquiz', estado: 7},
-            {text: 'Cuatro Ciénegas de Carranza', value: 'Cuatro Ciénegas de Carranza', estado: 7},
-            {text: 'Francisco I. Madero (Chávez)', value: 'Francisco I. Madero (Chávez)', estado: 7},
-            {text: 'Frontera', value: 'Frontera', estado: 7},
-            {text: 'Matamoros', value: 'Matamoros', estado: 7},
-            {text: 'Monclova', value: 'Monclova', estado: 7},
-            {text: 'Morelos', value: 'Morelos', estado: 7},
-            {text: 'Nadadores', value: 'Nadadores', estado: 7},
-            {text: 'Nava', value: 'Nava', estado: 7},
-            {text: 'Nueva Rosita', value: 'Nueva Rosita', estado: 7},
-            {text: 'Parras de la Fuente', value: 'Parras de la Fuente', estado: 7},
-            {text: 'Piedras Negras', value: 'Piedras Negras', estado: 7},
-            {text: 'Ramos Arizpe', value: 'Ramos Arizpe', estado: 7},
-            {text: 'Sabinas', value: 'Sabinas', estado: 7},
-            {text: 'Saltillo', value: 'Saltillo', estado: 7},
-            {text: 'San Buenaventura', value: 'San Buenaventura', estado: 7},
-            {text: 'San Pedro', value: 'San Pedro', estado: 7},
-            {text: 'Torreón', value: 'Torreón', estado: 7},
-            {text: 'Viesca', value: 'Viesca', estado: 7},
-            {text: 'Zaragoza', value: 'Zaragoza', estado: 7},
-            {text: 'Ciudad de Armería', value: 'Ciudad de Armería', estado: 8},
-            {text: 'Ciudad de Villa de Álvarez', value: 'Ciudad de Villa de Álvarez', estado: 8},
-            {text: 'Colima', value: 'Colima', estado: 8},
-            {text: 'Manzanillo', value: 'Manzanillo', estado: 8},
-            {text: 'Tecoman', value: 'Tecoman', estado: 8},
-            {text: 'Álvaro Obregón', value: 'Álvaro Obregón', estado: 9},
-            {text: 'Azcapotzalco', value: 'Azcapotzalco', estado: 9},
-            {text: 'Benito Juárez', value: 'Benito Juárez', estado: 9},
-            {text: 'Coyoacán', value: 'Coyoacán', estado: 9},
-            {text: 'Cuajimalpa', value: 'Cuajimalpa', estado: 9},
-            {text: 'Cuauhtémoc', value: 'Cuauhtémoc', estado: 9},
-            {text: 'Gustavo A. Madero', value: 'Gustavo A. Madero', estado: 9},
-            {text: 'Iztacalco', value: 'Iztacalco', estado: 9},
-            {text: 'Iztapalapa', value: 'Iztapalapa', estado: 9},
-            {text: 'Magdalena Contreras', value: 'Magdalena Contreras', estado: 9},
-            {text: 'Miguel Hidalgo', value: 'Miguel Hidalgo', estado: 9},
-            {text: 'Milpa Alta', value: 'Milpa Alta', estado: 9},
-            {text: 'Tláhuac', value: 'Tláhuac', estado: 9},
-            {text: 'Tlalpan', value: 'Tlalpan', estado: 9},
-            {text: 'Venustiano Carranza', value: 'Venustiano Carranza', estado: 9},
-            {text: 'Xochimilco', value: 'Xochimilco', estado: 9},
-            {text: 'Canatlán', value: 'Canatlán', estado: 10},
-            {text: 'Ciudad Lerdo', value: 'Ciudad Lerdo', estado: 10},
-            {text: 'El Salto', value: 'El Salto', estado: 10},
-            {text: 'Francisco I. Madero', value: 'Francisco I. Madero', estado: 10},
-            {text: 'Gómez Palacio', value: 'Gómez Palacio', estado: 10},
-            {text: 'Nombre de Dios', value: 'Nombre de Dios', estado: 10},
-            {text: 'Peñón Blanco', value: 'Peñón Blanco', estado: 10},
-            {text: 'San Juan del Río del Centauro del Norte', value: 'San Juan del Río del Centauro del Norte', estado: 10},
-            {text: 'Santa María del Oro', value: 'Santa María del Oro', estado: 10},
-            {text: 'Santiago Papasquiaro', value: 'Santiago Papasquiaro', estado: 10},
-            {text: 'Vicente Guerrero', value: 'Vicente Guerrero', estado: 10},
-            {text: 'Victoria de Durango', value: 'Victoria de Durango', estado: 10},
-            {text: 'Abasolo', value: 'Abasolo', estado: 11},
-            {text: 'Acámbaro', value: 'Acámbaro', estado: 11},
-            {text: 'Apaseo el Alto', value: 'Apaseo el Alto', estado: 11},
-            {text: 'Apaseo el Grande', value: 'Apaseo el Grande', estado: 11},
-            {text: 'Celaya', value: 'Celaya', estado: 11},
-            {text: 'Ciudad Manuel Doblado', value: 'Ciudad Manuel Doblado', estado: 11},
-            {text: 'Comonfort', value: 'Comonfort', estado: 11},
-            {text: 'Cortazar', value: 'Cortazar', estado: 11},
-            {text: 'Cuerámaro', value: 'Cuerámaro', estado: 11},
-            {text: 'Doctor Mora', value: 'Doctor Mora', estado: 11},
-            {text: 'Empalme Escobedo (Escobedo)', value: 'Empalme Escobedo (Escobedo)', estado: 11},
-            {text: 'Guanajuato', value: 'Guanajuato', estado: 11},
-            {text: 'Huanímaro', value: 'Huanímaro', estado: 11},
-            {text: 'Irapuato', value: 'Irapuato', estado: 11},
-            {text: 'Jaral del Progreso', value: 'Jaral del Progreso', estado: 11},
-            {text: 'Jerécuaro', value: 'Jerécuaro', estado: 11},
-            {text: 'León de los Aldama', value: 'León de los Aldama', estado: 11},
-            {text: 'Marfil', value: 'Marfil', estado: 11},
-            {text: 'Moroleón', value: 'Moroleón', estado: 11},
-            {text: 'Purísima de Bustos', value: 'Purísima de Bustos', estado: 11},
-            {text: 'Pénjamo', value: 'Pénjamo', estado: 11},
-            {text: 'Rincón de Tamayo', value: 'Rincón de Tamayo', estado: 11},
-            {text: 'Romita', value: 'Romita', estado: 11},
-            {text: 'Salamanca', value: 'Salamanca', estado: 11},
-            {text: 'Salvatierra', value: 'Salvatierra', estado: 11},
-            {text: 'San Diego de la Unión', value: 'San Diego de la Unión', estado: 11},
-            {text: 'San Francisco del Rincón', value: 'San Francisco del Rincón', estado: 11},
-            {text: 'San José Iturbide', value: 'San José Iturbide', estado: 11},
-            {text: 'San Luis de la Paz', value: 'San Luis de la Paz', estado: 11},
-            {text: 'San Miguel de Allende', value: 'San Miguel de Allende', estado: 11},
-            {text: 'Santa Cruz Juventino Rosas', value: 'Santa Cruz Juventino Rosas', estado: 11},
-            {text: 'Santiago Maravatío', value: 'Santiago Maravatío', estado: 11},
-            {text: 'Silao', value: 'Silao', estado: 11},
-            {text: 'Tarandacuao', value: 'Tarandacuao', estado: 11},
-            {text: 'Uriangato', value: 'Uriangato', estado: 11},
-            {text: 'Valle de Santiago', value: 'Valle de Santiago', estado: 11},
-            {text: 'Villagrán', value: 'Villagrán', estado: 11},
-            {text: 'Yuriria', value: 'Yuriria', estado: 11},
-            {text: 'Acapulco de Juárez', value: 'Acapulco de Juárez', estado: 12},
-            {text: 'Arcelia', value: 'Arcelia', estado: 12},
-            {text: 'Atoyac de Álvarez', value: 'Atoyac de Álvarez', estado: 12},
-            {text: 'Ayutla de los Libres', value: 'Ayutla de los Libres', estado: 12},
-            {text: 'Azoyú', value: 'Azoyú', estado: 12},
-            {text: 'Buenavista de Cuellar', value: 'Buenavista de Cuellar', estado: 12},
-            {text: 'Chilapa de Álvarez', value: 'Chilapa de Álvarez', estado: 12},
-            {text: 'Chilpancingo de los Bravo', value: 'Chilpancingo de los Bravo', estado: 12},
-            {text: 'Ciudad Altamirano', value: 'Ciudad Altamirano', estado: 12},
-            {text: 'Ciudad Apaxtla de Castrejón', value: 'Ciudad Apaxtla de Castrejón', estado: 12},
-            {text: 'Copala', value: 'Copala', estado: 12},
-            {text: 'Coyuca de Benítez', value: 'Coyuca de Benítez', estado: 12},
-            {text: 'Coyuca de Catalán', value: 'Coyuca de Catalán', estado: 12},
-            {text: 'Cruz Grande', value: 'Cruz Grande', estado: 12},
-            {text: 'Cuajinicuilapa', value: 'Cuajinicuilapa', estado: 12},
-            {text: 'Cutzamala de Pinzón', value: 'Cutzamala de Pinzón', estado: 12},
-            {text: 'Huamuxtitlan', value: 'Huamuxtitlan', estado: 12},
-            {text: 'Huitzuco', value: 'Huitzuco', estado: 12},
-            {text: 'Iguala de la Independencia', value: 'Iguala de la Independencia', estado: 12},
-            {text: 'La Unión', value: 'La Unión', estado: 12},
-            {text: 'Marquelia', value: 'Marquelia', estado: 12},
-            {text: 'Ocotito', value: 'Ocotito', estado: 12},
-            {text: 'Olinalá', value: 'Olinalá', estado: 12},
-            {text: 'Petatlán', value: 'Petatlán', estado: 12},
-            {text: 'San Jerónimo de Juarez', value: 'San Jerónimo de Juarez', estado: 12},
-            {text: 'San Luis Acatlán', value: 'San Luis Acatlán', estado: 12},
-            {text: 'San Luis San Pedro', value: 'San Luis San Pedro', estado: 12},
-            {text: 'San Luis de la Loma', value: 'San Luis de la Loma', estado: 12},
-            {text: 'San Marcos', value: 'San Marcos', estado: 12},
-            {text: 'Taxco de Alarcón', value: 'Taxco de Alarcón', estado: 12},
-            {text: 'Teloloapan', value: 'Teloloapan', estado: 12},
-            {text: 'Tepecoacuilco de Trujano', value: 'Tepecoacuilco de Trujano', estado: 12},
-            {text: 'Tierra Colorada', value: 'Tierra Colorada', estado: 12},
-            {text: 'Tixtla de Guerrero', value: 'Tixtla de Guerrero', estado: 12},
-            {text: 'Tlapa de Comonfort', value: 'Tlapa de Comonfort', estado: 12},
-            {text: 'Tlapehuala', value: 'Tlapehuala', estado: 12},
-            {text: 'Técpan de Galeana', value: 'Técpan de Galeana', estado: 12},
-            {text: 'Zihuatanejo', value: 'Zihuatanejo', estado: 12},
-            {text: 'Zumpango del Río', value: 'Zumpango del Río', estado: 12},
-            {text: 'Actopan', value: 'Actopan', estado: 13},
-            {text: 'Apan', value: 'Apan', estado: 13},
-            {text: 'Ciudad de Fray Bernardino de Sahagún', value: 'Ciudad de Fray Bernardino de Sahagún', estado: 13},
-            {text: 'Cruz Azul', value: 'Cruz Azul', estado: 13},
-            {text: 'Huejutla de Reyes', value: 'Huejutla de Reyes', estado: 13},
-            {text: 'Ixmiquilpan', value: 'Ixmiquilpan', estado: 13},
-            {text: 'Pachuca de Soto', value: 'Pachuca de Soto', estado: 13},
-            {text: 'Santiago Tulantepec', value: 'Santiago Tulantepec', estado: 13},
-            {text: 'Tepeapulco', value: 'Tepeapulco', estado: 13},
-            {text: 'Tepeji del Rio', value: 'Tepeji del Rio', estado: 13},
-            {text: 'Tizayuca', value: 'Tizayuca', estado: 13},
-            {text: 'Tlaxcoapan', value: 'Tlaxcoapan', estado: 13},
-            {text: 'Tula de Allende', value: 'Tula de Allende', estado: 13},
-            {text: 'Tulancingo', value: 'Tulancingo', estado: 13},
-            {text: 'Zimapan', value: 'Zimapan', estado: 13},
-            {text: 'Acatlán de Juárez', value: 'Acatlán de Juárez', estado: 14},
-            {text: 'Ahualulco de Mercado', value: 'Ahualulco de Mercado', estado: 14},
-            {text: 'Ajijic', value: 'Ajijic', estado: 14},
-            {text: 'Ameca', value: 'Ameca', estado: 14},
-            {text: 'Arandas', value: 'Arandas', estado: 14},
-            {text: 'Atotonilco el Alto', value: 'Atotonilco el Alto', estado: 14},
-            {text: 'Autlán de Navarro', value: 'Autlán de Navarro', estado: 14},
-            {text: 'Chapala', value: 'Chapala', estado: 14},
-            {text: 'Cihuatlán', value: 'Cihuatlán', estado: 14},
-            {text: 'Ciudad Guzmán', value: 'Ciudad Guzmán', estado: 14},
-            {text: 'Cocula', value: 'Cocula', estado: 14},
-            {text: 'Colotlán', value: 'Colotlán', estado: 14},
-            {text: 'El Grullo', value: 'El Grullo', estado: 14},
-            {text: 'El Quince (San José el Quince)', value: 'El Quince (San José el Quince)', estado: 14},
-            {text: 'Etzatlán', value: 'Etzatlán', estado: 14},
-            {text: 'Guadalajara', value: 'Guadalajara', estado: 14},
-            {text: 'Huejuquilla el Alto', value: 'Huejuquilla el Alto', estado: 14},
-            {text: 'Jalostitlán', value: 'Jalostitlán', estado: 14},
-            {text: 'Jamay', value: 'Jamay', estado: 14},
-            {text: 'Jocotepec', value: 'Jocotepec', estado: 14},
-            {text: 'La Barca', value: 'La Barca', estado: 14},
-            {text: 'La Resolana', value: 'La Resolana', estado: 14},
-            {text: 'Lagos de Moreno', value: 'Lagos de Moreno', estado: 14},
-            {text: 'Las Pintitas', value: 'Las Pintitas', estado: 14},
-            {text: 'Magdalena', value: 'Magdalena', estado: 14},
-            {text: 'Ocotlán', value: 'Ocotlán', estado: 14},
-            {text: 'Poncitlán', value: 'Poncitlán', estado: 14},
-            {text: 'Puerto Vallarta', value: 'Puerto Vallarta', estado: 14},
-            {text: 'San Diego de Alejandría', value: 'San Diego de Alejandría', estado: 14},
-            {text: 'San Ignacio Cerro Gordo', value: 'San Ignacio Cerro Gordo', estado: 14},
-            {text: 'San José el Verde (El verde)', value: 'San José el Verde (El verde)', estado: 14},
-            {text: 'San Juan de los Lagos', value: 'San Juan de los Lagos', estado: 14},
-            {text: 'San Julián', value: 'San Julián', estado: 14},
-            {text: 'San Miguel el Alto', value: 'San Miguel el Alto', estado: 14},
-            {text: 'Sayula', value: 'Sayula', estado: 14},
-            {text: 'Tala', value: 'Tala', estado: 14},
-            {text: 'Talpa de Allende', value: 'Talpa de Allende', estado: 14},
-            {text: 'Tamazula de Gordiano', value: 'Tamazula de Gordiano', estado: 14},
-            {text: 'Tecalitlán', value: 'Tecalitlán', estado: 14},
-            {text: 'Teocaltiche', value: 'Teocaltiche', estado: 14},
-            {text: 'Tepatitlán de Morelos', value: 'Tepatitlán de Morelos', estado: 14},
-            {text: 'Tequila', value: 'Tequila', estado: 14},
-            {text: 'Tlajomulco de Zuñiga', value: 'Tlajomulco de Zuñiga', estado: 14},
-            {text: 'Tlaquepaque', value: 'Tlaquepaque', estado: 14},
-            {text: 'Tototlán', value: 'Tototlán', estado: 14},
-            {text: 'Tuxpan', value: 'Tuxpan', estado: 14},
-            {text: 'Unión de San Antonio', value: 'Unión de San Antonio', estado: 14},
-            {text: 'Valle de Guadalupe', value: 'Valle de Guadalupe', estado: 14},
-            {text: 'Villa Corona', value: 'Villa Corona', estado: 14},
-            {text: 'Villa Hidalgo', value: 'Villa Hidalgo', estado: 14},
-            {text: 'Yahualica de González Gallo', value: 'Yahualica de González Gallo', estado: 14},
-            {text: 'Zocoalco de Torres', value: 'Zocoalco de Torres', estado: 14},
-            {text: 'Zapopan', value: 'Zapopan', estado: 14},
-            {text: 'Zapotiltic', value: 'Zapotiltic', estado: 14},
-            {text: 'Apatzingán de la Constitución', value: 'Apatzingán de la Constitución', estado: 15},
-            {text: 'Ciudad Hidalgo', value: 'Ciudad Hidalgo', estado: 15},
-            {text: 'Ciudad Lázaro Cárdenas', value: 'Ciudad Lázaro Cárdenas', estado: 15},
-            {text: 'Cotija de la Paz', value: 'Cotija de la Paz', estado: 15},
-            {text: 'Cuitzeo del Porvenir', value: 'Cuitzeo del Porvenir', estado: 15},
-            {text: 'Heroica Zitácuaro', value: 'Heroica Zitácuaro', estado: 15},
-            {text: 'Huetamo de Núñez', value: 'Huetamo de Núñez', estado: 15},
-            {text: 'Jacona de Plancarte', value: 'Jacona de Plancarte', estado: 15},
-            {text: 'Jiquilpan de Juárez', value: 'Jiquilpan de Juárez', estado: 15},
-            {text: 'La Piedad de Cabadas', value: 'La Piedad de Cabadas', estado: 15},
-            {text: 'Las Guacamayas', value: 'Las Guacamayas', estado: 15},
-            {text: 'Los Reyes del Salgado', value: 'Los Reyes del Salgado', estado: 15},
-            {text: 'Maravatío de Ocampo', value: 'Maravatío de Ocampo', estado: 15},
-            {text: 'Nueva Italia de Ruiz', value: 'Nueva Italia de Ruiz', estado: 15},
-            {text: 'Paracho de Verduzco', value: 'Paracho de Verduzco', estado: 15},
-            {text: 'Puruándiro', value: 'Puruándiro', estado: 15},
-            {text: 'Pátzcuaro', value: 'Pátzcuaro', estado: 15},
-            {text: 'Sahuayo de Morelos', value: 'Sahuayo de Morelos', estado: 15},
-            {text: 'Tacámbaro de Codallos', value: 'Tacámbaro de Codallos', estado: 15},
-            {text: 'Tandancícuaro de Arista', value: 'Tandancícuaro de Arista', estado: 15},
-            {text: 'Uruapan', value: 'Uruapan', estado: 15},
-            {text: 'Yurécuaro', value: 'Yurécuaro', estado: 15},
-            {text: 'Zacapu', value: 'Zacapu', estado: 15},
-            {text: 'Zamora de Hidalgo', value: 'Uruapan', estado: 15},
-            {text: 'Zinapécuaro de Figueroa', value: 'Zinapécuaro de Figueroa', estado: 15},
-            {text: 'Cuautla (Cuautla de Morelos)', value: 'Cuautla (Cuautla de Morelos)', estado: 16},
-            {text: 'Cuernavaca', value: 'Cuernavaca', estado: 16},
-            {text: 'Galeana', value: 'Galeana', estado: 16},
-            {text: 'Jojutla', value: 'Jojutla', estado: 16},
-            {text: 'Puente de Ixtla', value: 'Puente de Ixtla', estado: 16},
-            {text: 'Santa Rosa Treinta', value: 'Santa Rosa Treinta', estado: 16},
-            {text: 'Tlaqutenango', value: 'Tlaqutenango', estado: 16},
-            {text: 'Zacatepec de Hidalgo', value: 'Zacatepec de Hidalgo', estado: 16},
-            {text: 'Almoloya de Juárez', value: 'Almoloya de Juárez', estado: 17},
-            {text: 'Amatepec', value: 'Amatepec', estado: 17},
-            {text: 'Atizapán de Zaragoza', value: 'Atizapán de Zaragoza', estado: 17},
-            {text: 'Capulhuac', value: 'Capulhuac', estado: 17},
-            {text: 'Chalco de Díaz Covarrubias', value: 'Chalco de Díaz Covarrubias', estado: 17},
-            {text: 'Chiconcuac', value: 'Chiconcuac', estado: 17},
-            {text: 'Chimalhuacán', value: 'Chimalhuacán', estado: 17},
-            {text: 'Ciudad Adolfo López Mateos', value: 'Ciudad Adolfo López Mateos', estado: 17},
-            {text: 'Ciudad Nezahualcoyotl', value: 'Ciudad Nezahualcoyotl', estado: 17},
-            {text: 'Coacalco de Berriozabal', value: 'Coacalco de Berriozabal', estado: 17},
-            {text: 'Cuautitlán', value: 'Cuautitlán', estado: 17},
-            {text: 'Cuautitlán Izcalli', value: 'Cuautitlán Izcalli', estado: 17},
-            {text: 'Ecatepec de Morelos', value: 'Ecatepec de Morelos', estado: 17},
-            {text: 'Huixquilucan de Degollado', value: 'Huixquilucan de Degollado', estado: 17},
-            {text: 'Ixtapaluca', value: 'Ixtapaluca', estado: 17},
-            {text: 'Juchitepec de Mariano Riva Palacio', value: 'Juchitepec de Mariano Riva Palacio', estado: 17},
-            {text: 'Los Reyes Acaquilpan (La Paz)', value: 'Zacapu', estado: 17},
-            {text: 'Melchor Ocampo', value: 'Melchor Ocampo', estado: 17},
-            {text: 'Metepec', value: 'Metepec', estado: 17},
-            {text: 'Naucalpan de Juárez', value: 'Naucalpan de Juárez', estado: 17},
-            {text: 'Nezahualcóyotl', value: 'Nezahualcóyotl', estado: 17},
-            {text: 'Ocoyoacac', value: 'Ocoyoacac', estado: 17},
-            {text: 'San Mateo Atenco', value: 'San Mateo Atenco', estado: 17},
-            {text: 'San Vicente Chicoloapan de Juárez', value: 'San Vicente Chicoloapan de Juárez', estado: 17},
-            {text: 'Santa Maria Tultepec', value: 'Santa Maria Tultepec', estado: 17},
-            {text: 'Tecamac de Felipe Villanueva', value: 'Tecamac de Felipe Villanueva', estado: 17},
-            {text: 'Tejupilco de Hidalgo', value: 'Tejupilco de Hidalgo', estado: 17},
-            {text: 'Tepotzotlán', value: 'Tepotzotlán', estado: 17},
-            {text: 'Tequixquiac', value: 'Tequixquiac', estado: 17},
-            {text: 'Texcoco de Mora', value: 'Texcoco de Mora', estado: 17},
-            {text: 'Tlalnepantla de Baz', value: 'Tlalnepantla de Baz', estado: 17},
-            {text: 'Toluca de Lerdo', value: 'Toluca de Lerdo', estado: 17},
-            {text: 'Tultitlan de Mariano Escobedo', value: 'Tultitlan de Mariano Escobedo', estado: 17},
-            {text: 'Valle de Chalco Solidaridad', value: 'Valle de Chalco Solidaridad', estado: 17},
-            {text: 'Villa Nicolás Romero', value: 'Villa Nicolás Romero', estado: 17},
-            {text: 'Xonacatlán', value: 'Xonacatlán', estado: 17},
-            {text: 'Zumpango', value: 'Zumpango', estado: 17},
-            {text: 'Acaponeta', value: 'Acaponeta', estado: 18},
-            {text: 'Ahuacatlán', value: 'Ahuacatlán', estado: 18},
-            {text: 'Bucerías', value: 'Bucerías', estado: 18},
-            {text: 'Compostela', value: 'Compostela', estado: 18},
-            {text: 'Francisco I. Madero (Puga)', value: 'Francisco I. Madero (Puga)', estado: 18},
-            {text: 'Ixtlán del Río', value: 'Ixtlán del Río', estado: 18},
-            {text: 'Jala', value: 'Jala', estado: 18},
-            {text: 'La peñita de Jaltemba', value: 'La peñita de Jaltemba', estado: 18},
-            {text: 'Las Varas', value: 'Las Varas', estado: 18},
-            {text: 'Ruiz', value: 'Ruiz', estado: 18},
-            {text: 'San Blas', value: 'San Blas', estado: 18},
-            {text: 'San pedro Lagunillas', value: 'San pedro Lagunillas', estado: 18},
-            {text: 'Santiago Ixcuintla', value: 'Santiago Ixcuintla', estado: 18},
-            {text: 'Tecuala', value: 'Tecuala', estado: 18},
-            {text: 'Tepic', value: 'Tepic', estado: 18},
-            {text: 'Villa Hidalgo (El Nuevo)', value: 'Villa Hidalgo (El Nuevo)', estado: 18},
-            {text: 'Xalisco', value: 'Xalisco', estado: 18},
-            {text: 'Anáhuac', value: 'Anáhuac', estado: 19},
-            {text: 'Cadereyta Jiménez', value: 'Cadereyta Jiménez', estado: 19},
-            {text: 'Ciudad Apodaca', value: 'Ciudad Apodaca', estado: 19},
-            {text: 'Ciudad Benito Juárez', value: 'Ciudad Benito Juárez', estado: 19},
-            {text: 'Ciudad General Escobedo', value: 'Ciudad General Escobedo', estado: 19},
-            {text: 'Ciudad Sabinas Hidalgo', value: 'Ciudad Sabinas Hidalgo', estado: 19},
-            {text: 'Ciudad Santa Catarina', value: 'Ciudad Santa Catarina', estado: 19},
-            {text: 'Ciénega de Flores', value: 'Ciénega de Flores', estado: 19},
-            {text: 'Doctor Arroyo', value: 'Doctor Arroyo', estado: 19},
-            {text: 'El cercado', value: 'El cercado', estado: 19},
-            {text: 'García', value: 'García', estado: 19},
-            {text: 'Guadalupe', value: 'Guadalupe', estado: 19},
-            {text: 'Hualahuises', value: 'Hualahuises', estado: 19},
-            {text: 'Linares', value: 'Linares', estado: 19},
-            {text: 'Montemorelos', value: 'Montemorelos', estado: 19},
-            {text: 'Monterrey', value: 'Monterrey', estado: 19},
-            {text: 'San Nicolás de los Garza', value: 'San Nicolás de los Garza', estado: 19},
-            {text: 'San Pedro Garza García', value: 'San Pedro Garza García', estado: 19},
-            {text: 'Santiago', value: 'Santiago', estado: 19},
-            {text: 'Asunción Nochixtlán', value: 'Asunción Nochixtlán', estado: 20},
-            {text: 'Bahias de Huatulco', value: 'Bahias de Huatulco', estado: 20},
-            {text: 'Chahuites', value: 'Chahuites', estado: 20},
-            {text: 'Ciudad Ixtepec', value: 'Ciudad Ixtepec', estado: 20},
-            {text: 'Cosolapa', value: 'Cosolapa', estado: 20},
-            {text: 'Cuilápam de Guerrero', value: 'Cuilápam de Guerrero', estado: 20},
-            {text: 'El Camarón', value: 'El Camarón', estado: 20},
-            {text: 'El Rosario', value: 'El Rosario', estado: 20},
-            {text: 'Heroica Ciudad de Ejutla de Crespo', value: 'Heroica Ciudad de Ejutla de Crespo', estado: 20},
-            {text: 'Heroica Ciudad de Huajuapan de León', value: 'Heroica Ciudad de Huajuapan de León', estado: 20},
-            {text: 'Heroica Ciudad de Tlaxiaco', value: 'Heroica Ciudad de Tlaxiaco', estado: 20},
-            {text: 'Juchitán (Juchitán de Zaragoza)', value: 'Juchitán (Juchitán de Zaragoza)', estado: 20},
-            {text: 'Lagunas', value: 'Lagunas', estado: 20},
-            {text: 'Loma Bonita', value: 'Loma Bonita', estado: 20},
-            {text: 'Mariscala de Juárez', value: 'Mariscala de Juárez', estado: 20},
-            {text: 'Matías Romero Avendaño', value: 'Matías Romero Avendaño', estado: 20},
-            {text: 'Miahuatlán de Porfirio Díaz', value: 'Miahuatlán de Porfirio Díaz', estado: 20},
-            {text: 'Natividad', value: 'Natividad', estado: 20},
-            {text: 'Oaxaca de Juárez', value: 'Oaxaca de Juárez', estado: 20},
-            {text: 'Ocotlán de Morelos', value: 'Ocotlán de Morelos', estado: 20},
-            {text: 'Puerto Escondido', value: 'Puerto Escondido', estado: 20},
-            {text: 'Putla Villa de Guerrero', value: 'Putla Villa de Guerrero', estado: 20},
-            {text: 'Rio Grande o Piedra Parada', value: 'Rio Grande o Piedra Parada', estado: 20},
-            {text: 'Salina Cruz', value: 'Salina Cruz', estado: 20},
-            {text: 'San Antonio de la Cal', value: 'San Antonio de la Cal', estado: 20},
-            {text: 'San Blas Atempa', value: 'San Blas Atempa', estado: 20},
-            {text: 'San Felipe Jalapa de Díaz', value: 'San Felipe Jalapa de Díaz', estado: 20},
-            {text: 'San Francisco Ixhuatán', value: 'San Francisco Ixhuatán', estado: 20},
-            {text: 'San Francisco Telixtlahuaca', value: 'San Francisco Telixtlahuaca', estado: 20},
-            {text: 'San Juan Bautista Cuicatlán', value: 'San Juan Bautista Cuicatlán', estado: 20},
-            {text: 'San Juan Bautista Tuxtepec', value: 'San Juan Bautista Tuxtepec', estado: 20},
-            {text: 'San Juan Bautista Valle Nacional', value: 'San Juan Bautista Valle Nacional', estado: 20},
-            {text: 'San Juan Bautista lo de Soto', value: 'San Juan Bautista lo de Soto', estado: 20},
-            {text: 'San Juan Cacahuatepec', value: 'San Juan Cacahuatepec', estado: 20},
-            {text: 'San Miguel el Grande', value: 'San Miguel el Grande', estado: 20},
-            {text: 'San Pablo Huitzo', value: 'San Pablo Huitzo', estado: 20},
-            {text: 'San Pablo Villa de Mitla', value: 'San Pablo Villa de Mitla', estado: 20},
-            {text: 'San Pedro Mixtepec -Dto. 22-', value: 'San Pedro Mixtepec -Dto. 22-', estado: 20},
-            {text: 'San Pedro Pochutla', value: 'San Pedro Pochutla', estado: 20},
-            {text: 'San Pedro Tapanatepec', value: 'San Pedro Tapanatepec', estado: 20},
-            {text: 'San Pedro Totolapa', value: 'San Pedro Totolapa', estado: 20},
-            {text: 'San Sebastián Tecomaxtlahuaca', value: 'San Sebastián Tecomaxtlahuaca', estado: 20},
-            {text: 'Santa Cruz Itundujia', value: 'Santa Cruz Itundujia', estado: 20},
-            {text: 'Santa Lucia del Camino', value: 'Santa Lucia del Camino', estado: 20},
-            {text: 'Santa Maria Huatulco', value: 'Santa Maria Huatulco', estado: 20},
-            {text: 'Santiago Jamiltepec', value: 'Santiago Jamiltepec', estado: 20},
-            {text: 'Santiago Juxtlahuaca', value: 'Santiago Juxtlahuaca', estado: 20},
-            {text: 'Santiago Pinotepa Nacional', value: 'Santiago Pinotepa Nacional', estado: 20},
-            {text: 'Santiago Suchilquitongo', value: 'Santiago Suchilquitongo', estado: 20},
-            {text: 'Santo Domingo Tehuantepec', value: 'Santo Domingo Tehuantepec', estado: 20},
-            {text: 'Teotitlán de Flores Magón', value: 'Teotitlán de Flores Magón', estado: 20},
-            {text: 'Tlacolula de Matamoros', value: 'Tlacolula de Matamoros', estado: 20},
-            {text: 'Unión Hidalgo', value: 'Unión Hidalgo', estado: 20},
-            {text: 'Vicente Camalote', value: 'Vicente Camalote', estado: 20},
-            {text: 'Villa Sola de Vega', value: 'Villa Sola de Vega', estado: 20},
-            {text: 'Villa de Tamazulápam del Progreso', value: 'Villa de Tamazulápam del Progreso', estado: 20},
-            {text: 'Villa de Zaachila', value: 'Villa de Zaachila', estado: 20},
-            {text: 'Zimatlán de Álvarez', value: 'Zimatlán de Álvarez', estado: 20},
-            {text: 'Acatlán de Osorio', value: 'Acatlán de Osorio', estado: 21},
-            {text: 'Amozoc', value: 'Amozoc', estado: 21},
-            {text: 'Atlixco', value: 'Atlixco', estado: 21},
-            {text: 'Ciudad Serdán', value: 'Ciudad Serdán', estado: 21},
-            {text: 'Cuautlancingo', value: 'Cuautlancingo', estado: 21},
-            {text: 'Huachinango', value: 'Huachinango', estado: 21},
-            {text: 'Izucar de Matamoros', value: 'Izucar de Matamoros', estado: 21},
-            {text: 'Puebla (Heroica Puebla)', value: 'Puebla (Heroica Puebla)', estado: 21},
-            {text: 'San Andrés Cholula', value: 'San Andrés Cholula', estado: 21},
-            {text: 'San Martín Texmelucan de Labastida', value: 'San Martín Texmelucan de Labastida', estado: 21},
-            {text: 'San Pedro Cholula', value: 'San Pedro Cholula', estado: 21},
-            {text: 'Tecamachalco', value: 'Tecamachalco', estado: 21},
-            {text: 'Tehuacan', value: 'Tehuacan', estado: 21},
-            {text: 'Tepeaca', value: 'Tepeaca', estado: 21},
-            {text: 'Teziutlan', value: 'Teziutlan', estado: 21},
-            {text: 'Xicotepec', value: 'Xicotepec', estado: 21},
-            {text: 'Zacatlán', value: 'Zacatlán', estado: 21},
-            {text: 'El Pueblito', value: 'El Pueblito', estado: 22},
-            {text: 'Querétaro', value: 'Querétaro', estado: 22},
-            {text: 'San Juan del Rio', value: 'San Juan del Rio', estado: 22},
-            {text: 'Bacalar', value: 'Bacalar', estado: 23},
-            {text: 'Cancún', value: 'Cancún', estado: 23},
-            {text: 'Chetumal', value: 'Chetumal', estado: 23},
-            {text: 'Cozumel', value: 'Cozumel', estado: 23},
-            {text: 'Felipe Carrillo Puerto', value: 'Felipe Carrillo Puerto', estado: 23},
-            {text: 'Isla Mujeres', value: 'Isla Mujeres', estado: 23},
-            {text: 'Kantunilkin', value: 'Kantunilkin', estado: 23},
-            {text: 'Playa del Carmen', value: 'Playa del Carmen', estado: 23},
-            {text: 'Cedral', value: 'Cedral', estado: 24},
-            {text: 'Cerritos', value: 'Cerritos', estado: 24},
-            {text: 'Charcas', value: 'Charcas', estado: 24},
-            {text: 'Ciudad Valles', value: 'Ciudad Valles', estado: 24},
-            {text: 'Ciudad del Maíz', value: 'Ciudad del Maíz', estado: 24},
-            {text: 'Cárdenas', value: 'Cárdenas', estado: 24},
-            {text: 'El Naranjo', value: 'El Naranjo', estado: 24},
-            {text: 'Fracción el Refugio', value: 'Fracción el Refugio', estado: 24},
-            {text: 'Matehuala', value: 'Matehuala', estado: 24},
-            {text: 'Rioverde', value: 'Rioverde', estado: 24},
-            {text: 'Salinas de Hidalgo', value: 'Salinas de Hidalgo', estado: 24},
-            {text: 'San Luis Potosí', value: 'San Luis Potosí', estado: 24},
-            {text: 'Santa María del Río', value: 'Santa María del Río', estado: 24},
-            {text: 'Soledad de Graciano Sánchez', value: 'Soledad de Graciano Sánchez', estado: 24},
-            {text: 'Tamasopo', value: 'Tamasopo', estado: 24},
-            {text: 'Tamazunchale', value: 'Tamazunchale', estado: 24},
-            {text: 'Tamuin', value: '', estado: 24},
-            {text: 'Tierra Nueva', value: 'Tierra Nueva', estado: 24},
-            {text: 'Villa de Reyes', value: 'Villa de Reyes', estado: 24},
-            {text: 'Aguaruto', value: 'Aguaruto', estado: 25},
-            {text: 'Ahome', value: 'Ahome', estado: 25},
-            {text: 'Angostura', value: 'Angostura', estado: 25},
-            {text: 'Choix', value: 'Choix', estado: 25},
-            {text: 'Cosalá', value: 'Cosalá', estado: 25},
-            {text: 'Culiacán Rosales', value: 'Culiacán Rosales', estado: 25},
-            {text: 'Escuinapa de Hidalgo', value: 'Escuinapa de Hidalgo', estado: 25},
-            {text: 'Estación Naranjo', value: 'Estación Naranjo', estado: 25},
-            {text: 'Guamúchil', value: 'Guamúchil', estado: 25},
-            {text: 'Guasave', value: 'Guasave', estado: 25},
-            {text: 'Higuera de Zaragoza', value: 'Higuera de Zaragoza', estado: 25},
-            {text: 'La Cruz', value: 'La Cruz', estado: 25},
-            {text: 'Lic. Benito Juárez (Campo Gobierno)', value: 'Lic. Benito Juárez (Campo Gobierno)', estado: 25},
-            {text: 'Los Mochis', value: 'Los Mochis', estado: 25},
-            {text: 'Mazatlán', value: 'Mazatlán', estado: 25},
-            {text: 'Mocorito', value: 'Mocorito', estado: 25},
-            {text: 'Navolato', value: 'Navolato', estado: 25},
-            {text: 'Quila', value: 'Quila', estado: 25},
-            {text: 'Sinaloa de Leyva', value: 'Sinaloa de Leyva', estado: 25},
-            {text: 'Agua Prieta', value: 'Agua Prieta', estado: 26},
-            {text: 'Ciudad Obregón', value: 'Ciudad Obregón', estado: 26},
-            {text: 'Émpalme', value: 'Émpalme', estado: 26},
-            {text: 'Hermosillo', value: 'Hermosillo', estado: 26},
-            {text: 'Heroica Caborca', value: 'Heroica Caborca', estado: 26},
-            {text: 'Heroica Ciudad de Cananea', value: 'Heroica Ciudad de Cananea', estado: 26},
-            {text: 'Heroica Guaymas', value: 'Heroica Guaymas', estado: 26},
-            {text: 'Heroica Nogales', value: 'Heroica Nogales', estado: 26},
-            {text: 'Huatabampo', value: 'Huatabampo', estado: 26},
-            {text: 'Magdalena de Kino', value: 'Magdalena de Kino', estado: 26},
-            {text: 'Navojoa', value: 'Navojoa', estado: 26},
-            {text: 'Puerto Peñasco', value: 'Puerto Peñasco', estado: 26},
-            {text: 'San Luis Río Colorado', value: 'San Luis Río Colorado', estado: 26},
-            {text: 'Sonoita', value: 'Sonoita', estado: 26},
-            {text: 'Comalcalco', value: 'Comalcalco', estado: 27},
-            {text: 'Cunduacán', value: 'Cunduacán', estado: 27},
-            {text: 'Emiliano Zapata', value: 'Emiliano Zapata', estado: 27},
-            {text: 'Huimanguillo', value: 'Huimanguillo', estado: 27},
-            {text: 'Jalapa de Méndez', value: 'Jalapa de Méndez', estado: 27},
-            {text: 'Macuspana', value: 'Macuspana', estado: 27},
-            {text: 'Paraíso', value: 'Paraíso', estado: 27},
-            {text: 'Teapa', value: 'Teapa', estado: 27},
-            {text: 'Tenosique de Pino Suárez', value: 'Tenosique de Pino Suárez', estado: 27},
-            {text: 'Villahermosa', value: 'Villahermosa', estado: 27},
-            {text: 'Altamira', value: 'Altamira', estado: 28},
-            {text: 'Ciudad Camargo', value: 'Ciudad Camargo', estado: 28},
-            {text: 'Ciudad Gustavo Díaz Ordaz', value: 'Ciudad Gustavo Díaz Ordaz', estado: 28},
-            {text: 'Ciudad Madero', value: 'Ciudad Madero', estado: 28},
-            {text: 'Ciudad Mante', value: 'Ciudad Mante', estado: 28},
-            {text: 'Ciudad Miguel Alemán', value: 'Ciudad Miguel Alemán', estado: 28},
-            {text: 'Ciudad Rio Bravo', value: 'Ciudad Rio Bravo', estado: 28},
-            {text: 'Ciudad Tula', value: 'Ciudad Tula', estado: 28},
-            {text: 'Ciudad Victoria', value: 'Ciudad Victoria', estado: 28},
-            {text: 'Estación Manuel (Úrsulo Galván)', value: 'Estación Manuel (Úrsulo Galván)', estado: 28},
-            {text: 'González', value: 'González', estado: 28},
-            {text: 'Heroica Matamoros', value: 'Heroica Matamoros', estado: 28},
-            {text: 'Jaumave', value: 'Jaumave', estado: 28},
-            {text: 'Nueva Ciudad Guerrero', value: 'Nueva Ciudad Guerrero', estado: 28},
-            {text: 'Nuevo Laredo', value: 'Nuevo Laredo', estado: 28},
-            {text: 'Reynosa', value: 'Reynosa', estado: 28},
-            {text: 'San Fernando', value: 'San Fernando', estado: 28},
-            {text: 'Soto la Marina', value: 'Soto la Marina', estado: 28},
-            {text: 'Tampico', value: 'Tampico', estado: 28},
-            {text: 'Valle Hermoso', value: 'Valle Hermoso', estado: 28},
-            {text: 'Xicoténcatl', value: 'Xicoténcatl', estado: 28},
-            {text: 'Apizaco', value: 'Apizaco', estado: 29},
-            {text: 'Calpulalpan', value: 'Calpulalpan', estado: 29},
-            {text: 'Chiautempan', value: 'Chiautempan', estado: 29},
-            {text: 'Huamantla', value: 'Huamantla', estado: 29},
-            {text: 'Tlaxcala (Tlaxcala de Xicotencatl)', value: 'Tlaxcala (Tlaxcala de Xicotencatl)', estado: 29},
-            {text: 'Villa Vicente Guerrero', value: 'Villa Vicente Guerrero', estado: 29},
-            {text: 'Acayucan', value: 'Acayucan', estado: 30},
-            {text: 'Agua Dulce', value: 'Agua Dulce', estado: 30},
-            {text: 'Altotonga', value: 'Altotonga', estado: 30},
-            {text: 'Alvarado', value: 'Alvarado', estado: 30},
-            {text: 'Atoyac', value: 'Atoyac', estado: 30},
-            {text: 'Banderilla', value: 'Banderilla', estado: 30},
-            {text: 'Boca del Río', value: 'Boca del Río', estado: 30},
-            {text: 'Carlos A. Carrillo', value: 'Carlos A. Carrillo', estado: 30},
-            {text: 'Catemaco', value: 'Catemaco', estado: 30},
-            {text: 'Cazones de Herrera', value: 'Cazones de Herrera', estado: 30},
-            {text: 'Cerro Azul', value: 'Cerro Azul', estado: 30},
-            {text: 'Coatepec', value: 'Coatepec', estado: 30},
-            {text: 'Coatzacoalcos', value: 'Coatzacoalcos', estado: 30},
-            {text: 'Coatzintla', value: 'Coatzintla', estado: 30},
-            {text: 'Cosamaloapan', value: 'Cosamaloapan', estado: 30},
-            {text: 'Cosoleacaque', value: 'Cosoleacaque', estado: 30},
-            {text: 'Cuichapa', value: 'Cuichapa', estado: 30},
-            {text: 'Cuitláhuac', value: 'Cuitláhuac', estado: 30},
-            {text: 'Córdoba', value: 'Córdoba', estado: 30},
-            {text: 'El Higo', value: 'El Higo', estado: 30},
-            {text: 'Fortin de las Flores', value: '', estado: 30},
-            {text: 'General Miguel Alemán (Potrero Nuevo)', value: '', estado: 30},
-            {text: 'Gutiérrez Zamora', value: 'Gutiérrez Zamora', estado: 30},
-            {text: 'Huatusco de Chicuellar', value: 'Huatusco de Chicuellar', estado: 30},
-            {text: 'Huayacocotla', value: 'Huayacocotla', estado: 30},
-            {text: 'Huiloapan de Cuauhtémoc', value: 'Huiloapan de Cuauhtémoc', estado: 30},
-            {text: 'Isla', value: 'Isla', estado: 30},
-            {text: 'Ixtaczoquitlán', value: 'Ixtaczoquitlán', estado: 30},
-            {text: 'José Cardel', value: 'José Cardel', estado: 30},
-            {text: 'Juan Díaz Covarrubias', value: 'Juan Díaz Covarrubias', estado: 30},
-            {text: 'Juan Rodríguez Clara', value: 'Juan Rodríguez Clara', estado: 30},
-            {text: 'Jáltipan de Morelos', value: 'Jáltipan de Morelos', estado: 30},
-            {text: 'Las Choapas', value: 'Las Choapas', estado: 30},
-            {text: 'Lerdo de Tejada', value: 'Lerdo de Tejada', estado: 30},
-            {text: 'Minatitlán', value: 'Minatitlán', estado: 30},
-            {text: 'Naranjos', value: 'Naranjos', estado: 30},
-            {text: 'Nogales', value: 'Nogales', estado: 30},
-            {text: 'Orizaba', value: 'Orizaba', estado: 30},
-            {text: 'Papantla de Olarte', value: 'Papantla de Olarte', estado: 30},
-            {text: 'Paraje Nuevo', value: 'Paraje Nuevo', estado: 30},
-            {text: 'Paso de Ovejas', value: 'Paso de Ovejas', estado: 30},
-            {text: 'Paso del Macho', value: 'Paso del Macho', estado: 30},
-            {text: 'Platón Sánchez', value: 'Platón Sánchez', estado: 30},
-            {text: 'Playa Vicente', value: 'Playa Vicente', estado: 30},
-            {text: 'Poza Rica de Hidalgo', value: 'Poza Rica de Hidalgo', estado: 30},
-            {text: 'Pánuco', value: 'Pánuco', estado: 30},
-            {text: 'Río Blanco', value: 'Río Blanco', estado: 30},
-            {text: 'San Andrés Tuxtla', value: 'San Andrés Tuxtla', estado: 30},
-            {text: 'San Rafael', value: 'San Rafael', estado: 30},
-            {text: 'Santiago Tuxtla', value: 'Santiago Tuxtla', estado: 30},
-            {text: 'Sihuapan', value: 'Sihuapan', estado: 30},
-            {text: 'soledad de Doblado', value: 'soledad de Doblado', estado: 30},
-            {text: 'Tampico Alto', value: 'Tampico Alto', estado: 30},
-            {text: 'Tantoyuca', value: 'Tantoyuca', estado: 30},
-            {text: 'Tempoal de Sánchez', value: 'Tempoal de Sánchez', estado: 30},
-            {text: 'Tezonapa', value: 'Tezonapa', estado: 30},
-            {text: 'Tierra Blanca', value: 'Tierra Blanca', estado: 30},
-            {text: 'Tihuatlan', value: 'Tihuatlan', estado: 30},
-            {text: 'Tlacojalpan', value: 'Tlacojalpan', estado: 30},
-            {text: 'Tlapacoyan', value: 'Tlapacoyan', estado: 30},
-            {text: 'Tres valles', value: 'Tres valles', estado: 30},
-            {text: 'Túxpam de Rodríguez Cano', value: 'Túxpam de Rodríguez Cano', estado: 30},
-            {text: 'Veracruz', value: 'Veracruz', estado: 30},
-            {text: 'Xalapa-Enriquez', value: 'Xalapa-Enriquez', estado: 30},
-            {text: 'Yecuatla', value: 'Yecuatla', estado: 30},
-            {text: 'Motul de Carrillo Puerto', value: 'Motul de Carrillo Puerto', estado: 31},
-            {text: 'Mérida', value: 'Mérida', estado: 31},
-            {text: 'Ticul', value: 'Ticul', estado: 31},
-            {text: 'Tizimín', value: 'Tizimín', estado: 31},
-            {text: 'Valladolid', value: 'Valladolid', estado: 31},
-            {text: 'Ciudad Cuauhtémoc ', value: 'Ciudad Cuauhtémoc', estado: 32},
-            {text: 'Fresnillo', value: 'Fresnillo', estado: 32},
-            {text: 'Jalpa', value: 'Jalpa', estado: 32},
-            {text: 'Jerez de García Salinas', value: 'Jerez de García Salinas', estado: 32},
-            {text: 'Luis Moya', value: 'Luis Moya', estado: 32},
-            {text: 'Moyahua de Estrada', value: 'Moyahua de Estrada', estado: 32},
-            {text: 'Nochistlán de Mejía', value: 'Nochistlán de Mejía', estado: 32},
-            {text: 'Ojocaliente', value: 'Ojocaliente', estado: 32},
-            {text: 'Río Grande', value: 'Río Grande', estado: 32},
-            {text: 'Sombrerete', value: 'Sombrerete', estado: 32},
-            {text: 'Valparaiso', value: 'Valparaiso', estado: 32},
-            {text: 'Villa de Cos', value: 'Villa de Cos', estado: 32},
-            {text: 'Villanueva', value: 'Villanueva', estado: 32},
-            {text: 'Víctor Rosales', value: 'Víctor Rosales', estado: 32},
-            {text: 'Zacatecas', value: 'Zacatecas', estado: 32}
+            {"text":"Aguascalientes","value":1},
+            {"text":"Asientos","value":1},
+            {"text":"Calvillo","value":1},
+            {"text":"Cosío","value":1},
+            {"text":"Jesús María","value":1},
+            {"text":"Pabellón de Arteaga","value":1},
+            {"text":"Rincón de Romos","value":1},
+            {"text":"San Francisco de los Romo","value":1},
+            {"text":"Tepezalá","value":1},
+            {"text":"Ensenada","value":2},
+            {"text":"Mexicali","value":2},
+            {"text":"Playas de Rosarito","value":2},
+            {"text":"Rodolfo Sánchez T. (Maneadero)","value":2},
+            {"text":"San Felipe","value":2},
+            {"text":"Tecate","value":2},
+            {"text":"Tijuana","value":2},
+            {"text":"Cabo San Lucas","value":3},
+            {"text":"Ciudad Constitución","value":3},
+            {"text":"Guerrero Negro","value":3},
+            {"text":"Heroica Mulegé","value":3},
+            {"text":"La Paz","value":3},
+            {"text":"Loreto","value":3},
+            {"text":"Puerto Adolfo López Mateos","value":3},
+            {"text":"San Ignacio","value":3},
+            {"text":"San José del Cabo","value":3},
+            {"text":"Todos Santos","value":3},
+            {"text":"Villa Alberto Andrés Alvarado Arámburo","value":3},
+            {"text":"Calkini","value":4},
+            {"text":"Candelaria","value":4},
+            {"text":"Champotón","value":4},
+            {"text":"Ciudad del Carmen","value":4},
+            {"text":"Escárcega","value":4},
+            {"text":"Hecelchakán","value":4},
+            {"text":"Hopelchén","value":4},
+            {"text":"Pomuch","value":4},
+            {"text":"Sabancuy","value":4},
+            {"text":"San Francisco de Campeche","value":4},
+            {"text":"Acala","value":5},
+            {"text":"Arriaga","value":5},
+            {"text":"Cacahoatán","value":5},
+            {"text":"Chiapa de Corzo","value":5},
+            {"text":"Cintalapa de Figueroa","value":5},
+            {"text":"Comitán de Domínguez","value":5},
+            {"text":"Huixtla","value":5},
+            {"text":"Jiquipilas","value":5},
+            {"text":"Las Margaritas","value":5},
+            {"text":"Las Rosas","value":5},
+            {"text":"Mapastepec","value":5},
+            {"text":"Motozintla de Mendoza","value":5},
+            {"text":"Ocosingo","value":5},
+            {"text":"Ocozocoautla de Espinosa","value":5},
+            {"text":"Palenque","value":5},
+            {"text":"Pichucalco","value":5},
+            {"text":"Pijijiapan","value":5},
+            {"text":"Puerto Madero (San Benito)","value":5},
+            {"text":"Reforma","value":5},
+            {"text":"San Cristóbal de las Casas","value":5},
+            {"text":"Tapachula de Córdova y Ordóñez","value":5},
+            {"text":"Tonalá","value":5},
+            {"text":"Tuxtla Gutiérrez","value":5},
+            {"text":"Venustiano Carranza","value":5},
+            {"text":"Villaflores","value":5},
+            {"text":"Bachíniva","value":6},
+            {"text":"Chihuahua","value":6},
+            {"text":"Colonia Anáhuac","value":6},
+            {"text":"Cuauhtémoc","value":6},
+            {"text":"Delicias","value":6},
+            {"text":"Hidalgo del Parral","value":6},
+            {"text":"José Mariano Jiménez","value":6},
+            {"text":"Juan Aldama","value":6},
+            {"text":"Juárez","value":6},
+            {"text":"Madera","value":6},
+            {"text":"Manuel Ojinaga","value":6},
+            {"text":"Nuevo Casas Grandes","value":6},
+            {"text":"Santa Rosalía de Camargo","value":6},
+            {"text":"Saucillo","value":6},
+            {"text":"Allende","value":7},
+            {"text":"Arteaga","value":7},
+            {"text":"Castaños","value":7},
+            {"text":"Ciudad Acuña","value":7},
+            {"text":"Ciudad Melchor Múzquiz","value":7},
+            {"text":"Cuatro Ciénegas de Carranza","value":7},
+            {"text":"Francisco I. Madero (Chávez)","value":7},
+            {"text":"Frontera","value":7},
+            {"text":"Matamoros","value":7},
+            {"text":"Monclova","value":7},
+            {"text":"Morelos","value":7},
+            {"text":"Nadadores","value":7},
+            {"text":"Nava","value":7},
+            {"text":"Nueva Rosita","value":7},
+            {"text":"Parras de la Fuente","value":7},
+            {"text":"Piedras Negras","value":7},
+            {"text":"Ramos Arizpe","value":7},
+            {"text":"Sabinas","value":7},
+            {"text":"Saltillo","value":7},
+            {"text":"San Buenaventura","value":7},
+            {"text":"San Pedro","value":7},
+            {"text":"Torreón","value":7},
+            {"text":"Viesca","value":7},
+            {"text":"Zaragoza","value":7},
+            {"text":"Ciudad de Armería","value":8},
+            {"text":"Ciudad de Villa de Álvarez","value":8},
+            {"text":"Colima","value":8},
+            {"text":"Manzanillo","value":8},
+            {"text":"Tecoman","value":8},
+            {"text":"Álvaro Obregón","value":9},
+            {"text":"Azcapotzalco","value":9},
+            {"text":"Benito Juárez","value":9},
+            {"text":"Coyoacán","value":9},
+            {"text":"Cuajimalpa","value":9},
+            {"text":"Cuauhtémoc","value":9},
+            {"text":"Gustavo A. Madero","value":9},
+            {"text":"Iztacalco","value":9},
+            {"text":"Iztapalapa","value":9},
+            {"text":"Magdalena Contreras","value":9},
+            {"text":"Miguel Hidalgo","value":9},
+            {"text":"Milpa Alta","value":9},
+            {"text":"Tlalpan","value":9},
+            {"text":"Tláhuac","value":9},
+            {"text":"Venustiano Carranza","value":9},
+            {"text":"Xochimilco","value":9},
+            {"text":"Canatlán","value":10},
+            {"text":"Ciudad Lerdo","value":10},
+            {"text":"El Salto","value":10},
+            {"text":"Francisco I. Madero","value":10},
+            {"text":"Gómez Palacio","value":10},
+            {"text":"Nombre de Dios","value":10},
+            {"text":"Peñón Blanco","value":10},
+            {"text":"San Juan del Río del Centauro del Norte","value":10},
+            {"text":"Santa María del Oro","value":10},
+            {"text":"Santiago Papasquiaro","value":10},
+            {"text":"Vicente Guerrero","value":10},
+            {"text":"Victoria de Durango","value":10},
+            {"text":"Abasolo","value":11},
+            {"text":"Acámbaro","value":11},
+            {"text":"Apaseo el Alto","value":11},
+            {"text":"Apaseo el Grande","value":11},
+            {"text":"Celaya","value":11},
+            {"text":"Ciudad Manuel Doblado","value":11},
+            {"text":"Comonfort","value":11},
+            {"text":"Cortazar","value":11},
+            {"text":"Cuerámaro","value":11},
+            {"text":"Doctor Mora","value":11},
+            {"text":"Empalme Escobedo (Escobedo)","value":11},
+            {"text":"Guanajuato","value":11},
+            {"text":"Huanímaro","value":11},
+            {"text":"Irapuato","value":11},
+            {"text":"Jaral del Progreso","value":11},
+            {"text":"Jerécuaro","value":11},
+            {"text":"León de los Aldama","value":11},
+            {"text":"Marfil","value":11},
+            {"text":"Moroleón","value":11},
+            {"text":"Purísima de Bustos","value":11},
+            {"text":"Pénjamo","value":11},
+            {"text":"Rincón de Tamayo","value":11},
+            {"text":"Romita","value":11},
+            {"text":"Salamanca","value":11},
+            {"text":"Salvatierra","value":11},
+            {"text":"San Diego de la Unión","value":11},
+            {"text":"San Francisco del Rincón","value":11},
+            {"text":"San José Iturbide","value":11},
+            {"text":"San Luis de la Paz","value":11},
+            {"text":"San miguel de Allende","value":11},
+            {"text":"Santa Cruz Juventino Rosas","value":11},
+            {"text":"Santiago Maravatío","value":11},
+            {"text":"Silao","value":11},
+            {"text":"Tarandacuao","value":11},
+            {"text":"Uriangato","value":11},
+            {"text":"Valle de Santiago","value":11},
+            {"text":"Villagrán","value":11},
+            {"text":"Yuriria","value":11},
+            {"text":"Acapulco de Juárez","value":12},
+            {"text":"Arcelia","value":12},
+            {"text":"Atoyac de Álvarez","value":12},
+            {"text":"Ayutla de los Libres","value":12},
+            {"text":"Azoyú","value":12},
+            {"text":"Buenavista de Cuellar","value":12},
+            {"text":"Chilapa de Álvarez","value":12},
+            {"text":"Chilpancingo de los Bravo","value":12},
+            {"text":"Ciudad Altamirano","value":12},
+            {"text":"Ciudad Apaxtla de Castrejón","value":12},
+            {"text":"Copala","value":12},
+            {"text":"Coyuca de Benítez","value":12},
+            {"text":"Coyuca de Catalán","value":12},
+            {"text":"Cruz Grande","value":12},
+            {"text":"Cuajinicuilapa","value":12},
+            {"text":"Cutzamala de Pinzón","value":12},
+            {"text":"Huamuxtitlan","value":12},
+            {"text":"Huitzuco","value":12},
+            {"text":"Iguala de la Independencia","value":12},
+            {"text":"La Unión","value":12},
+            {"text":"Marquelia","value":12},
+            {"text":"Ocotito","value":12},
+            {"text":"Olinalá","value":12},
+            {"text":"Petatlán","value":12},
+            {"text":"San Jerónimo de Juárez","value":12},
+            {"text":"San Luis Acatlán","value":12},
+            {"text":"San Luis San Pedro","value":12},
+            {"text":"San Luis de la Loma","value":12},
+            {"text":"San Marcos","value":12},
+            {"text":"Taxco de Alarcón","value":12},
+            {"text":"Teloloapan","value":12},
+            {"text":"Tepecoacuilco de Trujano","value":12},
+            {"text":"Tierra Colorada","value":12},
+            {"text":"Tixtla de Guerrero","value":12},
+            {"text":"Tlalixtaquilla","value":12},
+            {"text":"Tlapa de Comonfort","value":12},
+            {"text":"Tlapehuala","value":12},
+            {"text":"Técpan de Galeana","value":12},
+            {"text":"Zihuatanejo","value":12},
+            {"text":"Zumpango del Río","value":12},
+            {"text":"Actopan","value":13},
+            {"text":"Apan","value":13},
+            {"text":"Ciudad de Fray Bernardino de Sahagún","value":13},
+            {"text":"Cruz Azul","value":13},
+            {"text":"Huejutla de Reyes","value":13},
+            {"text":"Ixmiquilpan","value":13},
+            {"text":"Pachuca de Soto","value":13},
+            {"text":"Santiago Tulantepec","value":13},
+            {"text":"Tepeapulco","value":13},
+            {"text":"Tepeji del Rio","value":13},
+            {"text":"Tizayuca","value":13},
+            {"text":"Tlaxcoapan","value":13},
+            {"text":"Tula de Allende","value":13},
+            {"text":"Tulancingo","value":13},
+            {"text":"Zimapan","value":13},
+            {"text":"Acatlán de Juárez","value":14},
+            {"text":"Ahualulco de Mercado","value":14},
+            {"text":"Ajijic","value":14},
+            {"text":"Ameca","value":14},
+            {"text":"Arandas","value":14},
+            {"text":"Atotonilco el Alto","value":14},
+            {"text":"Autlán de Navarro","value":14},
+            {"text":"Chapala","value":14},
+            {"text":"Cihuatlán","value":14},
+            {"text":"Ciudad Guzmán","value":14},
+            {"text":"Cocula","value":14},
+            {"text":"Colotlán","value":14},
+            {"text":"El Grullo","value":14},
+            {"text":"El Quince (San José el Quince)","value":14},
+            {"text":"Etzatlán","value":14},
+            {"text":"Guadalajara","value":14},
+            {"text":"Huejuquilla el Alto","value":14},
+            {"text":"Jalostotitlán","value":14},
+            {"text":"Jamay","value":14},
+            {"text":"Jocotepec","value":14},
+            {"text":"La Barca","value":14},
+            {"text":"La Resolana","value":14},
+            {"text":"Lagos de Moreno","value":14},
+            {"text":"Las Pintitas","value":14},
+            {"text":"Magdalena","value":14},
+            {"text":"Ocotlán","value":14},
+            {"text":"Poncitlán","value":14},
+            {"text":"Puerto Vallarta","value":14},
+            {"text":"San Diego de Alejandría","value":14},
+            {"text":"San Ignacio Cerro Gordo","value":14},
+            {"text":"San José el Verde (El Verde)","value":14},
+            {"text":"San Juan de los Lagos","value":14},
+            {"text":"San Julián","value":14},
+            {"text":"San Miguel el Alto","value":14},
+            {"text":"Sayula","value":14},
+            {"text":"Tala","value":14},
+            {"text":"Talpa de Allende","value":14},
+            {"text":"Tamazula de Gordiano","value":14},
+            {"text":"Tecalitlán","value":14},
+            {"text":"Teocaltiche","value":14},
+            {"text":"Tepatitlán de Morelos","value":14},
+            {"text":"Tequila","value":14},
+            {"text":"Tlajomulco de Zúñiga","value":14},
+            {"text":"Tlaquepaque","value":14},
+            {"text":"Tototlán","value":14},
+            {"text":"Tuxpan","value":14},
+            {"text":"Unión de San Antonio","value":14},
+            {"text":"Valle de Guadalupe","value":14},
+            {"text":"Villa Corona","value":14},
+            {"text":"Villa Hidalgo","value":14},
+            {"text":"Yahualica de González Gallo","value":14},
+            {"text":"Zacoalco de Torres","value":14},
+            {"text":"Zapopan","value":14},
+            {"text":"Zapotiltic","value":14},
+            {"text":"Apatzingán de la Constitución","value":15},
+            {"text":"Ciudad Hidalgo","value":15},
+            {"text":"Ciudad Lázaro Cárdenas","value":15},
+            {"text":"Cotija de la Paz","value":15},
+            {"text":"Cuitzeo del Porvenir","value":15},
+            {"text":"Heroica Zitácuaro","value":15},
+            {"text":"Huetamo de Núñez","value":15},
+            {"text":"Jacona de Plancarte","value":15},
+            {"text":"Jiquilpan de Juárez","value":15},
+            {"text":"La piedad de Cabadas","value":15},
+            {"text":"Las Guacamayas","value":15},
+            {"text":"Los Reyes de Salgado","value":15},
+            {"text":"Maravatío de Ocampo","value":15},
+            {"text":"Morelia","value":15},
+            {"text":"Nueva Italia de Ruiz","value":15},
+            {"text":"Paracho de Verduzco","value":15},
+            {"text":"Puruándiro","value":15},
+            {"text":"Pátzcuaro","value":15},
+            {"text":"Sahuayo de Morelos","value":15},
+            {"text":"Tacámbaro de Codallos","value":15},
+            {"text":"Tangancícuaro de Arista","value":15},
+            {"text":"Uruapan","value":15},
+            {"text":"Yurécuaro","value":15},
+            {"text":"Zacapu","value":15},
+            {"text":"Zamora de Hidalgo","value":15},
+            {"text":"Zinapécuaro de Figueroa","value":15},
+            {"text":"Cuautla (Cuautla de Morelos)","value":16},
+            {"text":"Cuernavaca","value":16},
+            {"text":"Galeana","value":16},
+            {"text":"Jojutla","value":16},
+            {"text":"Puente de Ixtla","value":16},
+            {"text":"Santa Rosa Treinta","value":16},
+            {"text":"Tlaquiltenango","value":16},
+            {"text":"Zacatepec de Hidalgo","value":16},
+            {"text":"Almoloya de Juárez","value":17},
+            {"text":"Amatepec","value":17},
+            {"text":"Atizapán de Zaragoza","value":17},
+            {"text":"Capulhuac","value":17},
+            {"text":"Chalco de Díaz Covarrubias","value":17},
+            {"text":"Chiconcuac","value":17},
+            {"text":"Chimalhuacán","value":17},
+            {"text":"Ciudad Adolfo López Mateos","value":17},
+            {"text":"Ciudad Nezahualcoyotl","value":17},
+            {"text":"Coacalco de Berriozabal","value":17},
+            {"text":"Cuautitlán","value":17},
+            {"text":"Cuautitlán Izcalli","value":17},
+            {"text":"Ecatepec de Morelos","value":17},
+            {"text":"Huixquilucan de Degollado","value":17},
+            {"text":"Ixtapaluca","value":17},
+            {"text":"Juchitepec de Mariano Riva Palacio","value":17},
+            {"text":"Los Reyes Acaquilpan (La Paz)","value":17},
+            {"text":"Melchor Ocampo","value":17},
+            {"text":"Metepec","value":17},
+            {"text":"Naucalpan de Juárez","value":17},
+            {"text":"Nezahualcóyotl","value":17},
+            {"text":"Ocoyoacac","value":17},
+            {"text":"San Mateo Atenco","value":17},
+            {"text":"San Vicente Chicoloapan de Juárez","value":17},
+            {"text":"Santa Maria Tultepec","value":17},
+            {"text":"Tecamac de Felipe Villanueva","value":17},
+            {"text":"Tejupilco de Hidalgo","value":17},
+            {"text":"Tepotzotlán","value":17},
+            {"text":"Tequixquiac","value":17},
+            {"text":"Texcoco de Mora","value":17},
+            {"text":"Tlalnepantla de Baz","value":17},
+            {"text":"Toluca de Lerdo","value":17},
+            {"text":"Tultitlán de Mariano Escobedo","value":17},
+            {"text":"Valle de Chalco Solidaridad","value":17},
+            {"text":"Villa Nicolás Romero","value":17},
+            {"text":"Xonacatlán","value":17},
+            {"text":"Zumpango","value":17},
+            {"text":"Acaponeta","value":18},
+            {"text":"Ahuacatlán","value":18},
+            {"text":"Bucerías","value":18},
+            {"text":"Compostela","value":18},
+            {"text":"Francisco I. Madero (Puga)","value":18},
+            {"text":"Ixtlán del Río","value":18},
+            {"text":"Jala","value":18},
+            {"text":"La peñita de Jaltemba","value":18},
+            {"text":"Las Varas","value":18},
+            {"text":"Ruiz","value":18},
+            {"text":"San Blas","value":18},
+            {"text":"San pedro Lagunillas","value":18},
+            {"text":"Santiago Ixcuintla","value":18},
+            {"text":"Tecuala","value":18},
+            {"text":"Tepic","value":18},
+            {"text":"Villa Hidalgo (El Nuevo)","value":18},
+            {"text":"Xalisco","value":18},
+            {"text":"Anáhuac","value":19},
+            {"text":"Cadereyta Jiménez","value":19},
+            {"text":"Ciudad Apodaca","value":19},
+            {"text":"Ciudad Benito Juárez","value":19},
+            {"text":"Ciudad General Escobedo","value":19},
+            {"text":"Ciudad Sabinas Hidalgo","value":19},
+            {"text":"Ciudad Santa Catarina","value":19},
+            {"text":"Ciénega de Flores","value":19},
+            {"text":"Doctor Arroyo","value":19},
+            {"text":"El cercado","value":19},
+            {"text":"García","value":19},
+            {"text":"Guadalupe","value":19},
+            {"text":"Hualahuises","value":19},
+            {"text":"Linares","value":19},
+            {"text":"Montemorelos","value":19},
+            {"text":"Monterrey","value":19},
+            {"text":"San Nicolás de los Garza","value":19},
+            {"text":"San Pedro Garza García","value":19},
+            {"text":"Santiago","value":19},
+            {"text":"Asunción Nochixtlán","value":20},
+            {"text":"Bahias de Huatulco","value":20},
+            {"text":"Chahuites","value":20},
+            {"text":"Ciudad Ixtepec","value":20},
+            {"text":"Cosolapa","value":20},
+            {"text":"Cuilápam de Guerrero","value":20},
+            {"text":"El Camarón","value":20},
+            {"text":"El Rosario","value":20},
+            {"text":"Heroica Ciudad de Ejutla de Crespo","value":20},
+            {"text":"Heroica Ciudad de Huajuapan de León","value":20},
+            {"text":"Heroica Ciudad de Tlaxiaco","value":20},
+            {"text":"Juchitán (Juchitán de Zaragoza)","value":20},
+            {"text":"Lagunas","value":20},
+            {"text":"Loma Bonita","value":20},
+            {"text":"Mariscala de Juárez","value":20},
+            {"text":"Matías Romero Avendaño","value":20},
+            {"text":"Miahuatlán de Porfirio Díaz","value":20},
+            {"text":"Natividad","value":20},
+            {"text":"Oaxaca de Juárez","value":20},
+            {"text":"Ocotlán de Morelos","value":20},
+            {"text":"Puerto Escondido","value":20},
+            {"text":"Putla Villa de Guerrero","value":20},
+            {"text":"Río Grande o Piedra Parada","value":20},
+            {"text":"Salina Cruz","value":20},
+            {"text":"San Antonio de la Cal","value":20},
+            {"text":"San Blas Atempa","value":20},
+            {"text":"San Felipe Jalapa de Díaz","value":20},
+            {"text":"San Francisco Ixhuatán","value":20},
+            {"text":"San Francisco Telixtlahuaca","value":20},
+            {"text":"San Juan Bautista Cuicatlán","value":20},
+            {"text":"San Juan Bautista Tuxtepec","value":20},
+            {"text":"San Juan Bautista Valle Nacional","value":20},
+            {"text":"San Juan Bautista lo de Soto","value":20},
+            {"text":"San Juan Cacahuatepec","value":20},
+            {"text":"San Miguel el Grande","value":20},
+            {"text":"San Pablo Huitzo","value":20},
+            {"text":"San Pablo Villa de Mitla","value":20},
+            {"text":"San Pedro Mixtepec -Dto. 22-","value":20},
+            {"text":"San Pedro Pochutla","value":20},
+            {"text":"San Pedro Tapanatepec","value":20},
+            {"text":"San Pedro Totolapa","value":20},
+            {"text":"San Sebastián Tecomaxtlahuaca","value":20},
+            {"text":"Santa Cruz Itundujia","value":20},
+            {"text":"Santa Lucia del Camino","value":20},
+            {"text":"Santa María Huatulco","value":20},
+            {"text":"Santiago Jamiltepec","value":20},
+            {"text":"Santiago Juxtlahuaca","value":20},
+            {"text":"Santiago Pinotepa Nacional","value":20},
+            {"text":"Santiago Suchilquitongo","value":20},
+            {"text":"Santo Domingo Tehuantepec","value":20},
+            {"text":"Teotitlán de Flores Magón","value":20},
+            {"text":"Tlacolula de Matamoros","value":20},
+            {"text":"Unión Hidalgo","value":20},
+            {"text":"Vicente Camalote","value":20},
+            {"text":"Villa Sola de Vega","value":20},
+            {"text":"Villa de Tamazulápam del Progreso","value":20},
+            {"text":"Villa de Zaachila","value":20},
+            {"text":"Zimatlán de Álvarez","value":20},
+            {"text":"Acatlán de Osorio","value":21},
+            {"text":"Amozoc","value":21},
+            {"text":"Atlixco","value":21},
+            {"text":"Ciudad Serdán","value":21},
+            {"text":"Cuautlancingo","value":21},
+            {"text":"Huauchinango","value":21},
+            {"text":"Izúcar de Matamoros","value":21},
+            {"text":"Puebla (Heroica Puebla)","value":21},
+            {"text":"San Andrés Cholula","value":21},
+            {"text":"San Martín Texmelucan de Labastida","value":21},
+            {"text":"San Pedro Cholula","value":21},
+            {"text":"Tecamachalco","value":21},
+            {"text":"Tehuacan","value":21},
+            {"text":"Tepeaca","value":21},
+            {"text":"Teziutlan","value":21},
+            {"text":"Xicotepec","value":21},
+            {"text":"Zacatlán","value":21},
+            {"text":"El Pueblito","value":22},
+            {"text":"Querétaro","value":22},
+            {"text":"San Juan del Rio","value":22},
+            {"text":"Bacalar","value":23},
+            {"text":"Cancún","value":23},
+            {"text":"Chetumal","value":23},
+            {"text":"Cozumel","value":23},
+            {"text":"Felipe Carrillo Puerto","value":23},
+            {"text":"Isla Mujeres","value":23},
+            {"text":"Kantunilkín","value":23},
+            {"text":"Playa del Carmen","value":23},
+            {"text":"Cedral","value":24},
+            {"text":"Cerritos","value":24},
+            {"text":"Charcas","value":24},
+            {"text":"Ciudad Valles","value":24},
+            {"text":"Ciudad del Maíz","value":24},
+            {"text":"Cárdenas","value":24},
+            {"text":"El Naranjo","value":24},
+            {"text":"Fracción el Refugio","value":24},
+            {"text":"Matehuala","value":24},
+            {"text":"Rioverde","value":24},
+            {"text":"Salinas de Hidalgo","value":24},
+            {"text":"San Luis Potosí","value":24},
+            {"text":"Santa María del Río","value":24},
+            {"text":"Soledad de Graciano Sánchez","value":24},
+            {"text":"Tamasopo","value":24},
+            {"text":"Tamazunchale","value":24},
+            {"text":"Tamuin","value":24},
+            {"text":"Tierra Nueva","value":24},
+            {"text":"Villa de Reyes","value":24},
+            {"text":"Ébano","value":24},
+            {"text":"Aguaruto","value":25},
+            {"text":"Ahome","value":25},
+            {"text":"Angostura","value":25},
+            {"text":"Choix","value":25},
+            {"text":"Cosalá","value":25},
+            {"text":"Culiacán Rosales","value":25},
+            {"text":"Escuinapa de Hidalgo","value":25},
+            {"text":"Estación Naranjo","value":25},
+            {"text":"Guamúchil","value":25},
+            {"text":"Guasave","value":25},
+            {"text":"Higuera de Zaragoza","value":25},
+            {"text":"La Cruz","value":25},
+            {"text":"Lic. Benito Juárez (Campo Gobierno)","value":25},
+            {"text":"Los Mochis","value":25},
+            {"text":"Mazatlán","value":25},
+            {"text":"Mocorito","value":25},
+            {"text":"Navolato","value":25},
+            {"text":"Quila","value":25},
+            {"text":"Sinaloa de Leyva","value":25},
+            {"text":"Topolobampo","value":25},
+            {"text":"Villa Unión","value":25},
+            {"text":"Agua Prieta","value":26},
+            {"text":"Ciudad Obregón","value":26},
+            {"text":"Empalme","value":26},
+            {"text":"Hermosillo","value":26},
+            {"text":"Heroica Caborca","value":26},
+            {"text":"Heroica Ciudad de Cananea","value":26},
+            {"text":"Heroica Guaymas","value":26},
+            {"text":"Heroica Nogales","value":26},
+            {"text":"Huatabampo","value":26},
+            {"text":"Magdalena de Kino","value":26},
+            {"text":"Navojoa","value":26},
+            {"text":"Puerto Peñasco","value":26},
+            {"text":"San Luis Río Colorado","value":26},
+            {"text":"Sonoita","value":26},
+            {"text":"Comalcalco","value":27},
+            {"text":"Cunduacán","value":27},
+            {"text":"Emiliano Zapata","value":27},
+            {"text":"Huimanguillo","value":27},
+            {"text":"Jalpa de Méndez","value":27},
+            {"text":"Macuspana","value":27},
+            {"text":"Paraíso","value":27},
+            {"text":"Teapa","value":27},
+            {"text":"Tenosique de Pino Suárez","value":27},
+            {"text":"Villahermosa","value":27},
+            {"text":"Altamira","value":28},
+            {"text":"Ciudad Camargo","value":28},
+            {"text":"Ciudad Gustavo Díaz Ordaz","value":28},
+            {"text":"Ciudad Madero","value":28},
+            {"text":"Ciudad Mante","value":28},
+            {"text":"Ciudad Miguel Alemán","value":28},
+            {"text":"Ciudad Río Bravo","value":28},
+            {"text":"Ciudad Tula","value":28},
+            {"text":"Ciudad Victoria","value":28},
+            {"text":"Estación Manuel (Úrsulo Galván)","value":28},
+            {"text":"González","value":28},
+            {"text":"Heroica Matamoros","value":28},
+            {"text":"Jaumave","value":28},
+            {"text":"Nueva Ciudad Guerrero","value":28},
+            {"text":"Nuevo Laredo","value":28},
+            {"text":"Reynosa","value":28},
+            {"text":"San Fernando","value":28},
+            {"text":"Soto la Marina","value":28},
+            {"text":"Tampico","value":28},
+            {"text":"Valle Hermoso","value":28},
+            {"text":"Xicoténcatl","value":28},
+            {"text":"Apizaco","value":29},
+            {"text":"Calpulalpan","value":29},
+            {"text":"Chiautempan","value":29},
+            {"text":"Huamantla","value":29},
+            {"text":"Tlaxcala (Tlaxcala de Xicotencatl)","value":29},
+            {"text":"Villa Vicente Guerrero","value":29},
+            {"text":"Acayucan","value":30},
+            {"text":"Agua dulce","value":30},
+            {"text":"Altotonga","value":30},
+            {"text":"Alvarado","value":30},
+            {"text":"Atoyac","value":30},
+            {"text":"Banderilla","value":30},
+            {"text":"Boca del RÍo","value":30},
+            {"text":"Carlos A. Carrillo","value":30},
+            {"text":"Catemaco","value":30},
+            {"text":"Cazones de Herrera","value":30},
+            {"text":"Cerro Azul","value":30},
+            {"text":"Coatepec","value":30},
+            {"text":"Coatzacoalcos","value":30},
+            {"text":"Coatzintla","value":30},
+            {"text":"Cosamaloapan","value":30},
+            {"text":"Cosoleacaque","value":30},
+            {"text":"Cuichapa","value":30},
+            {"text":"Cuitláhuac","value":30},
+            {"text":"Córdoba","value":30},
+            {"text":"El Higo","value":30},
+            {"text":"Fortín de las Flores","value":30},
+            {"text":"General Miguel Alemán (Potrero Nuevo)","value":30},
+            {"text":"Gutiérrez Zamora","value":30},
+            {"text":"Huatusco de Chicuellar","value":30},
+            {"text":"Huayacocotla","value":30},
+            {"text":"Huiloapan de Cuauhtémoc","value":30},
+            {"text":"Isla","value":30},
+            {"text":"Ixtaczoquitlán","value":30},
+            {"text":"José Cardel","value":30},
+            {"text":"Juan Díaz Covarrubias","value":30},
+            {"text":"Juan Rodríguez Clara","value":30},
+            {"text":"Jáltipan de Morelos","value":30},
+            {"text":"Las Choapas","value":30},
+            {"text":"Lerdo de Tejada","value":30},
+            {"text":"Minatitlán","value":30},
+            {"text":"Naranjos","value":30},
+            {"text":"Nogales","value":30},
+            {"text":"Orizaba","value":30},
+            {"text":"Papantla de Olarte","value":30},
+            {"text":"Paraje Nuevo","value":30},
+            {"text":"Paso de Ovejas","value":30},
+            {"text":"Paso del Macho","value":30},
+            {"text":"Platón Sánchez","value":30},
+            {"text":"Playa Vicente","value":30},
+            {"text":"Poza Rica de Hidalgo","value":30},
+            {"text":"Pánuco","value":30},
+            {"text":"Río Blanco","value":30},
+            {"text":"San Andrés Tuxtla","value":30},
+            {"text":"San Rafael","value":30},
+            {"text":"Santiago Tuxtla","value":30},
+            {"text":"Sihuapan","value":30},
+            {"text":"Soledad de Doblado","value":30},
+            {"text":"Tampico Alto","value":30},
+            {"text":"Tantoyuca","value":30},
+            {"text":"Tempoal de Sánchez","value":30},
+            {"text":"Tezonapa","value":30},
+            {"text":"Tierra Blanca","value":30},
+            {"text":"Tihuatlán","value":30},
+            {"text":"Tlacojalpan","value":30},
+            {"text":"Tlapacoyan","value":30},
+            {"text":"Tres Valles","value":30},
+            {"text":"Túxpam de Rodríguez Cano","value":30},
+            {"text":"Veracruz","value":30},
+            {"text":"Xalapa-Enríquez","value":30},
+            {"text":"Yecuatla","value":30},
+            {"text":"Ángel R. Cabada","value":30},
+            {"text":"Motul de Carrillo Puerto","value":31},
+            {"text":"Mérida","value":31},
+            {"text":"Ticul","value":31},
+            {"text":"Tizimín","value":31},
+            {"text":"Valladolid","value":31},
+            {"text":"Ciudad Cuauhtémoc","value":32},
+            {"text":"Fresnillo","value":32},
+            {"text":"Jalpa","value":32},
+            {"text":"Jerez de García Salinas","value":32},
+            {"text":"Luis Moya","value":32},
+            {"text":"Moyahua de Estrada","value":32},
+            {"text":"Nochistlán de Mejía","value":32},
+            {"text":"Ojocaliente","value":32},
+            {"text":"Río Grande","value":32},
+            {"text":"Sombrerete","value":32},
+            {"text":"Valparaíso","value":32},
+            {"text":"Villa de Cos","value":32},
+            {"text":"Villanueva","value":32},
+            {"text":"Víctor Rosales","value":32},
+            {"text":"Zacatecas","value":32}
         ]
     }
 });
@@ -78490,7 +79305,8 @@ Ext.application({
                                          
                                             
                                              
-                                   
+                                    
+                               
       
 
     models:[
@@ -78562,5 +79378,5 @@ Ext.application({
 });
 
 // @tag full-page
-// @require /Applications/XAMPP/xamppfiles/htdocs/vitared/app.js
+// @require /Users/Waldix/Vitared/app.js
 

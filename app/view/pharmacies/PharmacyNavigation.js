@@ -32,11 +32,12 @@ Ext.define('Vitared.view.pharmacies.PharmacyNavigation', {
                     xtype: 'loadmask',
                     message: 'Cargando...'
                 },
+                loadingText: 'Cargando...',
                 emptyText: 'No hay Farmacias ...',
-                scope: this,
+                scope: this/*,
                 onItemDisclosure: function (record, listItem, index, e) {
                     this.fireEvent("tap", record, listItem, index, e);
-                }
+                }*/
             },
             {
                 xtype: 'container',
@@ -44,7 +45,6 @@ Ext.define('Vitared.view.pharmacies.PharmacyNavigation', {
                 height: 50,
                 listeners:{
                     show:function(){
-                        console.log('wrwr');
                         var m3_u = (location.protocol=='https:'?'https://vitared.com.mx/ad/www/delivery/ajs.php':'http://vitared.com.mx/ad/www/delivery/ajs.php');
                         var m3_r = Math.floor(Math.random()*99999999999);
                         if (!document.MAX_used) document.MAX_used = ',';

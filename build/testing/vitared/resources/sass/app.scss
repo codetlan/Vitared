@@ -1408,13 +1408,20 @@
 }
 
 .x-list .x-list-disclosure:before{
-  top: 19px;
+  //top: 35px;
   color: #064b88;
+  z-index: 1;
 }
 
 
 .x-list .x-list-disclosure:before{
   font-size: 22px;
+  z-index: 1;
+  //margin-left: -10px;
+}
+
+.x-list .x-list-item .x-list-item-body, .x-list .x-list-item.x-list-item-tpl .x-innerhtml{
+  padding: 0 !important;
 }
 
 .button-info{
@@ -1422,15 +1429,26 @@
   width: 100%;
 }
 
+.button-locate{
+  right: 15px !important;
+  width: 5.7em !important;
+  height: 3.5em !important;
+}
+
+//Variables
+
+$highlight:   #175398;
+$claro:       #fff;
+
 //Se integra la vista de medicos
 html, body{max-width: 540px; margin: auto; font-family: 'Roboto', sans-serif;}
 
-h1{ margin: 0; color: #175398; font-weight: 700; font-size: 150%; }
+h1{ margin: 0; color: $highlight; font-weight: 700; font-size: 150%; }
 h2{ margin: 0; color: #5c5c5c; font-weight: 400; font-size: 110%; }
 h3{}
 h4{ margin: 0; text-transform: uppercase; color: #0e70ae; }
 h5{ margin: 0; color: #0e70ae; }
-h6{ margin: 4% 0; color: #b8b8b8; text-transform: uppercase; font-size: 80%; }
+h6{ margin: 4% 0; color: gray; text-transform: uppercase; font-size: 80%; }
 
 .left{ float: left; }
 .right{ float: right; }
@@ -1457,16 +1475,29 @@ h6{ margin: 4% 0; color: #b8b8b8; text-transform: uppercase; font-size: 80%; }
 
 
 /*DATOS*/
-.datos{}
+.datos{ background: #000;
 
-.dato{ margin: 0 0 1% 0; padding: 2%; background: #fff;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;
+  .dato{ margin: 0 0 1% 0; padding: 2%; background: #fff;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+    &.promociones{ padding: 4%; background: $highlight;
+
+      h2{ margin-bottom: 2%; color: $claro; }
+
+      p{ color: $claro; font-size: 0.8em; }
+
+    }
+
+  }
+
+  p{ text-align: left; }
+
 }
 
-.redes{ position: relative; overflow: hidden; }
-.redes p{ margin: 0; }
+.redes{ position: relative; overflow: hidden;}
+.redes p{ margin: 0; text-align: justify;}
 .redes ul{ margin: 0; list-style: none; position: relative; overflow: hidden; }
 .redes ul li{ width: 9%; margin: 2% 2% 0 0; float: left; }
 .redes ul li img{ width: 100%; height: auto; display: block; }
@@ -1474,7 +1505,7 @@ h6{ margin: 4% 0; color: #b8b8b8; text-transform: uppercase; font-size: 80%; }
 .recomendacion{ position: relative; overflow: hidden; }
 .recomendacion p{ margin: 0; font-weight: 700; }
 .recomiendan{}
-.recomendacion .personas{ margin-right: 6%; color: #175398; }
+.recomendacion .personas{ margin-right: 6%; color: $highlight; }
 .mas{}
 
 .lista{margin: 0 0 2% 0;}
@@ -1508,6 +1539,34 @@ h6{ margin: 4% 0; color: #b8b8b8; text-transform: uppercase; font-size: 80%; }
 .botones-ubicacion a{ display: block; height: 100%; width: 100%; color: #fff; text-decoration: none; text-align: center; font-size: 120%; }
 
 
+/*RESULTADOS*/
+.resultados-destacados {width: 100%}
+.resultados-destacados .resultado{ background: #d9dadc; border-bottom: 1px solid #b2b2b2; width: 100% }
+.resultados-destacados .fa-map-marker{ width: 19%; margin: 0 5% 0 0; font-size: 5em;  color: red; float: left;}
+
+.resultado{ padding: 10px; border-bottom: 1px solid #e2e2e2;  position: relative; overflow: hidden; }
+
+.marker{ width: 19%; margin: 0 6% 0 0; float: left; position: relative;
+
+  .fa-map-marker{ width: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
+  .marker-id{ width: 100%; margin-top: 30%; text-align: center; color: #fff; font-size: 1.4em; position: relative; z-index: 2; }
+}
+
+
+
+
+
+.info{ width: 65%; float: left; }
+.info p{ font-size: 1.2em; margin: 0; }
+
+.nombre{ color: #064b88; font-size: 16px; font-weight: bold; }
+.especialidad{ font-size: 16px; color: gray; }
+.localidad{ color: gray; }
+
+//.right{ width: 20%; position: relative; top: 10px; }
+.right p{ margin: 0 0 10px 0; font-size: 1em; }
+.right .fa-chevron-circle-right{ color: #81c5d1; font-size: 2em; float: left; }
+
 @media only screen
 and (max-width : 490px) {
 
@@ -1531,3 +1590,84 @@ and (max-width : 230px) {
 /*.search-list{
   margin-left: -154.5px !important;
 }*/
+
+
+.medicos{
+  background-image: url('../images/iconos_menu_vitared-11.png');
+  height: 100% !important;
+  width: 3.7em !important;
+  background-repeat: no-repeat !important;
+}
+
+.hospitales{
+  background-image: url('../images/iconos_menu_vitared-12.png');
+  height: 100% !important;
+  width: 3.7em !important;
+  background-repeat: no-repeat !important;
+}
+
+.farmacias{
+  background-image: url('../images/iconos_menu_vitared-13.png');
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.laboratorios{
+  background-image: url('../images/iconos_menu_vitared-14.png');
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.otros{
+  background-image: url('../images/iconos_menu_vitared-15.png');
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.medicos-not-active{
+  background-image: url('../images/iconos_menu_vitared-16.png');
+  height: 100% !important;
+  width: 3.7em !important;
+  background-repeat: no-repeat !important;
+}
+
+.hospitales-not-active{
+  background-image: url('../images/iconos_menu_vitared-17.png');
+  height: 100% !important;
+  width: 3.7em !important;
+  background-repeat: no-repeat !important;
+}
+
+.farmacias-not-active{
+  background-image: url('../images/iconos_menu_vitared-18.png');
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.laboratorios-not-active{
+  background-image: url('../images/iconos_menu_vitared-19.png');
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.otros-not-active{
+  background-image: url('../images/iconos_menu_vitared-20.png');
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+}
+
+.x-tab{
+  padding-left: 15%;
+}
+
+.x-tab:first-child{
+  margin-left: -13%;
+  padding-right: 21%;
+  border-right: 1px solid #064b88;
+}

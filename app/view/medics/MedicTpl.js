@@ -10,9 +10,42 @@ Ext.define('Vitared.view.medics.MedicTpl', {
     constructor: function () {
         var html;
         html = [
-            '<i class="fa fa-map-marker" style="font-size: 64px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
-            '<div style="color: #064b88; font-size: 16px; font-weight: bold;">Dr. {name} {first_name} {last_name}</div><div style="font-size: 16px; color: gray;">{especialidad}</div><div style="color: gray;">{localidad}</div>',
-            '<div class="clear:both"></div>'];
+            '<tpl if="this.validateDestacado(destacado) == true">' +
+                '<div class="resultados-destacados">' +
+                    '<div class="resultado">' +
+                        '<div class="marker">' +
+                            '<img class="fa-map-marker" src="./resources/images/marker-patrocinado.png"/>' +
+                            '<p class="marker-id">{categoria}</p>'+
+                        '</div>'+
+            '<tpl else>',
+                '<div class="resultados">' +
+                    '<div class="resultado">' +
+                        '<div class="marker">' +
+                            '<img class="fa-map-marker" src="./resources/images/marker.png"/>' +
+                            '<p class="marker-id">{categoria}</p>'+
+                        '</div>'+
+            '</tpl>' +
+                '<div class="info">' +
+                    '<p class="nombre"> Dr. {name} {first_name} {last_name} </p>' +
+                    '<p class="especialidad"> {especialidad} </p>' +
+                    '<p class="localidad"> {localidad} </p>' +
+                '</div><!-- info -->' +
+                '<div class="right">' +
+                    '<i class="fa fa-chevron-circle-right" ></i>' +
+                '</div><!-- right -->' +
+            '</div><!-- resultado -->',
+            {
+                validateDestacado: function (destacado) {
+                    if (destacado != 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }];
+        //'<i class="fa fa-map-marker" style="font-size: 64px; color: red; float: left; clear: left; margin: 0 20px 0 0"></i>',
+        //'<div style="color: #064b88; font-size: 16px; font-weight: bold;">Dr. {name} {first_name} {last_name}</div><div style="font-size: 16px; color: gray;">{especialidad}</div><div style="color: gray;">{localidad}</div>',
+        //'<div class="clear:both"></div>'];
         this.callParent(html);
     }
 });

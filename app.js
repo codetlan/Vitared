@@ -8,7 +8,8 @@ Ext.application({
         'Vitared.view.shared.DetailsTpl',
         'Vitared.view.home.AutoCompleteTpl',
         'Vitared.view.home.AutoCompleteList',
-        'Vitared.form.LocationForm'
+        'Vitared.form.LocationForm',
+        'Ext.plugin.ListPaging'
     ],
 
     models:[
