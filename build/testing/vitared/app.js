@@ -77453,7 +77453,6 @@ Ext.define('Vitared.controller.phone.Main', {
             autoUpdate: false,
             listeners: {
                 locationupdate: function (geo) {
-                    console.log(geo);
                     me.latitude = geo.getLatitude();
                     me.longitude = geo.getLongitude();
 
