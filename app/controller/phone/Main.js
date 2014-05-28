@@ -106,6 +106,7 @@ Ext.define('Vitared.controller.phone.Main', {
         }
     },
 
+
     /**
      * cuando la aplicación inicia
      */
@@ -113,7 +114,22 @@ Ext.define('Vitared.controller.phone.Main', {
         var me = this,
             store = Ext.getStore('Searchs');
 
-        var geo = Ext.create('Ext.util.Geolocation', {
+        Ext.device.Geolocation.getCurrentPosition({
+            success: function(position) {
+                me.latitude = position.coords.latitude;
+                me.longitude = position.coords.longitude;
+
+                me.onLoadStores('Searchs', '', me.latitude + ',' + me.longitude);
+            },
+            failure: function() {
+                Ext.Msg.alert('Error', 'Error mientras se obtenía la localización');
+                /*me.latitude = geo.getLatitude();
+                me.longitude = geo.getLongitude();
+                me.onLoadStores(store, '', me.latitude + ',' + me.longitude);*/
+            }
+        });
+
+        /*var geo = Ext.create('Ext.util.Geolocation', {
             autoUpdate: false,
             listeners: {
                 locationupdate: function (geo) {
@@ -129,11 +145,10 @@ Ext.define('Vitared.controller.phone.Main', {
                 }
             }
         });
-        geo.updateLocation();
+        geo.updateLocation();*/
 
         var storeid = me.getHomePanel().getActiveItem().down('list').getStore().getStoreId(),
             store1 = Ext.getStore(storeid);
-
 
         store1.on('load', function (store, records, successful, operation, eOpts) {
             var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),

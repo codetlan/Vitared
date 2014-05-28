@@ -13,4 +13,5 @@
 /Users/Waldix/Vitared/phonegap/platforms/android/ant-build/classes/com/phonegap/vitared/R$string.class \
 /Users/Waldix/Vitared/phonegap/platforms/android/ant-build/classes/com/phonegap/vitared/R$xml.class \
 /Users/Waldix/Vitared/phonegap/platforms/android/ant-build/classes/com/phonegap/vitared/R.class \
+/Users/Waldix/Vitared/phonegap/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
 /Users/Waldix/Vitared/phonegap/platforms/android/ant-build/dexedLibs/classes-6e2864792543bfc801a13e069315185f.jar \

@@ -9,7 +9,9 @@ Ext.application({
         'Vitared.view.home.AutoCompleteTpl',
         'Vitared.view.home.AutoCompleteList',
         'Vitared.form.LocationForm',
-        'Ext.plugin.ListPaging'
+        'Ext.plugin.ListPaging',
+        'Ext.device.Device',
+        'Ext.device.Geolocation'
     ],
 
     models:[

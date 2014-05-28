@@ -32,6 +32,9 @@
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/css/index.css \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/img/logo.png \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/js/index.js \
+/Users/Waldix/Vitared/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.device \
+/Users/Waldix/Vitared/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
+/Users/Waldix/Vitared/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/res/icon \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/res/screen \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/res/icon/android \

@@ -39,6 +39,7 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		3D30795B8D7942D2A4407E9B /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DB4491C946BB9D9C56C0 /* CDVLocation.m */; };
+		B4C5CEB6ECC74848840146FE /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A951EE4D5B84C239CBD5924 /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "HelloWorld/config.xml"; sourceTree = "<group>"; };
 		76B2DB4491C946BB9D9C56C0 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		7D028564595745098776150B /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9A951EE4D5B84C239CBD5924 /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7A34105B00AF45A7B4776CD4 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,8 @@
 			children = (
 				76B2DB4491C946BB9D9C56C0 /* CDVLocation.m */,
 				7D028564595745098776150B /* CDVLocation.h */,
+				9A951EE4D5B84C239CBD5924 /* CDVDevice.m */,
+				7A34105B00AF45A7B4776CD4 /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = "HelloWorld/Plugins";
@@ -422,6 +427,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				3D30795B8D7942D2A4407E9B /* CDVLocation.m in Sources */,
+				B4C5CEB6ECC74848840146FE /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

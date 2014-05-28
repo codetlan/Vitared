@@ -62648,6 +62648,966 @@ Ext.define('Ext.dataview.List', {
     }
 });
 
+/**
+ * @private
+ *
+ * This object handles communication between the WebView and Sencha's native shell.
+ * Currently it has two primary responsibilities:
+ *
+ * 1. Maintaining unique string ids for callback functions, together with their scope objects
+ * 2. Serializing given object data into HTTP GET request parameters
+ *
+ * As an example, to capture a photo from the device's camera, we use `Ext.device.Camera.capture()` like:
+ *
+ *     Ext.device.Camera.capture(
+ *         function(dataUri){
+ *             // Do something with the base64-encoded `dataUri` string
+ *         },
+ *         function(errorMessage) {
+ *
+ *         },
+ *         callbackScope,
+ *         {
+ *             quality: 75,
+ *             width: 500,
+ *             height: 500
+ *         }
+ *     );
+ *
+ * Internally, `Ext.device.Communicator.send()` will then be invoked with the following argument:
+ *
+ *     Ext.device.Communicator.send({
+ *         command: 'Camera#capture',
+ *         callbacks: {
+ *             onSuccess: function() {
+ *                 // ...
+ *             },
+ *             onError: function() {
+ *                 // ...
+ *             }
+ *         },
+ *         scope: callbackScope,
+ *         quality: 75,
+ *         width: 500,
+ *         height: 500
+ *     });
+ *
+ * Which will then be transformed into a HTTP GET request, sent to native shell's local
+ * HTTP server with the following parameters:
+ *
+ *     ?quality=75&width=500&height=500&command=Camera%23capture&onSuccess=3&onError=5
+ *
+ * Notice that `onSuccess` and `onError` have been converted into string ids (`3` and `5`
+ * respectively) and maintained by `Ext.device.Communicator`.
+ *
+ * Whenever the requested operation finishes, `Ext.device.Communicator.invoke()` simply needs
+ * to be executed from the native shell with the corresponding ids given before. For example:
+ *
+ *     Ext.device.Communicator.invoke('3', ['DATA_URI_OF_THE_CAPTURED_IMAGE_HERE']);
+ *
+ * will invoke the original `onSuccess` callback under the given scope. (`callbackScope`), with
+ * the first argument of 'DATA_URI_OF_THE_CAPTURED_IMAGE_HERE'
+ *
+ * Note that `Ext.device.Communicator` maintains the uniqueness of each function callback and
+ * its scope object. If subsequent calls to `Ext.device.Communicator.send()` have the same
+ * callback references, the same old ids will simply be reused, which guarantee the best possible
+ * performance for a large amount of repetitive calls.
+ */
+Ext.define('Ext.device.communicator.Default', {
+
+    SERVER_URL: 'http://localhost:3000', // Change this to the correct server URL
+
+    callbackDataMap: {},
+
+    callbackIdMap: {},
+
+    idSeed: 0,
+
+    globalScopeId: '0',
+
+    generateId: function() {
+        return String(++this.idSeed);
+    },
+
+    getId: function(object) {
+        var id = object.$callbackId;
+
+        if (!id) {
+            object.$callbackId = id = this.generateId();
+        }
+
+        return id;
+    },
+
+    getCallbackId: function(callback, scope) {
+        var idMap = this.callbackIdMap,
+            dataMap = this.callbackDataMap,
+            id, scopeId, callbackId, data;
+
+        if (!scope) {
+            scopeId = this.globalScopeId;
+        } else if (scope.isIdentifiable) {
+            scopeId = scope.getId();
+        } else {
+            scopeId = this.getId(scope);
+        }
+
+        callbackId = this.getId(callback);
+
+        if (!idMap[scopeId]) {
+            idMap[scopeId] = {};
+        }
+
+        if (!idMap[scopeId][callbackId]) {
+            id = this.generateId();
+            data = {
+                callback: callback,
+                scope: scope
+            };
+
+            idMap[scopeId][callbackId] = id;
+            dataMap[id] = data;
+        }
+
+        return idMap[scopeId][callbackId];
+    },
+
+    getCallbackData: function(id) {
+        return this.callbackDataMap[id];
+    },
+
+    invoke: function(id, args) {
+        var data = this.getCallbackData(id);
+
+        data.callback.apply(data.scope, args);
+    },
+
+    send: function(args) {
+        var callbacks, scope, name, callback;
+
+        if (!args) {
+            args = {};
+        } else if (args.callbacks) {
+            callbacks = args.callbacks;
+            scope = args.scope;
+
+            delete args.callbacks;
+            delete args.scope;
+
+            for (name in callbacks) {
+                if (callbacks.hasOwnProperty(name)) {
+                    callback = callbacks[name];
+
+                    if (typeof callback == 'function') {
+                        args[name] = this.getCallbackId(callback, scope);
+                    }
+                }
+            }
+        }
+
+        args.__source = document.location.href;
+
+        var result = this.doSend(args);
+
+        return (result && result.length > 0) ? JSON.parse(result) : null;
+    },
+
+    doSend: function(args) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', this.SERVER_URL + '?' + Ext.Object.toQueryString(args) + '&_dc=' + new Date().getTime(), false);
+
+        // wrap the request in a try/catch block so we can check if any errors are thrown and attempt to call any
+        // failure/callback functions if defined
+        try {
+            xhr.send(null);
+
+            return xhr.responseText;
+        } catch(e) {
+            if (args.failure) {
+                this.invoke(args.failure);
+            } else if (args.callback) {
+                this.invoke(args.callback);
+            }
+        }
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.communicator.Android', {
+    extend:  Ext.device.communicator.Default ,
+
+    doSend: function(args) {
+        return window.Sencha.action(JSON.stringify(args));
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.Communicator', {
+               
+                                          
+                                         
+      
+
+    singleton: true,
+
+    constructor: function() {
+        if (Ext.os.is.Android) {
+            return new Ext.device.communicator.Android();
+        }
+
+        return new Ext.device.communicator.Default();
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.device.Abstract', {
+    mixins: [ Ext.mixin.Observable ],
+
+    /**
+     * @event schemeupdate
+     * Event which is fired when your Sencha Native packaged application is opened from another application using a custom URL scheme.
+     * 
+     * This event will only fire if the application was already open (in other words; `onReady` was already fired). This means you should check
+     * if {@link Ext.device.Device#scheme} is set in your Application `launch`/`onReady` method, and perform any needed changes for that URL (if defined).
+     * Then listen to this event for future changed.
+     *
+     * ## Example
+     *
+     *     Ext.application({
+     *         name: 'Sencha',
+     *         requires: ['Ext.device.Device'],
+     *         launch: function() {
+     *             if (Ext.device.Device.scheme) {
+     *                 // the application was opened via another application. Do something:
+     *                 console.log('Applicaton opened via another application: ' + Ext.device.Device.scheme.url);
+     *             }
+     *
+     *             // Listen for future changes
+     *             Ext.device.Device.on('schemeupdate', function(device, scheme) {
+     *                 // the application was launched, closed, and then launched another from another application
+     *                 // this means onReady wont be called again ('cause the application is already running in the 
+     *                 // background) - but this event will be fired
+     *                 console.log('Applicated reopened via another application: ' + scheme.url);
+     *             }, this);
+     *         }
+     *     });
+     *
+     * __Note:__ This currently only works with the Sencha Native Packager. If you attempt to listen to this event when packaged with
+     * PhoneGap or simply in the browser, it will never fire.**
+     * 
+     * @param {Ext.device.Device} this The instance of Ext.device.Device
+     * @param {Object/Boolean} scheme The scheme information, if opened via another application
+     * @param {String} scheme.url The URL that was opened, if this application was opened via another application. Example: `sencha:`
+     * @param {String} scheme.sourceApplication The source application that opened this application. Example: `com.apple.safari`.
+     */
+    
+    /**
+     * @property {String} name
+     * Returns the name of the current device. If the current device does not have a name (for example, in a browser), it will
+     * default to `not available`.
+     *
+     *     alert('Device name: ' + Ext.device.Device.name);
+     */
+    name: 'not available',
+
+    /**
+     * @property {String} uuid
+     * Returns a unique identifier for the current device. If the current device does not have a unique identifier (for example,
+     * in a browser), it will default to `anonymous`.
+     *
+     *     alert('Device UUID: ' + Ext.device.Device.uuid);
+     */
+    uuid: 'anonymous',
+
+    /**
+     * @property {String} platform
+     * The current platform the device is running on.
+     *
+     *     alert('Device platform: ' + Ext.device.Device.platform);
+     */
+    platform: Ext.os.name,
+
+    /**
+     * @property {Object/Boolean} scheme
+     * 
+     */
+    scheme: false,
+    
+    /**
+     * Opens a specified URL. The URL can contain a custom URL Scheme for another app or service:
+     *
+     *     // Safari
+     *     Ext.device.Device.openURL('http://sencha.com');
+     *
+     *     // Telephone
+     *     Ext.device.Device.openURL('tel:6501231234');
+     *
+     *     // SMS with a default number
+     *     Ext.device.Device.openURL('sms:+12345678901');
+     *
+     *     // Email client
+     *     Ext.device.Device.openURL('mailto:rob@sencha.com');
+     *
+     * You can find a full list of available URL schemes here: [http://wiki.akosma.com/IPhone_URL_Schemes](http://wiki.akosma.com/IPhone_URL_Schemes).
+     *
+     * __Note:__ This currently only works with the Sencha Native Packager. Attempting to use this on PhoneGap, iOS Simulator
+     * or the browser will simply result in the current window location changing.**
+     *
+     * If successful, this will close the application (as another one opens).
+     * 
+     * @param {String} url The URL to open
+     */
+    openURL: function(url) {
+        window.location = url;
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.device.Cordova', {
+    alternateClassName: 'Ext.device.device.PhoneGap',
+
+    extend:  Ext.device.device.Abstract ,
+
+    availableListeners: [
+        'pause',
+        'resume',
+        'backbutton',
+        'batterycritical',
+        'batterylow',
+        'batterystatus',
+        'menubutton',
+        'searchbutton',
+        'startcallbutton',
+        'endcallbutton',
+        'volumeupbutton',
+        'volumedownbutton'
+    ],
+
+    constructor: function() {
+        // We can't get the device details until the device is ready, so lets wait.
+        if (Ext.isReady) {
+            this.onReady();
+        } else {
+            Ext.onReady(this.onReady, this, {single: true});
+        }
+    },
+
+    /**
+     * @property {String} cordova
+     * Returns the version of Cordova running on the device.
+     *
+     *     alert('Device cordova: ' + Ext.device.Device.cordova);
+     */
+
+    /**
+     * @property {String} version
+     * Returns the operating system version.
+     *
+     *     alert('Device Version: ' + Ext.device.Device.version);
+     */
+
+    /**
+     * @property {String} model
+     * Returns the device's model name.
+     *
+     *     alert('Device Model: ' + Ext.device.Device.model);
+     */
+    
+    /**
+     * @event pause
+     * Fires when the application goes into the background
+     */
+    
+    /**
+     * @event resume
+     * Fires when the application goes into the foreground
+     */
+    
+    /**
+     * @event batterycritical
+     * This event that fires when a Cordova application detects the percentage of battery 
+     * has reached the critical battery threshold.
+     */
+    
+    /**
+     * @event batterylow
+     * This event that fires when a Cordova application detects the percentage of battery 
+     * has reached the low battery threshold.
+     */
+    
+    /**
+     * @event batterystatus
+     * This event that fires when a Cordova application detects the percentage of battery 
+     * has changed by at least 1 percent.
+     */
+    
+    /**
+     * @event backbutton
+     * This is an event that fires when the user presses the back button.
+     */
+    
+    /**
+     * @event menubutton
+     * This is an event that fires when the user presses the menu button.
+     */
+    
+    /**
+     * @event searchbutton
+     * This is an event that fires when the user presses the search button.
+     */
+    
+    /**
+     * @event startcallbutton
+     * This is an event that fires when the user presses the start call button.
+     */
+    
+    /**
+     * @event endcallbutton
+     * This is an event that fires when the user presses the end call button.
+     */
+    
+    /**
+     * @event volumeupbutton
+     * This is an event that fires when the user presses the volume up button.
+     */
+    
+    /**
+     * @event volumedownbutton
+     * This is an event that fires when the user presses the volume down button.
+     */
+
+    onReady: function() {
+        var me = this,
+            device = window.device;
+
+        me.name = device.name || device.model;
+        me.cordova = device.cordova;
+        me.platform =  device.platform || Ext.os.name;
+        me.uuid =  device.uuid;
+        me.version = device.version;
+        me.model = device.model;
+    },
+
+    doAddListener: function(name) {
+        if (!this.addedListeners) {
+            this.addedListeners = [];
+        }
+
+        if (this.availableListeners.indexOf(name) != -1 && this.addedListeners.indexOf(name) == -1) {
+            // Add the listeners
+            this.addedListeners.push(name);
+
+            document.addEventListener(name, function() {
+                me.fireEvent(name, me);
+            });
+        }
+
+        Ext.device.Device.mixins.observable.doAddListener.apply(Ext.device.Device.mixins.observable, arguments);
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.device.Sencha', {
+    extend:  Ext.device.device.Abstract ,
+
+    constructor: function() {
+        this.name = device.name;
+        this.uuid = device.uuid;
+        this.platform = device.platformName || Ext.os.name;
+        this.scheme = Ext.device.Communicator.send({
+            command: 'OpenURL#getScheme',
+            sync: true
+        }) || false;
+
+        Ext.device.Communicator.send({
+            command: 'OpenURL#watch',
+            callbacks: {
+                callback: function(scheme) {
+                    this.scheme = scheme || false;
+                    this.fireEvent('schemeupdate', this, this.scheme);
+                }
+            },
+            scope: this
+        });
+    },
+
+    openURL: function(url) {
+        Ext.device.Communicator.send({
+            command: 'OpenURL#open',
+            url: url
+        });
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.device.Simulator', {
+    extend:  Ext.device.device.Abstract 
+});
+
+/**
+ * Provides a cross device way to get information about the device your application is running on. There are 3 different implementations:
+ *
+ * - Sencha Packager
+ * - [Cordova](http://cordova.apache.org/docs/en/2.5.0/cordova_device_device.md.html#Device)
+ * - Simulator
+ *
+ * ## Examples
+ *
+ * #### Device Information
+ *
+ * Getting the device information:
+ *
+ *     Ext.application({
+ *         name: 'Sencha',
+ *
+ *         // Remember that the Ext.device.Device class *must* be required
+ *         requires: ['Ext.device.Device'],
+ *
+ *         launch: function() {
+ *             alert([
+ *                 'Device name: ' + Ext.device.Device.name,
+ *                 'Device platform: ' + Ext.device.Device.platform,
+ *                 'Device UUID: ' + Ext.device.Device.uuid
+ *             ].join('\n'));
+ *         }
+ *     });
+ *
+ * ### Custom Scheme URL
+ *
+ * Using custom scheme URL to application your application from other applications:
+ *
+ *     Ext.application({
+ *         name: 'Sencha',
+ *         requires: ['Ext.device.Device'],
+ *         launch: function() {
+ *             if (Ext.device.Device.scheme) {
+ *                 // the application was opened via another application. Do something:
+ *                 alert('Applicaton pened via another application: ' + Ext.device.Device.scheme.url);
+ *             }
+ *
+ *             // Listen for future changes
+ *             Ext.device.Device.on('schemeupdate', function(device, scheme) {
+ *                 // the application was launched, closed, and then launched another from another application
+ *                 // this means onReady wont be called again ('cause the application is already running in the 
+ *                 // background) - but this event will be fired
+ *                 alert('Applicated reopened via another application: ' + scheme.url);
+ *             }, this);
+ *         }
+ *     });
+ *
+ * Of course, you must add the custom scheme URL you would like to use when packaging your application.
+ * You can do this by setting the `URLScheme` property inside your `package.json` file (Sencha Native Packager configuration file):
+ *
+ *     {
+ *         ...
+ *         "URLScheme": "sencha",
+ *         ...
+ *     }
+ *
+ * You can change the available URL scheme.
+ *
+ * You can then test it by packaging and installing the application onto a device/iOS Simulator, opening Safari and typing: `sencha:testing`.
+ * The application will launch and it will `alert` the URL you specified.
+ *
+ * **PLEASE NOTE: This currently only works with the Sencha Native Packager. If you attempt to listen to this event when packaged with
+ * PhoneGap or simply in the browser, it will not function.**
+ *
+ * @mixins Ext.device.device.Abstract
+ *
+ * @aside guide native_apis
+ */
+Ext.define('Ext.device.Device', {
+    singleton: true,
+
+               
+                                  
+                                    
+                                   
+                                     
+      
+
+    constructor: function() {
+        var browserEnv = Ext.browser.is;
+        if (browserEnv.WebView) {
+            if (browserEnv.Cordova) {
+                return Ext.create('Ext.device.device.Cordova');
+            } else if (browserEnv.Sencha) {
+                return Ext.create('Ext.device.device.Sencha');
+            }
+        }
+
+        return Ext.create('Ext.device.device.Simulator');
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.geolocation.Abstract', {
+    config: {
+        /**
+         * @cfg {Number} maximumAge
+         * This option indicates that the application is willing to accept cached location information whose age
+         * is no greater than the specified time in milliseconds. If maximumAge is set to 0, an attempt to retrieve
+         * new location information is made immediately.
+         */
+        maximumAge: 0,
+
+        /**
+         * @cfg {Number} frequency The default frequency to get the current position when using {@link Ext.device.Geolocation#watchPosition}.
+         */
+        frequency: 10000,
+
+        /**
+         * @cfg {Boolean} allowHighAccuracy True to allow high accuracy when getting the current position.
+         */
+        allowHighAccuracy: false,
+
+        /**
+         * @cfg {Number} timeout
+         * The maximum number of milliseconds allowed to elapse between a location update operation.
+         */
+        timeout: Infinity
+    },
+
+    /**
+     * Attempts to get the current position of this device.
+     *
+     *     Ext.device.Geolocation.getCurrentPosition({
+     *         success: function(position) {
+     *             console.log(position);
+     *         },
+     *         failure: function() {
+     *             Ext.Msg.alert('Geolocation', 'Something went wrong!');
+     *         }
+     *     });
+     *
+     * *Note:* If you want to watch the current position, you could use {@link Ext.device.Geolocation#watchPosition} instead.
+     *
+     * @param {Object} config An object which contains the following config options:
+     *
+     * @param {Function} config.success
+     * The function to call when the location of the current device has been received.
+     *
+     * @param {Object} config.success.position
+     *
+     * @param {Function} config.failure
+     * The function that is called when something goes wrong.
+     *
+     * @param {Object} config.scope
+     * The scope of the `success` and `failure` functions.
+     *
+     * @param {Number} config.maximumAge
+     * The maximum age of a cached location. If you do not enter a value for this, the value of {@link #maximumAge}
+     * will be used.
+     *
+     * @param {Number} config.timeout
+     * The timeout for this request. If you do not specify a value, it will default to {@link #timeout}.
+     *
+     * @param {Boolean} config.allowHighAccuracy
+     * True to enable allow accuracy detection of the location of the current device. If you do not specify a value, it will
+     * default to {@link #allowHighAccuracy}.
+     */
+    getCurrentPosition: function(config) {
+        var defaultConfig = Ext.device.geolocation.Abstract.prototype.config;
+
+        config = Ext.applyIf(config, {
+            maximumAge: defaultConfig.maximumAge,
+            frequency: defaultConfig.frequency,
+            allowHighAccuracy: defaultConfig.allowHighAccuracy,
+            timeout: defaultConfig.timeout
+        });
+
+        if (!config.success) {
+            Ext.Logger.warn('You need to specify a `success` function for #getCurrentPosition');
+        }
+
+        return config;
+    },
+
+    /**
+     * Watches for the current position and calls the callback when successful depending on the specified {@link #frequency}.
+     *
+     *     Ext.device.Geolocation.watchPosition({
+     *         callback: function(position) {
+     *             console.log(position);
+     *         },
+     *         failure: function() {
+     *             Ext.Msg.alert('Geolocation', 'Something went wrong!');
+     *         }
+     *     });
+     *
+     * @param {Object} config An object which contains the following config options:
+     *
+     * @param {Function} config.callback
+     * The function to be called when the position has been updated.
+     *
+     * @param {Function} config.failure
+     * The function that is called when something goes wrong.
+     *
+     * @param {Object} config.scope
+     * The scope of the `success` and `failure` functions.
+     *
+     * @param {Boolean} config.frequency
+     * The frequency in which to call the supplied callback. Defaults to {@link #frequency} if you do not specify a value.
+     *
+     * @param {Boolean} config.allowHighAccuracy
+     * True to enable allow accuracy detection of the location of the current device. If you do not specify a value, it will
+     * default to {@link #allowHighAccuracy}.
+     */
+    watchPosition: function(config) {
+        var defaultConfig = Ext.device.geolocation.Abstract.prototype.config;
+
+        config = Ext.applyIf(config, {
+            maximumAge: defaultConfig.maximumAge,
+            frequency: defaultConfig.frequency,
+            allowHighAccuracy: defaultConfig.allowHighAccuracy,
+            timeout: defaultConfig.timeout
+        });
+
+        if (!config.callback) {
+            Ext.Logger.warn('You need to specify a `callback` function for #watchPosition');
+        }
+
+        return config;
+    },
+
+    /**
+     * If you are currently watching for the current position, this will stop that task.
+     */
+    clearWatch: function() {}
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.geolocation.Cordova', {
+    alternateClassName: 'Ext.device.geolocation.PhoneGap',
+    extend:  Ext.device.geolocation.Abstract ,
+    activeWatchID: null,
+    getCurrentPosition: function(config) {
+        config = this.callParent(arguments);
+        navigator.geolocation.getCurrentPosition(config.success, config.failure, config);
+        return config;
+    },
+
+    watchPosition: function(config) {
+        config = this.callParent(arguments);
+        if (this.activeWatchID) {
+            this.clearWatch();
+        }
+        this.activeWatchID = navigator.geolocation.watchPosition(config.callback, config.failure, config);
+        return config;
+    },
+
+    clearWatch: function() {
+        if (this.activeWatchID) {
+            navigator.geolocation.clearWatch(this.activeWatchID);
+            this.activeWatchID = null;
+        }
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.geolocation.Sencha', {
+    extend:  Ext.device.geolocation.Abstract ,
+
+    getCurrentPosition: function(config) {
+        config = this.callParent([config]);
+
+        Ext.apply(config, {
+            command: 'Geolocation#getCurrentPosition',
+            callbacks: {
+                success: config.success,
+                failure: config.failure
+            }
+        });
+
+        Ext.applyIf(config, {
+            scope: this
+        });
+
+        delete config.success;
+        delete config.failure;
+
+        Ext.device.Communicator.send(config);
+
+        return config;
+    },
+
+    watchPosition: function(config) {
+        config = this.callParent([config]);
+
+        Ext.apply(config, {
+            command: 'Geolocation#watchPosition',
+            callbacks: {
+                success: config.callback,
+                failure: config.failure
+            }
+        });
+
+        Ext.applyIf(config, {
+            scope: this
+        });
+
+        delete config.callback;
+        delete config.failure;
+
+        Ext.device.Communicator.send(config);
+
+        return config;
+    },
+
+    clearWatch: function() {
+        Ext.device.Communicator.send({
+            command: 'Geolocation#clearWatch'
+        });
+    }
+});
+
+/**
+ * @private
+ */
+Ext.define('Ext.device.geolocation.Simulator', {
+    extend:  Ext.device.geolocation.Abstract ,
+                                       
+
+    getCurrentPosition: function(config) {
+        config = this.callParent([config]);
+
+        Ext.apply(config, {
+            autoUpdate: false,
+            listeners: {
+                scope: this,
+                locationupdate: function(geolocation) {
+                    if (config.success) {
+                        config.success.call(config.scope || this, geolocation.position);
+                    }
+                },
+                locationerror: function() {
+                    if (config.failure) {
+                        config.failure.call(config.scope || this);
+                    }
+                }
+            }
+        });
+
+        this.geolocation = Ext.create('Ext.util.Geolocation', config);
+        this.geolocation.updateLocation();
+
+        return config;
+    },
+
+    watchPosition: function(config) {
+        config = this.callParent([config]);
+
+        Ext.apply(config, {
+            listeners: {
+                scope: this,
+                locationupdate: function(geolocation) {
+                    if (config.callback) {
+                        config.callback.call(config.scope || this, geolocation.position);
+                    }
+                },
+                locationerror: function() {
+                    if (config.failure) {
+                        config.failure.call(config.scope || this);
+                    }
+                }
+            }
+        });
+
+        this.geolocation = Ext.create('Ext.util.Geolocation', config);
+
+        return config;
+    },
+
+    clearWatch: function() {
+        if (this.geolocation) {
+            this.geolocation.destroy();
+        }
+
+        this.geolocation = null;
+    }
+});
+
+/**
+ * Provides access to the native Geolocation API when running on a device. There are three implementations of this API:
+ *
+ * - Sencha Packager
+ * - [PhoneGap](http://docs.phonegap.com/en/1.4.1/phonegap_device_device.md.html)
+ * - Browser
+ *
+ * This class will automatically select the correct implementation depending on the device your application is running on.
+ *
+ * ## Examples
+ *
+ * Getting the current location:
+ *
+ *     Ext.device.Geolocation.getCurrentPosition({
+ *         success: function(position) {
+ *             console.log(position.coords);
+ *         },
+ *         failure: function() {
+ *             console.log('something went wrong!');
+ *         }
+ *     });
+ *
+ * Watching the current location:
+ *
+ *     Ext.device.Geolocation.watchPosition({
+ *         frequency: 3000, // Update every 3 seconds
+ *         callback: function(position) {
+ *             console.log('Position updated!', position.coords);
+ *         },
+ *         failure: function() {
+ *             console.log('something went wrong!');
+ *         }
+ *     });
+ *
+ * @mixins Ext.device.geolocation.Abstract
+ *
+ * @aside guide native_apis
+ */
+Ext.define('Ext.device.Geolocation', {
+    singleton: true,
+
+               
+                                  
+                                         
+                                        
+                                          
+      
+
+    constructor: function() {
+        var browserEnv = Ext.browser.is;
+        if (browserEnv.WebView) {
+            if (browserEnv.Cordova) {
+                return Ext.create('Ext.device.geolocation.Cordova');
+            } else if (browserEnv.Sencha) {
+                return Ext.create('Ext.device.geolocation.Sencha');
+            }
+        }
+
+        return Ext.create('Ext.device.geolocation.Simulator');
+    }
+});
+
 // Using @mixins to include all members of Ext.event.Touch
 // into here to keep documentation simpler
 /**
@@ -77442,6 +78402,7 @@ Ext.define('Vitared.controller.phone.Main', {
         }
     },
 
+
     /**
      * cuando la aplicación inicia
      */
@@ -77449,7 +78410,22 @@ Ext.define('Vitared.controller.phone.Main', {
         var me = this,
             store = Ext.getStore('Searchs');
 
-        var geo = Ext.create('Ext.util.Geolocation', {
+        Ext.device.Geolocation.getCurrentPosition({
+            success: function(position) {
+                me.latitude = position.coords.latitude;
+                me.longitude = position.coords.longitude;
+
+                me.onLoadStores('Searchs', '', me.latitude + ',' + me.longitude);
+            },
+            failure: function() {
+                Ext.Msg.alert('Error', 'Error mientras se obtenía la localización');
+                /*me.latitude = geo.getLatitude();
+                me.longitude = geo.getLongitude();
+                me.onLoadStores(store, '', me.latitude + ',' + me.longitude);*/
+            }
+        });
+
+        /*var geo = Ext.create('Ext.util.Geolocation', {
             autoUpdate: false,
             listeners: {
                 locationupdate: function (geo) {
@@ -77465,11 +78441,10 @@ Ext.define('Vitared.controller.phone.Main', {
                 }
             }
         });
-        geo.updateLocation();
+        geo.updateLocation();*/
 
         var storeid = me.getHomePanel().getActiveItem().down('list').getStore().getStoreId(),
             store1 = Ext.getStore(storeid);
-
 
         store1.on('load', function (store, records, successful, operation, eOpts) {
             var map = me.getHomePanel().getActiveItem().down('container').down('markermap').getMap(),
@@ -79344,7 +80319,9 @@ Ext.application({
                                             
                                              
                                     
-                               
+                                
+                            
+                                
       
 
     models:[
