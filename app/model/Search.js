@@ -229,6 +229,22 @@ Ext.define('Vitared.model.Search', {
                 convert: function(consultorios){
                     return consultorios[0].consultorio.tipo;
                 }
+            },
+            {
+                name: 'colonia',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.colonia;
+                }
+            },
+            {
+                name: 'municipio',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.municipio;
+                }
             }
         ]
     }

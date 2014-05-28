@@ -24,6 +24,7 @@
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/index.html \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/js \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/phonegap.js \
+/Users/Waldix/Vitared/phonegap/platforms/android/assets/www/plugins \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/res \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/resources \
 /Users/Waldix/Vitared/phonegap/platforms/android/assets/www/spec \

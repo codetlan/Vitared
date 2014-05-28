@@ -74883,6 +74883,7 @@ Ext.define('Vitared.view.shared.DetailsTpl', {
             '<p class="titulo">{name} {first_name} {last_name}</p>',
             '<p>{calle}</p>',
             '<p>Colonia {colonia}</p>',
+            '<p>{municipio}</p>',
             '<p>{horario}</p>',
             '<p>Llamar Directo: <a class="negra" href="tel:{numero_telefono}">{telefono}</a></p>',
             '</div>',
@@ -75391,6 +75392,22 @@ Ext.define('Vitared.model.Hospital', {
                 convert: function(consultorios){
                     return consultorios[0].consultorio.tipo;
                 }
+            },
+            {
+                name: 'colonia',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.colonia;
+                }
+            },
+            {
+                name: 'municipio',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.municipio;
+                }
             }
         ]
     }
@@ -75889,6 +75906,22 @@ Ext.define('Vitared.model.Search', {
                 mapping: 'medico.consultorios',
                 convert: function(consultorios){
                     return consultorios[0].consultorio.tipo;
+                }
+            },
+            {
+                name: 'colonia',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.colonia;
+                }
+            },
+            {
+                name: 'municipio',
+                type: 'string',
+                mapping: 'medico.consultorios',
+                convert: function(consultorios){
+                    return consultorios[0].consultorio.municipio;
                 }
             }
         ]
@@ -77667,10 +77700,11 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('calle'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             horario: record.get('horario'),
-            numero_telefono: record.get('numero_telefono')
+            numero_telefono: record.get('numero_telefono'),
+            municipio: record.get('municipio')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
@@ -77693,10 +77727,11 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('calle'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             horario: record.get('horario'),
-            numero_telefono: record.get('numero_telefono')
+            numero_telefono: record.get('numero_telefono'),
+            municipio: record.get('municipio')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
@@ -77718,10 +77753,11 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('calle'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             horario: record.get('horario'),
-            numero_telefono: record.get('numero_telefono')
+            numero_telefono: record.get('numero_telefono'),
+            municipio: record.get('municipio')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
@@ -77743,10 +77779,11 @@ Ext.define('Vitared.controller.phone.Main', {
         view.down('detailstype').setData({
             name: name,
             calle: record.get('calle'),
-            colonia: record.get('localidad'),
+            colonia: record.get('colonia'),
             telefono: record.get('telefono'),
             horario: record.get('horario'),
-            numero_telefono: record.get('numero_telefono')
+            numero_telefono: record.get('numero_telefono'),
+            municipio: record.get('municipio')
         });
         map = view.down('locationmap').getMap();
         //me.onItemMap(map, name, latitud, longitud);
@@ -77855,7 +77892,9 @@ Ext.define('Vitared.controller.phone.Main', {
                 colonia: data.consultorio[num_consultorio].colonia,
                 horario: data.consultorio[num_consultorio].Horarios,
                 telefono: data.consultorio[num_consultorio].telefono,
-                numero_telefono: data.consultorio[num_consultorio].numero_telefono
+                numero_telefono: data.consultorio[num_consultorio].numero_telefono,
+                municipio: data.consultorio[num_consultorio].municipio
+
             });
             map = view.down('locationmap').getMap();
             //me.onItemMap(map, name, data.consultorio[num_consultorio].Latitud, data.consultorio[num_consultorio].Longitud);

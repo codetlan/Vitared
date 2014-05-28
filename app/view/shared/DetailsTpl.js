@@ -17,6 +17,7 @@ Ext.define('Vitared.view.shared.DetailsTpl', {
             '<p class="titulo">{name} {first_name} {last_name}</p>',
             '<p>{calle}</p>',
             '<p>Colonia {colonia}</p>',
+            '<p>{municipio}</p>',
             '<p>{horario}</p>',
             '<p>Llamar Directo: <a class="negra" href="tel:{numero_telefono}">{telefono}</a></p>',
             '</div>',
