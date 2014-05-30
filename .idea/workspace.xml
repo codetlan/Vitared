@@ -4,19 +4,19 @@
     <list default="true" id="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" name="Default" comment="" />
     <ignored path="VitaRed.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401299877932" ignored="false" />
+    <file path="/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401308056999" ignored="false" />
     <file path="/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380752736676" ignored="false" />
     <file path="$USER_HOME$/CursameMobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380744179198" ignored="false" />
     <file path="/index.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1392950586052" ignored="false" />
     <file path="/Store.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380745863249" ignored="false" />
     <file path="/app.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1394584447506" ignored="false" />
     <file path="/Utils.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380746213031" ignored="false" />
-    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401298014657" ignored="false" />
+    <file path="/Dummy.txt" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401428398952" ignored="false" />
     <file path="$USER_HOME$/example6/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380749792045" ignored="false" />
     <file path="$USER_HOME$/example7/app/store/Users.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750019429" ignored="false" />
     <file path="$USER_HOME$/example7/touch/build.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750632638" ignored="false" />
     <file path="$USER_HOME$/example7/app/view/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380750822253" ignored="false" />
-    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401298027449" ignored="false" />
+    <file path="/a.dummy" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401303932530" ignored="false" />
     <file path="/NavigationMenu.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1380779117974" ignored="false" />
     <file path="/MedicNavigation.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1393910939033" ignored="false" />
     <file path="/HomePanel.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1385878896018" ignored="false" />
@@ -171,10 +171,13 @@
     <file path="$USER_HOME$/Documents/elixir/Elixir-5/ordena.html" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1396159840432" ignored="false" />
     <file path="/config.xml" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401151505673" ignored="false" />
     <file path="/phonegap.local.properties" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401134208326" ignored="false" />
-    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401299885585" ignored="false" />
+    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/controller/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401308308928" ignored="false" />
     <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/form/login/LoginForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401298300945" ignored="false" />
     <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/store/Clientes.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401299594320" ignored="false" />
-    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401299885585" ignored="false" />
+    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/controller/phone/Main.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401428363052" ignored="false" />
+    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/model/Cliente.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401305575937" ignored="false" />
+    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/form/clientes/ClienteForm.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401305568394" ignored="false" />
+    <file path="/Applications/XAMPP/xamppfiles/htdocs/imobile/app/store/Direcciones.js" changelist="fbdc7f78-3f82-4807-a22e-9b6e9a07b13f" time="1401305677831" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +205,7 @@
       <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="0" selection-start="3794" selection-end="3794" vertical-scroll-proportion="0.5067568">
+            <state line="223" column="33" selection-start="8080" selection-end="8080" vertical-scroll-proportion="5.6503377">
               <folding />
             </state>
           </provider>
@@ -753,16 +756,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="/Applications/XAMPP/xamppfiles/htdocs/invoice" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="897" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="105" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="101" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -834,14 +837,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="1" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22204214" sideWeight="0.67835367" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22609401" sideWeight="0.67835367" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277439" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1014,7 +1017,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/phone/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="0" selection-start="3794" selection-end="3794" vertical-scroll-proportion="0.5067568">
+        <state line="223" column="33" selection-start="8080" selection-end="8080" vertical-scroll-proportion="5.6503377">
           <folding />
         </state>
       </provider>
