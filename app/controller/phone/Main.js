@@ -412,7 +412,6 @@ Ext.define('Vitared.controller.phone.Main', {
             municipio: record.get('municipio')
         });
         map = view.down('locationmap').getMap();
-        //me.onItemMap(map, name, latitud, longitud);
         me.trazarRuta(map, latitud, longitud);
     },
 
